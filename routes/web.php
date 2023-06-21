@@ -22,20 +22,21 @@ use App\Http\Controllers\Auth\RegisterController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 //Frontent Part
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/courses', [CoursesController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
 
-//Authentication Part
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'postRegister'])->name('postRegister');
+Route::middleware(['guest'])->group(function(){
+    //Authentication Part
+    Route::get('/register', [RegisterController::class, 'index'])->name('register');
+    Route::post('/register', [RegisterController::class, 'postRegister'])->name('postRegister');
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
-Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
-
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
+});
 
 //Student Part
 Route::get('/student', [StudentController::class, 'index']);
@@ -46,3 +47,6 @@ Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('adm
 Route::get('/admin/analytics', [DashboardController::class, 'analytics'])->name('admin.analytics');
 Route::get('/admin/crm', [DashboardController::class, 'crm'])->name('admin.crm');
 Route::get('/admin/projects', [DashboardController::class, 'projects'])->name('admin.projects');
+Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
+
+

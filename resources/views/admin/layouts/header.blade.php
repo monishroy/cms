@@ -51,7 +51,7 @@
             <!-- ========== Left Sidebar Start ========== -->
             <div class="leftside-menu">
                 <!-- LOGO -->
-                <a href="index.html" class="logo text-center logo-light">
+                <a href="{{ url('/admin/dashboard') }}" class="logo text-center logo-light">
                     <span class="logo-lg">
                         <img src="{{url('admin/assets/images/logo.png')}}" alt="" height="30" />
                     </span>
@@ -65,7 +65,7 @@
                 </a>
 
                 <!-- LOGO -->
-                <a href="index.html" class="logo text-center logo-dark">
+                <a href="{{ url('/admin/dashboard') }}" class="logo text-center logo-dark">
                     <span class="logo-lg">
                         <img
                             src="{{url('admin/assets/images/logo-dark.png')}}"

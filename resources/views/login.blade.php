@@ -72,6 +72,7 @@
                       name="email"
                       placeholder="Enter your email"
                     />
+
                     <span class="text-danger text-sm">
                         @error('email')
                         {{$message}}
@@ -96,6 +97,7 @@
                         <span class="password-eye"></span>
                       </div>
                     </div>
+
                     <span class="text-danger text-sm">
                         @error('password')
                         {{$message}}
