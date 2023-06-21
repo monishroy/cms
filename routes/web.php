@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\CoursesController;
@@ -10,6 +9,7 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Student\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 
 /*
@@ -34,10 +34,15 @@ Route::post('/register', [RegisterController::class, 'postRegister'])->name('pos
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
+Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
+
 
 //Student Part
 Route::get('/student', [StudentController::class, 'index']);
 Route::get('/student/profile', [ProfileController::class, 'index']);
 
-//Student Part
-Route::get('/admin', [AdminController::class, 'index']);
+//Admin Part
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/analytics', [DashboardController::class, 'analytics'])->name('admin.analytics');
+Route::get('/admin/crm', [DashboardController::class, 'crm'])->name('admin.crm');
+Route::get('/admin/projects', [DashboardController::class, 'projects'])->name('admin.projects');

@@ -21,7 +21,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($user)) {
-            return view('admin.index');
+            return redirect('/admin/dashboard');
         } else {
             return back()->with('error','Please enter valid details!');
         }

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title>
-            Dashboard
+            @yield('title')
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
@@ -108,18 +108,18 @@
                             <div class="collapse" id="sidebarDashboards">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="dashboard-analytics.html"
+                                        <a href="{{ route('admin.analytics') }}"
                                             >Analytics</a
                                         >
                                     </li>
                                     <li>
-                                        <a href="dashboard-crm.html">CRM</a>
+                                        <a href="{{ route('admin.crm') }}">CRM</a>
                                     </li>
                                     <li>
-                                        <a href="index.html">Ecommerce</a>
+                                        <a href="{{ route('admin.dashboard') }}">Ecommerce</a>
                                     </li>
                                     <li>
-                                        <a href="dashboard-projects.html"
+                                        <a href="{{ route('admin.projects') }}"
                                             >Projects</a
                                         >
                                     </li>
@@ -570,10 +570,10 @@
                                     </span>
                                     <span>
                                         <span class="account-user-name"
-                                            >Soeng Souy</span
+                                            >{{ Auth::user()->name }}</span
                                         >
                                         <span class="account-position"
-                                            >Founder</span
+                                            >admin</span
                                         >
                                     </span>
                                 </a>
@@ -583,7 +583,7 @@
                                     <!-- item-->
                                     <div class="dropdown-header noti-title">
                                         <h6 class="text-overflow m-0">
-                                            Welcome !
+                                            Welcome {{ Auth::user()->name }} !
                                         </h6>
                                     </div>
 
@@ -597,27 +597,6 @@
                                         ></i>
                                         <span>My Account</span>
                                     </a>
-
-                                    <!-- item-->
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="dropdown-item notify-item"
-                                    >
-                                        <i
-                                            class="mdi mdi-account-edit me-1"
-                                        ></i>
-                                        <span>Settings</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="dropdown-item notify-item"
-                                    >
-                                        <i class="mdi mdi-lifebuoy me-1"></i>
-                                        <span>Support</span>
-                                    </a>
-
                                     <!-- item-->
                                     <a
                                         href="javascript:void(0);"
@@ -631,7 +610,7 @@
 
                                     <!-- item-->
                                     <a
-                                        href="javascript:void(0);"
+                                        href="{{route('logout')}}"
                                         class="dropdown-item notify-item"
                                     >
                                         <i class="mdi mdi-logout me-1"></i>

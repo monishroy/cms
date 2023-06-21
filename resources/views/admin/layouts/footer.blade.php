@@ -203,8 +203,15 @@
 <script src="{{url('admin/assets/js/vendor/jquery-jvectormap-world-mill-en.js')}}"></script>
 <!-- third party js ends -->
 
+<!-- Todo js -->
+<script src="{{url('admin/assets/js/ui/component.todo.js')}}"></script>
+<script src="{{url('admin/assets/js/vendor/Chart.bundle.min.js')}}"></script>
+
 <!-- demo app -->
 <script src="{{url('admin/assets/js/pages/demo.dashboard.js')}}"></script>
+<script src="{{url('admin/assets/js/pages/demo.dashboard-analytics.js')}}"></script>
+<script src="{{url('admin/assets/js/pages/demo.dashboard-crm.js')}}"></script>
+<script src="{{url('admin/assets/js/pages/demo.dashboard-projects.js')}}"></script>
 <!-- end demo js-->
 </body>
 </html>
