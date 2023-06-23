@@ -140,7 +140,7 @@
                                                     Revenue
                                                 </h5>
                                                 <h3 class="mt-3 mb-3">
-                                                    $6,254
+                                                    $5
                                                 </h3>
                                                 <p class="mb-0 text-muted">
                                                     <span
