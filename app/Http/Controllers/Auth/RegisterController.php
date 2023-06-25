@@ -25,11 +25,12 @@ class RegisterController extends Controller
         );
 
         //Insert Query
-        $student = new User();
-        $student->name = $request['name'];
-        $student->email = $request['email'];
-        $student->password = Hash::make($request['password']);
-        $result = $student->save();
+        $user = new User();
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->image = $request['image'];
+        $user->password = Hash::make($request['password']);
+        $result = $user->save();
 
         if($result){
             return back()->with('success','Registration Successfully');

@@ -62,6 +62,7 @@
                 @endif
                 <form method="POST" action="{{route('postRegister')}}">
                     @csrf
+                  <input type="hidden" name="image" value="{{rand(1,5)}}.png">
                   <div class="mb-3">
                     <label for="name" class="form-label">Full Name</label>
                     <input

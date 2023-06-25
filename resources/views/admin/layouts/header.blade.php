@@ -563,7 +563,7 @@
                                 >
                                     <span class="account-user-avatar">
                                         <img
-                                            src="{{url('admin/assets/images/users/avatar-1.jpg')}}"
+                                            src="{{url('admin/assets/images/users/1.png')}}"
                                             alt="user-image"
                                             class="rounded-circle"
                                         />
