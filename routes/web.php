@@ -24,10 +24,8 @@ use App\Http\Controllers\Auth\RegisterController;
 */
 
 //Frontent Part
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/about', [AboutController::class, 'index']);
-Route::get('/courses', [CoursesController::class, 'index']);
-Route::get('/contact', [ContactController::class, 'index']);
+
+
 
 Route::middleware(['guest'])->group(function(){
     //Authentication Part
@@ -50,3 +48,7 @@ Route::get('/admin/projects', [DashboardController::class, 'projects'])->name('a
 Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 
 
+Route::get('/{lang?}', [HomeController::class, 'index']);
+Route::get('/{lang?}/about', [AboutController::class, 'index']);
+Route::get('/{lang?}/courses', [CoursesController::class, 'index']);
+Route::get('/{lang?}/contact', [ContactController::class, 'index']);

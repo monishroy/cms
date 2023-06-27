@@ -48,15 +48,15 @@
 
         <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
           <ul class="navbar-nav">
-            <li><a href="{{url('/')}}">Home</a></li>
-            <li><a href="{{url('/about')}}">About</a></li>
-            <li><a href="{{url('/courses')}}">Courses</a></li>
+            <li><a href="{{url('/')}}">@lang('lang.Home')</a></li>
+            <li><a href="{{url('/about')}}">@lang('lang.About')</a></li>
+            <li><a href="{{url('/courses')}}">@lang('lang.Courses')</a></li>
 
-            <li><a href="{{url('/contact')}}">Contacts</a></li>
+            <li><a href="{{url('/contact')}}">@lang('lang.Contacts')</a></li>
             <!-- Dropdown -->
             <li class="dropdown">
-                <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                Login/Register
+                <a class="dropdown-toggle" href="javascript::void(0)" data-toggle="dropdown">
+                @lang('lang.Login/Register')
                 </a>
                 <div class="dropdown-menu">
                 <a class="dropdown-item" href="{{url('/login')}}">Login</a>
@@ -67,6 +67,10 @@
               <button class="search">
                 <span class="lnr lnr-magnifier" id="search"></span>
               </button>
+            </li>
+            <li>
+                <a href="{{url('/')}}">EN</a>
+                <a href="{{url('/bn')}}">BN</a>
             </li>
           </ul>
         </div>
