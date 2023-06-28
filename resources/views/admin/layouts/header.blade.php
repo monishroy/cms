@@ -15,31 +15,18 @@
         <link rel="shortcut icon" href="{{url('admin/assets/images/favicon.ico')}}" />
 
         <!-- third party css -->
-        <link
-            href="{{url('admin/assets/css/vendor/jquery-jvectormap-1.2.2.css')}}"
-            rel="stylesheet"
-            type="text/css"
-        />
+        <link href="{{url('admin/assets/css/vendor/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css"/>
         <!-- third party css end -->
 
         <!-- App css -->
-        <link
-            href="{{url('admin/assets/css/icons.min.css')}}"
-            rel="stylesheet"
-            type="text/css"
+        <link href="{{url('admin/assets/css/icons.min.css')}}"  rel="stylesheet" type="text/css"
         />
-        <link
-            href="{{url('admin/assets/css/app.min.css')}}"
-            rel="stylesheet"
-            type="text/css"
-            id="light-style"
+        <link href="{{url('admin/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="light-style"
         />
-        <link
-            href="{{url('admin/assets/css/app-dark.min.css')}}"
-            rel="stylesheet"
-            type="text/css"
-            id="dark-style"
-        />
+        <link href="{{url('admin/assets/css/app-dark.min.css')}}" rel="stylesheet" type="text/css" id="dark-style"/>
+        <!-- Datatables css -->
+        <link href="{{url('admin/assets/css/vendor/dataTables.bootstrap5.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{url('admin/assets/css/vendor/responsive.bootstrap5.css')}}" rel="stylesheet" type="text/css" />
     </head>
 
     <body
@@ -90,56 +77,26 @@
                     <!--- Sidemenu -->
                     <ul class="side-nav">
                         <li class="side-nav-title side-nav-item">Navigation</li>
-
                         <li class="side-nav-item">
-                            <a
-                                data-bs-toggle="collapse"
-                                href="#sidebarDashboards"
-                                aria-expanded="false"
-                                aria-controls="sidebarDashboards"
-                                class="side-nav-link"
-                            >
+                            <a href="{{ route('admin.dashboard') }}" class="side-nav-link">
                                 <i class="uil-home-alt"></i>
-                                <span class="badge bg-success float-end"
-                                    >4</span
-                                >
-                                <span> Dashboards </span>
+                                <span> Dashboard </span>
                             </a>
-                            <div class="collapse" id="sidebarDashboards">
-                                <ul class="side-nav-second-level">
-                                    <li>
-                                        <a href="{{ route('admin.analytics') }}"
-                                            >Analytics</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('admin.crm') }}">CRM</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('admin.dashboard') }}">Ecommerce</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('admin.projects') }}"
-                                            >Projects</a
-                                        >
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
 
-                        <li class="side-nav-title side-nav-item">Apps</li>
+                        <li class="side-nav-title side-nav-item">Student</li>
 
                         <li class="side-nav-item">
-                            <a href="apps-calendar.html" class="side-nav-link">
-                                <i class="uil-calender"></i>
-                                <span> Calendar </span>
+                            <a href="{{ route('admin.add-student') }}" class="side-nav-link">
+                                <i class="uil-user-plus"></i>
+                                <span>Add Student </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="apps-chat.html" class="side-nav-link">
-                                <i class="uil-comments-alt"></i>
-                                <span> Chat </span>
+                            <a href="{{ route('admin.all-user') }}" class="side-nav-link">
+                                <i class="uil-user"></i>
+                                <span> All User </span>
                             </a>
                         </li>
 

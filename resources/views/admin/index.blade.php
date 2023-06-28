@@ -3,1163 +3,876 @@
 @section('title', 'Dashboard')
 @section('main-section')
 
-                    <!-- Start Content-->
-                    <div class="container-fluid">
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box">
-                                    <div class="page-title-right">
-                                        <form class="d-flex">
-                                            <div class="input-group">
-                                                <input
-                                                    type="text"
-                                                    class="form-control form-control-light"
-                                                    id="dash-daterange"
-                                                />
-                                                <span
-                                                    class="input-group-text bg-primary border-primary text-white"
-                                                >
-                                                    <i
-                                                        class="mdi mdi-calendar-range font-13"
-                                                    ></i>
-                                                </span>
-                                            </div>
-                                            <a
-                                                href="javascript: void(0);"
-                                                class="btn btn-primary ms-2"
-                                            >
-                                                <i
-                                                    class="mdi mdi-autorenew"
-                                                ></i>
-                                            </a>
-                                            <a
-                                                href="javascript: void(0);"
-                                                class="btn btn-primary ms-1"
-                                            >
-                                                <i
-                                                    class="mdi mdi-filter-variant"
-                                                ></i>
-                                            </a>
-                                        </form>
-                                    </div>
-                                    <h4 class="page-title">Dashboard</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end page title -->
-
-                        <div class="row">
-                            <div class="col-xl-5 col-lg-6">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="card widget-flat">
-                                            <div class="card-body">
-                                                <div class="float-end">
-                                                    <i
-                                                        class="mdi mdi-account-multiple widget-icon"
-                                                    ></i>
-                                                </div>
-                                                <h5
-                                                    class="text-muted fw-normal mt-0"
-                                                    title="Number of Customers"
-                                                >
-                                                    Customers
-                                                </h5>
-                                                <h3 class="mt-3 mb-3">
-                                                    36,254
-                                                </h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span
-                                                        class="text-success me-2"
-                                                        ><i
-                                                            class="mdi mdi-arrow-up-bold"
-                                                        ></i>
-                                                        5.27%</span
-                                                    >
-                                                    <span class="text-nowrap"
-                                                        >Since last month</span
-                                                    >
-                                                </p>
-                                            </div>
-                                            <!-- end card-body-->
-                                        </div>
-                                        <!-- end card-->
-                                    </div>
-                                    <!-- end col-->
-
-                                    <div class="col-lg-6">
-                                        <div class="card widget-flat">
-                                            <div class="card-body">
-                                                <div class="float-end">
-                                                    <i
-                                                        class="mdi mdi-cart-plus widget-icon"
-                                                    ></i>
-                                                </div>
-                                                <h5
-                                                    class="text-muted fw-normal mt-0"
-                                                    title="Number of Orders"
-                                                >
-                                                    Orders
-                                                </h5>
-                                                <h3 class="mt-3 mb-3">5,543</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span
-                                                        class="text-danger me-2"
-                                                        ><i
-                                                            class="mdi mdi-arrow-down-bold"
-                                                        ></i>
-                                                        1.08%</span
-                                                    >
-                                                    <span class="text-nowrap"
-                                                        >Since last month</span
-                                                    >
-                                                </p>
-                                            </div>
-                                            <!-- end card-body-->
-                                        </div>
-                                        <!-- end card-->
-                                    </div>
-                                    <!-- end col-->
-                                </div>
-                                <!-- end row -->
-
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="card widget-flat">
-                                            <div class="card-body">
-                                                <div class="float-end">
-                                                    <i
-                                                        class="mdi mdi-currency-usd widget-icon"
-                                                    ></i>
-                                                </div>
-                                                <h5
-                                                    class="text-muted fw-normal mt-0"
-                                                    title="Average Revenue"
-                                                >
-                                                    Revenue
-                                                </h5>
-                                                <h3 class="mt-3 mb-3">
-                                                    $5
-                                                </h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span
-                                                        class="text-danger me-2"
-                                                        ><i
-                                                            class="mdi mdi-arrow-down-bold"
-                                                        ></i>
-                                                        7.00%</span
-                                                    >
-                                                    <span class="text-nowrap"
-                                                        >Since last month</span
-                                                    >
-                                                </p>
-                                            </div>
-                                            <!-- end card-body-->
-                                        </div>
-                                        <!-- end card-->
-                                    </div>
-                                    <!-- end col-->
-
-                                    <div class="col-lg-6">
-                                        <div class="card widget-flat">
-                                            <div class="card-body">
-                                                <div class="float-end">
-                                                    <i
-                                                        class="mdi mdi-pulse widget-icon"
-                                                    ></i>
-                                                </div>
-                                                <h5
-                                                    class="text-muted fw-normal mt-0"
-                                                    title="Growth"
-                                                >
-                                                    Growth
-                                                </h5>
-                                                <h3 class="mt-3 mb-3">
-                                                    + 30.56%
-                                                </h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span
-                                                        class="text-success me-2"
-                                                        ><i
-                                                            class="mdi mdi-arrow-up-bold"
-                                                        ></i>
-                                                        4.87%</span
-                                                    >
-                                                    <span class="text-nowrap"
-                                                        >Since last month</span
-                                                    >
-                                                </p>
-                                            </div>
-                                            <!-- end card-body-->
-                                        </div>
-                                        <!-- end card-->
-                                    </div>
-                                    <!-- end col-->
-                                </div>
-                                <!-- end row -->
-                            </div>
-                            <!-- end col -->
-
-                            <div class="col-xl-7 col-lg-6">
-                                <div class="card card-h-100">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a
-                                                href="#"
-                                                class="dropdown-toggle arrow-none card-drop"
-                                                data-bs-toggle="dropdown"
-                                                aria-expanded="false"
-                                            >
-                                                <i
-                                                    class="mdi mdi-dots-vertical"
-                                                ></i>
-                                            </a>
-                                            <div
-                                                class="dropdown-menu dropdown-menu-end"
-                                            >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Sales Report</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Export Report</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Profit</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Action</a
-                                                >
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title mb-3">
-                                            Projections Vs Actuals
-                                        </h4>
-
-                                        <div dir="ltr">
-                                            <div
-                                                id="high-performing-product"
-                                                class="apex-charts"
-                                                data-colors="#727cf5,#e3eaef"
-                                            ></div>
-                                        </div>
-                                    </div>
-                                    <!-- end card-body-->
-                                </div>
-                                <!-- end card-->
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a
-                                                href="#"
-                                                class="dropdown-toggle arrow-none card-drop"
-                                                data-bs-toggle="dropdown"
-                                                aria-expanded="false"
-                                            >
-                                                <i
-                                                    class="mdi mdi-dots-vertical"
-                                                ></i>
-                                            </a>
-                                            <div
-                                                class="dropdown-menu dropdown-menu-end"
-                                            >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Sales Report</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Export Report</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Profit</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Action</a
-                                                >
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title mb-3">
-                                            Revenue
-                                        </h4>
-
-                                        <div class="chart-content-bg">
-                                            <div class="row text-center">
-                                                <div class="col-md-6">
-                                                    <p
-                                                        class="text-muted mb-0 mt-3"
-                                                    >
-                                                        Current Week
-                                                    </p>
-                                                    <h2 class="fw-normal mb-3">
-                                                        <small
-                                                            class="mdi mdi-checkbox-blank-circle text-primary align-middle me-1"
-                                                        ></small>
-                                                        <span>$58,254</span>
-                                                    </h2>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p
-                                                        class="text-muted mb-0 mt-3"
-                                                    >
-                                                        Previous Week
-                                                    </p>
-                                                    <h2 class="fw-normal mb-3">
-                                                        <small
-                                                            class="mdi mdi-checkbox-blank-circle text-success align-middle me-1"
-                                                        ></small>
-                                                        <span>$69,524</span>
-                                                    </h2>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div
-                                            class="dash-item-overlay d-none d-md-block"
-                                            dir="ltr"
-                                        >
-                                            <h5>Today's Earning: $2,562.30</h5>
-                                            <p
-                                                class="text-muted font-13 mb-3 mt-2"
-                                            >
-                                                Etiam ultricies nisi vel augue.
-                                                Curabitur ullamcorper ultricies
-                                                nisi. Nam eget dui. Etiam
-                                                rhoncus...
-                                            </p>
-                                            <a
-                                                href="javascript: void(0);"
-                                                class="btn btn-outline-primary"
-                                                >View Statements
-                                                <i
-                                                    class="mdi mdi-arrow-right ms-2"
-                                                ></i>
-                                            </a>
-                                        </div>
-                                        <div dir="ltr">
-                                            <div
-                                                id="revenue-chart"
-                                                class="apex-charts mt-3"
-                                                data-colors="#727cf5,#0acf97"
-                                            ></div>
-                                        </div>
-                                    </div>
-                                    <!-- end card-body-->
-                                </div>
-                                <!-- end card-->
-                            </div>
-                            <!-- end col-->
-
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a
-                                                href="#"
-                                                class="dropdown-toggle arrow-none card-drop"
-                                                data-bs-toggle="dropdown"
-                                                aria-expanded="false"
-                                            >
-                                                <i
-                                                    class="mdi mdi-dots-vertical"
-                                                ></i>
-                                            </a>
-                                            <div
-                                                class="dropdown-menu dropdown-menu-end"
-                                            >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Sales Report</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Export Report</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Profit</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Action</a
-                                                >
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title">
-                                            Revenue By Location
-                                        </h4>
-                                        <div class="mb-4 mt-4">
-                                            <div
-                                                id="world-map-markers"
-                                                style="height: 224px"
-                                            ></div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">
-                                            New York
-                                        </h5>
-                                        <div class="progress-w-percent">
-                                            <span class="progress-value fw-bold"
-                                                >72k
-                                            </span>
-                                            <div class="progress progress-sm">
-                                                <div
-                                                    class="progress-bar"
-                                                    role="progressbar"
-                                                    style="width: 72%"
-                                                    aria-valuenow="72"
-                                                    aria-valuemin="0"
-                                                    aria-valuemax="100"
-                                                ></div>
-                                            </div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">
-                                            San Francisco
-                                        </h5>
-                                        <div class="progress-w-percent">
-                                            <span class="progress-value fw-bold"
-                                                >39k
-                                            </span>
-                                            <div class="progress progress-sm">
-                                                <div
-                                                    class="progress-bar"
-                                                    role="progressbar"
-                                                    style="width: 39%"
-                                                    aria-valuenow="39"
-                                                    aria-valuemin="0"
-                                                    aria-valuemax="100"
-                                                ></div>
-                                            </div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">
-                                            Sydney
-                                        </h5>
-                                        <div class="progress-w-percent">
-                                            <span class="progress-value fw-bold"
-                                                >25k
-                                            </span>
-                                            <div class="progress progress-sm">
-                                                <div
-                                                    class="progress-bar"
-                                                    role="progressbar"
-                                                    style="width: 39%"
-                                                    aria-valuenow="39"
-                                                    aria-valuemin="0"
-                                                    aria-valuemax="100"
-                                                ></div>
-                                            </div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">
-                                            Singapore
-                                        </h5>
-                                        <div class="progress-w-percent mb-0">
-                                            <span class="progress-value fw-bold"
-                                                >61k
-                                            </span>
-                                            <div class="progress progress-sm">
-                                                <div
-                                                    class="progress-bar"
-                                                    role="progressbar"
-                                                    style="width: 61%"
-                                                    aria-valuenow="61"
-                                                    aria-valuemin="0"
-                                                    aria-valuemax="100"
-                                                ></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end card-body-->
-                                </div>
-                                <!-- end card-->
-                            </div>
-                            <!-- end col-->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div
-                                class="col-xl-6 col-lg-12 order-lg-2 order-xl-1"
-                            >
-                                <div class="card">
-                                    <div class="card-body">
-                                        <a
-                                            href=""
-                                            class="btn btn-sm btn-link float-end"
-                                            >Export
-                                            <i
-                                                class="mdi mdi-download ms-1"
-                                            ></i>
-                                        </a>
-                                        <h4 class="header-title mt-2 mb-3">
-                                            Top Selling Products
-                                        </h4>
-
-                                        <div class="table-responsive">
-                                            <table
-                                                class="table table-centered table-nowrap table-hover mb-0"
-                                            >
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                ASOS Ridley High
-                                                                Waist
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >07 April
-                                                                2018</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                $79.49
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Price</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                82
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Quantity</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                $6,518.18
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Amount</span
-                                                            >
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                Marco
-                                                                Lightweight
-                                                                Shirt
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >25 March
-                                                                2018</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                $128.50
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Price</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                37
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Quantity</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                $4,754.50
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Amount</span
-                                                            >
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                Half Sleeve
-                                                                Shirt
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >17 March
-                                                                2018</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                $39.99
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Price</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                64
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Quantity</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                $2,559.36
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Amount</span
-                                                            >
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                Lightweight
-                                                                Jacket
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >12 March
-                                                                2018</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                $20.00
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Price</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                184
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Quantity</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                $3,680.00
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Amount</span
-                                                            >
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                Marco Shoes
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >05 March
-                                                                2018</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                $28.49
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Price</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                69
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Quantity</span
-                                                            >
-                                                        </td>
-                                                        <td>
-                                                            <h5
-                                                                class="font-14 my-1 fw-normal"
-                                                            >
-                                                                $1,965.81
-                                                            </h5>
-                                                            <span
-                                                                class="text-muted font-13"
-                                                                >Amount</span
-                                                            >
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- end table-responsive-->
-                                    </div>
-                                    <!-- end card-body-->
-                                </div>
-                                <!-- end card-->
-                            </div>
-                            <!-- end col-->
-
-                            <div class="col-xl-3 col-lg-6 order-lg-1">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a
-                                                href="#"
-                                                class="dropdown-toggle arrow-none card-drop"
-                                                data-bs-toggle="dropdown"
-                                                aria-expanded="false"
-                                            >
-                                                <i
-                                                    class="mdi mdi-dots-vertical"
-                                                ></i>
-                                            </a>
-                                            <div
-                                                class="dropdown-menu dropdown-menu-end"
-                                            >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Sales Report</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Export Report</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Profit</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Action</a
-                                                >
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title">
-                                            Total Sales
-                                        </h4>
-
-                                        <div
-                                            id="average-sales"
-                                            class="apex-charts mb-4 mt-4"
-                                            data-colors="#727cf5,#0acf97,#fa5c7c,#ffbc00"
-                                        ></div>
-
-                                        <div class="chart-widget-list">
-                                            <p>
-                                                <i
-                                                    class="mdi mdi-square text-primary"
-                                                ></i>
-                                                Direct
-                                                <span class="float-end"
-                                                    >$300.56</span
-                                                >
-                                            </p>
-                                            <p>
-                                                <i
-                                                    class="mdi mdi-square text-danger"
-                                                ></i>
-                                                Affilliate
-                                                <span class="float-end"
-                                                    >$135.18</span
-                                                >
-                                            </p>
-                                            <p>
-                                                <i
-                                                    class="mdi mdi-square text-success"
-                                                ></i>
-                                                Sponsored
-                                                <span class="float-end"
-                                                    >$48.96</span
-                                                >
-                                            </p>
-                                            <p class="mb-0">
-                                                <i
-                                                    class="mdi mdi-square text-warning"
-                                                ></i>
-                                                E-mail
-                                                <span class="float-end"
-                                                    >$154.02</span
-                                                >
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- end card-body-->
-                                </div>
-                                <!-- end card-->
-                            </div>
-                            <!-- end col-->
-
-                            <div class="col-xl-3 col-lg-6 order-lg-1">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a
-                                                href="#"
-                                                class="dropdown-toggle arrow-none card-drop"
-                                                data-bs-toggle="dropdown"
-                                                aria-expanded="false"
-                                            >
-                                                <i
-                                                    class="mdi mdi-dots-vertical"
-                                                ></i>
-                                            </a>
-                                            <div
-                                                class="dropdown-menu dropdown-menu-end"
-                                            >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Sales Report</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Export Report</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Profit</a
-                                                >
-                                                <!-- item-->
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    class="dropdown-item"
-                                                    >Action</a
-                                                >
-                                            </div>
-                                        </div>
-                                        <h4 class="header-title mb-2">
-                                            Recent Activity
-                                        </h4>
-
-                                        <div
-                                            data-simplebar=""
-                                            style="max-height: 419px"
-                                        >
-                                            <div class="timeline-alt pb-0">
-                                                <div class="timeline-item">
-                                                    <i
-                                                        class="mdi mdi-upload bg-info-lighten text-info timeline-icon"
-                                                    ></i>
-                                                    <div
-                                                        class="timeline-item-info"
-                                                    >
-                                                        <a
-                                                            href="#"
-                                                            class="text-info fw-bold mb-1 d-block"
-                                                            >You sold an item</a
-                                                        >
-                                                        <small
-                                                            >Paul Burgess just
-                                                            purchased “Hyper -
-                                                            Admin
-                                                            Dashboard”!</small
-                                                        >
-                                                        <p class="mb-0 pb-2">
-                                                            <small
-                                                                class="text-muted"
-                                                                >5 minutes
-                                                                ago</small
-                                                            >
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="timeline-item">
-                                                    <i
-                                                        class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"
-                                                    ></i>
-                                                    <div
-                                                        class="timeline-item-info"
-                                                    >
-                                                        <a
-                                                            href="#"
-                                                            class="text-primary fw-bold mb-1 d-block"
-                                                            >Product on the
-                                                            Bootstrap Market</a
-                                                        >
-                                                        <small
-                                                            >Dave Gamache added
-                                                            <span
-                                                                class="fw-bold"
-                                                                >Admin
-                                                                Dashboard</span
-                                                            >
-                                                        </small>
-                                                        <p class="mb-0 pb-2">
-                                                            <small
-                                                                class="text-muted"
-                                                                >30 minutes
-                                                                ago</small
-                                                            >
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="timeline-item">
-                                                    <i
-                                                        class="mdi mdi-microphone bg-info-lighten text-info timeline-icon"
-                                                    ></i>
-                                                    <div
-                                                        class="timeline-item-info"
-                                                    >
-                                                        <a
-                                                            href="#"
-                                                            class="text-info fw-bold mb-1 d-block"
-                                                            >Robert Delaney</a
-                                                        >
-                                                        <small
-                                                            >Send you message
-                                                            <span
-                                                                class="fw-bold"
-                                                                >"Are you
-                                                                there?"</span
-                                                            >
-                                                        </small>
-                                                        <p class="mb-0 pb-2">
-                                                            <small
-                                                                class="text-muted"
-                                                                >2 hours
-                                                                ago</small
-                                                            >
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="timeline-item">
-                                                    <i
-                                                        class="mdi mdi-upload bg-primary-lighten text-primary timeline-icon"
-                                                    ></i>
-                                                    <div
-                                                        class="timeline-item-info"
-                                                    >
-                                                        <a
-                                                            href="#"
-                                                            class="text-primary fw-bold mb-1 d-block"
-                                                            >Audrey Tobey</a
-                                                        >
-                                                        <small
-                                                            >Uploaded a photo
-                                                            <span
-                                                                class="fw-bold"
-                                                                >"Error.jpg"</span
-                                                            >
-                                                        </small>
-                                                        <p class="mb-0 pb-2">
-                                                            <small
-                                                                class="text-muted"
-                                                                >14 hours
-                                                                ago</small
-                                                            >
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="timeline-item">
-                                                    <i
-                                                        class="mdi mdi-upload bg-info-lighten text-info timeline-icon"
-                                                    ></i>
-                                                    <div
-                                                        class="timeline-item-info"
-                                                    >
-                                                        <a
-                                                            href="#"
-                                                            class="text-info fw-bold mb-1 d-block"
-                                                            >You sold an item</a
-                                                        >
-                                                        <small
-                                                            >Paul Burgess just
-                                                            purchased “Hyper -
-                                                            Admin
-                                                            Dashboard”!</small
-                                                        >
-                                                        <p class="mb-0 pb-2">
-                                                            <small
-                                                                class="text-muted"
-                                                                >16 hours
-                                                                ago</small
-                                                            >
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="timeline-item">
-                                                    <i
-                                                        class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"
-                                                    ></i>
-                                                    <div
-                                                        class="timeline-item-info"
-                                                    >
-                                                        <a
-                                                            href="#"
-                                                            class="text-primary fw-bold mb-1 d-block"
-                                                            >Product on the
-                                                            Bootstrap Market</a
-                                                        >
-                                                        <small
-                                                            >Dave Gamache added
-                                                            <span
-                                                                class="fw-bold"
-                                                                >Admin
-                                                                Dashboard</span
-                                                            >
-                                                        </small>
-                                                        <p class="mb-0 pb-2">
-                                                            <small
-                                                                class="text-muted"
-                                                                >22 hours
-                                                                ago</small
-                                                            >
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="timeline-item">
-                                                    <i
-                                                        class="mdi mdi-microphone bg-info-lighten text-info timeline-icon"
-                                                    ></i>
-                                                    <div
-                                                        class="timeline-item-info"
-                                                    >
-                                                        <a
-                                                            href="#"
-                                                            class="text-info fw-bold mb-1 d-block"
-                                                            >Robert Delaney</a
-                                                        >
-                                                        <small
-                                                            >Send you message
-                                                            <span
-                                                                class="fw-bold"
-                                                                >"Are you
-                                                                there?"</span
-                                                            >
-                                                        </small>
-                                                        <p class="mb-0 pb-2">
-                                                            <small
-                                                                class="text-muted"
-                                                                >2 days
-                                                                ago</small
-                                                            >
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- end timeline -->
-                                        </div>
-                                        <!-- end slimscroll -->
-                                    </div>
-                                    <!-- end card-body -->
-                                </div>
-                                <!-- end card-->
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-                    </div>
-                    <!-- container -->
+          <!-- Start Content-->
+          <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+              <div class="col-12">
+                <div class="page-title-box">
+                  <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                      <li class="breadcrumb-item">
+                        <a href="javascript: void(0);">SMS</a>
+                      </li>
+                      <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                  </div>
+                  <h4 class="page-title">Projects</h4>
                 </div>
-                <!-- content -->
-                @endsection
+              </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+              <div class="col-12">
+                <div class="card widget-inline">
+                  <div class="card-body p-0">
+                    <div class="row g-0">
+                      <div class="col-sm-6 col-xl-3">
+                        <div class="card shadow-none m-0">
+                          <div class="card-body text-center">
+                            <i
+                              class="dripicons-briefcase text-muted"
+                              style="font-size: 24px"
+                            ></i>
+                            <h3><span>29</span></h3>
+                            <p class="text-muted font-15 mb-0">
+                              Total Projects
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6 col-xl-3">
+                        <div class="card shadow-none m-0 border-start">
+                          <div class="card-body text-center">
+                            <i
+                              class="dripicons-checklist text-muted"
+                              style="font-size: 24px"
+                            ></i>
+                            <h3><span>715</span></h3>
+                            <p class="text-muted font-15 mb-0">Total Tasks</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6 col-xl-3">
+                        <div class="card shadow-none m-0 border-start">
+                          <div class="card-body text-center">
+                            <i
+                              class="dripicons-user-group text-muted"
+                              style="font-size: 24px"
+                            ></i>
+                            <h3><span>31</span></h3>
+                            <p class="text-muted font-15 mb-0">Members</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6 col-xl-3">
+                        <div class="card shadow-none m-0 border-start">
+                          <div class="card-body text-center">
+                            <i
+                              class="dripicons-graph-line text-muted"
+                              style="font-size: 24px"
+                            ></i>
+                            <h3>
+                              <span>93%</span>
+                              <i class="mdi mdi-arrow-up text-success"></i>
+                            </h3>
+                            <p class="text-muted font-15 mb-0">Productivity</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end row -->
+                  </div>
+                </div>
+                <!-- end card-box-->
+              </div>
+              <!-- end col-->
+            </div>
+            <!-- end row-->
+
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="dropdown float-end">
+                      <a
+                        href="#"
+                        class="dropdown-toggle arrow-none card-drop"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="mdi mdi-dots-vertical"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Weekly Report</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Monthly Report</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Action</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Settings</a
+                        >
+                      </div>
+                    </div>
+                    <h4 class="header-title mb-4">Project Status</h4>
+
+                    <div class="my-4 chartjs-chart" style="height: 202px">
+                      <canvas
+                        id="project-status-chart"
+                        data-colors="#0acf97,#727cf5,#fa5c7c"
+                      ></canvas>
+                    </div>
+
+                    <div class="row text-center mt-2 py-2">
+                      <div class="col-4">
+                        <i class="mdi mdi-trending-up text-success mt-3 h3"></i>
+                        <h3 class="fw-normal">
+                          <span>64%</span>
+                        </h3>
+                        <p class="text-muted mb-0">Completed</p>
+                      </div>
+                      <div class="col-4">
+                        <i
+                          class="mdi mdi-trending-down text-primary mt-3 h3"
+                        ></i>
+                        <h3 class="fw-normal">
+                          <span>26%</span>
+                        </h3>
+                        <p class="text-muted mb-0">In-progress</p>
+                      </div>
+                      <div class="col-4">
+                        <i
+                          class="mdi mdi-trending-down text-danger mt-3 h3"
+                        ></i>
+                        <h3 class="fw-normal">
+                          <span>10%</span>
+                        </h3>
+                        <p class="text-muted mb-0">Behind</p>
+                      </div>
+                    </div>
+                    <!-- end row-->
+                  </div>
+                  <!-- end card body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <!-- end col-->
+
+              <div class="col-lg-8">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="dropdown float-end">
+                      <a
+                        href="#"
+                        class="dropdown-toggle arrow-none card-drop"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="mdi mdi-dots-vertical"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Weekly Report</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Monthly Report</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Action</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Settings</a
+                        >
+                      </div>
+                    </div>
+                    <h4 class="header-title mb-3">Tasks</h4>
+
+                    <p><b>107</b> Tasks completed out of 195</p>
+
+                    <div class="table-responsive">
+                      <table
+                        class="table table-centered table-nowrap table-hover mb-0"
+                      >
+                        <tbody>
+                          <tr>
+                            <td>
+                              <h5 class="font-14 my-1">
+                                <a href="javascript:void(0);" class="text-body"
+                                  >Coffee detail page - Main Page</a
+                                >
+                              </h5>
+                              <span class="text-muted font-13"
+                                >Due in 3 days</span
+                              >
+                            </td>
+                            <td>
+                              <span class="text-muted font-13">Status</span>
+                              <br />
+                              <span class="badge badge-warning-lighten"
+                                >In-progress</span
+                              >
+                            </td>
+                            <td>
+                              <span class="text-muted font-13"
+                                >Assigned to</span
+                              >
+                              <h5 class="font-14 mt-1 fw-normal">
+                                Logan R. Cohn
+                              </h5>
+                            </td>
+                            <td>
+                              <span class="text-muted font-13"
+                                >Total time spend</span
+                              >
+                              <h5 class="font-14 mt-1 fw-normal">3h 20min</h5>
+                            </td>
+                            <td class="table-action" style="width: 90px">
+                              <a
+                                href="javascript: void(0);"
+                                class="action-icon"
+                              >
+                                <i class="mdi mdi-pencil"></i
+                              ></a>
+                              <a
+                                href="javascript: void(0);"
+                                class="action-icon"
+                              >
+                                <i class="mdi mdi-delete"></i
+                              ></a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h5 class="font-14 my-1">
+                                <a href="javascript:void(0);" class="text-body"
+                                  >Drinking bottle graphics</a
+                                >
+                              </h5>
+                              <span class="text-muted font-13"
+                                >Due in 27 days</span
+                              >
+                            </td>
+                            <td>
+                              <span class="text-muted font-13">Status</span>
+                              <br />
+                              <span class="badge badge-danger-lighten"
+                                >Outdated</span
+                              >
+                            </td>
+                            <td>
+                              <span class="text-muted font-13"
+                                >Assigned to</span
+                              >
+                              <h5 class="font-14 mt-1 fw-normal">
+                                Jerry F. Powell
+                              </h5>
+                            </td>
+                            <td>
+                              <span class="text-muted font-13"
+                                >Total time spend</span
+                              >
+                              <h5 class="font-14 mt-1 fw-normal">12h 21min</h5>
+                            </td>
+                            <td class="table-action" style="width: 90px">
+                              <a
+                                href="javascript: void(0);"
+                                class="action-icon"
+                              >
+                                <i class="mdi mdi-pencil"></i
+                              ></a>
+                              <a
+                                href="javascript: void(0);"
+                                class="action-icon"
+                              >
+                                <i class="mdi mdi-delete"></i
+                              ></a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h5 class="font-14 my-1">
+                                <a href="javascript:void(0);" class="text-body"
+                                  >App design and development</a
+                                >
+                              </h5>
+                              <span class="text-muted font-13"
+                                >Due in 7 days</span
+                              >
+                            </td>
+                            <td>
+                              <span class="text-muted font-13">Status</span>
+                              <br />
+                              <span class="badge badge-success-lighten"
+                                >Completed</span
+                              >
+                            </td>
+                            <td>
+                              <span class="text-muted font-13"
+                                >Assigned to</span
+                              >
+                              <h5 class="font-14 mt-1 fw-normal">
+                                Scot M. Smith
+                              </h5>
+                            </td>
+                            <td>
+                              <span class="text-muted font-13"
+                                >Total time spend</span
+                              >
+                              <h5 class="font-14 mt-1 fw-normal">78h 05min</h5>
+                            </td>
+                            <td class="table-action" style="width: 90px">
+                              <a
+                                href="javascript: void(0);"
+                                class="action-icon"
+                              >
+                                <i class="mdi mdi-pencil"></i
+                              ></a>
+                              <a
+                                href="javascript: void(0);"
+                                class="action-icon"
+                              >
+                                <i class="mdi mdi-delete"></i
+                              ></a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h5 class="font-14 my-1">
+                                <a href="javascript:void(0);" class="text-body"
+                                  >Poster illustation design</a
+                                >
+                              </h5>
+                              <span class="text-muted font-13"
+                                >Due in 5 days</span
+                              >
+                            </td>
+                            <td>
+                              <span class="text-muted font-13">Status</span>
+                              <br />
+                              <span class="badge badge-warning-lighten"
+                                >In-progress</span
+                              >
+                            </td>
+                            <td>
+                              <span class="text-muted font-13"
+                                >Assigned to</span
+                              >
+                              <h5 class="font-14 mt-1 fw-normal">
+                                John P. Ritter
+                              </h5>
+                            </td>
+                            <td>
+                              <span class="text-muted font-13"
+                                >Total time spend</span
+                              >
+                              <h5 class="font-14 mt-1 fw-normal">26h 58min</h5>
+                            </td>
+                            <td class="table-action" style="width: 90px">
+                              <a
+                                href="javascript: void(0);"
+                                class="action-icon"
+                              >
+                                <i class="mdi mdi-pencil"></i
+                              ></a>
+                              <a
+                                href="javascript: void(0);"
+                                class="action-icon"
+                              >
+                                <i class="mdi mdi-delete"></i
+                              ></a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- end table-responsive-->
+                  </div>
+                  <!-- end card body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <!-- end col-->
+            </div>
+            <!-- end row-->
+
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="dropdown float-end">
+                      <a
+                        href="#"
+                        class="dropdown-toggle arrow-none card-drop"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="mdi mdi-dots-vertical"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Weekly Report</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Monthly Report</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Action</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Settings</a
+                        >
+                      </div>
+                    </div>
+                    <h4 class="header-title mb-4">Tasks Overview</h4>
+
+                    <div dir="ltr">
+                      <div class="mt-3 chartjs-chart" style="height: 320px">
+                        <canvas
+                          id="task-area-chart"
+                          data-bgcolor="#727cf5"
+                          data-bordercolor="#727cf5"
+                        ></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end card body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <!-- end col-->
+            </div>
+            <!-- end row-->
+
+            <div class="row">
+              <div class="col-xl-5">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="dropdown float-end">
+                      <a
+                        href="#"
+                        class="dropdown-toggle arrow-none card-drop"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="mdi mdi-dots-vertical"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Weekly Report</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Monthly Report</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Action</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Settings</a
+                        >
+                      </div>
+                    </div>
+                    <h4 class="header-title mb-3">Recent Activities</h4>
+
+                    <div class="table-responsive">
+                      <table
+                        class="table table-centered table-nowrap table-hover mb-0"
+                      >
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-start">
+                                <img
+                                  class="me-2 rounded-circle"
+                                  src="assets/images/users/avatar-2.jpg"
+                                  width="40"
+                                  alt="Generic placeholder image"
+                                />
+                                <div>
+                                  <h5 class="mt-0 mb-1">
+                                    Soren Drouin<small class="fw-normal ms-3"
+                                      >18 Jan 2019 11:28 pm</small
+                                    >
+                                  </h5>
+                                  <span class="font-13"
+                                    >Completed "Design new idea"...</span
+                                  >
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <span class="text-muted font-13">Project</span>
+                              <br />
+                              <p class="mb-0">Hyper Mockup</p>
+                            </td>
+                            <td class="table-action" style="width: 50px">
+                              <div class="dropdown">
+                                <a
+                                  href="#"
+                                  class="dropdown-toggle arrow-none card-drop"
+                                  data-bs-toggle="dropdown"
+                                  aria-expanded="false"
+                                >
+                                  <i class="mdi mdi-dots-horizontal"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                  <!-- item-->
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dropdown-item"
+                                    >Settings</a
+                                  >
+                                  <!-- item-->
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dropdown-item"
+                                    >Action</a
+                                  >
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-start">
+                                <img
+                                  class="me-2 rounded-circle"
+                                  src="assets/images/users/avatar-6.jpg"
+                                  width="40"
+                                  alt="Generic placeholder image"
+                                />
+                                <div>
+                                  <h5 class="mt-0 mb-1">
+                                    Anne Simard<small class="fw-normal ms-3"
+                                      >18 Jan 2019 11:09 pm</small
+                                    >
+                                  </h5>
+                                  <span class="font-13"
+                                    >Assigned task "Poster illustation
+                                    design"...</span
+                                  >
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <span class="text-muted font-13">Project</span>
+                              <br />
+                              <p class="mb-0">Hyper Mockup</p>
+                            </td>
+                            <td class="table-action" style="width: 50px">
+                              <div class="dropdown">
+                                <a
+                                  href="#"
+                                  class="dropdown-toggle arrow-none card-drop"
+                                  data-bs-toggle="dropdown"
+                                  aria-expanded="false"
+                                >
+                                  <i class="mdi mdi-dots-horizontal"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                  <!-- item-->
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dropdown-item"
+                                    >Settings</a
+                                  >
+                                  <!-- item-->
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dropdown-item"
+                                    >Action</a
+                                  >
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-start">
+                                <img
+                                  class="me-2 rounded-circle"
+                                  src="assets/images/users/avatar-3.jpg"
+                                  width="40"
+                                  alt="Generic placeholder image"
+                                />
+                                <div>
+                                  <h5 class="mt-0 mb-1">
+                                    Nicolas Chartier<small
+                                      class="fw-normal ms-3"
+                                      >15 Jan 2019 09:29 pm</small
+                                    >
+                                  </h5>
+                                  <span class="font-13"
+                                    >Completed "Drinking bottle
+                                    graphics"...</span
+                                  >
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <span class="text-muted font-13">Project</span>
+                              <br />
+                              <p class="mb-0">Web UI Design</p>
+                            </td>
+                            <td class="table-action" style="width: 50px">
+                              <div class="dropdown">
+                                <a
+                                  href="#"
+                                  class="dropdown-toggle arrow-none card-drop"
+                                  data-bs-toggle="dropdown"
+                                  aria-expanded="false"
+                                >
+                                  <i class="mdi mdi-dots-horizontal"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                  <!-- item-->
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dropdown-item"
+                                    >Settings</a
+                                  >
+                                  <!-- item-->
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dropdown-item"
+                                    >Action</a
+                                  >
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-start">
+                                <img
+                                  class="me-2 rounded-circle"
+                                  src="assets/images/users/avatar-4.jpg"
+                                  width="40"
+                                  alt="Generic placeholder image"
+                                />
+                                <div>
+                                  <h5 class="mt-0 mb-1">
+                                    Gano Cloutier<small class="fw-normal ms-3"
+                                      >10 Jan 2019 08:36 pm</small
+                                    >
+                                  </h5>
+                                  <span class="font-13"
+                                    >Completed "Design new idea"...</span
+                                  >
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <span class="text-muted font-13">Project</span>
+                              <br />
+                              <p class="mb-0">UBold Admin</p>
+                            </td>
+                            <td class="table-action" style="width: 50px">
+                              <div class="dropdown">
+                                <a
+                                  href="#"
+                                  class="dropdown-toggle arrow-none card-drop"
+                                  data-bs-toggle="dropdown"
+                                  aria-expanded="false"
+                                >
+                                  <i class="mdi mdi-dots-horizontal"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                  <!-- item-->
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dropdown-item"
+                                    >Settings</a
+                                  >
+                                  <!-- item-->
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dropdown-item"
+                                    >Action</a
+                                  >
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-start">
+                                <img
+                                  class="me-2 rounded-circle"
+                                  src="assets/images/users/avatar-5.jpg"
+                                  width="40"
+                                  alt="Generic placeholder image"
+                                />
+                                <div>
+                                  <h5 class="mt-0 mb-1">
+                                    Francis Achin<small class="fw-normal ms-3"
+                                      >08 Jan 2019 12:28 pm</small
+                                    >
+                                  </h5>
+                                  <span class="font-13"
+                                    >Assigned task "Hyper app design"...</span
+                                  >
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <span class="text-muted font-13">Project</span>
+                              <br />
+                              <p class="mb-0">Website Mockup</p>
+                            </td>
+                            <td class="table-action" style="width: 50px">
+                              <div class="dropdown">
+                                <a
+                                  href="#"
+                                  class="dropdown-toggle arrow-none card-drop"
+                                  data-bs-toggle="dropdown"
+                                  aria-expanded="false"
+                                >
+                                  <i class="mdi mdi-dots-horizontal"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                  <!-- item-->
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dropdown-item"
+                                    >Settings</a
+                                  >
+                                  <!-- item-->
+                                  <a
+                                    href="javascript:void(0);"
+                                    class="dropdown-item"
+                                    >Action</a
+                                  >
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- end table-responsive-->
+                  </div>
+                  <!-- end card body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <!-- end col-->
+
+              <div class="col-xl-7">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="dropdown float-end">
+                      <a
+                        href="#"
+                        class="dropdown-toggle arrow-none card-drop"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="mdi mdi-dots-vertical"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Weekly Report</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Monthly Report</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Action</a
+                        >
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Settings</a
+                        >
+                      </div>
+                    </div>
+                    <h4 class="header-title mb-3">Your Calendar</h4>
+
+                    <div class="row">
+                      <div class="col-md-7">
+                        <div
+                          data-provide="datepicker-inline"
+                          data-date-today-highlight="true"
+                          class="calendar-widget"
+                        ></div>
+                      </div>
+                      <!-- end col-->
+                      <div class="col-md-5">
+                        <ul class="list-unstyled">
+                          <li class="mb-4">
+                            <p class="text-muted mb-1 font-13">
+                              <i class="mdi mdi-calendar"></i> 7:30 AM - 10:00
+                              AM
+                            </p>
+                            <h5>Meeting with BD Team</h5>
+                          </li>
+                          <li class="mb-4">
+                            <p class="text-muted mb-1 font-13">
+                              <i class="mdi mdi-calendar"></i> 10:30 AM - 11:45
+                              AM
+                            </p>
+                            <h5>Design Review - Hyper Admin</h5>
+                          </li>
+                          <li class="mb-4">
+                            <p class="text-muted mb-1 font-13">
+                              <i class="mdi mdi-calendar"></i> 12:15 PM - 02:00
+                              PM
+                            </p>
+                            <h5>Setup Github Repository</h5>
+                          </li>
+                          <li>
+                            <p class="text-muted mb-1 font-13">
+                              <i class="mdi mdi-calendar"></i> 5:30 PM - 07:00
+                              PM
+                            </p>
+                            <h5>Meeting with Design Studio</h5>
+                          </li>
+                        </ul>
+                      </div>
+                      <!-- end col -->
+                    </div>
+                    <!-- end row -->
+                  </div>
+                  <!-- end card body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <!-- end col-->
+            </div>
+            <!-- end row-->
+          </div>
+          <!-- container -->
+        </div>
+        <!-- content -->
+
+@endsection

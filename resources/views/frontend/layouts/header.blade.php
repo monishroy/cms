@@ -68,9 +68,14 @@
                 <span class="lnr lnr-magnifier" id="search"></span>
               </button>
             </li>
-            <li>
-                <a href="{{url('/')}}">EN</a>
-                <a href="{{url('/bn')}}">BN</a>
+            <li class="dropdown">
+                <a class="dropdown-toggle" href="javascript::void(0)" data-toggle="dropdown">
+                EN
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{url('/')}}">EN</a>
+                    <a class="dropdown-item" href="{{url('/bn')}}">BN</a>
+                </div>
             </li>
           </ul>
         </div>

@@ -15,20 +15,13 @@ class DashboardController extends Controller
         return view('admin.index');
     }
 
-    public function analytics()
+    public function add_student()
     {
-        return view('admin.analytics');
+        return view('admin.add_student');
     }
 
-    public function crm()
+    public function all_user()
     {
-        return view('admin.crm');
+        return view('admin.all_user');
     }
-
-    public function projects()
-    {
-        return view('admin.projects');
-    }
-
-
 }

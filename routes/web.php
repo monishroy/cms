@@ -24,8 +24,9 @@ use App\Http\Controllers\Auth\RegisterController;
 */
 
 //Frontent Part
-
-
+Route::get('/about', [AboutController::class, 'index']);
+Route::get('/courses', [CoursesController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'index']);
 
 Route::middleware(['guest'])->group(function(){
     //Authentication Part
@@ -42,13 +43,9 @@ Route::get('/student/profile', [ProfileController::class, 'index']);
 
 //Admin Part
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-Route::get('/admin/analytics', [DashboardController::class, 'analytics'])->name('admin.analytics');
-Route::get('/admin/crm', [DashboardController::class, 'crm'])->name('admin.crm');
-Route::get('/admin/projects', [DashboardController::class, 'projects'])->name('admin.projects');
+Route::get('/admin/add-student', [DashboardController::class, 'add_student'])->name('admin.add-student');
+Route::get('/admin/all-user', [DashboardController::class, 'all_user'])->name('admin.all-user');
+
 Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 
-
 Route::get('/{lang?}', [HomeController::class, 'index']);
-Route::get('/{lang?}/about', [AboutController::class, 'index']);
-Route::get('/{lang?}/courses', [CoursesController::class, 'index']);
-Route::get('/{lang?}/contact', [ContactController::class, 'index']);

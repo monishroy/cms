@@ -6,7 +6,7 @@
                 <script>
                     document.write(new Date().getFullYear());
                 </script>
-                © Hyper - Coderthemes.com
+                © Mnotion - mnotion.com
             </div>
             <div class="col-md-6">
                 <div
@@ -14,9 +14,7 @@
                 >
                     <a href="javascript: void(0);">About</a>
                     <a href="javascript: void(0);">Support</a>
-                    <a href="javascript: void(0);"
-                        >Contact Us</a
-                    >
+                    <a href="javascript: void(0);">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -213,5 +211,14 @@
 <script src="{{url('admin/assets/js/pages/demo.dashboard-crm.js')}}"></script>
 <script src="{{url('admin/assets/js/pages/demo.dashboard-projects.js')}}"></script>
 <!-- end demo js-->
+
+<!-- Datatables js -->
+<script src="{{url('admin/assets/js/vendor/jquery.dataTables.min.js')}}"></script>
+<script src="{{url('admin/assets/js/vendor/dataTables.bootstrap5.js')}}"></script>
+<script src="{{url('admin/assets/js/vendor/dataTables.responsive.min.js')}}"></script>
+<script src="{{url('admin/assets/js/vendor/responsive.bootstrap5.min.js')}}"></script>
+
+<!-- Datatable Init js -->
+<script src="{{url('admin/assets/js/pages/demo.datatable-init.js')}}"></script>
 </body>
 </html>
