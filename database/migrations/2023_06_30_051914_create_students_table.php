@@ -15,15 +15,16 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 60);
-            $table->string('email', 72);
-            $table->string('image', 100)->default('1.png')->nullable();
-            $table->enum('gender', ["M","F","O"])->nullable();
-            $table->string('roll')->nullable();
-            $table->string('registration')->nullable();
-            $table->string('password');
-            $table->date('dob')->nullable();
-            $table->boolean('status')->default(1);
+            $table->string('fname', 30);
+            $table->string('lname', 30);
+            $table->integer('roll');
+            $table->integer('registration');
+            $table->enum('gender', ["M", "F", "O"]);
+            $table->string('session');
+            $table->string('phone');
+            $table->string('gPhone');
+            $table->string('semister');
+            $table->text('address');
             $table->timestamps();
         });
     }

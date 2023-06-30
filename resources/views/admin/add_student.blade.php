@@ -27,85 +27,184 @@
               <div class="col-lg-12">
                 <div class="card">
                   <div class="card-body">
+                    @if (Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        <i class="dripicons-checkmark me-2"></i>
+                        {{Session::get('success')}}
+                    </div>
+                    @endif
+                    @if (Session::has('error'))
+                    <div class="alert alert-danger" role="alert">
+                        <i class="dripicons-wrong me-2"></i>
+                        {{Session::get('error')}}
+                    </div>
+                    @endif
                     <!-- end nav-->
                     <div class="tab-content">
                       <div class="tab-pane show active" id="custom-styles-preview">
-                        <form class="needs-validation" novalidate="">
+                        <form class="needs-validation" action="{{route('addStudent')}}" method="POST" novalidate="">
+                            @csrf
                             <div class="row">
                                 <div class="col-6">
                                     <div class="mb-3">
-                                        <label class="form-label" for="validationCustom01">First name</label>
-                                        <input type="text" class="form-control" id="validationCustom01" placeholder="First name" required="">
+                                        <label class="form-label" for="fname">First name</label>
+                                        <input type="text" class="form-control" name="fname" id="fname" placeholder="First name" required="" value="{{old('fname')}}">
                                         <div class="invalid-feedback">
                                             Please enter first name.
                                         </div>
+                                        <span class="text-danger text-sm">
+                                            @error('fname')
+                                            {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mb-3">
-                                        <label class="form-label" for="validationCustom02">Last name</label>
-                                        <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" required="">
+                                        <label class="form-label" for="lname">Last name</label>
+                                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Last name" required="" value="{{old('lname')}}">
                                         <div class="invalid-feedback">
                                             Please enter last name.
                                         </div>
+                                        <span class="text-danger text-sm">
+                                            @error('lname')
+                                            {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mb-3">
-                                        <label class="form-label" for="validationCustom01">Roll</label>
-                                        <input type="text" class="form-control" id="validationCustom01" placeholder="Roll" required="">
+                                        <label class="form-label" for="roll">Roll</label>
+                                        <input type="text" class="form-control" name="roll" id="roll" data-toggle="input-mask" data-mask-format="000000" maxlength="6" placeholder="Roll" required="" value="{{old('roll')}}">
                                         <div class="invalid-feedback">
                                             Please enter roll.
                                         </div>
+                                        <span class="text-danger text-sm">
+                                            @error('roll')
+                                            {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mb-3">
-                                        <label class="form-label" for="validationCustom02">Registration</label>
-                                        <input type="text" class="form-control" id="validationCustom02" placeholder="Registration" required="">
+                                        <label class="form-label" for="registration">Registration</label>
+                                        <input type="text" class="form-control" name="registration" id="registration" placeholder="Registration" required="" value="{{old('registration')}}">
                                         <div class="invalid-feedback">
                                             Please enter Registration.
                                         </div>
+                                        <span class="text-danger text-sm">
+                                            @error('registration')
+                                            {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="mb-3">
-                                        <label class="form-label" for="validationCustom02">Session</label>
-                                        <input type="text" class="form-control" id="validationCustom02" placeholder="Session" required="">
+                                        <label class="form-label" for="session">Session</label>
+                                        <input type="text" class="form-control" name="session" id="session" data-toggle="input-mask" data-mask-format="0000-00" maxlength="6"  placeholder="Session" required="" value="{{old('session')}}">
                                         <div class="invalid-feedback">
                                             Please enter Session.
                                         </div>
+                                        <span class="text-danger text-sm">
+                                            @error('session')
+                                            {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="mb-3">
-                                        <label class="form-label" for="validationCustom02">Phone</label>
-                                        <input type="text" class="form-control" data-toggle="input-mask" data-mask-format="01000-000000" maxlength="11" placeholder="01XX-NNNNNNN" required="">
+                                        <label class="form-label" for="phone">Phone Number</label>
+                                        <input type="text" class="form-control" name="phone" data-toggle="input-mask" data-mask-format="01000-000000" maxlength="11" placeholder="01XX-NNNNNNN" required="" value="{{old('phone')}}">
                                         <div class="invalid-feedback">
-                                            Please enter Phone.
+                                            Please enter Phone Number.
                                         </div>
+                                        <span class="text-danger text-sm">
+                                            @error('phone')
+                                            {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="mb-3">
-                                        <label class="form-label">Date of Birth</label>
-                                        <input type="text" class="form-control" data-toggle="input-mask" data-mask-format="00/00/0000" maxlength="10" placeholder="DD/MM/YYYY" required="">
+                                        <label class="form-label" for="gPhone">Guardian Phone Number</label>
+                                        <input type="text" class="form-control" name="gPhone" data-toggle="input-mask" data-mask-format="01000-000000" maxlength="11" placeholder="01XX-NNNNNNN" required="" value="{{old('gPhone')}}">
                                         <div class="invalid-feedback">
-                                            Please enter Date of Birth.
+                                            Please enter Guardian Phone Number.
                                         </div>
+                                        <span class="text-danger text-sm">
+                                            @error('gPhone')
+                                            {{$message}}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="semister">Semister</label>
+                                        <!-- Single Select -->
+                                            <select class="form-control select2" name="semister" data-toggle="select2">
+                                                <optgroup label="Select Semister">
+                                                    <option value="1">1st Semister</option>
+                                                    <option value="2">2nd Semister</option>
+                                                    <option value="3">3th Semister</option>
+                                                    <option value="4">4th Semister</option>
+                                                    <option value="5">5th Semister</option>
+                                                    <option value="6">6th Semister</option>
+                                                    <option value="7">7th Semister</option>
+                                                    <option value="8">8th Semister</option>
+                                                </optgroup>
+                                            </select>
+                                        <div class="invalid-feedback">
+                                            Please enter Semister.
+                                        </div>
+                                        <span class="text-danger text-sm">
+                                            @error('semister')
+                                            {{$message}}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="Gender">Gender</label>
+                                        <!-- Single Select -->
+                                            <select class="form-control select2" name="gender" data-toggle="select2">
+                                                <optgroup label="Select Gender">
+                                                    <option value="M">Male</option>
+                                                    <option value="F">Female</option>
+                                                    <option value="O">Other</option>
+                                                </optgroup>
+                                            </select>
+                                        <div class="invalid-feedback">
+                                            Please enter Gender.
+                                        </div>
+                                        <span class="text-danger text-sm">
+                                            @error('gender')
+                                            {{$message}}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="Address">Address</label>
+                                        <input type="text" class="form-control" name="address" id="Address" placeholder="Address" required="" value="{{old('address')}}">
+                                        <div class="invalid-feedback">
+                                            Please enter Address.
+                                        </div>
+                                        <span class="text-danger text-sm">
+                                            @error('address')
+                                            {{$message}}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                             </div>
-
-                          <div class="mb-3">
-                            <div class="form-check">
-                              <input type="checkbox" class="form-check-input" id="invalidCheck" required="">
-                              <label class="form-check-label form-label" for="invalidCheck">Agree to terms and conditions</label>
-                              <div class="invalid-feedback">
-                                You must agree before submitting.
-                              </div>
-                            </div>
-                          </div>
                           <button class="btn btn-primary" type="submit">
                             Submit
                           </button>

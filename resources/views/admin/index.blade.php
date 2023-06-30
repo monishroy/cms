@@ -17,7 +17,7 @@
                       <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                   </div>
-                  <h4 class="page-title">Projects</h4>
+                  <h4 class="page-title">Dashboard</h4>
                 </div>
               </div>
             </div>
@@ -32,12 +32,12 @@
                         <div class="card shadow-none m-0">
                           <div class="card-body text-center">
                             <i
-                              class="dripicons-briefcase text-muted"
+                              class="dripicons-user text-muted"
                               style="font-size: 24px"
                             ></i>
                             <h3><span>29</span></h3>
                             <p class="text-muted font-15 mb-0">
-                              Total Projects
+                              Total Students
                             </p>
                           </div>
                         </div>
@@ -51,7 +51,7 @@
                               style="font-size: 24px"
                             ></i>
                             <h3><span>715</span></h3>
-                            <p class="text-muted font-15 mb-0">Total Tasks</p>
+                            <p class="text-muted font-15 mb-0">Total Teacher</p>
                           </div>
                         </div>
                       </div>

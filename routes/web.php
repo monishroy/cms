@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AddStudent;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
@@ -36,6 +37,8 @@ Route::middleware(['guest'])->group(function(){
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
 });
+
+Route::post('/admin/add-student', [AddStudent::class, 'addStudent'])->name('addStudent');
 
 //Student Part
 Route::get('/student', [StudentController::class, 'index']);
