@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Student;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
@@ -12,7 +14,10 @@ class DashboardController extends Controller
     }
     public function index()
     {
-        return view('admin.index');
+        $students = Student::count();
+        $teachers = User::count();
+
+        return view('admin.index' , compact('students','teachers'));
     }
 
     public function add_student()
@@ -20,8 +25,19 @@ class DashboardController extends Controller
         return view('admin.add_student');
     }
 
-    public function all_user()
+    public function all_student()
     {
-        return view('admin.all_user');
+        $students = Student::all();
+
+        $data = compact('students');
+        return view('admin.all_student')->with($data);
+    }
+
+    public function all_teacher()
+    {
+        $teachers = User::all();
+
+        $data = compact('teachers');
+        return view('admin.all_teacher')->with($data);
     }
 }

@@ -94,12 +94,17 @@
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="{{ route('admin.all-user') }}" class="side-nav-link">
+                            <a href="{{ route('admin.all-student') }}" class="side-nav-link">
                                 <i class="uil-user"></i>
-                                <span> All User </span>
+                                <span> All Student </span>
                             </a>
                         </li>
-
+                        <li class="side-nav-item">
+                            <a href="{{ route('admin.all-teacher') }}" class="side-nav-link">
+                                <i class="uil-user"></i>
+                                <span> All Teacher </span>
+                            </a>
+                        </li>
                     </ul>
 
 

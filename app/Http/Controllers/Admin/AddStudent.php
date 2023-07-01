@@ -14,10 +14,12 @@ class AddStudent extends Controller
             [
                 'fname' => 'required|min:3',
                 'lname' => 'required|min:3',
-                'roll' => 'required',
-                'registration' => 'required',
+                'roll' => 'required|unique:students,roll',
+                'registration' => 'required|unique:students,registration',
                 'session' => 'required',
-                'phone' => 'required|max:12|min:11',
+                'gender' => 'required',
+                'semister' => 'required',
+                'phone' => 'required|max:12|min:11||unique:students,phone',
                 'gPhone' => 'required|max:12|min:11',
                 'address' => 'required',
             ]
@@ -25,14 +27,16 @@ class AddStudent extends Controller
 
         //Insert Query
         $student = new Student();
-        $student->name = $request['fname'];
-        $student->name = $request['lname'];
-        $student->name = $request['roll'];
-        $student->name = $request['registration'];
-        $student->name = $request['session'];
-        $student->name = $request['phone'];
-        $student->name = $request['gPhone'];
-        $student->name = $request['address'];
+        $student->fname = $request['fname'];
+        $student->lname = $request['lname'];
+        $student->roll = $request['roll'];
+        $student->registration = $request['registration'];
+        $student->gender = $request['gender'];
+        $student->session = $request['session'];
+        $student->phone = $request['phone'];
+        $student->gPhone = $request['gPhone'];
+        $student->semister = $request['semister'];
+        $student->address = $request['address'];
         $result = $student->save();
 
         if($result){

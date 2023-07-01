@@ -27,18 +27,6 @@
               <div class="col-lg-12">
                 <div class="card">
                   <div class="card-body">
-                    @if (Session::has('success'))
-                    <div class="alert alert-success" role="alert">
-                        <i class="dripicons-checkmark me-2"></i>
-                        {{Session::get('success')}}
-                    </div>
-                    @endif
-                    @if (Session::has('error'))
-                    <div class="alert alert-danger" role="alert">
-                        <i class="dripicons-wrong me-2"></i>
-                        {{Session::get('error')}}
-                    </div>
-                    @endif
                     <!-- end nav-->
                     <div class="tab-content">
                       <div class="tab-pane show active" id="custom-styles-preview">

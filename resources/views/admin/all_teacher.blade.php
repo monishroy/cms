@@ -17,7 +17,7 @@
                       <li class="breadcrumb-item active">All User</li>
                     </ol>
                   </div>
-                  <h4 class="page-title">All User</h4>
+                  <h4 class="page-title">All Teacher</h4>
                 </div>
               </div>
             </div>
@@ -31,32 +31,36 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Added</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
 
-
                         <tbody>
+                            @foreach ($teachers as $teacher)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
+                                <td>{{$teacher->name}}</td>
+                                <td>{{$teacher->email}}</td>
+                                <td>
+                                    @if ($teacher->status == "1")
+                                        Active
+                                    @else
+                                        Deactive
+                                    @endif
+                                </td>
+                                <td>{{$teacher->created_at}}</td>
+                                <td class="table-action">
+                                    <a href="javascript: void(0);" class="action-icon">
+                                      <i class="mdi mdi-pencil"></i>
+                                    </a>
+                                    <a href="javascript: void(0);" class="action-icon">
+                                      <i class="mdi mdi-delete"></i>
+                                    </a>
+                                </td>
                             </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011/07/25</td>
-                                <td>$170,750</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                   </div>

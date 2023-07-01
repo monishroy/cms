@@ -35,7 +35,7 @@
                               class="dripicons-user text-muted"
                               style="font-size: 24px"
                             ></i>
-                            <h3><span>29</span></h3>
+                            <h3><span>{{ $students }}</span></h3>
                             <p class="text-muted font-15 mb-0">
                               Total Students
                             </p>
@@ -50,7 +50,7 @@
                               class="dripicons-checklist text-muted"
                               style="font-size: 24px"
                             ></i>
-                            <h3><span>715</span></h3>
+                            <h3><span>{{ $teachers }}</span></h3>
                             <p class="text-muted font-15 mb-0">Total Teacher</p>
                           </div>
                         </div>
