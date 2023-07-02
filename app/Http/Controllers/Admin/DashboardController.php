@@ -22,7 +22,11 @@ class DashboardController extends Controller
 
     public function add_student()
     {
-        return view('admin.add_student');
+        $url = url('/admin/student/add');
+        $title_header = 'Add Student';
+        $student = null;
+        $data = compact('student','url','title_header');
+        return view('admin.add_student')->with($data);
     }
 
     public function all_student()

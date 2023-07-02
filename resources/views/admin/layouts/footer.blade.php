@@ -7,7 +7,7 @@
             <!-- Then put toasts within -->
             <div class="toast fade show p-2 pt-1 bg-success" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header bg-success text-white">
-                    <img src="assets/images/logo_sm_dark.png" alt="brand-logo" height="12" class="me-1" />
+                    <img src="{{url('admin/assets/images/logo_sm_light.png')}}" alt="brand-logo" height="12" class="me-1" />
                     <strong class="me-auto">Success</strong>
                     <small class="text-white">just now</small>
                     <button type="button" class="ms-2 mb-1 btn-close me-1 mt-1" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -22,13 +22,13 @@
             @if (Session::has('error'))
             <div class="toast fade show p-2 pt-1 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header bg-danger text-white">
-                    <img src="assets/images/logo_sm_dark.png" alt="brand-logo" height="12" class="me-1" />
+                    <img src="{{url('admin/assets/images/logo_sm_light.png')}}" alt="brand-logo" height="12" class="me-1" />
                     <strong class="me-auto">Error</strong>
                     <small class="text-white">just now</small>
                     <button type="button" class="ms-2 mb-1 btn-close me-1 mt-1" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body text-white mt-2">
-                    <i class="dripicons-checkmark me-2"></i>
+                    <i class="dripicons-wrong me-2"></i>
                     {{Session::get('error')}}
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AddStudent;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UpdateStudent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutController;
@@ -38,18 +39,21 @@ Route::middleware(['guest'])->group(function(){
     Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
 });
 
-Route::post('/admin/add-student', [AddStudent::class, 'addStudent'])->name('addStudent');
-
-//Student Part
-Route::get('/student', [StudentController::class, 'index']);
-Route::get('/student/profile', [ProfileController::class, 'index']);
+// //Student Part
+// Route::get('/student', [StudentController::class, 'index']);
+// Route::get('/student/profile', [ProfileController::class, 'index']);
 
 //Admin Part
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-Route::get('/admin/add-student', [DashboardController::class, 'add_student'])->name('admin.add-student');
+Route::get('/admin/student/add', [DashboardController::class, 'add_student'])->name('admin.add-student');
 Route::get('/admin/students', [DashboardController::class, 'all_student'])->name('admin.all-student');
 Route::get('/admin/teachers', [DashboardController::class, 'all_teacher'])->name('admin.all-teacher');
 Route::get('/admin/categories', [DashboardController::class, 'categories'])->name('admin.categories');
+
+Route::post('/admin/student/add', [AddStudent::class, 'index'])->name('student.add');
+
+Route::get('/admin/student/edit/{id}', [UpdateStudent::class, 'index'])->name('student.edit');
+Route::post('/admin/student/update/{id}', [UpdateStudent::class, 'update'])->name('student.update');
 
 Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 

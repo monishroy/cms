@@ -1,6 +1,6 @@
 ﻿@extends('admin.layouts.main')
 
-@section('title', 'All User')
+@section('title', 'All Teacher')
 @section('main-section')
 
           <!-- Start Content-->

@@ -8,7 +8,7 @@ use App\Models\Student;
 
 class AddStudent extends Controller
 {
-    public function addStudent(Request $request)
+    public function index(Request $request)
     {
         $request->validate(
             [
