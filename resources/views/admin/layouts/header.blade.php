@@ -95,18 +95,26 @@
 
                         <li class="side-nav-item">
                             <a href="{{ route('admin.all-student') }}" class="side-nav-link">
-                                <i class="uil-user"></i>
+                                <i class="uil-users-alt"></i>
                                 <span> All Student </span>
                             </a>
                         </li>
                         <li class="side-nav-item">
                             <a href="{{ route('admin.all-teacher') }}" class="side-nav-link">
-                                <i class="uil-user"></i>
+                                <i class="uil-graduation-hat"></i>
                                 <span> All Teacher </span>
                             </a>
                         </li>
-                    </ul>
 
+                        <li class="side-nav-title side-nav-item">Settings</li>
+
+                        <li class="side-nav-item">
+                            <a href="{{ route('admin.categories') }}" class="side-nav-link">
+                                <i class="uil-layers"></i>
+                                <span>Add Catagores </span>
+                            </a>
+                        </li>
+                    </ul>
 
                     <!-- End Sidebar -->
 
@@ -525,7 +533,7 @@
                                 >
                                     <span class="account-user-avatar">
                                         <img
-                                            src="{{url('admin/assets/images/users/1.png')}}"
+                                            src="{{url('admin/assets/images/users/'.Auth::user()->image)}}"
                                             alt="user-image"
                                             class="rounded-circle"
                                         />

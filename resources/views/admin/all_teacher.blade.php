@@ -30,8 +30,10 @@
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                         <thead>
                             <tr>
+                                <th>Id</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Phone</th>
                                 <th>Status</th>
                                 <th>Added</th>
                                 <th>Action</th>
@@ -41,16 +43,21 @@
                         <tbody>
                             @foreach ($teachers as $teacher)
                             <tr>
-                                <td>{{$teacher->name}}</td>
+                                <td>{{$teacher->id}}</td>
+                                <td>
+                                    <img src="{{url('admin/assets/images/users/'.$teacher->image)}}" alt="image" class="img-fluid avatar-sm rounded me-3">
+                                    {{$teacher->name}}
+                                </td>
                                 <td>{{$teacher->email}}</td>
+                                <td>{{$teacher->phone}}</td>
                                 <td>
                                     @if ($teacher->status == "1")
-                                        Active
+                                     <span class="badge badge-outline-success">Active</span>
                                     @else
-                                        Deactive
+                                     <span class="badge badge-outline-danger">Deactive</span>
                                     @endif
                                 </td>
-                                <td>{{$teacher->created_at}}</td>
+                                <td>{{ date('d-M-Y', strtotime($teacher->created_at)) }}</td>
                                 <td class="table-action">
                                     <a href="javascript: void(0);" class="action-icon">
                                       <i class="mdi mdi-pencil"></i>

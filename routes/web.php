@@ -47,8 +47,9 @@ Route::get('/student/profile', [ProfileController::class, 'index']);
 //Admin Part
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/add-student', [DashboardController::class, 'add_student'])->name('admin.add-student');
-Route::get('/admin/all-student', [DashboardController::class, 'all_student'])->name('admin.all-student');
-Route::get('/admin/all-teacher', [DashboardController::class, 'all_teacher'])->name('admin.all-teacher');
+Route::get('/admin/students', [DashboardController::class, 'all_student'])->name('admin.all-student');
+Route::get('/admin/teachers', [DashboardController::class, 'all_teacher'])->name('admin.all-teacher');
+Route::get('/admin/categories', [DashboardController::class, 'categories'])->name('admin.categories');
 
 Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 

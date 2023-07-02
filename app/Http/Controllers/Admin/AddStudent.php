@@ -19,7 +19,7 @@ class AddStudent extends Controller
                 'session' => 'required',
                 'gender' => 'required',
                 'semister' => 'required',
-                'phone' => 'required|max:12|min:11||unique:students,phone',
+                'phone' => 'required|max:12|min:11|unique:students,phone',
                 'gPhone' => 'required|max:12|min:11',
                 'address' => 'required',
             ]

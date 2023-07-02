@@ -32,7 +32,7 @@
                         <div class="card shadow-none m-0">
                           <div class="card-body text-center">
                             <i
-                              class="dripicons-user text-muted"
+                              class="dripicons-user-group text-muted"
                               style="font-size: 24px"
                             ></i>
                             <h3><span>{{ $students }}</span></h3>
@@ -47,7 +47,7 @@
                         <div class="card shadow-none m-0 border-start">
                           <div class="card-body text-center">
                             <i
-                              class="dripicons-checklist text-muted"
+                              class="dripicons-user text-muted"
                               style="font-size: 24px"
                             ></i>
                             <h3><span>{{ $teachers }}</span></h3>

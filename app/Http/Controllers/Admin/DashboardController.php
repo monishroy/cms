@@ -40,4 +40,9 @@ class DashboardController extends Controller
         $data = compact('teachers');
         return view('admin.all_teacher')->with($data);
     }
+
+    public function categories()
+    {
+        return view('admin.categories');
+    }
 }

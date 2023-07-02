@@ -20,6 +20,7 @@ class RegisterController extends Controller
             [
                 'name' => 'required',
                 'email' => 'required|email|unique:users,email',
+                'phone' => 'required|min:11|unique:users,phone',
                 'password' => 'required|min:5',
             ]
         );
@@ -28,6 +29,7 @@ class RegisterController extends Controller
         $user = new User();
         $user->name = $request['name'];
         $user->email = $request['email'];
+        $user->phone = $request['phone'];
         $user->image = $request['image'];
         $user->password = Hash::make($request['password']);
         $result = $user->save();

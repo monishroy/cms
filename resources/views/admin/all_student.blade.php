@@ -44,6 +44,7 @@
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                         <thead>
                             <tr>
+                                <th>Id</th>
                                 <th>Name</th>
                                 <th>Roll</th>
                                 <th>Registration</th>
@@ -61,6 +62,7 @@
                         <tbody>
                             @foreach ($students as $student)
                             <tr>
+                                <td>{{$student->id}}</td>
                                 <td>{{$student->fname.' '.$student->lname}}</td>
                                 <td>{{$student->roll}}</td>
                                 <td>{{$student->registration}}</td>
@@ -70,15 +72,15 @@
                                 <td>{{$student->semister}}</td>
                                 <td>
                                     @if ($student->gender == "M")
-                                        Male
+                                    <span class="badge badge-outline-info">Male</span>
                                     @elseif ($student->gender == "F")
-                                        Female
+                                    <span class="badge badge-outline-info">Female</span>
                                     @else
                                         Other
                                     @endif
                                 </td>
                                 <td>{{$student->address}}</td>
-                                <td>{{$student->created_at}}</td>
+                                <td>{{ date('d-M-Y', strtotime($student->created_at)) }}</td>
                                 <td class="table-action">
                                     <a href="javascript: void(0);" class="action-icon">
                                         <i class="mdi mdi-eye"></i>

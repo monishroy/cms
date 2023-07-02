@@ -100,6 +100,24 @@
                   </div>
 
                   <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      id="phone"
+                      name="phone"
+                      data-toggle="input-mask" data-mask-format="01000-000000" maxlength="11"
+                      placeholder="Enter your phone"
+                      value="{{old('phone')}}"
+                    />
+                    <span class="text-danger text-sm">
+                        @error('phone')
+                        {{$message}}
+                        @enderror
+                    </span>
+                  </div>
+
+                  <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <div class="input-group input-group-merge">
                       <input
