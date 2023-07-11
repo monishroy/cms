@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AddStudent;
+use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UpdateStudent;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +52,11 @@ Route::get('/admin/teachers', [DashboardController::class, 'all_teacher'])->name
 Route::get('/admin/categories', [DashboardController::class, 'categories'])->name('admin.categories');
 
 Route::post('/admin/student/add', [AddStudent::class, 'index'])->name('student.add');
+
+Route::post('/admin/categories/semister/add', [CategoriesController::class, 'add_semister'])->name('semister.add');
+Route::post('/admin/categories/department/add', [CategoriesController::class, 'add_department'])->name('department.add');
+Route::post('/admin/categories/session/add', [CategoriesController::class, 'add_session'])->name('session.add');
+Route::post('/admin/categories/possion/add', [CategoriesController::class, 'add_possion'])->name('possion.add');
 
 Route::get('/admin/student/edit/{id}', [UpdateStudent::class, 'index'])->name('student.edit');
 Route::post('/admin/student/update/{id}', [UpdateStudent::class, 'update'])->name('student.update');

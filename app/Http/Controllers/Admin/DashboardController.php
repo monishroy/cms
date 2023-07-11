@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Department;
+use App\Models\Semister;
+use App\Models\Session;
 use App\Models\Student;
+use App\Models\TeacherPossion;
 use App\Models\User;
 
 class DashboardController extends Controller
@@ -47,6 +51,12 @@ class DashboardController extends Controller
 
     public function categories()
     {
-        return view('admin.categories');
+        $semister = Semister::all();
+        $department = Department::all();
+        $session = Session::all();
+        $possion = TeacherPossion::all();
+
+        $data = compact('semister','department','session','possion');
+        return view('admin.categories')->with($data);
     }
 }

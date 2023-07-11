@@ -69,7 +69,25 @@
                                 <td>{{$student->session}}</td>
                                 <td>{{$student->phone}}</td>
                                 <td>{{$student->gPhone}}</td>
-                                <td>{{$student->semister}}</td>
+                                <td>
+                                    @if ($student->semister == "1")
+                                    1st Semister
+                                    @elseif ($student->semister == "2")
+                                    2nd Semister
+                                    @elseif ($student->semister == "3")
+                                    3th Semister
+                                    @elseif ($student->semister == "4")
+                                    4th Semister
+                                    @elseif ($student->semister == "5")
+                                    5th Semister
+                                    @elseif ($student->semister == "6")
+                                    6th Semister
+                                    @elseif ($student->semister == "7")
+                                    7th Semister
+                                    @else
+                                    8th Semister
+                                    @endif
+                                </td>
                                 <td>
                                     @if ($student->gender == "M")
                                     <span class="badge badge-outline-info">Male</span>
