@@ -137,14 +137,14 @@
                                         <!-- Single Select -->
                                             <select class="form-control select2" name="semister" data-toggle="select2">
                                                 <optgroup label="Select Semister">
-                                                    <option {{$student->semister == "1" ? "selected" : ""}} value="1">1st Semister</option>
-                                                    <option {{$student->semister == "2" ? "selected" : ""}} value="2">2nd Semister</option>
-                                                    <option {{$student->semister == "3" ? "selected" : ""}} value="3">3th Semister</option>
-                                                    <option {{$student->semister == "4" ? "selected" : ""}} value="4">4th Semister</option>
-                                                    <option {{$student->semister == "5" ? "selected" : ""}} value="5">5th Semister</option>
-                                                    <option {{$student->semister == "6" ? "selected" : ""}} value="6">6th Semister</option>
-                                                    <option {{$student->semister == "7" ? "selected" : ""}} value="7">7th Semister</option>
-                                                    <option {{$student->semister == "8" ? "selected" : ""}} value="8">8th Semister</option>
+                                                    <option @if($title_header == 'Update Student') {{$student->semister == "1" ? "selected" : ""}} @else @endif value="1">1st Semister</option>
+                                                    <option @if($title_header == 'Update Student') {{$student->semister == "2" ? "selected" : ""}} @else @endif value="2">2nd Semister</option>
+                                                    <option @if($title_header == 'Update Student') {{$student->semister == "3" ? "selected" : ""}} @else @endif value="3">3th Semister</option>
+                                                    <option @if($title_header == 'Update Student') {{$student->semister == "4" ? "selected" : ""}} @else @endif value="4">4th Semister</option>
+                                                    <option @if($title_header == 'Update Student') {{$student->semister == "5" ? "selected" : ""}} @else @endif value="5">5th Semister</option>
+                                                    <option @if($title_header == 'Update Student') {{$student->semister == "6" ? "selected" : ""}} @else @endif value="6">6th Semister</option>
+                                                    <option @if($title_header == 'Update Student') {{$student->semister == "7" ? "selected" : ""}} @else @endif value="7">7th Semister</option>
+                                                    <option @if($title_header == 'Update Student') {{$student->semister == "8" ? "selected" : ""}} @else @endif value="8">8th Semister</option>
                                                 </optgroup>
                                             </select>
                                         <div class="invalid-feedback">
@@ -163,9 +163,9 @@
                                         <!-- Single Select -->
                                             <select class="form-control select2" name="gender" data-toggle="select2">
                                                 <optgroup label="Select Gender">
-                                                    <option {{$student->gender == "M" ? "selected" : ""}} value="M">Male</option>
-                                                    <option {{$student->gender == "F" ? "selected" : ""}} value="F">Female</option>
-                                                    <option {{$student->gender == "O" ? "selected" : ""}} value="O">Other</option>
+                                                    <option @if($title_header == 'Update Student') {{$student->gender == "M" ? "selected" : ""}} @else @endif value="M">Male</option>
+                                                    <option @if($title_header == 'Update Student') {{$student->gender == "F" ? "selected" : ""}} @else @endif value="F">Female</option>
+                                                    <option @if($title_header == 'Update Student') {{$student->gender == "O" ? "selected" : ""}} @else @endif value="O">Other</option>
                                                 </optgroup>
                                             </select>
                                         <div class="invalid-feedback">
