@@ -9,8 +9,6 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\CoursesController;
 use App\Http\Controllers\Frontend\ContactController;
-use App\Http\Controllers\Student\StudentController;
-use App\Http\Controllers\Student\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -39,10 +37,6 @@ Route::middleware(['guest'])->group(function(){
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
 });
-
-// //Student Part
-// Route::get('/student', [StudentController::class, 'index']);
-// Route::get('/student/profile', [ProfileController::class, 'index']);
 
 //Admin Part
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
