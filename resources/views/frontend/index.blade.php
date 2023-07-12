@@ -1,586 +1,245 @@
 @extends('frontend.layouts.main')
 
-@section('title', 'Student Management System')
+@section('title', 'Collage Management System')
 @section('main-section')
-<!-- ================ start banner Area ================= -->
-<section class="home-banner-area">
-    <div class="container">
-      <div class="row justify-content-center fullscreen align-items-center">
-        <div class="col-lg-5 col-md-8 home-banner-left">
-          <h1 class="text-white">
-            Take the first step <br />
-            to learn with us
-          </h1>
-          <p class="mx-auto text-white  mt-20 mb-40">
-            In the history of modern astronomy, there is probably no one
-            greater leap forward than the building and launch of the space
-            telescope known as the Hubble.
-          </p>
-        </div>
-        <div class="offset-lg-2 col-lg-5 col-md-12 home-banner-right">
-          <img class="img-fluid" src="{{url('frontend/img/header-img.png')}}" alt="" />
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ================ End banner Area ================= -->
-
-  <!-- ================ Start Feature Area ================= -->
-  <section class="feature-area">
-    <div class="container-fluid">
-      <div class="feature-inner row">
-        <div class="col-lg-2 col-md-6">
-          <div class="feature-item d-flex">
-            <i class="ti-book"></i>
-            <div class="ml-20">
-              <h4>New Classes</h4>
-              <p>
-                In the history of modern astronomy, there is probably no one greater leap forward.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6">
-          <div class="feature-item d-flex">
-            <i class="ti-cup"></i>
-            <div class="ml-20">
-              <h4>Top Courses</h4>
-              <p>
-                In the history of modern astronomy, there is probably no one greater leap forward.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6">
-          <div class="feature-item d-flex border-right-0">
-            <i class="ti-desktop"></i>
-            <div class="ml-20">
-              <h4>Full E-Books</h4>
-              <p>
-                In the history of modern astronomy, there is probably no one greater leap forward.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ================ End Feature Area ================= -->
-
-  <!-- ================ Start Popular Course Area ================= -->
-  <section class="popular-course-area section-gap">
-    <div class="container-fluid">
-      <div class="row justify-content-center section-title">
-        <div class="col-lg-12">
-          <h2>
-            Popular Courses <br />
-            Available Right Now
-          </h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-      </div>
-      <div class="owl-carousel popuar-course-carusel">
-        <div class="single-popular-course">
-          <div class="thumb">
-            <img class="f-img img-fluid mx-auto" src="{{url('frontend/img/popular-course/p1.jpg')}}" alt="" />
-          </div>
-          <div class="details">
-            <div class="d-flex justify-content-between mb-20">
-              <p class="name">programming language</p>
-              <p class="value">$150</p>
-            </div>
-            <a href="#">
-              <h4>Learn Angular JS Course for Legendary Persons</h4>
-            </a>
-            <div class="bottom d-flex mt-15">
-              <ul class="list">
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-              </ul>
-              <p class="ml-20">25 Reviews</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="single-popular-course">
-          <div class="thumb">
-            <img class="f-img img-fluid mx-auto" src="{{url('frontend/img/popular-course/p2.jpg')}}" alt="" />
-          </div>
-          <div class="details">
-            <div class="d-flex justify-content-between mb-20">
-              <p class="name">programming language</p>
-              <p class="value">$150</p>
-            </div>
-            <a href="#">
-              <h4>Learn Angular JS Course for Legendary Persons</h4>
-            </a>
-            <div class="bottom d-flex mt-15">
-              <ul class="list">
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-              </ul>
-              <p class="ml-20">25 Reviews</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="single-popular-course">
-          <div class="thumb">
-            <img class="f-img img-fluid mx-auto" src="{{url('frontend/img/popular-course/p3.jpg')}}" alt="" />
-          </div>
-          <div class="details">
-            <div class="d-flex justify-content-between mb-20">
-              <p class="name">programming language</p>
-              <p class="value">$150</p>
-            </div>
-            <a href="#">
-              <h4>Learn Angular JS Course for Legendary Persons</h4>
-            </a>
-            <div class="bottom d-flex mt-15">
-              <ul class="list">
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-              </ul>
-              <p class="ml-20">25 Reviews</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="single-popular-course">
-          <div class="thumb">
-            <img class="f-img img-fluid mx-auto" src="{{url('frontend/img/popular-course/p4.jpg')}}" alt="" />
-          </div>
-          <div class="details">
-            <div class="d-flex justify-content-between mb-20">
-              <p class="name">programming language</p>
-              <p class="value">$150</p>
-            </div>
-            <a href="#">
-              <h4>Learn Angular JS Course for Legendary Persons</h4>
-            </a>
-            <div class="bottom d-flex mt-15">
-              <ul class="list">
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-star"></i></a>
-                </li>
-              </ul>
-              <p class="ml-20">25 Reviews</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ================ End Popular Course Area ================= -->
-
-  <!-- ================ Start Video Area ================= -->
-  <section class="video-area section-gap-bottom">
+<!-- START HERO -->
+<section class="hero-section">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-5">
-          <div class="section-title text-white">
-            <h2 class="text-white">
-              Watch Our Trainers <br>
-              in Live Action
+        <div class="col-md-5">
+          <div class="mt-md-4">
+            <div>
+              <span class="text-white-50 ms-1"
+                >Welcome to collage</span
+              >
+            </div>
+            <h2 class="text-white fw-normal mb-4 mt-3 hero-title">
+              Rangpur Ideal Institute of Technology
             </h2>
-            <p>
-              In the history of modern astronomy, there is probably no one greater leap forward than the building and
-              launch of the space telescope known as the Hubble.
+
+            <p class="mb-4 font-16 text-white-50">
+              This website is collage management system
             </p>
+
+            <a href="" target="_blank" class="btn btn-success"
+              >Preview <i class="mdi mdi-arrow-right ms-1"></i
+            ></a>
           </div>
         </div>
-        <div class="offset-lg-1 col-md-6 video-left">
-          <div class="owl-carousel video-carousel">
-            <div class="single-video">
-              <div class="video-part">
-                <img class="img-fluid" src="{{url('frontend/img/video-img.jpg')}}" alt="">
-                <div class="overlay"></div>
-                <a class="popup-youtube play-btn" href="https://www.youtube.com/watch?v=VufDd-QL1c0">
-                  <img class="play-icon" src="{{url('frontend/img/play-btn.png')}}" alt="">
-                </a>
-              </div>
-              <h4 class="text-white mb-20 mt-30">Learn Angular js Course for Legendary Persons</h4>
-              <p class="text-white mb-20">
-                In the history of modern astronomy, there is probably no one greater leap forward than the building and
-                launch of the space telescope known as the Hubble.
-              </p>
-            </div>
-
-            <div class="single-video">
-              <div class="video-part">
-                <img class="img-fluid" src="{{url('frontend/img/video-img.jpg')}}" alt="">
-                <div class="overlay"></div>
-                <a class="popup-youtube play-btn" href="https://www.youtube.com/watch?v=VufDd-QL1c0">
-                  <img class="play-icon" src="{{url('frontend/img/play-btn.png')}}" alt="">
-                </a>
-              </div>
-              <h4 class="text-white mb-20 mt-30">Learn Angular js Course for Legendary Persons</h4>
-              <p class="text-white mb-20">
-                In the history of modern astronomy, there is probably no one greater leap forward than the building and
-                launch of the space telescope known as the Hubble.
-              </p>
-            </div>
+        <div class="col-md-5 offset-md-2">
+          <div class="text-md-end mt-3 mt-md-0">
+            <img src="{{url('admin/assets/images/startup.svg')}}" alt="" class="img-fluid" />
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- ================ End Video Area ================= -->
-
-  <!-- ================ Start Feature Area ================= -->
-  <section class="other-feature-area">
+  <!-- END HERO -->
+  <!-- START SERVICES -->
+  <section class="py-5">
     <div class="container">
-      <div class="feature-inner row">
+      <div class="row py-4">
         <div class="col-lg-12">
-          <div class="section-title text-left">
-            <h2>
-              Features That <br />
-              Can Avail By Everyone
-            </h2>
-            <p>
-              If you are looking at blank cassettes on the web, you may be
-              very confused at the difference in price. You may see some for
-              as low as $.17 each.
+          <div class="text-center">
+            <h1 class="mt-0"><i class="mdi mdi-infinity"></i></h1>
+            <h3>
+              The admin is fully
+              <span class="text-primary">responsive</span> and easy to
+              <span class="text-primary">customize</span>
+            </h3>
+            <p class="text-muted mt-2">
+              The clean and well commented code allows easy customization of
+              the theme.It's designed for <br />describing your app, agency or
+              business.
             </p>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="other-feature-item">
-            <i class="ti-key"></i>
-            <h4>Lifetime Access</h4>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
-                do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
-                amet consec tetur adipisicing elit, sed do eiusmod tempor
-                incididunt labore.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt--160">
-          <div class="other-feature-item">
-            <i class="ti-files"></i>
-            <h4>Source File Included</h4>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
-                do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
-                amet consec tetur adipisicing elit, sed do eiusmod tempor
-                incididunt labore.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt--260">
-          <div class="other-feature-item">
-            <i class="ti-medall-alt"></i>
-            <h4>Student Membership</h4>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
-                do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
-                amet consec tetur adipisicing elit, sed do eiusmod tempor
-                incididunt labore.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="other-feature-item">
-            <i class="ti-briefcase"></i>
-            <h4>35000+ Courses</h4>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
-                do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
-                amet consec tetur adipisicing elit, sed do eiusmod tempor
-                incididunt labore.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt--160">
-          <div class="other-feature-item">
-            <i class="ti-crown"></i>
-            <h4>Expert Mentors</h4>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
-                do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
-                amet consec tetur adipisicing elit, sed do eiusmod tempor
-                incididunt labore.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt--260">
-          <div class="other-feature-item">
-            <i class="ti-headphone-alt"></i>
-            <h4>Live Supports</h4>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
-                do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
-                amet consec tetur adipisicing elit, sed do eiusmod tempor
-                incididunt labore.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
-  <!-- ================ End Feature Area ================= -->
 
-  <!-- ================ Start Testimonials Area ================= -->
-  <section class="testimonials-area section-gap">
-    <div class="container">
-      <div class="testi-slider owl-carousel" data-slider-id="1">
-        <div class="row align-items-center">
-          <div class="col-lg-5">
-            <div class="item">
-              <div class="testi-item">
-                <img src="{{url('frontend/img/quote.png')}}" alt="" />
-                <div class="mt-40 text">
-                  <p>
-                    As conscious traveling Paup ers we must always be oncerned
-                    about our dear Mother Earth. If you think about it, you
-                    travel across her face and She is the host to your
-                    journey.
-                  </p>
-                </div>
-                <h4>Fanny Spencer</h4>
-                <p>Chief Executive, Amazon</p>
-              </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="text-center p-3">
+            <div class="avatar-sm m-auto">
+              <span class="avatar-title bg-primary-lighten rounded-circle">
+                <i class="uil uil-desktop text-primary font-24"></i>
+              </span>
             </div>
-          </div>
-
-          <div class="offset-lg-1 col-lg-6">
-            <img src="{{url('frontend/img/testimonial/t1.jpg')}}" alt="" />
-          </div>
-        </div>
-
-        <div class="row align-items-center">
-          <div class="col-lg-5">
-            <div class="item">
-              <div class="testi-item">
-                <img src="{{url('frontend/img/quote.png')}}" alt="" />
-                <div class="mt-40 text">
-                  <p>
-                    As conscious traveling Paup ers we must always be oncerned
-                    about our dear Mother Earth. If you think about it, you
-                    travel across her face <br />
-                    and She is the host to your journey.
-                  </p>
-                </div>
-                <h4>Fanny Spencer</h4>
-                <p>Chief Executive, Amazon</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="offset-lg-1 col-lg-6">
-            <img src="{{url('frontend/img/testimonial/t1.jpg')}}" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ================ End Testimonials Area ================= -->
-
-  <!-- ================ Start Registration Area ================= -->
-  <section class="registration-area">
-    <div class="container">
-      <div class="row align-items-end">
-        <div class="col-lg-5">
-          <div class="section-title text-left text-white">
-            <h2 class="text-white">
-              Watch Our Trainers <br>
-              in Live Action
-            </h2>
-            <p>
-              If you are looking at blank cassettes on the web, you may be
-              very confused at the difference in price. You may see some for
-              as low as $.17 each.
+            <h4 class="mt-3">Responsive Layouts</h4>
+            <p class="text-muted mt-2 mb-0">
+              Et harum quidem rerum as expedita distinctio nam libero tempore
+              cum soluta nobis est cumque quo.
             </p>
           </div>
         </div>
-        <div class="offset-lg-3 col-lg-4 col-md-6">
-          <div class="course-form-section">
-            <h3 class="text-white">Courses for Free</h3>
-            <p class="text-white">It is high time for learning</p>
-            <form class="course-form-area contact-page-form course-form text-right" id="myForm" action="mail.html" method="post">
-              <div class="form-group col-md-12">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Name" onfocus="this.placeholder = ''"
-                 onblur="this.placeholder = 'Name'">
-              </div>
-              <div class="form-group col-md-12">
-                <input type="text" class="form-control" id="subject" name="subject" placeholder="Phone Number" onfocus="this.placeholder = ''"
-                 onblur="this.placeholder = 'Phone Number'">
-              </div>
-              <div class="form-group col-md-12">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" onfocus="this.placeholder = ''"
-                 onblur="this.placeholder = 'Email Address'">
-              </div>
-              <div class="col-lg-12 text-center">
-                <button class="btn text-uppercase">Submit</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ================ End Registration Area ================= -->
 
-  <!-- ================ Start Blog Post Area ================= -->
-  <section class="blog-post-area section-gap">
-    <div class="container-fluid">
-      <div class="feature-inner row">
-        <div class="col-lg-12">
-          <div class="section-title text-left">
-            <h2>
-              Features That <br />
-              Can Avail By Everyone
-            </h2>
-            <p>
-              There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope.
-              It’s exciting to think about setting up your own viewing station.
+        <div class="col-lg-4">
+          <div class="text-center p-3">
+            <div class="avatar-sm m-auto">
+              <span class="avatar-title bg-primary-lighten rounded-circle">
+                <i class="uil uil-vector-square text-primary font-24"></i>
+              </span>
+            </div>
+            <h4 class="mt-3">Based on Bootstrap UI</h4>
+            <p class="text-muted mt-2 mb-0">
+              Temporibus autem quibusdam et aut officiis necessitatibus saepe
+              eveniet ut sit et recusandae.
             </p>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="single-blog-post">
-            <img src="{{url('frontend/img/blog-post/b1.jpg')}}" class="img-fluid" alt="" />
-            <div class="overlay"></div>
-            <div class="top-text">
-              <p>29th, oct, 2018</p>
-              <p>121 likes</p>
-              <p>05 comments</p>
+
+        <div class="col-lg-4">
+          <div class="text-center p-3">
+            <div class="avatar-sm m-auto">
+              <span class="avatar-title bg-primary-lighten rounded-circle">
+                <i class="uil uil-presentation text-primary font-24"></i>
+              </span>
             </div>
-            <div class="text">
-              <h4 class="text-white">Smart Kitchen Setup</h4>
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet consec tetur adipisicing elit,
-                  sed do.
-                </p>
-              </div>
-              <a href="#" class="primary-btn">
-                View Details
-                <i class="fa fa-long-arrow-right"></i>
-              </a>
-            </div>
+            <h4 class="mt-3">Creative Design</h4>
+            <p class="text-muted mt-2 mb-0">
+              Nam libero tempore, cum soluta a est eligendi minus id quod
+              maxime placeate facere assumenda est.
+            </p>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 mt--160">
-          <div class="single-blog-post">
-            <img src="{{url('frontend/img/blog-post/b2.jpg')}}" class="img-fluid" alt="" />
-            <div class="overlay"></div>
-            <div class="top-text">
-              <p>29th, oct, 2018</p>
-              <p>121 likes</p>
-              <p>05 comments</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="text-center p-3">
+            <div class="avatar-sm m-auto">
+              <span class="avatar-title bg-primary-lighten rounded-circle">
+                <i class="uil uil-apps text-primary font-24"></i>
+              </span>
             </div>
-            <div class="text">
-              <h4 class="text-white">Smart Kitchen Setup</h4>
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet consec tetur adipisicing elit,
-                  sed do.
-                </p>
-              </div>
-              <a href="#" class="primary-btn">
-                View Details
-                <i class="fa fa-long-arrow-right"></i>
-              </a>
-            </div>
+            <h4 class="mt-3">Multiple Applications</h4>
+            <p class="text-muted mt-2 mb-0">
+              Et harum quidem rerum as expedita distinctio nam libero tempore
+              cum soluta nobis est cumque quo.
+            </p>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 mt--260">
-          <div class="single-blog-post">
-            <img src="{{url('frontend/img/blog-post/b3.jpg')}}" class="img-fluid" alt="" />
-            <div class="overlay"></div>
-            <div class="top-text">
-              <p>29th, oct, 2018</p>
-              <p>121 likes</p>
-              <p>05 comments</p>
+
+        <div class="col-lg-4">
+          <div class="text-center p-3">
+            <div class="avatar-sm m-auto">
+              <span class="avatar-title bg-primary-lighten rounded-circle">
+                <i class="uil uil-shopping-cart-alt text-primary font-24"></i>
+              </span>
             </div>
-            <div class="text">
-              <h4 class="text-white">Smart Kitchen Setup</h4>
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet consec tetur adipisicing elit,
-                  sed do.
-                </p>
-              </div>
-              <a href="#" class="primary-btn">
-                View Details
-                <i class="fa fa-long-arrow-right"></i>
-              </a>
+            <h4 class="mt-3">Ecommerce Pages</h4>
+            <p class="text-muted mt-2 mb-0">
+              Temporibus autem quibusdam et aut officiis necessitatibus saepe
+              eveniet ut sit et recusandae.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="text-center p-3">
+            <div class="avatar-sm m-auto">
+              <span class="avatar-title bg-primary-lighten rounded-circle">
+                <i class="uil uil-grids text-primary font-24"></i>
+              </span>
             </div>
+            <h4 class="mt-3">Multiple Layouts</h4>
+            <p class="text-muted mt-2 mb-0">
+              Nam libero tempore, cum soluta a est eligendi minus id quod
+              maxime placeate facere assumenda est.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- ================ End Blog Post Area ================= -->
+  <!-- END SERVICES -->
+      <!-- START FAQ -->
+      <section class="py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-center">
+                <h1 class="mt-0">
+                  <i class="mdi mdi-frequently-asked-questions"></i>
+                </h1>
+                <h3>
+                  Frequently Asked <span class="text-primary">Questions</span>
+                </h3>
+                <p class="text-muted mt-2">
+                  Here are some of the basic types of questions for our customers.
+                  For more <br />information please contact us.
+                </p>
 
+                <button type="button" class="btn btn-success btn-sm mt-2">
+                  <i class="mdi mdi-email-outline me-1"></i> Email us your
+                  question
+                </button>
+                <button type="button" class="btn btn-info btn-sm mt-2 ms-1">
+                  <i class="mdi mdi-twitter me-1"></i> Send us a tweet
+                </button>
+              </div>
+            </div>
+          </div>
 
+          <div class="row mt-5">
+            <div class="col-lg-5 offset-lg-1">
+              <!-- Question/Answer -->
+              <div>
+                <div class="faq-question-q-box">Q.</div>
+                <h4 class="faq-question text-body">
+                  Can I use this template for my client?
+                </h4>
+                <p class="faq-answer mb-4 pb-1 text-muted">
+                  Yup, the marketplace license allows you to use this theme in any
+                  end products. For more information on licenses, please refere
+                  <a href="../../licenses/index.htm" target="_blank">here</a>.
+                </p>
+              </div>
+
+              <!-- Question/Answer -->
+              <div>
+                <div class="faq-question-q-box">Q.</div>
+                <h4 class="faq-question text-body">
+                  How do I get help with the theme?
+                </h4>
+                <p class="faq-answer mb-4 pb-1 text-muted">
+                  Use our dedicated support email (support@coderthemes.com) to
+                  send your issues or feedback. We are here to help anytime.
+                </p>
+              </div>
+            </div>
+            <!--/col-lg-5 -->
+
+            <div class="col-lg-5">
+              <!-- Question/Answer -->
+              <div>
+                <div class="faq-question-q-box">Q.</div>
+                <h4 class="faq-question text-body">
+                  Can this theme work with Wordpress?
+                </h4>
+                <p class="faq-answer mb-4 pb-1 text-muted">
+                  No. This is a HTML template. It won't directly with wordpress,
+                  though you can convert this into wordpress compatible theme.
+                </p>
+              </div>
+
+              <!-- Question/Answer -->
+              <div>
+                <div class="faq-question-q-box">Q.</div>
+                <h4 class="faq-question text-body">
+                  Will you regularly give updates of Hyper?
+                </h4>
+                <p class="faq-answer mb-4 pb-1 text-muted">
+                  Yes, We will update the Hyper regularly. All the future updates
+                  would be available without any cost.
+                </p>
+              </div>
+            </div>
+            <!--/col-lg-5-->
+          </div>
+          <!-- end row -->
+        </div>
+        <!-- end container-->
+      </section>
+      <!-- END FAQ -->
 @endsection
 

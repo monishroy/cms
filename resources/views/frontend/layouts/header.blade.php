@@ -1,94 +1,99 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>@yield('title')</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      content="A fully featured admin theme which can be used to build CRM, CMS, etc."
+      name="description"
+    />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{url('admin/assets/images/favicon.ico')}}" />
 
-<head>
-  <!-- Mobile Specific Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="{{url('frontend/img/fav.png')}}" />
-  <!-- Author Meta -->
-  <meta name="author" content="colorlib" />
-  <!-- Meta Description -->
-  <meta name="description" content="" />
-  <!-- Meta Keyword -->
-  <meta name="keywords" content="" />
-  <!-- meta character set -->
-  <meta charset="UTF-8" />
-  <!-- Site Title -->
-  <title>@yield('title')</title>
+    <!-- App css -->
+    <link href="{{url('admin/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link
+      href="{{url('admin/assets/css/app.min.css')}}"
+      rel="stylesheet"
+      type="text/css"
+      id="light-style"
+    />
+    <link
+      href="{{url('admin/assets/css/app-dark.min.css')}}"
+      rel="stylesheet"
+      type="text/css"
+      id="dark-style"
+    />
+  </head>
 
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Roboto:400,400i,500,700" rel="stylesheet" />
-  <!--
-      CSS
-      =============================================
-    -->
-  <link rel="stylesheet" href="{{url('frontend/css/linearicons.css')}}" />
-  <link rel="stylesheet" href="{{url('frontend/css/font-awesome.min.css')}}" />
-  <link rel="stylesheet" href="{{url('frontend/css/bootstrap.css')}}" />
-  <link rel="stylesheet" href="{{url('frontend/css/magnific-popup.css')}}" />
-  <link rel="stylesheet" href="{{url('frontend/css/owl.carousel.css')}}" />
-  <link rel="stylesheet" href="{{url('frontend/css/nice-select.css')}}">
-  <link rel="stylesheet" href="{{url('frontend/css/hexagons.min.css')}}" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css" />
-  <link rel="stylesheet" href="{{url('frontend/css/main.css')}}" />
-</head>
-
-<body>
-  <!-- ================ Start Header Area ================= -->
-  <header class="default-header">
-    <nav class="navbar navbar-expand-lg  navbar-light">
+  <body class="loading" data-layout-config='{"darkMode":true}'>
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-lg py-lg-3 navbar-dark">
       <div class="container">
-        <a class="navbar-brand" href="{{url('/')}}">
-          <img src="{{url('frontend/img/logo.png')}}" style="height: 30px" alt="" />
+        <!-- logo -->
+        <a href="index.html" class="navbar-brand me-lg-5">
+          <img
+            src="{{url('admin/assets/images/logo.png')}}"
+            alt=""
+            class="logo-dark"
+            height="25"
+          />
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="lnr lnr-menu"></span>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="mdi mdi-menu"></i>
         </button>
 
-        <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li><a href="{{url('/')}}">@lang('lang.Home')</a></li>
-            <li><a href="{{url('/about')}}">@lang('lang.About')</a></li>
-            <li><a href="{{url('/courses')}}">@lang('lang.Courses')</a></li>
+        <!-- menus -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <!-- left menu -->
+          <ul class="navbar-nav me-auto align-items-center">
+            <li class="nav-item mx-lg-1">
+              <a class="nav-link {{ Request::is('/') ? 'active':''}} " href="{{url('/')}}">Home</a>
+            </li>
+            <li class="nav-item mx-lg-1">
+              <a class="nav-link {{ Request::is('features') ? 'active':''}}" href="{{url('/features')}}">Features</a>
+            </li>
+            <li class="nav-item mx-lg-1">
+              <a class="nav-link {{ Request::is('about') ? 'active':''}}" href="{{url('/about')}}">About</a>
+            </li>
+            <li class="nav-item mx-lg-1">
+              <a class="nav-link {{ Request::is('courses') ? 'active':''}}" href="{{url('/courses')}} ">Courses</a>
+            </li>
+            <li class="nav-item mx-lg-1">
+              <a class="nav-link {{ Request::is('contact') ? 'active':''}}" href="{{url('/contact')}}">Contact</a>
+            </li>
+          </ul>
 
-            <li><a href="{{url('/contact')}}">@lang('lang.Contacts')</a></li>
-            <!-- Dropdown -->
-            <li class="dropdown">
-                <a class="dropdown-toggle" href="javascript::void(0)" data-toggle="dropdown">
-                @lang('lang.Login/Register')
-                </a>
-                <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{url('/login')}}">Login</a>
-                <a class="dropdown-item" href="{{url('/register')}}">Registration</a>
-                </div>
-            </li>
-            <li>
-              <button class="search">
-                <span class="lnr lnr-magnifier" id="search"></span>
-              </button>
-            </li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" href="javascript::void(0)" data-toggle="dropdown">
-                EN
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{url('/')}}">EN</a>
-                    <a class="dropdown-item" href="{{url('/bn')}}">BN</a>
-                </div>
+          <!-- right menu -->
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item me-0">
+              <a
+                href="{{url('/login')}}"
+                target="_blank"
+                class="nav-link d-lg-none"
+                > login / Register</a
+              >
+              <a
+                href="{{url('/login')}}"
+                target="_blank"
+                class="btn btn-sm btn-light btn-rounded d-none d-lg-inline-flex"
+              >
+                <i class="mdi mdi-login me-2"></i> login / Register
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div class="search-input" id="search-input-box">
-      <div class="container">
-        <form class="d-flex justify-content-between">
-          <input type="text" class="form-control" id="search-input" placeholder="Search Here" />
-          <button type="submit" class="btn"></button>
-          <span class="lnr lnr-cross" id="close-search" title="Close Search"></span>
-        </form>
-      </div>
-    </div>
-  </header>
-  <!-- ================ End Header Area ================= -->
+    <!-- NAVBAR END -->

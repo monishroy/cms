@@ -12,6 +12,8 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\frontend\featuresController;
+use App\Http\Controllers\Teacher\TeacherDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,7 @@ use App\Http\Controllers\Auth\RegisterController;
 //Frontent Part
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/courses', [CoursesController::class, 'index']);
+Route::get('/features', [featuresController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
 
 Route::middleware(['guest'])->group(function(){
@@ -47,6 +50,7 @@ Route::get('/admin/categories', [DashboardController::class, 'categories'])->nam
 
 Route::post('/admin/student/add', [AddStudent::class, 'index'])->name('student.add');
 
+//Categoties Added
 Route::post('/admin/categories/semister/add', [CategoriesController::class, 'add_semister'])->name('semister.add');
 Route::post('/admin/categories/department/add', [CategoriesController::class, 'add_department'])->name('department.add');
 Route::post('/admin/categories/session/add', [CategoriesController::class, 'add_session'])->name('session.add');
@@ -58,3 +62,6 @@ Route::post('/admin/student/update/{id}', [UpdateStudent::class, 'update'])->nam
 Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 
 Route::get('/{lang?}', [HomeController::class, 'index']);
+
+//Teacher Part
+Route::get('/teacher/dashboard', [TeacherDashboardController::class, 'index'])->name('teacher.dashboard');

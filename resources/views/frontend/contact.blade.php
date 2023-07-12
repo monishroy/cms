@@ -3,91 +3,113 @@
 @section('title', 'Contact | SMS')
 @section('main-section')
 
-	<!-- ================ start banner Area ================= -->
-	<section class="banner-area">
-		<div class="container">
-			<div class="row justify-content-center align-items-center">
-				<div class="col-lg-12 banner-right">
-					<h1 class="text-white">
-						Contacts
-					</h1>
-					<div class="link-nav">
-						<span class="box">
-							<a href="{{url('/')}}">Home </a>
-							<i class="lnr lnr-arrow-right"></i>
-							<a href="{{url('/contact')}}">Contact</a>
-						</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- ================ End banner Area ================= -->
+<!-- START CONTACT -->
+<section
+class="py-5 bg-light-lighten border-top border-bottom border-light"
+>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="text-center">
+        <h3>Get In <span class="text-primary">Touch</span></h3>
+        <p class="text-muted mt-2">
+          Please fill out the following form and we will get back to you
+          shortly. For more <br />information please contact us.
+        </p>
+      </div>
+    </div>
+  </div>
 
-	<!-- ================ Start contact-page Area  ================= -->
-	<section class="contact-page-area section-gap">
-		<div class="container">
-			<div class="row">
-				<div class="map-wrap" style="width:100%; height: 445px;" id="map"></div>
-				<div class="col-lg-4 d-flex flex-column address-wrap">
-					<div class="single-contact-address d-flex flex-row">
-						<div class="icon">
-							<span class="lnr lnr-home"></span>
-						</div>
-						<div class="contact-details">
-							<h5>Binghamton, New York</h5>
-							<p>
-								4343 Hinkle Deegan Lake Road
-							</p>
-						</div>
-					</div>
-					<div class="single-contact-address d-flex flex-row">
-						<div class="icon">
-							<span class="lnr lnr-phone-handset"></span>
-						</div>
-						<div class="contact-details">
-							<h5>00 (958) 9865 562</h5>
-							<p>Mon to Fri 9am to 6 pm</p>
-						</div>
-					</div>
-					<div class="single-contact-address d-flex flex-row">
-						<div class="icon">
-							<span class="lnr lnr-envelope"></span>
-						</div>
-						<div class="contact-details">
-							<h5>support@colorlib.com</h5>
-							<p>Send us your query anytime!</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-8">
-					<form class="form-area contact-form text-right" id="myForm" action="mail.php" method="post">
-						<div class="row">
-							<div class="col-lg-6 form-group">
-								<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
-								 class="common-input mb-20 form-control" required="" type="text">
+  <div class="row align-items-center mt-3">
+    <div class="col-md-4">
+      <p class="text-muted">
+        <span class="fw-bold">Customer Support:</span><br />
+        <span class="d-block mt-1">+8801817603163</span>
+      </p>
+      <p class="text-muted mt-4">
+        <span class="fw-bold">Email Address:</span><br />
+        <span class="d-block mt-1">info@gmail.com</span>
+      </p>
+      <p class="text-muted mt-4">
+        <span class="fw-bold">Office Address:</span><br />
+        <span class="d-block mt-1">Central Road, Payra Chattor, Rangpur, Bangladesh</span>
+      </p>
+      <p class="text-muted mt-4">
+        <span class="fw-bold">Online Time:</span><br />
+        <span class="d-block mt-1">8:00AM To 5:00PM</span>
+      </p>
+    </div>
 
-								<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-								 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control"
-								 required="" type="email">
+    <div class="col-md-8">
+      <form>
+        <div class="row mt-4">
+          <div class="col-lg-6">
+            <div class="mb-2">
+              <label for="fullname" class="form-label">Your Name</label>
+              <input
+                class="form-control form-control-light"
+                type="text"
+                id="fullname"
+                placeholder="Name..."
+              />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="mb-2">
+              <label for="emailaddress" class="form-label"
+                >Your Email</label
+              >
+              <input
+                class="form-control form-control-light"
+                type="email"
+                required=""
+                id="emailaddress"
+                placeholder="Enter you email..."
+              />
+            </div>
+          </div>
+        </div>
 
-								<input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject'"
-								 class="common-input mb-20 form-control" required="" type="text">
-							</div>
-							<div class="col-lg-6 form-group">
-								<textarea class="common-textarea form-control" name="message" placeholder="Enter Messege" onfocus="this.placeholder = ''"
-								 onblur="this.placeholder = 'Enter Messege'" required=""></textarea>
-							</div>
-							<div class="col-lg-12">
-								<div class="alert-msg" style="text-align: left;"></div>
-								<button class="btn" style="float: right;">Send Message</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- ================ End contact-page Area ================= -->
+        <div class="row mt-1">
+          <div class="col-lg-12">
+            <div class="mb-2">
+              <label for="subject" class="form-label">Your Subject</label>
+              <input
+                class="form-control form-control-light"
+                type="text"
+                id="subject"
+                placeholder="Enter subject..."
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-1">
+          <div class="col-lg-12">
+            <div class="mb-2">
+              <label for="comments" class="form-label">Message</label>
+              <textarea
+                id="comments"
+                rows="4"
+                class="form-control form-control-light"
+                placeholder="Type your message here..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-12 text-end">
+            <button class="btn btn-primary">
+              Send a Message <i class="mdi mdi-telegram ms-1"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</section>
+<!-- END CONTACT -->
 
 @endsection

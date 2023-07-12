@@ -2,315 +2,97 @@
 
 @section('title', 'About | SMS')
 @section('main-section')
-
-  <!-- ================ start banner Area ================= -->
-  <section class="banner-area">
+<!-- START FEATURES 2 -->
+<section class="py-5">
     <div class="container">
-      <div class="row justify-content-center align-items-center">
-        <div class="col-lg-12 banner-right">
-          <h1 class="text-white">
-            About Us
-          </h1>
-          <div class="link-nav">
-            <span class="box">
-              <a href="{{url('/')}}">Home </a>
-              <i class="lnr lnr-arrow-right"></i>
-              <a href="{{url('/about')}}">About</a>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ================ End banner Area ================= -->
-
-  <!-- ================ Start Feature Area ================= -->
-  <section class="feature-area">
-    <div class="container-fluid">
-      <div class="feature-inner row">
-        <div class="col-lg-2 col-md-6">
-          <div class="feature-item d-flex">
-            <i class="ti-book"></i>
-            <div class="ml-20">
-              <h4>New Classes</h4>
-              <p>
-                In the history of modern astronomy, there is probably no one greater leap forward.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6">
-          <div class="feature-item d-flex">
-            <i class="ti-cup"></i>
-            <div class="ml-20">
-              <h4>Top Courses</h4>
-              <p>
-                In the history of modern astronomy, there is probably no one greater leap forward.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6">
-          <div class="feature-item d-flex border-right-0">
-            <i class="ti-desktop"></i>
-            <div class="ml-20">
-              <h4>Full E-Books</h4>
-              <p>
-                In the history of modern astronomy, there is probably no one greater leap forward.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ================ End Feature Area ================= -->
-
-  <!-- ================- Start About Area ================= -->
-  <section class="about-area section-gap">
-    <div class="container">
-      <div class="row align-items-center justify-content-center">
-        <div class="col-lg-5 col-md-6 about-left">
-          <img class="img-fluid" src="{{url('frontend/img/about-img.png')}}" alt="">
-        </div>
-        <div class="offset-lg-1 col-lg-5 col-md-12 about-right">
-          <h1>
-            Over all <br>
-            2500 Courses <br>
-            from 20 Platforms
-          </h1>
-          <div>
-            <p>
-              There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope.
-              It’s exciting to think about setting up your own viewing station. In the life of any aspiring astronomer
-              that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing
-              station.
-            </p>
-            <p>
-              It’s exciting to think about setting up your own viewing station. In the life of any aspiring astronomer
-              that it is time to buy that first telescope exciting is time to buy that first.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ================- End About Area ================= -->
-
-  <!-- ================ Start Video Area ================= -->
-  <section class="video-area section-gap-bottom">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-5">
-          <div class="section-title text-white">
-            <h2 class="text-white">
-              Watch Our Trainers <br>
-              in Live Action
-            </h2>
-            <p>
-              In the history of modern astronomy, there is probably no one greater leap forward than the building and
-              launch of the space telescope known as the Hubble.
-            </p>
-          </div>
-        </div>
-        <div class="offset-lg-1 col-md-6 video-left">
-          <div class="owl-carousel video-carousel">
-            <div class="single-video">
-              <div class="video-part">
-                <img class="img-fluid" src="{{url('frontend/img/video-img.jpg')}}" alt="">
-                <div class="overlay"></div>
-                <a class="popup-youtube play-btn" href="https://www.youtube.com/watch?v=VufDd-QL1c0">
-                  <img class="play-icon" src="{{url('frontend/img/play-btn.png')}}" alt="">
-                </a>
-              </div>
-              <h4 class="text-white mb-20 mt-30">Learn Angular js Course for Legendary Persons</h4>
-              <p class="text-white mb-20">
-                In the history of modern astronomy, there is probably no one greater leap forward than the building and
-                launch of the space telescope known as the Hubble.
-              </p>
-            </div>
-
-            <div class="single-video">
-              <div class="video-part">
-                <img class="img-fluid" src="{{url('frontend/img/video-img.jpg')}}" alt="">
-                <div class="overlay"></div>
-                <a class="popup-youtube play-btn" href="https://www.youtube.com/watch?v=VufDd-QL1c0">
-                  <img class="play-icon" src="{{url('frontend/img/play-btn.png')}}" alt="">
-                </a>
-              </div>
-              <h4 class="text-white mb-20 mt-30">Learn Angular js Course for Legendary Persons</h4>
-              <p class="text-white mb-20">
-                In the history of modern astronomy, there is probably no one greater leap forward than the building and
-                launch of the space telescope known as the Hubble.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ================ End Video Area ================= -->
-
-  <!-- ================ Start Feature Area ================= -->
-  <section class="other-feature-area">
-    <div class="container">
-      <div class="feature-inner row">
+      <div class="row">
         <div class="col-lg-12">
-          <div class="section-title text-left">
-            <h2>
-              Features That <br />
-              Can Avail By Everyone
-            </h2>
-            <p>
-              If you are looking at blank cassettes on the web, you may be
-              very confused at the difference in price. You may see some for
-              as low as $.17 each.
+          <div class="text-center">
+            <h1 class="mt-0">
+              <i class="mdi mdi-heart-multiple-outline"></i>
+            </h1>
+            <h3>Features you'll <span class="text-danger">love</span></h3>
+            <p class="text-muted mt-2">
+              Hyper comes with next generation ui design and have multiple
+              benefits
             </p>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="other-feature-item">
-            <i class="ti-key"></i>
-            <h4>Lifetime Access</h4>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
-                do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
-                amet consec tetur adipisicing elit, sed do eiusmod tempor
-                incididunt labore.
-              </p>
-            </div>
-          </div>
+      </div>
+      <div class="row mt-2 py-5 align-items-center">
+        <div class="col-lg-5">
+          <img src="{{url('admin/assets/images/features-1.svg')}}" class="img-fluid" alt="" />
         </div>
-        <div class="col-lg-4 col-md-6 mt--160">
-          <div class="other-feature-item">
-            <i class="ti-files"></i>
-            <h4>Source File Included</h4>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
-                do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
-                amet consec tetur adipisicing elit, sed do eiusmod tempor
-                incididunt labore.
-              </p>
-            </div>
+        <div class="col-lg-6 offset-lg-1">
+          <h3 class="fw-normal">Inbuilt applications and pages</h3>
+          <p class="text-muted mt-3">
+            Hyper comes with a variety of ready-to-use applications and pages
+            that help to speed up the development
+          </p>
+
+          <div class="mt-4">
+            <p class="text-muted">
+              <i class="mdi mdi-circle-medium text-primary"></i> Projects &
+              Tasks
+            </p>
+            <p class="text-muted">
+              <i class="mdi mdi-circle-medium text-primary"></i> Ecommerce
+              Application Pages
+            </p>
+            <p class="text-muted">
+              <i class="mdi mdi-circle-medium text-primary"></i> Profile,
+              pricing, invoice
+            </p>
+            <p class="text-muted">
+              <i class="mdi mdi-circle-medium text-primary"></i> Login,
+              signup, forget password
+            </p>
           </div>
+
+          <a href="" class="btn btn-primary btn-rounded mt-3"
+            >Read More <i class="mdi mdi-arrow-right ms-1"></i
+          ></a>
         </div>
-        <div class="col-lg-4 col-md-6 mt--260">
-          <div class="other-feature-item">
-            <i class="ti-medall-alt"></i>
-            <h4>Student Membership</h4>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
-                do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
-                amet consec tetur adipisicing elit, sed do eiusmod tempor
-                incididunt labore.
-              </p>
-            </div>
+      </div>
+
+      <div class="row pb-3 pt-5 align-items-center">
+        <div class="col-lg-6">
+          <h3 class="fw-normal">Simply beautiful design</h3>
+          <p class="text-muted mt-3">
+            The simplest and fastest way to build dashboard or admin panel.
+            Hyper is built using the latest tech and tools and provide an easy
+            way to customize anything, including an overall color schemes,
+            layout, etc.
+          </p>
+
+          <div class="mt-4">
+            <p class="text-muted">
+              <i class="mdi mdi-circle-medium text-success"></i> Built with
+              latest Bootstrap
+            </p>
+            <p class="text-muted">
+              <i class="mdi mdi-circle-medium text-success"></i> Extensive use
+              of SCSS variables
+            </p>
+            <p class="text-muted">
+              <i class="mdi mdi-circle-medium text-success"></i> Well
+              documented and structured code
+            </p>
+            <p class="text-muted">
+              <i class="mdi mdi-circle-medium text-success"></i> Detailed
+              Documentation
+            </p>
           </div>
+
+          <a href="" class="btn btn-success btn-rounded mt-3"
+            >Read More <i class="mdi mdi-arrow-right ms-1"></i
+          ></a>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="other-feature-item">
-            <i class="ti-briefcase"></i>
-            <h4>35000+ Courses</h4>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
-                do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
-                amet consec tetur adipisicing elit, sed do eiusmod tempor
-                incididunt labore.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt--160">
-          <div class="other-feature-item">
-            <i class="ti-crown"></i>
-            <h4>Expert Mentors</h4>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
-                do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
-                amet consec tetur adipisicing elit, sed do eiusmod tempor
-                incididunt labore.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt--260">
-          <div class="other-feature-item">
-            <i class="ti-headphone-alt"></i>
-            <h4>Live Supports</h4>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
-                do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
-                amet consec tetur adipisicing elit, sed do eiusmod tempor
-                incididunt labore.
-              </p>
-            </div>
-          </div>
+        <div class="col-lg-5 offset-lg-1">
+          <img src="{{url('admin/assets/images/features-2.svg')}}" class="img-fluid" alt="" />
         </div>
       </div>
     </div>
   </section>
-  <!-- ================ End Feature Area ================= -->
-
-  <!-- ================ Start Testimonials Area ================= -->
-  <section class="testimonials-area section-gap">
-    <div class="container">
-      <div class="testi-slider owl-carousel" data-slider-id="1">
-        <div class="row align-items-center">
-          <div class="col-lg-5">
-            <div class="item">
-              <div class="testi-item">
-                <img src="{{url('frontend/img/quote.png')}}" alt="" />
-                <div class="mt-40 text">
-                  <p>
-                    As conscious traveling Paup ers we must always be oncerned
-                    about our dear Mother Earth. If you think about it, you
-                    travel across her face and She is the host to your
-                    journey.
-                  </p>
-                </div>
-                <h4>Fanny Spencer</h4>
-                <p>Chief Executive, Amazon</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="offset-lg-1 col-lg-6">
-            <img src="{{url('frontend/img/testimonial/t1.jpg')}}" alt="" />
-          </div>
-        </div>
-
-        <div class="row align-items-center">
-          <div class="col-lg-5">
-            <div class="item">
-              <div class="testi-item">
-                <img src="{{url('frontend/img/quote.png')}}" alt="" />
-                <div class="mt-40 text">
-                  <p>
-                    As conscious traveling Paup ers we must always be oncerned
-                    about our dear Mother Earth. If you think about it, you
-                    travel across her face <br />
-                    and She is the host to your journey.
-                  </p>
-                </div>
-                <h4>Fanny Spencer</h4>
-                <p>Chief Executive, Amazon</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="offset-lg-1 col-lg-6">
-            <img src="{{url('frontend/img/testimonial/t1.jpg')}}" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ================ End Testimonials Area ================= -->
-
+  <!-- END FEATURES 2 -->
 @endsection
