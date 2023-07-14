@@ -15,7 +15,7 @@ class CategoriesController extends Controller
     {
         $request->validate(
             [
-                'semister_name' => 'required|min:1|integer',
+                'semister_name' => 'required',
             ]
         );
 

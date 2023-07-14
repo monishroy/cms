@@ -12,7 +12,7 @@
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                       <li class="breadcrumb-item">
-                        <a href="javascript: void(0);">SMS</a>
+                        <a href="javascript: void(0);">CMS</a>
                       </li>
                       <li class="breadcrumb-item active">Categories</li>
                     </ol>
@@ -30,8 +30,8 @@
                         <h4 class="header-title mb-4">Add Semister</h4>
                         <!-- end nav-->
                         <div class="alert alert-warning" role="alert">
-                            <i class="dripicons-warning me-2"></i> Semister name only
-                            <strong>1</strong> digit of number
+                            <i class="dripicons-warning me-2"></i> Semister use fullname example:
+                            <strong>?st Semister</strong>
                         </div>
                         <div class="tab-content">
                           <div class="tab-pane show active" id="custom-styles-preview">
@@ -46,10 +46,6 @@
                                     {{$message}}
                                     @enderror
                                   </h6>
-                                </div>
-                                <div class="mb-3">
-                                  <label class="form-label" for="added_at">Added Date</label>
-                                  <input type="text" class="form-control" id="added_at" value="{{date('d-M-Y')}}" required="" readonly>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <button class="btn btn-primary" type="submit">
@@ -79,23 +75,7 @@
                                         @foreach ($semister as $semister)
                                         <tr>
                                             <td>
-                                                @if ($semister->name == "1")
-                                                1st Semister
-                                                @elseif ($semister->name == "2")
-                                                2nd Semister
-                                                @elseif ($semister->name == "3")
-                                                3th Semister
-                                                @elseif ($semister->name == "4")
-                                                4th Semister
-                                                @elseif ($semister->name == "5")
-                                                5th Semister
-                                                @elseif ($semister->name == "6")
-                                                6th Semister
-                                                @elseif ($semister->name == "7")
-                                                7th Semister
-                                                @else
-                                                8th Semister
-                                                @endif
+                                                {{ $semister->name }}
                                             </td>
                                             <td>
                                                 <a href="" class="action-icon text-xs">
@@ -138,10 +118,6 @@
                                     {{$message}}
                                     @enderror
                                 </h6>
-                              </div>
-                              <div class="mb-3">
-                                <label class="form-label" for="added_at">Added Date</label>
-                                <input type="text" class="form-control" id="added_at" value="{{date('d-M-Y')}}" required="" readonly>
                               </div>
                               <div class="d-flex justify-content-between">
                                 <button class="btn btn-primary" type="submit">
@@ -213,10 +189,6 @@
                                             @enderror
                                         </h6>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="added_at">Added Date</label>
-                                        <input type="text" class="form-control" id="added_at" value="{{date('d-M-Y')}}" required="" readonly>
-                                    </div>
                                     <div class="d-flex justify-content-between">
                                         <button class="btn btn-primary" type="submit">
                                         Submit
@@ -287,10 +259,6 @@
                                                 {{$message}}
                                                 @enderror
                                             </h6>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label" for="added_at">Added Date</label>
-                                            <input type="text" class="form-control" id="added_at" value="{{date('d-M-Y')}}" required="" readonly>
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <button class="btn btn-primary" type="submit">

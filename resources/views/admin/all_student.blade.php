@@ -12,7 +12,7 @@
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                       <li class="breadcrumb-item">
-                        <a href="javascript: void(0);">SMS</a>
+                        <a href="javascript: void(0);">CMS</a>
                       </li>
                       <li class="breadcrumb-item active">All User</li>
                     </ol>
@@ -52,7 +52,7 @@
                                 <th>Phone</th>
                                 <th>Guardian Phone</th>
                                 <th>Semister</th>
-                                <th>Gender</th>
+                                <th>Department</th>
                                 <th>Address</th>
                                 <th>Added</th>
                                 <th>Action</th>
@@ -66,36 +66,34 @@
                                 <td>{{$student->fname.' '.$student->lname}}</td>
                                 <td>{{$student->roll}}</td>
                                 <td>{{$student->registration}}</td>
-                                <td>{{$student->session}}</td>
+                                <td>
+                                  @foreach ($session as $session_name)
+                                    @if ($student->session == "$session_name->id")
+                                     {{ $session_name->name }}
+                                    @else
+                                      
+                                    @endif
+                                  @endforeach
+                                </td>
                                 <td>{{$student->phone}}</td>
                                 <td>{{$student->gPhone}}</td>
                                 <td>
-                                    @if ($student->semister == "1")
-                                    1st Semister
-                                    @elseif ($student->semister == "2")
-                                    2nd Semister
-                                    @elseif ($student->semister == "3")
-                                    3th Semister
-                                    @elseif ($student->semister == "4")
-                                    4th Semister
-                                    @elseif ($student->semister == "5")
-                                    5th Semister
-                                    @elseif ($student->semister == "6")
-                                    6th Semister
-                                    @elseif ($student->semister == "7")
-                                    7th Semister
-                                    @else
-                                    8th Semister
-                                    @endif
+                                  @foreach ($semister as $semister_name)
+                                  @if ($student->semister == $semister_name->id)
+                                   {{ $semister_name->name }}
+                                  @else
+
+                                  @endif
+                                  @endforeach
                                 </td>
                                 <td>
-                                    @if ($student->gender == "M")
-                                    <span class="badge badge-outline-info">Male</span>
-                                    @elseif ($student->gender == "F")
-                                    <span class="badge badge-outline-info">Female</span>
-                                    @else
-                                    <span class="badge badge-outline-danger">Other</span>
-                                    @endif
+                                  @foreach ($department as $department_name)
+                                  @if ($student->department == $department_name->id)
+                                   {{ $department_name->name }}
+                                  @else
+                                    
+                                  @endif
+                                  @endforeach
                                 </td>
                                 <td>{{$student->address}}</td>
                                 <td>{{ date('d-M-Y', strtotime($student->created_at)) }}</td>

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Student;
+use App\Models\Semister;
+use App\Models\Department;
+use App\Models\Session;
 use Illuminate\Http\Request;
 
 class UpdateStudent extends Controller
@@ -16,7 +19,11 @@ class UpdateStudent extends Controller
         }else{
             $url = url('/admin/student/update/').'/'.$id;
             $title_header = 'Update Student';
-            $data = compact('student','url','title_header');
+            $semister = Semister::all();
+            $department = Department::all();
+            $session = Session::all();
+
+            $data = compact('student','url','title_header','semister','department','session');
             return view('admin.add_student')->with($data);
         }
     }
@@ -28,7 +35,7 @@ class UpdateStudent extends Controller
         $student->lname = $request['lname'];
         $student->roll = $request['roll'];
         $student->registration = $request['registration'];
-        $student->gender = $request['gender'];
+        $student->department = $request['department'];
         $student->session = $request['session'];
         $student->phone = $request['phone'];
         $student->gPhone = $request['gPhone'];

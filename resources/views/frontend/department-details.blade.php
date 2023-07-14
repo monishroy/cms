@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title', 'About')
+@section('title', 'Computer')
 @section('main-section')
 <!-- START FEATURES 2 -->
 <section class="py-5">
@@ -8,11 +8,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="text-center">
-            <h1 class="mt-0">
-              <i class="mdi mdi-information-outline"></i>
-            </h1>
-            <h3>About<span class="text-danger"> me</span></h3>
-            
+            <h3>Computer</h3>
           </div>
         </div>
       </div>
@@ -21,34 +17,18 @@
           <img src="{{url('admin/assets/images/features-1.svg')}}" class="img-fluid" alt="" />
         </div>
         <div class="col-lg-6 offset-lg-1">
-          <h3 class="fw-normal">Inbuilt applications and pages</h3>
+          <h3 class="fw-normal">Introduction Computer Department</h3>
           <p class="text-muted mt-3">
             Hyper comes with a variety of ready-to-use applications and pages
             that help to speed up the development
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id 
+            praesentium excepturi laudantium error. Nostrum, asperiores accusamus, 
+            quasi voluptatibus recusandae blanditiis consectetur voluptate
+            ratione dolore veniam eaque, cum omnis iusto inventore quisquam 
+            nihil sint! Corrupti dolores, et reprehenderit illum alias modi 
+            ad nisi, repellendusrepellat eos consequuntur reiciendis 
+            temporibus totam ducimus.
           </p>
-
-          <div class="mt-4">
-            <p class="text-muted">
-              <i class="mdi mdi-circle-medium text-primary"></i> Projects &
-              Tasks
-            </p>
-            <p class="text-muted">
-              <i class="mdi mdi-circle-medium text-primary"></i> Ecommerce
-              Application Pages
-            </p>
-            <p class="text-muted">
-              <i class="mdi mdi-circle-medium text-primary"></i> Profile,
-              pricing, invoice
-            </p>
-            <p class="text-muted">
-              <i class="mdi mdi-circle-medium text-primary"></i> Login,
-              signup, forget password
-            </p>
-          </div>
-
-          <a href="" class="btn btn-primary btn-rounded mt-3"
-            >Read More <i class="mdi mdi-arrow-right ms-1"></i
-          ></a>
         </div>
       </div>
 

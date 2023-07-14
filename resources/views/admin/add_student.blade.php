@@ -12,7 +12,7 @@
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                       <li class="breadcrumb-item">
-                        <a href="javascript: void(0);">SMS</a>
+                        <a href="javascript: void(0);">CMS</a>
                       </li>
                       <li class="breadcrumb-item active">Add Student</li>
                     </ol>
@@ -92,7 +92,14 @@
                                 <div class="col-4">
                                     <div class="mb-3">
                                         <label class="form-label" for="session">Session</label>
-                                        <input type="text" class="form-control" name="session" id="session" data-toggle="input-mask" data-mask-format="0000-00" maxlength="6"  placeholder="Session" required="" @if($title_header == 'Update Student') value="{{$student->session}}" @else value="{{old('session')}}" @endif>
+                                        <!-- Single Select -->
+                                        <select class="form-control select2" name="session" data-toggle="select2">
+                                            <optgroup label="Select Session">
+                                                @foreach ($session as $session)
+                                                <option @if($title_header == 'Update Student') {{$student->session == "$session->id" ? "selected" : ""}} @else @endif value="{{ $session->id }}">{{$session->name}}</option>
+                                                @endforeach
+                                            </optgroup>
+                                        </select>
                                         <div class="invalid-feedback">
                                             Please enter Session.
                                         </div>
@@ -134,17 +141,12 @@
                                 <div class="col-4">
                                     <div class="mb-3">
                                         <label class="form-label" for="semister">Semister</label>
-                                        <!-- Single Select -->
+                                            <!-- Single Select -->
                                             <select class="form-control select2" name="semister" data-toggle="select2">
                                                 <optgroup label="Select Semister">
-                                                    <option @if($title_header == 'Update Student') {{$student->semister == "1" ? "selected" : ""}} @else @endif value="1">1st Semister</option>
-                                                    <option @if($title_header == 'Update Student') {{$student->semister == "2" ? "selected" : ""}} @else @endif value="2">2nd Semister</option>
-                                                    <option @if($title_header == 'Update Student') {{$student->semister == "3" ? "selected" : ""}} @else @endif value="3">3th Semister</option>
-                                                    <option @if($title_header == 'Update Student') {{$student->semister == "4" ? "selected" : ""}} @else @endif value="4">4th Semister</option>
-                                                    <option @if($title_header == 'Update Student') {{$student->semister == "5" ? "selected" : ""}} @else @endif value="5">5th Semister</option>
-                                                    <option @if($title_header == 'Update Student') {{$student->semister == "6" ? "selected" : ""}} @else @endif value="6">6th Semister</option>
-                                                    <option @if($title_header == 'Update Student') {{$student->semister == "7" ? "selected" : ""}} @else @endif value="7">7th Semister</option>
-                                                    <option @if($title_header == 'Update Student') {{$student->semister == "8" ? "selected" : ""}} @else @endif value="8">8th Semister</option>
+                                                    @foreach ($semister as $semister)
+                                                    <option @if($title_header == 'Update Student') {{$student->semister == "$semister->id" ? "selected" : ""}} @else @endif value="{{ $semister->id }}">{{$semister->name}}</option>
+                                                    @endforeach
                                                 </optgroup>
                                             </select>
                                         <div class="invalid-feedback">
@@ -159,13 +161,13 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="mb-3">
-                                        <label class="form-label" for="Gender">Gender</label>
+                                        <label class="form-label" for="department">Department</label>
                                         <!-- Single Select -->
-                                            <select class="form-control select2" name="gender" data-toggle="select2">
-                                                <optgroup label="Select Gender">
-                                                    <option @if($title_header == 'Update Student') {{$student->gender == "M" ? "selected" : ""}} @else @endif value="M">Male</option>
-                                                    <option @if($title_header == 'Update Student') {{$student->gender == "F" ? "selected" : ""}} @else @endif value="F">Female</option>
-                                                    <option @if($title_header == 'Update Student') {{$student->gender == "O" ? "selected" : ""}} @else @endif value="O">Other</option>
+                                            <select class="form-control select2" name="department" data-toggle="select2">
+                                                <optgroup label="Select Department">
+                                                    @foreach ($department as $department)
+                                                    <option @if($title_header == 'Update Student') {{$student->department == "$department->id" ? "selected" : ""}} @else @endif value="{{ $department->id }}">{{$department->name}}</option>
+                                                    @endforeach
                                                 </optgroup>
                                             </select>
                                         <div class="invalid-feedback">

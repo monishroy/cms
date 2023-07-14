@@ -83,7 +83,14 @@
                                 <span> Dashboard </span>
                             </a>
                         </li>
+                        <li class="side-nav-title side-nav-item">Settings</li>
 
+                        <li class="side-nav-item">
+                            <a href="{{ route('admin.categories') }}" class="side-nav-link">
+                                <i class="uil-layers"></i>
+                                <span>Add Catagores </span>
+                            </a>
+                        </li>
                         <li class="side-nav-title side-nav-item">Student</li>
 
                         <li class="side-nav-item">
@@ -99,6 +106,9 @@
                                 <span> All Student </span>
                             </a>
                         </li>
+
+                        <li class="side-nav-title side-nav-item">Teacher</li>
+
                         <li class="side-nav-item">
                             <a href="{{ route('admin.all-teacher') }}" class="side-nav-link">
                                 <i class="uil-graduation-hat"></i>
@@ -106,14 +116,7 @@
                             </a>
                         </li>
 
-                        <li class="side-nav-title side-nav-item">Settings</li>
-
-                        <li class="side-nav-item">
-                            <a href="{{ route('admin.categories') }}" class="side-nav-link">
-                                <i class="uil-layers"></i>
-                                <span>Add Catagores </span>
-                            </a>
-                        </li>
+                        
                     </ul>
 
                     <!-- End Sidebar -->

@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('lname', 30);
             $table->integer('roll');
             $table->integer('registration');
-            $table->enum('gender', ["M", "F", "O"]);
+            $table->string('department');
             $table->string('session');
             $table->string('phone');
             $table->string('gPhone');

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title', 'Contact | SMS')
+@section('title', 'Contact')
 @section('main-section')
 
 <!-- START CONTACT -->

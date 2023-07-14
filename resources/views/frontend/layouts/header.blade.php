@@ -62,16 +62,16 @@
               <a class="nav-link {{ Request::is('/') ? 'active':''}} " href="{{url('/')}}">Home</a>
             </li>
             <li class="nav-item mx-lg-1">
-              <a class="nav-link {{ Request::is('features') ? 'active':''}}" href="{{url('/features')}}">Features</a>
+              <a class="nav-link {{ Request::is('notice') ? 'active':''}}" href="{{route('notice')}}">Notice</a>
             </li>
             <li class="nav-item mx-lg-1">
-              <a class="nav-link {{ Request::is('about') ? 'active':''}}" href="{{url('/about')}}">About</a>
+              <a class="nav-link {{ Request::is('about') ? 'active':''}}" href="{{route('about')}}">About</a>
             </li>
             <li class="nav-item mx-lg-1">
-              <a class="nav-link {{ Request::is('courses') ? 'active':''}}" href="{{url('/courses')}} ">Courses</a>
+              <a class="nav-link {{ Request::is('department') ? 'active':''}}" href="{{route('department')}}">Department</a>
             </li>
             <li class="nav-item mx-lg-1">
-              <a class="nav-link {{ Request::is('contact') ? 'active':''}}" href="{{url('/contact')}}">Contact</a>
+              <a class="nav-link {{ Request::is('contact') ? 'active':''}}" href="{{route('contact')}}">Contact</a>
             </li>
           </ul>
 

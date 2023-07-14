@@ -7,12 +7,12 @@ use App\Http\Controllers\Admin\UpdateStudent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutController;
-use App\Http\Controllers\Frontend\CoursesController;
+use App\Http\Controllers\Frontend\DepartmentController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\frontend\NoticeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\frontend\featuresController;
 use App\Http\Controllers\Teacher\TeacherDashboardController;
 
 /*
@@ -27,10 +27,12 @@ use App\Http\Controllers\Teacher\TeacherDashboardController;
 */
 
 //Frontent Part
-Route::get('/about', [AboutController::class, 'index']);
-Route::get('/courses', [CoursesController::class, 'index']);
-Route::get('/features', [featuresController::class, 'index']);
-Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/department', [DepartmentController::class, 'index'])->name('department');
+Route::get('/department/computer', [DepartmentController::class, 'details'])->name('department.details');
+Route::get('/notice', [NoticeController::class, 'index'])->name('notice');
+Route::get('/notice/result', [NoticeController::class, 'details'])->name('notice-details');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 Route::middleware(['guest'])->group(function(){
     //Authentication Part

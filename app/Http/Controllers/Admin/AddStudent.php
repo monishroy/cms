@@ -17,7 +17,7 @@ class AddStudent extends Controller
                 'roll' => 'required|unique:students,roll',
                 'registration' => 'required|unique:students,registration',
                 'session' => 'required',
-                'gender' => 'required',
+                'department' => 'required',
                 'semister' => 'required',
                 'phone' => 'required|max:12|min:11|unique:students,phone',
                 'gPhone' => 'required|max:12|min:11',
@@ -31,7 +31,7 @@ class AddStudent extends Controller
         $student->lname = $request['lname'];
         $student->roll = $request['roll'];
         $student->registration = $request['registration'];
-        $student->gender = $request['gender'];
+        $student->department = $request['department'];
         $student->session = $request['session'];
         $student->phone = $request['phone'];
         $student->gPhone = $request['gPhone'];

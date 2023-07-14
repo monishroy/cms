@@ -28,16 +28,23 @@ class DashboardController extends Controller
     {
         $url = url('/admin/student/add');
         $title_header = 'Add Student';
-        $student = null;
-        $data = compact('student','url','title_header');
+        $semister = Semister::all();
+        $department = Department::all();
+        $session = Session::all();
+
+        $data = compact('url','title_header','semister','department','session');
+
         return view('admin.add_student')->with($data);
     }
 
     public function all_student()
     {
         $students = Student::all();
+        $semister = Semister::all();
+        $department = Department::all();
+        $session = Session::all();
 
-        $data = compact('students');
+        $data = compact('students','semister','department','session');
         return view('admin.all_student')->with($data);
     }
 
