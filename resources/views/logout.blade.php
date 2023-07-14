@@ -10,18 +10,18 @@
     />
     <meta content="Coderthemes" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="{{url('admin/assets/images/favicon.ico')}}" />
 
     <!-- App css -->
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('admin/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <link
-      href="assets/css/app.min.css"
+      href="{{url('admin/assets/css/app.min.css')}}"
       rel="stylesheet"
       type="text/css"
       id="light-style"
     />
     <link
-      href="assets/css/app-dark.min.css"
+      href="{{url('admin/assets/css/app-dark.min.css')}}"
       rel="stylesheet"
       type="text/css"
       id="dark-style"
@@ -30,7 +30,7 @@
 
   <body
     class="loading authentication-bg"
-    data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'
+    data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":true, "showRightSidebarOnStart": true}'
   >
     <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
       <div class="container">
@@ -39,9 +39,9 @@
             <div class="card">
               <!-- Logo -->
               <div class="card-header pt-4 pb-4 text-center bg-primary">
-                <a href="index.html">
+                <a href="{{url('/')}}">
                   <span
-                    ><img src="assets/images/logo.png" alt="" height="18"
+                    ><img src="{{url('admin/assets/images/logo.png')}}" alt="" height="30"
                   /></span>
                 </a>
               </div>
@@ -121,7 +121,7 @@
               <div class="col-12 text-center">
                 <p class="text-muted">
                   Back to
-                  <a href="pages-login.html" class="text-muted ms-1"
+                  <a href="{{url('/login')}}" class="text-muted ms-1"
                     ><b>Log In</b></a
                   >
                 </p>
@@ -139,11 +139,14 @@
     <!-- end page -->
 
     <footer class="footer footer-alt">
-      2018 - 2021 © Hyper - Coderthemes.com
+      <script>
+       document.write(new Date().getFullYear());
+      </script>
+       © mnotion.com
     </footer>
 
     <!-- bundle -->
-    <script src="assets/js/vendor.min.js"></script>
-    <script src="assets/js/app.min.js"></script>
+    <script src="{{url('admin/assets/js/vendor.min.js')}}"></script>
+    <script src="{{url('admin/assets/js/app.min.js')}}"></script>
   </body>
 </html>

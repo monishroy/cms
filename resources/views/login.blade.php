@@ -151,7 +151,10 @@
     <!-- end page -->
 
     <footer class="footer footer-alt">
-        2022 - 2023 © Mnotion - mnotion.com
+      <script>
+       document.write(new Date().getFullYear());
+      </script>
+       © mnotion.com
     </footer>
 
     <!-- bundle -->
