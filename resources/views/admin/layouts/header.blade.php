@@ -83,12 +83,18 @@
                                 <span> Dashboard </span>
                             </a>
                         </li>
+                        <li class="side-nav-item">
+                            <a href="{{ route('admin.profile') }}" class="side-nav-link">
+                                <i class="uil-user"></i>
+                                <span> Profile </span>
+                            </a>
+                        </li>
                         <li class="side-nav-title side-nav-item">Settings</li>
 
                         <li class="side-nav-item">
                             <a href="{{ route('admin.categories') }}" class="side-nav-link">
                                 <i class="uil-layers"></i>
-                                <span>Add Catagores </span>
+                                <span> Catagores </span>
                             </a>
                         </li>
                         <li class="side-nav-title side-nav-item">Student</li>
@@ -160,98 +166,7 @@
                                     </form>
                                 </div>
                             </li>
-                            <li
-                                class="dropdown notification-list topbar-dropdown"
-                            >
-                                <a
-                                    class="nav-link dropdown-toggle arrow-none"
-                                    data-bs-toggle="dropdown"
-                                    href="#"
-                                    role="button"
-                                    aria-haspopup="false"
-                                    aria-expanded="false"
-                                >
-                                    <img
-                                        src="{{url('admin/assets/images/flags/us.jpg')}}"
-                                        alt="user-image"
-                                        class="me-0 me-sm-1"
-                                        height="12"
-                                    />
-                                    <span
-                                        class="align-middle d-none d-sm-inline-block"
-                                        >English</span
-                                    >
-                                    <i
-                                        class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"
-                                    ></i>
-                                </a>
-                                <div
-                                    class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu"
-                                >
-                                    <!-- item-->
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="dropdown-item notify-item"
-                                    >
-                                        <img
-                                            src="{{url('admin/assets/images/flags/germany.jpg')}}"
-                                            alt="user-image"
-                                            class="me-1"
-                                            height="12"
-                                        />
-                                        <span class="align-middle">German</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="dropdown-item notify-item"
-                                    >
-                                        <img
-                                            src="{{url('admin/assets/images/flags/italy.jpg')}}"
-                                            alt="user-image"
-                                            class="me-1"
-                                            height="12"
-                                        />
-                                        <span class="align-middle"
-                                            >Italian</span
-                                        >
-                                    </a>
-
-                                    <!-- item-->
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="dropdown-item notify-item"
-                                    >
-                                        <img
-                                            src="{{url('admin/assets/images/flags/spain.jpg')}}"
-                                            alt="user-image"
-                                            class="me-1"
-                                            height="12"
-                                        />
-                                        <span class="align-middle"
-                                            >Spanish</span
-                                        >
-                                    </a>
-
-                                    <!-- item-->
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="dropdown-item notify-item"
-                                    >
-                                        <img
-                                            src="{{url('admin/assets/images/flags/russia.jpg')}}"
-                                            alt="user-image"
-                                            class="me-1"
-                                            height="12"
-                                        />
-                                        <span class="align-middle"
-                                            >Russian</span
-                                        >
-                                    </a>
-                                </div>
-                            </li>
-
+                            
                             <li class="dropdown notification-list">
                                 <a
                                     class="nav-link dropdown-toggle arrow-none"
@@ -438,13 +353,14 @@
                                             <div class="col">
                                                 <a
                                                     class="dropdown-icon-item"
-                                                    href="#"
+                                                    href="https://mnotion.com"
+                                                    target="_blank"
                                                 >
                                                     <img
-                                                        src="{{url('admin/assets/images/brands/slack.png')}}"
+                                                        src="{{url('admin/assets/images/favicon.ico')}}"
                                                         alt="slack"
                                                     />
-                                                    <span>Slack</span>
+                                                    <span>Mnotion</span>
                                                 </a>
                                             </div>
                                             <div class="col">
@@ -546,7 +462,7 @@
                                             >{{ Auth::user()->name }}</span
                                         >
                                         <span class="account-position"
-                                            >admin</span
+                                            >Admin</span
                                         >
                                     </span>
                                 </a>
@@ -562,7 +478,7 @@
 
                                     <!-- item-->
                                     <a
-                                        href="javascript:void(0);"
+                                        href="{{ route('admin.profile') }}"
                                         class="dropdown-item notify-item"
                                     >
                                         <i

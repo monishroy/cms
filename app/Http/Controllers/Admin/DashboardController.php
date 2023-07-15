@@ -24,6 +24,14 @@ class DashboardController extends Controller
         return view('admin.index' , compact('students','teachers'));
     }
 
+    public function profile()
+    {
+        $user = User::count();
+        $students = Student::count();
+        $data = compact('user','students');
+        return view('admin.profile')->with($data);
+    }
+
     public function add_student()
     {
         $url = url('/admin/student/add');

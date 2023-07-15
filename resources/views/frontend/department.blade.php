@@ -10,7 +10,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
   <div class="row">
     <div class="col-lg-12">
       <div class="text-center">
-        <h3>All <span class="text-primary">Department</span></h3>
+        <h3>All <span class="text-primary">Technology</span></h3>
         <p class="text-muted mt-2">
           Click this department name and details department info.
         </p>
@@ -25,7 +25,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
           <img
             src="{{url('admin/assets/images/layouts/layout-1.png')}}"
             alt="demo-img"
-            class="img-fluid shadow-sm rounded"
+            class="img-fluid shadow-sm rounded border border-light"
           />
           <h5 class="mt-3 f-17 text-dark">Civil</h5>
         </div>
@@ -38,7 +38,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
           <img
             src="{{url('admin/assets/images/layouts/layout-2.png')}}"
             alt="demo-img"
-            class="img-fluid shadow-sm rounded"
+            class="img-fluid shadow-sm rounded border border-light"
           />
           <h5 class="mt-3 f-17 text-dark">Electrical</h5>
         </div>
@@ -50,7 +50,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
           <img
             src="{{url('admin/assets/images/layouts/layout-3.png')}}"
             alt="demo-img"
-            class="img-fluid shadow-sm rounded"
+            class="img-fluid shadow-sm rounded border border-light"
           />
           <h5 class="mt-3 f-17 text-dark">Mecanical</h5>
         </div>
@@ -65,7 +65,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
           <img
             src="{{url('admin/assets/images/layouts/layout-5.png')}}"
             alt="demo-img"
-            class="img-fluid shadow-sm rounded"
+            class="img-fluid shadow-sm rounded border border-light"
           />
           <h5 class="mt-3 f-17 text-dark">Computer</h5>
         </div>
@@ -77,7 +77,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
           <img
             src="{{url('admin/assets/images/layouts/layout-6.png')}}"
             alt="demo-img"
-            class="img-fluid shadow-sm rounded"
+            class="img-fluid shadow-sm rounded border border-light"
           />
           <h5 class="mt-3 f-17 text-dark">Electronics</h5>
         </div>
@@ -90,7 +90,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
           <img
             src="{{url('admin/assets/images/layouts/layout-4.png')}}"
             alt="demo-img"
-            class="img-fluid shadow-sm rounded"
+            class="img-fluid shadow-sm rounded border border-light"
           />
           <h5 class="mt-3 f-17 text-dark">Textile</h5>
         </div>

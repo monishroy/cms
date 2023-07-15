@@ -412,54 +412,6 @@
             <!-- end row-->
 
             <div class="row">
-              <div class="col-6">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="dropdown float-end">
-                      <a
-                        href="#"
-                        class="dropdown-toggle arrow-none card-drop"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        <i class="mdi mdi-dots-vertical"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-end">
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item"
-                          >Weekly Report</a
-                        >
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item"
-                          >Monthly Report</a
-                        >
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item"
-                          >Action</a
-                        >
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item"
-                          >Settings</a
-                        >
-                      </div>
-                    </div>
-                    <h4 class="header-title mb-4">Tasks Overview</h4>
-
-                    <div dir="ltr">
-                      <div class="mt-3 chartjs-chart" style="height: 320px">
-                        <canvas
-                          id="task-area-chart"
-                          data-bgcolor="#727cf5"
-                          data-bordercolor="#727cf5"
-                        ></canvas>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- end card body-->
-                </div>
-                <!-- end card -->
-              </div>
-              <!-- end col-->
               <div class="col-xl-6">
                 <div class="card">
                   <div class="card-body">
@@ -543,11 +495,7 @@
                 <!-- end card -->
               </div>
               <!-- end col-->
-            </div>
-            <!-- end row-->
-
-            <div class="row">
-              <div class="col-xl-5">
+              <div class="col-xl-6">
                 <div class="card">
                   <div class="card-body">
                     <div class="dropdown float-end">
@@ -867,10 +815,9 @@
                 <!-- end card -->
               </div>
               <!-- end col-->
-
-
             </div>
             <!-- end row-->
+
           </div>
           <!-- container -->
         </div>

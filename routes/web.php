@@ -28,7 +28,7 @@ use App\Http\Controllers\Teacher\TeacherDashboardController;
 
 //Frontent Part
 Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/department', [DepartmentController::class, 'index'])->name('department');
+Route::get('/technology', [DepartmentController::class, 'index'])->name('technology');
 Route::get('/department/computer', [DepartmentController::class, 'details'])->name('department.details');
 Route::get('/notice', [NoticeController::class, 'index'])->name('notice');
 Route::get('/notice/result', [NoticeController::class, 'details'])->name('notice-details');
@@ -45,6 +45,7 @@ Route::middleware(['guest'])->group(function(){
 
 //Admin Part
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/profile', [DashboardController::class, 'profile'])->name('admin.profile');
 Route::get('/admin/student/add', [DashboardController::class, 'add_student'])->name('admin.add-student');
 Route::get('/admin/students', [DashboardController::class, 'all_student'])->name('admin.all-student');
 Route::get('/admin/teachers', [DashboardController::class, 'all_teacher'])->name('admin.all-teacher');

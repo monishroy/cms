@@ -10,9 +10,8 @@
             height="18"
           />
           <p class="text-muted mt-4">
-            Hyper makes it easier to build better websites with <br />
-            great speed. Save hundreds of hours of design <br />
-            and development by using it.
+            Rangpur Ideal Institute of Technology (RIIT) is<br />
+            a self-financing educational institution.
           </p>
 
           <ul class="social-list list-inline mt-3">
@@ -123,7 +122,9 @@
         <div class="col-lg-12">
           <div class="mt-5">
             <p class="text-muted mt-4 text-center mb-0">
-              © 2018 - 2021 Hyper. Design and coded by Coderthemes
+              © <script>
+                document.write(new Date().getFullYear());
+               </script> mnotion. Development by <a target="_blank" href="https://mnotion.com">Monish Roy</a>
             </p>
           </div>
         </div>

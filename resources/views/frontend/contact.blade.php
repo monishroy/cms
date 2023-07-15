@@ -14,7 +14,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
         <h3>Get In <span class="text-primary">Touch</span></h3>
         <p class="text-muted mt-2">
           Please fill out the following form and we will get back to you
-          shortly. For more <br />information please contact us.
+          shortly.
         </p>
       </div>
     </div>
@@ -31,7 +31,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
         <span class="d-block mt-1">info@gmail.com</span>
       </p>
       <p class="text-muted mt-4">
-        <span class="fw-bold">Office Address:</span><br />
+        <span class="fw-bold">Institute Address:</span><br />
         <span class="d-block mt-1">Central Road, Payra Chattor, Rangpur, Bangladesh</span>
       </p>
       <p class="text-muted mt-4">
