@@ -89,6 +89,27 @@
                                 <span> Profile </span>
                             </a>
                         </li>
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#frontendSlid" aria-expanded="false" aria-controls="frontendSlid" class="side-nav-link collapsed">
+                                <i class="uil uil-window"></i>
+                                <span> Frontend </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="frontendSlid" style="">
+                                <ul class="side-nav-second-level">
+                                <li>
+                                    <a href="{{ route('admin.notice') }}">Notice Board</a>
+                                </li>
+                                <li>
+                                    <a href="apps-email-read.html">Technology</a>
+                                </li>
+                                <li>
+                                    <a href="apps-email-read.html">Employees</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
                         <li class="side-nav-title side-nav-item">Settings</li>
 
                         <li class="side-nav-item">
@@ -121,7 +142,7 @@
                                 <span> All Teacher </span>
                             </a>
                         </li>
-
+                        
                         
                     </ul>
 

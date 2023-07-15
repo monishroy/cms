@@ -20,7 +20,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
 
   <div class="row mt-4">
     <div class="col-lg-4">
-      <a href="{{ route('department.details') }}">
+      <a href="{{ route('technology.details') }}">
         <div class="demo-box text-center">
           <img
             src="{{url('admin/assets/images/layouts/layout-1.png')}}"

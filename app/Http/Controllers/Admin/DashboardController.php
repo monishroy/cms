@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Department;
+use App\Models\Notice;
 use App\Models\Semister;
 use App\Models\Session;
 use App\Models\Student;
@@ -32,6 +33,15 @@ class DashboardController extends Controller
         return view('admin.profile')->with($data);
     }
 
+    public function notice()
+    {
+        $notice = Notice::all();
+
+        $data = compact('notice');
+        
+        return view('admin.notice-board')->with($data);
+    }
+
     public function add_student()
     {
         $url = url('/admin/student/add');
@@ -42,7 +52,7 @@ class DashboardController extends Controller
 
         $data = compact('url','title_header','semister','department','session');
 
-        return view('admin.add_student')->with($data);
+        return view('admin.add-student')->with($data);
     }
 
     public function all_student()
@@ -53,7 +63,7 @@ class DashboardController extends Controller
         $session = Session::all();
 
         $data = compact('students','semister','department','session');
-        return view('admin.all_student')->with($data);
+        return view('admin.all-student')->with($data);
     }
 
     public function all_teacher()
@@ -61,7 +71,7 @@ class DashboardController extends Controller
         $teachers = User::all();
 
         $data = compact('teachers');
-        return view('admin.all_teacher')->with($data);
+        return view('admin.all-teacher')->with($data);
     }
 
     public function categories()

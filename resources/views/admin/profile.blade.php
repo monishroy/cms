@@ -1,6 +1,6 @@
 ﻿@extends('admin.layouts.main')
 
-@section('title', 'Dashboard')
+@section('title', 'Profile')
 @section('main-section')
 
           <!-- Start Content-->

@@ -98,9 +98,6 @@
                                 <td>{{$student->address}}</td>
                                 <td>{{ date('d-M-Y', strtotime($student->created_at)) }}</td>
                                 <td class="table-action">
-                                    <a href="javascript: void(0);" class="action-icon">
-                                        <i class="mdi mdi-eye"></i>
-                                    </a>
                                     <a href="{{route('student.edit',['id'=>$student->id])}}" class="action-icon">
                                       <i class="mdi mdi-pencil"></i>
                                     </a>
