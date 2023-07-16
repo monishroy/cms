@@ -47,4 +47,53 @@ class NoticeBoardController extends Controller
 
         return response()->download($path);
     }
+
+  
+    public function trash($id)
+    {
+        $notice = Notice::find($id);
+        if(is_null($notice)){
+            return back()->with('error','Notice Not Found!');
+        }else{
+            $result = $notice->delete();
+
+            if($result){
+                return back()->with('success','Notice Trash Successfully');
+            }else{
+                return back()->with('error','Something is Worng!');
+            }
+        }
+    }
+
+    public function restore($id)
+    {
+        $notice = Notice::withTrashed()->find($id);
+        if(is_null($notice)){
+            return back()->with('error','Notice Not Found!');
+        }else{
+            $result = $notice->restore();
+
+            if($result){
+                return back()->with('success','Notice Restore Successfully');
+            }else{
+                return back()->with('error','Something is Worng!');
+            }
+        }
+    }
+
+    public function delete($id)
+    {
+        $notice = Notice::withTrashed()->find($id);
+        if(is_null($notice)){
+            return back()->with('error','Notice Not Found!');
+        }else{
+            $result = $notice->forceDelete();
+
+            if($result){
+                return back()->with('success','Notice Delete Successfully');
+            }else{
+                return back()->with('error','Something is Worng!');
+            }
+        }
+    }  
 }

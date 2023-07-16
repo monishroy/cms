@@ -17,9 +17,9 @@ class HomeController extends Controller
         App::setLocale($lang);
         if(Auth::user()){
         $students = Student::count();
-        $teachers = User::count();
+        $users = User::count();
 
-        return view('admin.index' , compact('students','teachers'));
+        return view('admin.index' , compact('students','users'));
         }else{
             $notice = Notice::all();
 

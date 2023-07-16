@@ -98,10 +98,10 @@
                             <div class="collapse" id="frontendSlid" style="">
                                 <ul class="side-nav-second-level">
                                 <li>
-                                    <a href="{{ route('admin.notice') }}">Notice Board</a>
+                                    <a href="{{ route('admin.frontend.notice') }}">Notice Board</a>
                                 </li>
                                 <li>
-                                    <a href="apps-email-read.html">Technology</a>
+                                    <a href="{{ route('admin.frontend.technology') }}">Technology</a>
                                 </li>
                                 <li>
                                     <a href="apps-email-read.html">Employees</a>
@@ -117,6 +117,32 @@
                                 <i class="uil-layers"></i>
                                 <span> Catagores </span>
                             </a>
+                        </li>
+                        <li class="side-nav-item">
+                            <a href="{{ route('admin.users') }}" class="side-nav-link">
+                                <i class="uil-user"></i>
+                                <span> All User </span>
+                            </a>
+                        </li>
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#trashSection" aria-expanded="false" aria-controls="trashSection" class="side-nav-link collapsed">
+                                <i class="uil uil-trash"></i>
+                                <span> Trash </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="trashSection" style="">
+                                <ul class="side-nav-second-level">
+                                <li>
+                                    <a href="{{ route('admin.trash.stucent') }}">Students</a>
+                                </li>
+                                <li>
+                                    <a href="apps-email-read.html">Teacher</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.trash.notice') }}">Notice</a>
+                                </li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="side-nav-title side-nav-item">Student</li>
 
@@ -135,13 +161,13 @@
                         </li>
 
                         <li class="side-nav-title side-nav-item">Teacher</li>
-
                         <li class="side-nav-item">
-                            <a href="{{ route('admin.all-teacher') }}" class="side-nav-link">
+                            <a href="{{ route('admin.users') }}" class="side-nav-link">
                                 <i class="uil-graduation-hat"></i>
                                 <span> All Teacher </span>
                             </a>
                         </li>
+                        
                         
                         
                     </ul>

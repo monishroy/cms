@@ -1,6 +1,6 @@
 ﻿@extends('admin.layouts.main')
 
-@section('title', 'All Student')
+@section('title', 'Trash Student')
 @section('main-section')
 
           <!-- Start Content-->
@@ -95,10 +95,10 @@
                                 <td>{{$student->address}}</td>
                                 <td>{{ date('d-M-Y', strtotime($student->created_at)) }}</td>
                                 <td class="table-action">
-                                    <a href="{{route('student.edit',['id'=>$student->id])}}" class="action-icon">
-                                      <i class="mdi mdi-pencil"></i>
+                                    <a data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" title="Restore" href="{{route('student.restore',['id'=>$student->id])}}" class="action-icon">
+                                      <i class="uil uil-redo"></i>
                                     </a>
-                                    <a data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" title="Move to Trash" href="{{route('student.trash',['id'=>$student->id])}}" class="action-icon">
+                                    <a data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" title="Parmanent Delete" href="{{route('student.delete',['id'=>$student->id])}}" class="action-icon">
                                       <i class="mdi mdi-delete"></i>
                                     </a>
                                 </td>

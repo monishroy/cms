@@ -9,6 +9,7 @@ use App\Models\Semister;
 use App\Models\Session;
 use App\Models\Student;
 use App\Models\TeacherPossion;
+use App\Models\Technology;
 use App\Models\User;
 
 class DashboardController extends Controller
@@ -20,9 +21,9 @@ class DashboardController extends Controller
     public function index()
     {
         $students = Student::count();
-        $teachers = User::count();
+        $users = User::count();
 
-        return view('admin.index' , compact('students','teachers'));
+        return view('admin.index' , compact('students','users'));
     }
 
     public function profile()
@@ -40,6 +41,15 @@ class DashboardController extends Controller
         $data = compact('notice');
         
         return view('admin.notice-board')->with($data);
+    }
+
+    public function technology()
+    {
+        $technology = Technology::all();
+
+        $data = compact('technology');
+        
+        return view('admin.technology')->with($data);
     }
 
     public function add_student()
@@ -66,12 +76,12 @@ class DashboardController extends Controller
         return view('admin.all-student')->with($data);
     }
 
-    public function all_teacher()
+    public function users()
     {
-        $teachers = User::all();
+        $users = User::all();
 
-        $data = compact('teachers');
-        return view('admin.all-teacher')->with($data);
+        $data = compact('users');
+        return view('admin.users')->with($data);
     }
 
     public function categories()
@@ -84,4 +94,25 @@ class DashboardController extends Controller
         $data = compact('semister','department','session','possion');
         return view('admin.categories')->with($data);
     }
+
+    
+    public function trash_students()
+    {
+        $students = Student::onlyTrashed()->get();
+        $semister = Semister::all();
+        $department = Department::all();
+        $session = Session::all();
+
+        $data = compact('students','semister','department','session');
+        return view('admin.trash-student')->with($data);
+    }
+    
+    public function trash_notice()
+    {
+        $notice = Notice::onlyTrashed()->get();
+
+        $data = compact('notice');
+        return view('admin.trash-notice')->with($data);
+    }
+    
 }

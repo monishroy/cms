@@ -88,4 +88,52 @@ class StudentController extends Controller
             return back()->with('error','Something is Worng!');
         }
     }
+
+    public function trash($id)
+    {
+        $student = Student::find($id);
+        if(is_null($student)){
+            return back()->with('error','Student Not Found!');
+        }else{
+            $result = $student->delete();
+
+            if($result){
+                return back()->with('success','Student Trash Successfully');
+            }else{
+                return back()->with('error','Something is Worng!');
+            }
+        }
+    }
+
+    public function restore($id)
+    {
+        $student = Student::withTrashed()->find($id);
+        if(is_null($student)){
+            return back()->with('error','Student Not Found!');
+        }else{
+            $result = $student->restore();
+
+            if($result){
+                return back()->with('success','Student Restore Successfully');
+            }else{
+                return back()->with('error','Something is Worng!');
+            }
+        }
+    }
+
+    public function delete($id)
+    {
+        $student = Student::withTrashed()->find($id);
+        if(is_null($student)){
+            return back()->with('error','Student Not Found!');
+        }else{
+            $result = $student->forceDelete();
+
+            if($result){
+                return back()->with('success','Student Delete Successfully');
+            }else{
+                return back()->with('error','Something is Worng!');
+            }
+        }
+    }
 }

@@ -17,7 +17,7 @@
                       <li class="breadcrumb-item active">All User</li>
                     </ol>
                   </div>
-                  <h4 class="page-title">All Teacher</h4>
+                  <h4 class="page-title">All User</h4>
                 </div>
               </div>
             </div>
@@ -41,23 +41,23 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($teachers as $teacher)
+                            @foreach ($users as $users)
                             <tr>
-                                <td>{{$teacher->id}}</td>
+                                <td>{{$users->id}}</td>
                                 <td>
-                                    <img src="{{url('admin/assets/images/users/'.$teacher->image)}}" alt="image" class="img-fluid avatar-sm rounded me-3">
-                                    {{$teacher->name}}
+                                    <img src="{{url('admin/assets/images/users/'.$users->image)}}" alt="image" class="img-fluid avatar-sm rounded me-3">
+                                    {{$users->name}}
                                 </td>
-                                <td>{{$teacher->email}}</td>
-                                <td>{{$teacher->phone}}</td>
+                                <td>{{$users->email}}</td>
+                                <td>{{$users->phone}}</td>
                                 <td>
-                                    @if ($teacher->status == "1")
+                                    @if ($users->status == "1")
                                      <span class="badge badge-outline-success">Active</span>
                                     @else
                                      <span class="badge badge-outline-danger">Deactive</span>
                                     @endif
                                 </td>
-                                <td>{{ date('d-M-Y', strtotime($teacher->created_at)) }}</td>
+                                <td>{{ date('d-M-Y', strtotime($users->created_at)) }}</td>
                                 <td class="table-action">
                                     <a href="javascript: void(0);" class="action-icon">
                                       <i class="mdi mdi-pencil"></i>

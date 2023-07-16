@@ -66,14 +66,7 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="roll">Added Name</label>
                                         <input type="text" class="form-control" id="notice_title" placeholder="Notice Title" readonly value="{{Auth::user()->name}}">
-                                        <div class="invalid-feedback">
-                                            Please enter roll.
-                                        </div>
-                                        <span class="text-danger text-sm">
-                                            @error('roll')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -96,37 +89,33 @@
                   <div class="card-body">
                     <!-- end nav-->
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
-                        <thead>
-                            <tr>
-                                <th>Notice File</th>
-                                <th>Notice Title</th>
-                                <th>Added on</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                    
-                    
-                        <tbody>
-                            @foreach ($notice as $notice)
-                            <tr>
-                                <td>
-                                  {{ $notice->notice_file }}
-                                  {{-- <img src="{{ url('storage/notice/'.$notice->notice_file) }}" alt=""> --}}
-                                </td>
-                                <td>{{ $notice->notice_title }}</td>
-                                <td>{{ date('d-M-Y', strtotime($notice->created_at)) }}</td>
-                                <td>
-                                    <a href="{{ route('admin.notice.download',['file'=>$notice->notice_file]) }}" class="action-icon">
-                                        <i class="mdi mdi-download"></i>
-                                    </a>
-                                    <a href="javascript: void(0);" class="action-icon">
-                                        <i class="mdi mdi-delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            @endforeach
-                            
-                        </tbody>
+                      <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>Notice Title</th>
+                            <th>Downloaded</th>
+                            <th>Added on</th>
+                            <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        @foreach ($notice as $notice)
+                        <tr>
+                          <td>{{ $notice->id }}</td>
+                          <td>{{ $notice->notice_title }}</td>
+                          <td>50</td>
+                          <td>{{ date('d-M-Y', strtotime($notice->created_at)) }}</td>
+                          <td>
+                            <a href="{{ route('admin.notice.download',['file'=>$notice->notice_file]) }}" class="action-icon">
+                              <i class="mdi mdi-download"></i>
+                            </a>
+                            <a data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" title="Move to Trash" href="{{route('notice.trash',['id'=>$notice->id])}}"  class="action-icon">
+                              <i class="mdi mdi-delete"></i>
+                            </a>
+                          </td>
+                        </tr>
+                        @endforeach
+                      </tbody>
                     </table>
                   </div>
                   <!-- end card-body-->

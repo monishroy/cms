@@ -4,13 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Notice extends Model
+class Technology extends Model
 {
     use HasFactory;
-    use SoftDeletes;
-    
-    protected $table = "notice";
+    protected $table = "technology";
     protected $primaryKey = "id";
 }

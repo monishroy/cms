@@ -19,83 +19,22 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
   </div>
 
   <div class="row mt-4">
+    @foreach ($technology as $technology)
     <div class="col-lg-4">
-      <a href="{{ route('technology.details') }}">
+      <a href="{{route('technology.details',['id'=>$technology->id])}}">
         <div class="demo-box text-center">
           <img
-            src="{{url('admin/assets/images/layouts/layout-1.png')}}"
+            src="{{ url("storage/technology/$technology->image1") }}"
             alt="demo-img"
+            style="height: 290px"
             class="img-fluid shadow-sm rounded border border-light"
           />
-          <h5 class="mt-3 f-17 text-dark">Civil</h5>
+          <h5 class="mt-3 f-17 text-dark">{{ $technology->name }}</h5>
         </div>
       </a>
     </div>
-
-    <div class="col-lg-4">
-      <a href="">
-        <div class="demo-box text-center mt-3 mt-lg-0">
-          <img
-            src="{{url('admin/assets/images/layouts/layout-2.png')}}"
-            alt="demo-img"
-            class="img-fluid shadow-sm rounded border border-light"
-          />
-          <h5 class="mt-3 f-17 text-dark">Electrical</h5>
-        </div>
-      </a>
-    </div>
-    <div class="col-lg-4">
-      <a href="">
-        <div class="demo-box text-center mt-3 mt-lg-0">
-          <img
-            src="{{url('admin/assets/images/layouts/layout-3.png')}}"
-            alt="demo-img"
-            class="img-fluid shadow-sm rounded border border-light"
-          />
-          <h5 class="mt-3 f-17 text-dark">Mecanical</h5>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="row mt-4">
-    <div class="col-lg-4">
-      <a href="">
-        <div class="demo-box text-center">
-          <img
-            src="{{url('admin/assets/images/layouts/layout-5.png')}}"
-            alt="demo-img"
-            class="img-fluid shadow-sm rounded border border-light"
-          />
-          <h5 class="mt-3 f-17 text-dark">Computer</h5>
-        </div>
-      </a>
-    </div>
-    <div class="col-lg-4">
-      <a href="">
-        <div class="demo-box text-center mt-3 mt-lg-0">
-          <img
-            src="{{url('admin/assets/images/layouts/layout-6.png')}}"
-            alt="demo-img"
-            class="img-fluid shadow-sm rounded border border-light"
-          />
-          <h5 class="mt-3 f-17 text-dark">Electronics</h5>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-lg-4">
-      <a href="">
-        <div class="demo-box text-center mt-3 mt-lg-0">
-          <img
-            src="{{url('admin/assets/images/layouts/layout-4.png')}}"
-            alt="demo-img"
-            class="img-fluid shadow-sm rounded border border-light"
-          />
-          <h5 class="mt-3 f-17 text-dark">Textile</h5>
-        </div>
-      </a>
-    </div>
+    @endforeach
+    
   </div>
 </div>
 </section>

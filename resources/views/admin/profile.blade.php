@@ -53,7 +53,7 @@
                                 <li class="list-inline-item me-3">
                                   <h5 class="mb-1">{{ $user }}</h5>
                                   <p class="mb-0 font-13 text-white-50">
-                                    Total Employees
+                                    Total User
                                   </p>
                                 </li>
                                 <li class="list-inline-item">
