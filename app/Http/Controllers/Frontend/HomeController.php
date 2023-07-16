@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Notice;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,7 +21,10 @@ class HomeController extends Controller
 
         return view('admin.index' , compact('students','teachers'));
         }else{
-            return view('frontend.index');
+            $notice = Notice::all();
+
+            $data = compact('notice');
+            return view('frontend.index')->with($data);
         }
 
     }

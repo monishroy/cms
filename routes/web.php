@@ -32,7 +32,7 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/technology', [TechnologyController::class, 'index'])->name('technology');
 Route::get('/technology/computer', [TechnologyController::class, 'details'])->name('technology.details');
 Route::get('/notice', [NoticeController::class, 'index'])->name('notice');
-Route::get('/notice/result', [NoticeController::class, 'details'])->name('notice-details');
+Route::get('/notice/download/{file}', [NoticeController::class, 'download'])->name('notice.download');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 Route::middleware(['guest'])->group(function(){
@@ -55,6 +55,8 @@ Route::get('/admin/categories', [DashboardController::class, 'categories'])->nam
 
 //Frontend Customigetion
 Route::post('/admin/notice/add', [NoticeBoardController::class, 'add'])->name('notice.add');
+Route::get('/admin/notice/download/{file}', [NoticeBoardController::class, 'download'])->name('admin.notice.download');
+
 
 //Student Controller
 Route::post('/admin/student/add', [StudentController::class, 'add'])->name('student.add');

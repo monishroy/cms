@@ -3,16 +3,23 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Notice;
 use Illuminate\Http\Request;
 
 class NoticeController extends Controller
 {
     public function index()
     {
-        return view('frontend.notice');
+        $notice = Notice::all();
+
+        $data = compact('notice');
+        return view('frontend.notice')->with($data);
     }
-    public function details()
+
+    public function download($file)
     {
-        return view('frontend.notice-details');
+        $path = public_path("storage/notice/$file");
+
+        return response()->download($path);
     }
 }

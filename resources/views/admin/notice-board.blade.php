@@ -109,12 +109,15 @@
                         <tbody>
                             @foreach ($notice as $notice)
                             <tr>
-                                <td>{{ $notice->notice_file }}</td>
+                                <td>
+                                  {{ $notice->notice_file }}
+                                  {{-- <img src="{{ url('storage/notice/'.$notice->notice_file) }}" alt=""> --}}
+                                </td>
                                 <td>{{ $notice->notice_title }}</td>
                                 <td>{{ date('d-M-Y', strtotime($notice->created_at)) }}</td>
                                 <td>
-                                    <a href="" class="action-icon">
-                                        <i class="mdi mdi-pencil"></i>
+                                    <a href="{{ route('admin.notice.download',['file'=>$notice->notice_file]) }}" class="action-icon">
+                                        <i class="mdi mdi-download"></i>
                                     </a>
                                     <a href="javascript: void(0);" class="action-icon">
                                         <i class="mdi mdi-delete"></i>

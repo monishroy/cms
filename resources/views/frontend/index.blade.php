@@ -55,51 +55,19 @@
       </div>
 
       <div class="row mt-5">
+        @foreach ($notice as $notice)
         <div class="col-lg-5 offset-lg-1">
-          <a href="">
-            <div class="faq-question-q-box"><i class="uil uil-down-arrow text-body"></i></div>
+          <a href="{{ route('notice.download',['file'=>$notice->notice_file]) }}">
+            <div class="faq-question-q-box"><i class="uil uil-file text-body"></i></div>
             <h4 class="faq-question text-body">
-              ডিপ্লোমা ইন ইঞ্জিনিয়ারিং শিক্ষাক্রমের পরীক্ষার সময়সূচির পরিবর্তন সংক্রান্ত বিজ্ঞপ্তি
+              {{ $notice->notice_title }}
             </h4>
           </a>
           <p class="faq-answer mb-4 pb-1 text-muted">
-            Date: 15/07/2023
+            Date: {{ date('d-M-Y', strtotime($notice->created_at)) }}
           </p>
         </div>
-        <div class="col-lg-5 offset-lg-1">
-          <a href="">
-            <div class="faq-question-q-box"><i class="uil uil-down-arrow text-body"></i></div>
-            <h4 class="faq-question text-body">
-              পবিত্র ঈদ-উল আযহা উপলক্ষে ইনস্টিটিউট বন্ধের নোটিশ
-            </h4>
-          </a>
-          <p class="faq-answer mb-4 pb-1 text-muted">
-            Date: 15/07/2023
-          </p>
-        </div>
-        <div class="col-lg-5 offset-lg-1">
-          <a href="">
-            <div class="faq-question-q-box"><i class="uil uil-down-arrow text-body"></i></div>
-            <h4 class="faq-question text-body">
-              ডিপ্লোমা ইন ইঞ্জিনিয়ারিং শিক্ষাক্রমের ১ম, ৩য়, ৫ম, ৭ম পর্ব সমাপনী পরীক্ষা-২০২২ এর সংশোধিত সময়সূচি।
-            </h4>
-          </a>
-          <p class="faq-answer mb-4 pb-1 text-muted">
-            Date: 15/07/2023
-          </p>
-        </div>
-        <div class="col-lg-5 offset-lg-1">
-          <a href="">
-            <div class="faq-question-q-box"><i class="uil uil-down-arrow text-body"></i></div>
-            <h4 class="faq-question text-body">
-              ডিপ্লোমা ইন টেক্সটাইল, এগ্রিকালচার, ফিসারিজ, লাইভষ্টক এবং ফরেস্ট্রি শিক্ষাক্রম পরীক্ষা ২০২২-এর সংশোধিত সময়সূচি
-            </h4>
-          </a>
-          <p class="faq-answer mb-4 pb-1 text-muted">
-            Date: 15/07/2023
-          </p>
-        </div>
-        
+        @endforeach
       </div>
       <!-- end row -->
     </div>

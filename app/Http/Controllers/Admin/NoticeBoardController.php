@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Notice;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 
 class NoticeBoardController extends Controller
@@ -38,7 +39,12 @@ class NoticeBoardController extends Controller
             return back()->with('error','Something is Worng!');
         }
 
-        
-        
+    }
+
+    public function download($file)
+    {
+        $path = public_path("storage/notice/$file");
+
+        return response()->download($path);
     }
 }
