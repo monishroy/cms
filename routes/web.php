@@ -40,7 +40,6 @@ Route::middleware(['guest'])->group(function(){
     //Authentication Part
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
     Route::post('/register', [RegisterController::class, 'postRegister'])->name('postRegister');
-
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
 });
@@ -56,17 +55,19 @@ Route::get('/admin/users', [DashboardController::class, 'users'])->name('admin.u
 Route::get('/admin/categories', [DashboardController::class, 'categories'])->name('admin.categories');
 Route::get('/admin/trash/students', [DashboardController::class, 'trash_students'])->name('admin.trash.stucent');
 Route::get('/admin/trash/notice', [DashboardController::class, 'trash_notice'])->name('admin.trash.notice');
+Route::get('/admin/trash/technology', [DashboardController::class, 'trash_technology'])->name('admin.trash.technology');
 
 //Frontend Customigetion
 Route::post('/admin/notice/add', [NoticeBoardController::class, 'add'])->name('notice.add');
-Route::get('/admin/notice/download/{file}', [NoticeBoardController::class, 'download'])->name('admin.notice.download');
 Route::get('/admin/notice/trash/{id}', [NoticeBoardController::class, 'trash'])->name('notice.trash');
 Route::get('/admin/notice/restore/{id}', [NoticeBoardController::class, 'restore'])->name('notice.restore');
 Route::get('/admin/notice/delete/{id}', [NoticeBoardController::class, 'delete'])->name('notice.delete');
+Route::get('/admin/notice/download/{file}', [NoticeBoardController::class, 'download'])->name('admin.notice.download');
 
 Route::post('/admin/technology/add', [AdminTechnologyController::class, 'add'])->name('technology.add');
-
-
+Route::get('/admin/technology/trash/{id}', [AdminTechnologyController::class, 'trash'])->name('technology.trash');
+Route::get('/admin/technology/restore/{id}', [AdminTechnologyController::class, 'restore'])->name('technology.restore');
+Route::get('/admin/technology/delete/{id}', [AdminTechnologyController::class, 'delete'])->name('technology.delete');
 
 //Student Controller
 Route::post('/admin/student/add', [StudentController::class, 'add'])->name('student.add');

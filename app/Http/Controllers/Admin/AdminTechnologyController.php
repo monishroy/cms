@@ -44,4 +44,52 @@ class AdminTechnologyController extends Controller
             return back()->with('error','Something is Worng!');
         }
     }
+
+    public function trash($id)
+    {
+        $technology = Technology::find($id);
+        if(is_null($technology)){
+            return back()->with('error','Technology Not Found!');
+        }else{
+            $result = $technology->delete();
+
+            if($result){
+                return back()->with('success','Technology Trash Successfully');
+            }else{
+                return back()->with('error','Something is Worng!');
+            }
+        }
+    }
+
+    public function restore($id)
+    {
+        $technology = Technology::withTrashed()->find($id);
+        if(is_null($technology)){
+            return back()->with('error','Technology Not Found!');
+        }else{
+            $result = $technology->restore();
+
+            if($result){
+                return back()->with('success','Technology Restore Successfully');
+            }else{
+                return back()->with('error','Something is Worng!');
+            }
+        }
+    }
+
+    public function delete($id)
+    {
+        $technology = Technology::withTrashed()->find($id);
+        if(is_null($technology)){
+            return back()->with('error','Technology Not Found!');
+        }else{
+            $result = $technology->forceDelete();
+
+            if($result){
+                return back()->with('success','Technology Delete Successfully');
+            }else{
+                return back()->with('error','Something is Worng!');
+            }
+        }
+    }
 }

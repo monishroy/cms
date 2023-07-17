@@ -115,4 +115,11 @@ class DashboardController extends Controller
         return view('admin.trash-notice')->with($data);
     }
     
+    public function trash_technology()
+    {
+        $technology = Technology::onlyTrashed()->get();
+
+        $data = compact('technology');
+        return view('admin.trash-technology')->with($data);
+    }
 }

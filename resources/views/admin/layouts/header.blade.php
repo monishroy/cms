@@ -40,13 +40,17 @@
                 <!-- LOGO -->
                 <a href="{{ url('/admin/dashboard') }}" class="logo text-center logo-light">
                     <span class="logo-lg">
-                        <img src="{{url('admin/assets/images/logo.png')}}" alt="" height="30" />
+                        <img 
+                            src="{{url('admin/assets/images/logo.png')}}" 
+                            alt="" 
+                            height="30" 
+                        />
                     </span>
                     <span class="logo-sm">
                         <img
                             src="{{url('admin/assets/images/logo_sm.png')}}"
                             alt=""
-                            height="16"
+                            height="30"
                         />
                     </span>
                 </a>
@@ -57,14 +61,14 @@
                         <img
                             src="{{url('admin/assets/images/logo-dark.png')}}"
                             alt=""
-                            height="16"
+                            height="30"
                         />
                     </span>
                     <span class="logo-sm">
                         <img
                             src="{{url('admin/assets/images/logo_sm_dark.png')}}"
                             alt=""
-                            height="16"
+                            height="30"
                         />
                     </span>
                 </a>
@@ -103,9 +107,25 @@
                                 <li>
                                     <a href="{{ route('admin.frontend.technology') }}">Technology</a>
                                 </li>
-                                <li>
-                                    <a href="apps-email-read.html">Employees</a>
-                                </li>
+                                <li class="side-nav-item">
+                                    <a data-bs-toggle="collapse" href="#sidebarSecondLevel" aria-expanded="false" aria-controls="sidebarSecondLevel" class="collapsed">
+                                      <span> Employees </span>
+                                      <span class="menu-arrow"></span>
+                                    </a>
+                                    <div class="collapse" id="sidebarSecondLevel" style="">
+                                      <ul class="side-nav-third-level">
+                                        <li>
+                                          <a href="javascript: void(0);">Principal</a>
+                                        </li>
+                                        <li>
+                                          <a href="javascript: void(0);">Technology</a>
+                                        </li>
+                                        <li>
+                                          <a href="javascript: void(0);">Office Sector</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </li>
                                 </ul>
                             </div>
                         </li>
@@ -132,15 +152,18 @@
                             </a>
                             <div class="collapse" id="trashSection" style="">
                                 <ul class="side-nav-second-level">
-                                <li>
-                                    <a href="{{ route('admin.trash.stucent') }}">Students</a>
-                                </li>
-                                <li>
-                                    <a href="apps-email-read.html">Teacher</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('admin.trash.notice') }}">Notice</a>
-                                </li>
+                                    <li>
+                                        <a href="{{ route('admin.trash.stucent') }}">Students</a>
+                                    </li>
+                                    <li>
+                                        <a href="apps-email-read.html">Teacher</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.trash.notice') }}">Notice</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.trash.technology') }}">Technology</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>

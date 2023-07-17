@@ -119,55 +119,100 @@
               </div>
               <!-- end col-->
               <div class="col-lg-9">
-                <div class="card">
-                  <div class="card-body">
-                    <!-- end nav-->
-                    <table class="table dt-responsive nowrap w-100">
-                      <thead>
-                          <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Image 1</th>
-                            <th>Text 1</th>
-                            <th>Image 2</th>
-                            <th>Text 2</th>
-                            <th>Adden on</th>
-                            <th>Action</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                        @foreach ($technology as $technology)
-                        <tr>
-                          <td>{{ $technology->id }}</td>
-                          <td>{{ $technology->name }}</td>
-                          <td>
-                            <img src="{{ url("storage/technology/$technology->image1") }}" width="200px" alt="">
-                          </td>
-                          <td>
-                            <p width="500px">{{ $technology->text1 }}</p>
-                          </td>
-                          <td>
-                            <img src="{{ url("storage/technology/$technology->image2") }}" width="200px" alt="">
-                          </td>
-                          <td>
-                            <p width="100px">{{ $technology->text2 }}</p>
-                          </td>
-                          <td>{{ date('d-M-Y', strtotime($technology->created_at)) }}</td>
-                          <td>
-                            <a href="" class="action-icon">
-                              <i class="mdi mdi-pencil"></i>
+                <div class="row">
+                  @foreach ($technology as $technology)
+                  <div class="col-lg-4">
+                    <div class="card ribbon-box">
+                      <div class="card-body">
+                        <div class="ribbon ribbon-primary float-start">
+                          <i class="mdi mdi-access-point me-1"></i>{{ $technology->name }}
+                        </div>
+                        <h5 class="float-end mt-1">
+                          <a href="javascript: void(0);" class="action-icon me-1" data-bs-toggle="modal" data-bs-target="#view-{{ $technology->id }}">
+                            <i class="mdi mdi-eye fs-4 lh-3 text-body"></i>
+                          </a>
+                          <a href="{{route('student.edit',['id'=>$technology->id])}}" class="action-icon me-1">
+                            <i class="mdi mdi-pencil fs-4 lh-3 text-body"></i>
+                          </a>
+                          <a data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" title="Move to Trash" href="{{route('technology.trash',['id'=>$technology->id])}}" class="action-icon">
+                            <i class="mdi mdi-delete fs-4 lh-3 text-body"></i>
+                          </a>
+                        </h5>
+                        <div class="ribbon-content">
+                          <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block img-fluid" src="{{ url("storage/technology/$technology->image1") }}" style="height: 280px" alt="First slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block img-fluid" src="{{ url("storage/technology/$technology->image2") }}" style="height: 280px" alt="Second slide">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
                             </a>
-                            <a data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" title="Move to Trash" href=""  class="action-icon">
-                              <i class="mdi mdi-delete"></i>
+                            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
                             </a>
-                          </td>
-                        </tr>
-                        @endforeach
-                      </tbody>
-                    </table>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end card-body -->
+                    </div>
+                    <!-- end card-->
                   </div>
-                  <!-- end card-body-->
+                  <!-- Large modal -->
+                  <div class="modal fade" id="view-{{ $technology->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="myLargeModalLabel">{{ $technology->name }}</h4>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="row g-0 align-items-center">
+                            <div class="col-md-4">
+                              <img src="{{ url("storage/technology/$technology->image1") }}" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                              <div class="card-body">
+                                <p class="card-text">
+                                  <small class="text-muted">Section 1</small>
+                                </p>
+                                <p class="card-text">
+                                  {{ $technology->text1 }}
+                                </p>
+                              </div>
+                              <!-- end card-body-->
+                            </div>
+                            <!-- end col -->
+                          </div>
+                          <div class="row g-0 align-items-center">
+                            <div class="col-md-4">
+                              <img src="{{ url("storage/technology/$technology->image2") }}" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                              <div class="card-body">
+                                <p class="card-text">
+                                  <small class="text-muted">Section 2</small>
+                                </p>
+                                <p class="card-text">
+                                  {{ $technology->text2 }}
+                                </p>
+                              </div>
+                              <!-- end card-body-->
+                            </div>
+                            <!-- end col -->
+                          </div>
+                        </div>
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
+                  @endforeach
                 </div>
+                
                 <!-- end card-->
               </div>
               <!-- end col-->
