@@ -175,17 +175,18 @@
                     <h4 class="header-title mb-3">Messages</h4>
 
                     <div class="inbox-widget">
+                      @foreach ($contact as $contact)
                       <div class="inbox-item">
                         <div class="inbox-item-img">
                           <img
-                            src="assets/images/users/avatar-2.jpg"
+                            src="assets/images/users/2.png"
                             class="rounded-circle"
                             alt=""
                           />
                         </div>
-                        <p class="inbox-item-author">Tomaslau</p>
+                        <p class="inbox-item-author">{{ $contact->name }}</p>
                         <p class="inbox-item-text">
-                          I've finished it! See you so...
+                          {{ $contact->message }}
                         </p>
                         <p class="inbox-item-date">
                           <a
@@ -196,85 +197,8 @@
                           </a>
                         </p>
                       </div>
-                      <div class="inbox-item">
-                        <div class="inbox-item-img">
-                          <img
-                            src="assets/images/users/avatar-3.jpg"
-                            class="rounded-circle"
-                            alt=""
-                          />
-                        </div>
-                        <p class="inbox-item-author">Stillnotdavid</p>
-                        <p class="inbox-item-text">This theme is awesome!</p>
-                        <p class="inbox-item-date">
-                          <a
-                            href="#"
-                            class="btn btn-sm btn-link text-info font-13"
-                          >
-                            Reply
-                          </a>
-                        </p>
-                      </div>
-                      <div class="inbox-item">
-                        <div class="inbox-item-img">
-                          <img
-                            src="assets/images/users/avatar-4.jpg"
-                            class="rounded-circle"
-                            alt=""
-                          />
-                        </div>
-                        <p class="inbox-item-author">Kurafire</p>
-                        <p class="inbox-item-text">Nice to meet you</p>
-                        <p class="inbox-item-date">
-                          <a
-                            href="#"
-                            class="btn btn-sm btn-link text-info font-13"
-                          >
-                            Reply
-                          </a>
-                        </p>
-                      </div>
-
-                      <div class="inbox-item">
-                        <div class="inbox-item-img">
-                          <img
-                            src="assets/images/users/avatar-5.jpg"
-                            class="rounded-circle"
-                            alt=""
-                          />
-                        </div>
-                        <p class="inbox-item-author">Shahedk</p>
-                        <p class="inbox-item-text">
-                          Hey! there I'm available...
-                        </p>
-                        <p class="inbox-item-date">
-                          <a
-                            href="#"
-                            class="btn btn-sm btn-link text-info font-13"
-                          >
-                            Reply
-                          </a>
-                        </p>
-                      </div>
-                      <div class="inbox-item">
-                        <div class="inbox-item-img">
-                          <img
-                            src="assets/images/users/avatar-6.jpg"
-                            class="rounded-circle"
-                            alt=""
-                          />
-                        </div>
-                        <p class="inbox-item-author">Adhamdannaway</p>
-                        <p class="inbox-item-text">This theme is awesome!</p>
-                        <p class="inbox-item-date">
-                          <a
-                            href="#"
-                            class="btn btn-sm btn-link text-info font-13"
-                          >
-                            Reply
-                          </a>
-                        </p>
-                      </div>
+                      @endforeach
+                      
                     </div>
                     <!-- end inbox-widget -->
                   </div>

@@ -41,7 +41,22 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
     </div>
 
     <div class="col-md-8">
-      <form>
+      @if (Session::has('success'))
+      <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong><i class="dripicons-checkmark me-2"></i></strong> {{Session::get('success')}}
+      </div>
+      @endif
+      <!--success end toast-->
+      @if (Session::has('error'))
+      <div class="alert alert-danger alert-dismissible bg-success text-white border-0 fade show" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong><i class="dripicons-wrong me-2"></i></i></strong> {{Session::get('error')}}
+      </div>
+      <!--error end toast-->
+      @endif
+      <form action="{{ route('contact.add') }}" method="POST">
+        @csrf
         <div class="row mt-4">
           <div class="col-lg-6">
             <div class="mb-2">
@@ -49,9 +64,15 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
               <input
                 class="form-control form-control-light"
                 type="text"
+                name="fullname"
                 id="fullname"
-                placeholder="Name..."
+                placeholder="Full Name..."
               />
+              <span class="text-danger text-sm">
+                @error('fullname')
+                {{$message}}
+                @enderror
+            </span>
             </div>
           </div>
           <div class="col-lg-6">
@@ -63,9 +84,15 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
                 class="form-control form-control-light"
                 type="email"
                 required=""
+                name="email"
                 id="emailaddress"
                 placeholder="Enter you email..."
               />
+              <span class="text-danger text-sm">
+                @error('email')
+                {{$message}}
+                @enderror
+            </span>
             </div>
           </div>
         </div>
@@ -77,9 +104,15 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
               <input
                 class="form-control form-control-light"
                 type="text"
+                name="subject"
                 id="subject"
                 placeholder="Enter subject..."
               />
+              <span class="text-danger text-sm">
+                @error('subject')
+                {{$message}}
+                @enderror
+            </span>
             </div>
           </div>
         </div>
@@ -91,16 +124,22 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
               <textarea
                 id="comments"
                 rows="4"
+                name="message"
                 class="form-control form-control-light"
                 placeholder="Type your message here..."
               ></textarea>
+              <span class="text-danger text-sm">
+                @error('message')
+                {{$message}}
+                @enderror
+            </span>
             </div>
           </div>
         </div>
 
         <div class="row mt-2">
           <div class="col-12 text-end">
-            <button class="btn btn-primary">
+            <button class="btn btn-primary" type="submit">
               Send a Message <i class="mdi mdi-telegram ms-1"></i>
             </button>
           </div>

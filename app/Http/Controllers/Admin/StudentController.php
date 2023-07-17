@@ -11,6 +11,10 @@ use App\Models\Session;
 
 class StudentController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware(['auth']);
+    }
     public function add(Request $request)
     {
         $request->validate(

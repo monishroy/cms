@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class AdminTechnologyController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware(['auth']);
+    }
     public function add(Request $request)
     {
         $request->validate(
@@ -40,6 +44,31 @@ class AdminTechnologyController extends Controller
 
         if($result){
             return back()->with('success','Technology Add Successfully');
+        }else{
+            return back()->with('error','Something is Worng!');
+        }
+    }
+
+    public function edit(Request $request)
+    {
+        $request->validate(
+            [
+                'id' => 'required',
+                'text1' => 'required',
+                'text2' => 'required',
+            ]
+        );
+
+        // echo "<pre>";
+        // print_r($request->all());
+        $id = $request['id'];
+
+        $technology = Technology::find($id);
+        $technology->text1 = $request['text1'];
+        $technology->text2 = $request['text2'];
+        $result = $technology->save();
+        if($result){
+            return back()->with('success','Technology Update Successfully');
         }else{
             return back()->with('error','Something is Worng!');
         }

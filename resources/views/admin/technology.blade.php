@@ -131,7 +131,7 @@
                           <a href="javascript: void(0);" class="action-icon me-1" data-bs-toggle="modal" data-bs-target="#view-{{ $technology->id }}">
                             <i class="mdi mdi-eye fs-4 lh-3 text-body"></i>
                           </a>
-                          <a href="{{route('student.edit',['id'=>$technology->id])}}" class="action-icon me-1">
+                          <a href="javascript: void(0);" class="action-icon me-1" data-bs-toggle="modal" data-bs-target="#edit-{{ $technology->id }}">
                             <i class="mdi mdi-pencil fs-4 lh-3 text-body"></i>
                           </a>
                           <a data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" title="Move to Trash" href="{{route('technology.trash',['id'=>$technology->id])}}" class="action-icon">
@@ -163,7 +163,8 @@
                     </div>
                     <!-- end card-->
                   </div>
-                  <!-- Large modal -->
+
+                  <!-- View modal -->
                   <div class="modal fade" id="view-{{ $technology->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content">
@@ -207,6 +208,65 @@
                             <!-- end col -->
                           </div>
                         </div>
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
+
+                  <!-- Edit modal -->
+                  <div class="modal fade" id="edit-{{ $technology->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="myLargeModalLabel">{{ $technology->name }}</h4>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                        </div>
+                        <form action="{{ route('technology.edit') }}" method="POST">
+                          @csrf
+                          <input type="hidden" name="id" value="{{ $technology->id }}">
+                          <div class="modal-body">
+                            <div class="row g-0 align-items-center">
+                              <div class="col-md-4">
+                                <img src="{{ url("storage/technology/$technology->image1") }}" class="card-img" alt="...">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <p class="card-text">
+                                    <small class="text-muted">Section 1</small>
+                                  </p>
+                                  <textarea class="form-control" name="text1" id="example-textarea" rows="10">{{ $technology->text1 }}</textarea>
+                                  <span class="text-danger text-sm">
+                                    @error('text1')
+                                    {{$message}}
+                                    @enderror
+                                  </span>
+                                </div>
+                                <!-- end card-body-->
+                              </div>
+                              <!-- end col -->
+                            </div>
+                            <div class="row g-0 align-items-center">
+                              <div class="col-md-4">
+                                <img src="{{ url("storage/technology/$technology->image2") }}" class="card-img" alt="...">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <p class="card-text">
+                                    <small class="text-muted">Section 2</small>
+                                  </p>
+                                  <textarea class="form-control" name="text2" id="example-textarea" rows="10">{{ $technology->text2 }}</textarea>
+                                  <span class="text-danger text-sm">
+                                    @error('text2')
+                                    {{$message}}
+                                    @enderror
+                                  </span>
+                                </div>
+                                <!-- end card-body-->
+                              </div>
+                              <!-- end col -->
+                            </div>
+                            <button class="btn btn-primary" type="submit">Update</button>
+                          </div>
+                        </form>
                       </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                   </div><!-- /.modal -->

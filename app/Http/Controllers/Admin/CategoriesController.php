@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware(['auth']);
+    }
     public function add_semister(Request $request)
     {
         $request->validate(

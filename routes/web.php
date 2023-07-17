@@ -35,6 +35,7 @@ Route::get('/technology/details/{id}', [TechnologyController::class, 'details'])
 Route::get('/notice', [NoticeController::class, 'index'])->name('notice');
 Route::get('/notice/download/{file}', [NoticeController::class, 'download'])->name('notice.download');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact/add', [ContactController::class, 'add'])->name('contact.add');
 
 Route::middleware(['guest'])->group(function(){
     //Authentication Part
@@ -65,6 +66,7 @@ Route::get('/admin/notice/delete/{id}', [NoticeBoardController::class, 'delete']
 Route::get('/admin/notice/download/{file}', [NoticeBoardController::class, 'download'])->name('admin.notice.download');
 
 Route::post('/admin/technology/add', [AdminTechnologyController::class, 'add'])->name('technology.add');
+Route::post('/admin/technology/edit', [AdminTechnologyController::class, 'edit'])->name('technology.edit');
 Route::get('/admin/technology/trash/{id}', [AdminTechnologyController::class, 'trash'])->name('technology.trash');
 Route::get('/admin/technology/restore/{id}', [AdminTechnologyController::class, 'restore'])->name('technology.restore');
 Route::get('/admin/technology/delete/{id}', [AdminTechnologyController::class, 'delete'])->name('technology.delete');

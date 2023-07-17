@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use App\Models\Department;
 use App\Models\Notice;
 use App\Models\Semister;
@@ -30,7 +31,8 @@ class DashboardController extends Controller
     {
         $user = User::count();
         $students = Student::count();
-        $data = compact('user','students');
+        $contact = Contact::all();
+        $data = compact('user','students','contact');
         return view('admin.profile')->with($data);
     }
 
