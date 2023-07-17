@@ -32,17 +32,18 @@ class StudentController extends Controller
             ]
         );
 
+
         //Insert Query
         $student = new Student();
         $student->fname = $request['fname'];
         $student->lname = $request['lname'];
         $student->roll = $request['roll'];
         $student->registration = $request['registration'];
-        $student->department = $request['department'];
-        $student->session = $request['session'];
+        $student->department_id = $request['department'];
+        $student->session_id = $request['session'];
         $student->phone = $request['phone'];
         $student->gPhone = $request['gPhone'];
-        $student->semister = $request['semister'];
+        $student->semister_id = $request['semister'];
         $student->address = $request['address'];
         $result = $student->save();
 

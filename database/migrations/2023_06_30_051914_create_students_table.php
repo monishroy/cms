@@ -19,11 +19,11 @@ class CreateStudentsTable extends Migration
             $table->string('lname', 30);
             $table->integer('roll');
             $table->integer('registration');
-            $table->string('department');
-            $table->string('session');
+            $table->string('department_id');
+            $table->string('session_id');
             $table->string('phone');
             $table->string('gPhone');
-            $table->string('semister');
+            $table->string('semister_id');
             $table->text('address');
             $table->timestamps();
         });

@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Session extends Model
 {
     use HasFactory;
-    protected $table = "session";
-    protected $primaryKey = "id";
+    protected $table = "sessions";
+    protected $primaryKey = "session_id";
 }

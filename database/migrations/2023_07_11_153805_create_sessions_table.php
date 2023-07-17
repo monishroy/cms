@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('semister', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 20);
+        Schema::create('sessions', function (Blueprint $table) {
+            $table->id('session_id');
+            $table->string('name', 15);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('semister');
+        Schema::dropIfExists('sessions');
     }
 };

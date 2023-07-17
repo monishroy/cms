@@ -68,7 +68,7 @@
                                 <td>{{$student->registration}}</td>
                                 <td>
                                   @foreach ($session as $session_name)
-                                    @if ($student->session == "$session_name->id")
+                                    @if ($student->session_id == "$session_name->session_id")
                                      {{ $session_name->name }}
                                     @else
                                     @endif
@@ -78,7 +78,7 @@
                                 <td>{{$student->gPhone}}</td>
                                 <td>
                                   @foreach ($semister as $semister_name)
-                                  @if ($student->semister == $semister_name->id)
+                                  @if ($student->semister_id == $semister_name->semister_id)
                                    {{ $semister_name->name }}
                                   @else
                                   @endif
@@ -86,7 +86,7 @@
                                 </td>
                                 <td>
                                   @foreach ($department as $department_name)
-                                  @if ($student->department == $department_name->id)
+                                  @if ($student->department_id == $department_name->department_id)
                                    {{ $department_name->name }}
                                   @else
                                   @endif

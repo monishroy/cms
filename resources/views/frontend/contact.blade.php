@@ -67,6 +67,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
                 name="fullname"
                 id="fullname"
                 placeholder="Full Name..."
+                value="{{ old('fullname') }}"
               />
               <span class="text-danger text-sm">
                 @error('fullname')
@@ -83,10 +84,10 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
               <input
                 class="form-control form-control-light"
                 type="email"
-                required=""
                 name="email"
                 id="emailaddress"
                 placeholder="Enter you email..."
+                value="{{ old('email') }}"
               />
               <span class="text-danger text-sm">
                 @error('email')
@@ -107,6 +108,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
                 name="subject"
                 id="subject"
                 placeholder="Enter subject..."
+                value="{{ old('subject') }}"
               />
               <span class="text-danger text-sm">
                 @error('subject')
@@ -127,6 +129,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
                 name="message"
                 class="form-control form-control-light"
                 placeholder="Type your message here..."
+                value="{{ old('message') }}"
               ></textarea>
               <span class="text-danger text-sm">
                 @error('message')

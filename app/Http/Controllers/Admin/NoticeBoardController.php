@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Notice;
-use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 
 class NoticeBoardController extends Controller

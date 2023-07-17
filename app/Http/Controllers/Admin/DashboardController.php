@@ -69,11 +69,12 @@ class DashboardController extends Controller
 
     public function all_student()
     {
+        // return Student::with('getDepartment','getSemister')->get();
+        // die();
         $students = Student::all();
         $semister = Semister::all();
         $department = Department::all();
         $session = Session::all();
-
         $data = compact('students','semister','department','session');
         return view('admin.all-student')->with($data);
     }

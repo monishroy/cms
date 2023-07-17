@@ -12,4 +12,10 @@ class Student extends Model
     use SoftDeletes;
     protected $table = "students";
     protected $primaryKey = "id";
+    function getDepartment(){
+        return $this->hasOne('App\Models\Department','department_id');
+    }
+    function getSemister(){
+        return $this->hasOne('App\Models\Semister','semister_id');
+    }
 }
