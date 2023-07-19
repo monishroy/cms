@@ -96,7 +96,7 @@
                                         <select class="form-control select2" name="session" data-toggle="select2">
                                             <optgroup label="Select Session">
                                                 @foreach ($session as $session)
-                                                <option @if($title_header == 'Update Student') {{$student->session_id == "$session->session_id" ? "selected" : ""}} @else @endif value="{{ $session->session_id }}">{{$session->name}}</option>
+                                                <option @if($title_header == 'Update Student') {{$student->session_id == "$session->id" ? "selected" : ""}} @else @endif value="{{ $session->id }}">{{$session->name}}</option>
                                                 @endforeach
                                             </optgroup>
                                         </select>
@@ -145,7 +145,7 @@
                                             <select class="form-control select2" name="semister" data-toggle="select2">
                                                 <optgroup label="Select Semister">
                                                     @foreach ($semister as $semister)
-                                                    <option @if($title_header == 'Update Student') {{$student->semister_id == "$semister->semister_id" ? "selected" : ""}} @else @endif value="{{ $semister->semister_id }}">{{$semister->name}}</option>
+                                                    <option @if($title_header == 'Update Student') {{$student->semister_id == "$semister->id" ? "selected" : ""}} @else @endif value="{{ $semister->id }}">{{$semister->name}}</option>
                                                     @endforeach
                                                 </optgroup>
                                             </select>
@@ -166,7 +166,7 @@
                                             <select class="form-control select2" name="department" data-toggle="select2">
                                                 <optgroup label="Select Department">
                                                     @foreach ($department as $department)
-                                                    <option @if($title_header == 'Update Student') {{$student->department_id == "$department->department_id" ? "selected" : ""}} @else @endif value="{{ $department->department_id }}">{{$department->name}}</option>
+                                                    <option @if($title_header == 'Update Student') {{$student->department_id == "$department->id" ? "selected" : ""}} @else @endif value="{{ $department->id }}">{{$department->name}}</option>
                                                     @endforeach
                                                 </optgroup>
                                             </select>

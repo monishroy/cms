@@ -17,13 +17,13 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('fname', 30);
             $table->string('lname', 30);
-            $table->integer('roll');
-            $table->integer('registration');
-            $table->string('department_id');
-            $table->string('session_id');
+            $table->string('roll');
+            $table->string('registration');
+            $table->foreignId('department_id')->constrained()->onDelete('cascade');
+            $table->foreignId('session_id')->constrained()->onDelete('cascade');
+            $table->foreignId('semister_id')->constrained()->onDelete('cascade');
             $table->string('phone');
             $table->string('gPhone');
-            $table->string('semister_id');
             $table->text('address');
             $table->timestamps();
         });

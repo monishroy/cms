@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Semister extends Model
 {
     use HasFactory;
-    protected $table = "semisters";
-    protected $primaryKey = "semister_id";
+    public function students()
+    {
+        return $this->hasMany(Semister::class);
+    }
 }

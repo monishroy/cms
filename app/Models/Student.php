@@ -10,12 +10,19 @@ class Student extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $table = "students";
-    protected $primaryKey = "id";
-    function getDepartment(){
-        return $this->hasOne('App\Models\Department','department_id');
+    
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
     }
-    function getSemister(){
-        return $this->hasOne('App\Models\Semister','semister_id');
+    
+    public function session()
+    {
+        return $this->belongsTo(Session::class);
+    }
+
+    public function semister()
+    {
+        return $this->belongsTo(Semister::class);
     }
 }

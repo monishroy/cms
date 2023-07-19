@@ -67,30 +67,15 @@
                                 <td>{{$student->roll}}</td>
                                 <td>{{$student->registration}}</td>
                                 <td>
-                                  @foreach ($session as $session_name)
-                                    @if ($student->session_id == "$session_name->session_id")
-                                     {{ $session_name->name }}
-                                    @else
-                                    @endif
-                                  @endforeach
+                                  {{ $student->session->name }}
                                 </td>
                                 <td>{{$student->phone}}</td>
                                 <td>{{$student->gPhone}}</td>
                                 <td>
-                                  @foreach ($semister as $semister_name)
-                                  @if ($student->semister_id == $semister_name->semister_id)
-                                   {{ $semister_name->name }}
-                                  @else
-                                  @endif
-                                  @endforeach
+                                  {{ $student->semister->name }}
                                 </td>
                                 <td>
-                                  @foreach ($department as $department_name)
-                                  @if ($student->department_id == $department_name->department_id)
-                                   {{ $department_name->name }}
-                                  @else
-                                  @endif
-                                  @endforeach
+                                  {{ $student->department->name }}
                                 </td>
                                 <td>{{$student->address}}</td>
                                 <td>{{ date('d-M-Y', strtotime($student->created_at)) }}</td>
