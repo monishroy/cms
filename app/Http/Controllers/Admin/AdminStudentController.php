@@ -9,12 +9,37 @@ use App\Models\Semister;
 use App\Models\Department;
 use App\Models\Session;
 
-class StudentController extends Controller
+class AdminStudentController extends Controller
 {
-    public function __construct()
+    public function index()
     {
-        return $this->middleware(['auth']);
+        $url = url('/admin/student/add');
+        $title_header = 'Add Student';
+        $semister = Semister::all();
+        $department = Department::all();
+        $session = Session::all();
+        
+        return view('admin.add-student',
+        [
+        'url' => $url,
+        'title_header' => $title_header,
+        'semister' => $semister,
+        'department' => $department,
+        'session' => $session,
+        ]
+        );
     }
+
+    public function all_student()
+    {
+        // $students = Student::with('getDepartment')->get();
+        // $session = Session::findOrFail(3);
+        //dd();
+        $students = Student::all();
+        $data = compact('students');
+        return view('admin.all-student')->with($data);
+    }
+
     public function add(Request $request)
     {
         $request->validate(
@@ -79,11 +104,11 @@ class StudentController extends Controller
         $student->lname = $request['lname'];
         $student->roll = $request['roll'];
         $student->registration = $request['registration'];
-        $student->department = $request['department'];
-        $student->session = $request['session'];
+        $student->department_id = $request['department'];
+        $student->session_id = $request['session'];
         $student->phone = $request['phone'];
         $student->gPhone = $request['gPhone'];
-        $student->semister = $request['semister'];
+        $student->semister_id = $request['semister'];
         $student->address = $request['address'];
         $result = $student->save();
 
@@ -92,6 +117,14 @@ class StudentController extends Controller
         }else{
             return back()->with('error','Something is Worng!');
         }
+    }
+
+    public function trash_students()
+    {
+        $students = Student::onlyTrashed()->get();
+
+        $data = compact('students');
+        return view('admin.trash-student')->with($data);
     }
 
     public function trash($id)

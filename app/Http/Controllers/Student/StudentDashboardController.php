@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Teacher;
+namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class TeacherDashboardController extends Controller
+class StudentDashboardController extends Controller
 {
     public function index()
     {
         $students = Student::count();
         $users = User::count();
 
-        return view('teacher.index' , compact('students','users'));
+        return view('student.index' , compact('students','users'));
     }
 }

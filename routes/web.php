@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminCategoriesController;
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminNoticeController;
+use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminStudentController;
 use App\Http\Controllers\Admin\AdminTechnologyController;
-use App\Http\Controllers\Admin\StudentController;
-use App\Http\Controllers\Admin\CategoriesController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\NoticeBoardController;
+use App\Http\Controllers\Admin\AdminUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutController;
@@ -14,7 +16,10 @@ use App\Http\Controllers\frontend\NoticeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Student\StudentDashboardController;
+use App\Http\Controllers\Student\StudentProfileController;
 use App\Http\Controllers\Teacher\TeacherDashboardController;
+use App\Http\Controllers\Teacher\TeacherProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,47 +50,70 @@ Route::middleware(['guest'])->group(function(){
     Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
 });
 
-//Admin Controller
-Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-Route::get('/admin/profile', [DashboardController::class, 'profile'])->name('admin.profile');
-Route::get('/admin/frontend/notice-board', [DashboardController::class, 'notice'])->name('admin.frontend.notice');
-Route::get('/admin/frontend/technology', [DashboardController::class, 'technology'])->name('admin.frontend.technology');
-Route::get('/admin/student/add', [DashboardController::class, 'add_student'])->name('admin.add-student');
-Route::get('/admin/students', [DashboardController::class, 'all_student'])->name('admin.all-student');
-Route::get('/admin/users', [DashboardController::class, 'users'])->name('admin.users');
-Route::get('/admin/categories', [DashboardController::class, 'categories'])->name('admin.categories');
-Route::get('/admin/trash/students', [DashboardController::class, 'trash_students'])->name('admin.trash.stucent');
-Route::get('/admin/trash/notice', [DashboardController::class, 'trash_notice'])->name('admin.trash.notice');
-Route::get('/admin/trash/technology', [DashboardController::class, 'trash_technology'])->name('admin.trash.technology');
+Route::middleware(['auth','admin'])->group(function(){
+//Admin Dashboard Controller
+Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
-//Frontend Customigetion
-Route::post('/admin/notice/add', [NoticeBoardController::class, 'add'])->name('notice.add');
-Route::get('/admin/notice/trash/{id}', [NoticeBoardController::class, 'trash'])->name('notice.trash');
-Route::get('/admin/notice/restore/{id}', [NoticeBoardController::class, 'restore'])->name('notice.restore');
-Route::get('/admin/notice/delete/{id}', [NoticeBoardController::class, 'delete'])->name('notice.delete');
-Route::get('/admin/notice/download/{file}', [NoticeBoardController::class, 'download'])->name('admin.notice.download');
+//Admin Profile Controller
+Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
 
+//Admin Notice Controller
+Route::get('/admin/frontend/notice-board', [AdminNoticeController::class, 'index'])->name('admin.frontend.notice');
+Route::get('/admin/trash/notice', [AdminNoticeController::class, 'trash_notice'])->name('admin.trash.notice');
+Route::post('/admin/notice/add', [AdminNoticeController::class, 'add'])->name('notice.add');
+Route::get('/admin/notice/trash/{id}', [AdminNoticeController::class, 'trash'])->name('notice.trash');
+Route::get('/admin/notice/restore/{id}', [AdminNoticeController::class, 'restore'])->name('notice.restore');
+Route::get('/admin/notice/delete/{id}', [AdminNoticeController::class, 'delete'])->name('notice.delete');
+Route::get('/admin/notice/download/{file}', [AdminNoticeController::class, 'download'])->name('admin.notice.download');
+
+//Admin Technology Controller
+Route::get('/admin/frontend/technology', [AdminTechnologyController::class, 'index'])->name('admin.frontend.technology');
+Route::get('/admin/trash/technology', [AdminTechnologyController::class, 'trash_technology'])->name('admin.trash.technology');
 Route::post('/admin/technology/add', [AdminTechnologyController::class, 'add'])->name('technology.add');
 Route::post('/admin/technology/edit', [AdminTechnologyController::class, 'edit'])->name('technology.edit');
 Route::get('/admin/technology/trash/{id}', [AdminTechnologyController::class, 'trash'])->name('technology.trash');
 Route::get('/admin/technology/restore/{id}', [AdminTechnologyController::class, 'restore'])->name('technology.restore');
 Route::get('/admin/technology/delete/{id}', [AdminTechnologyController::class, 'delete'])->name('technology.delete');
 
-//Student Controller
-Route::post('/admin/student/add', [StudentController::class, 'add'])->name('student.add');
-Route::get('/admin/student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
-Route::post('/admin/student/update/{id}', [StudentController::class, 'update'])->name('student.update');
-Route::get('/admin/student/trash/{id}', [StudentController::class, 'trash'])->name('student.trash');
-Route::get('/admin/student/restore/{id}', [StudentController::class, 'restore'])->name('student.restore');
-Route::get('/admin/student/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
+//Admin Student Controller
+Route::get('/admin/student/add', [AdminStudentController::class, 'index'])->name('admin.add-student');
+Route::get('/admin/students', [AdminStudentController::class, 'all_student'])->name('admin.all-student');
+Route::get('/admin/trash/students', [AdminStudentController::class, 'trash_students'])->name('admin.trash.stucent');
+Route::post('/admin/student/add', [AdminStudentController::class, 'add'])->name('student.add');
+Route::get('/admin/student/edit/{id}', [AdminStudentController::class, 'edit'])->name('student.edit');
+Route::post('/admin/student/update/{id}', [AdminStudentController::class, 'update'])->name('student.update');
+Route::get('/admin/student/trash/{id}', [AdminStudentController::class, 'trash'])->name('student.trash');
+Route::get('/admin/student/restore/{id}', [AdminStudentController::class, 'restore'])->name('student.restore');
+Route::get('/admin/student/delete/{id}', [AdminStudentController::class, 'delete'])->name('student.delete');
 
-//Categoties Added
-Route::post('/admin/categories/semister/add', [CategoriesController::class, 'add_semister'])->name('semister.add');
-Route::post('/admin/categories/department/add', [CategoriesController::class, 'add_department'])->name('department.add');
-Route::post('/admin/categories/session/add', [CategoriesController::class, 'add_session'])->name('session.add');
-Route::post('/admin/categories/possion/add', [CategoriesController::class, 'add_possion'])->name('possion.add');
+//Admin User Controller
+Route::get('/admin/users', [AdminUserController::class, 'index'])->name('admin.users');
 
+//Admin Categoties Controller
+Route::get('/admin/categories', [AdminCategoriesController::class, 'index'])->name('admin.categories');
+Route::post('/admin/categories/semister/add', [AdminCategoriesController::class, 'add_semister'])->name('semister.add');
+Route::post('/admin/categories/department/add', [AdminCategoriesController::class, 'add_department'])->name('department.add');
+Route::post('/admin/categories/session/add', [AdminCategoriesController::class, 'add_session'])->name('session.add');
+Route::post('/admin/categories/possion/add', [AdminCategoriesController::class, 'add_possion'])->name('possion.add');
+
+});
+
+//Teacher Route Start
 Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 
-//Teacher Part
+Route::middleware(['auth','teacher'])->group(function(){
+//Teacher Dashboard Controller
 Route::get('/teacher/dashboard', [TeacherDashboardController::class, 'index'])->name('teacher.dashboard');
+Route::get('/teacher/profile', [TeacherProfileController::class, 'index'])->name('teacher.profile');
+
+});
+//Teacher Route End
+
+//Student Route Start
+Route::middleware(['auth','user'])->group(function(){
+//Teacher Dashboard Controller
+Route::get('/user/dashboard', [StudentDashboardController::class, 'index'])->name('student.dashboard');
+Route::get('/user/profile', [StudentProfileController::class, 'index'])->name('student.profile');
+
+});
+//Student Route End

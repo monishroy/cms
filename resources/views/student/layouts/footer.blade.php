@@ -1,222 +1,266 @@
-<footer class="footer pt-3  ">
-    <div class="container-fluid">
-      <div class="row align-items-center justify-content-lg-between">
-        <div class="col-lg-6 mb-lg-0 mb-4">
-          <div class="copyright text-center text-sm text-muted text-lg-start">
-            © <script>
-              document.write(new Date().getFullYear())
-            </script>,
-            made with <i class="fa fa-heart"></i> by
-            <a href="https://www.mnotion.com" class="font-weight-bold" target="_blank">M Notion</a>
-            for a better web.
-          </div>
+<div class="jq-toast-wrap bottom-right">
+    <!-- Stacking Toast -->
+    <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+        <!-- Position it -->
+        <div class="toast-container" style="position: absolute; top: 30%; right: 0;">
+            @if (Session::has('success'))
+            <!-- Then put toasts within -->
+            <div class="toast fade show p-2 pt-1 bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-success text-white">
+                    <img src="{{url('admin/assets/images/logo_sm_light.png')}}" alt="brand-logo" height="12" class="me-1" />
+                    <strong class="me-auto">Success</strong>
+                    <small class="text-white">just now</small>
+                    <button type="button" class="ms-2 mb-1 btn-close me-1 mt-1" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body text-white mt-2">
+                    <i class="dripicons-checkmark me-2"></i>
+                    {{Session::get('success')}}
+                </div>
+            </div>
+            @endif
+            <!--success end toast-->
+            @if (Session::has('error'))
+            <div class="toast fade show p-2 pt-1 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-danger text-white">
+                    <img src="{{url('admin/assets/images/logo_sm_light.png')}}" alt="brand-logo" height="12" class="me-1" />
+                    <strong class="me-auto">Error</strong>
+                    <small class="text-white">just now</small>
+                    <button type="button" class="ms-2 mb-1 btn-close me-1 mt-1" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body text-white mt-2">
+                    <i class="dripicons-wrong me-2"></i>
+                    {{Session::get('error')}}
+                </div>
+            </div>
+            <!--error end toast-->
+            @endif
         </div>
-        <div class="col-lg-6">
-          <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-            <li class="nav-item">
-              <a href="https://www.mnotion.com" class="nav-link text-muted" target="_blank">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.mnotion.com" class="nav-link text-muted" target="_blank">Blog</a>
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
-  </footer>
 </div>
-</main>
 
-<!--   Core JS Files   -->
-<script src="{{url('students/assets/js/core/popper.min.js')}}"></script>
-<script src="{{url('students/assets/js/core/bootstrap.min.js')}}"></script>
-<script src="{{url('students/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
-<script src="{{url('students/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
-<script src="{{url('students/assets/js/plugins/chartjs.min.js')}}"></script>
-<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<!-- Footer Start -->
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <script>
+                    document.write(new Date().getFullYear());
+                </script>
+                © Mnotion - mnotion.com
+            </div>
+            <div class="col-md-6">
+                <div
+                    class="text-md-end footer-links d-none d-md-block"
+                >
+                    <a href="javascript: void(0);">About</a>
+                    <a href="javascript: void(0);">Support</a>
+                    <a href="javascript: void(0);">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end Footer -->
+</div>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+</div>
+<!-- END wrapper -->
+
+<!-- Right Sidebar -->
+<div class="end-bar">
+<div class="rightbar-title">
+<a href="javascript:void(0);" class="end-bar-toggle float-end">
+    <i class="dripicons-cross noti-icon"></i>
+</a>
+<h5 class="m-0">Settings</h5>
+</div>
+
+<div class="rightbar-content h-100" data-simplebar="">
+<div class="p-3">
+    <!-- Settings -->
+    <h5 class="mt-3">Color Scheme</h5>
+    <hr class="mt-1" />
+
+    <div class="form-check form-switch mb-1">
+        <input
+            class="form-check-input"
+            type="checkbox"
+            name="color-scheme-mode"
+            value="light"
+            id="light-mode-check"
+            checked=""
+        />
+        <label class="form-check-label" for="light-mode-check"
+            >Light Mode</label
+        >
+    </div>
+
+    <div class="form-check form-switch mb-1">
+        <input
+            class="form-check-input"
+            type="checkbox"
+            name="color-scheme-mode"
+            value="dark"
+            id="dark-mode-check"
+        />
+        <label class="form-check-label" for="dark-mode-check"
+            >Dark Mode</label
+        >
+    </div>
+
+    <!-- Width -->
+    <h5 class="mt-4">Width</h5>
+    <hr class="mt-1" />
+    <div class="form-check form-switch mb-1">
+        <input
+            class="form-check-input"
+            type="checkbox"
+            name="width"
+            value="fluid"
+            id="fluid-check"
+            checked=""
+        />
+        <label class="form-check-label" for="fluid-check"
+            >Fluid</label
+        >
+    </div>
+
+    <div class="form-check form-switch mb-1">
+        <input
+            class="form-check-input"
+            type="checkbox"
+            name="width"
+            value="boxed"
+            id="boxed-check"
+        />
+        <label class="form-check-label" for="boxed-check"
+            >Boxed</label
+        >
+    </div>
+
+    <!-- Left Sidebar-->
+    <h5 class="mt-4">Left Sidebar</h5>
+    <hr class="mt-1" />
+    <div class="form-check form-switch mb-1">
+        <input
+            class="form-check-input"
+            type="checkbox"
+            name="theme"
+            value="default"
+            id="default-check"
+        />
+        <label class="form-check-label" for="default-check"
+            >Default</label
+        >
+    </div>
+
+    <div class="form-check form-switch mb-1">
+        <input
+            class="form-check-input"
+            type="checkbox"
+            name="theme"
+            value="light"
+            id="light-check"
+            checked=""
+        />
+        <label class="form-check-label" for="light-check"
+            >Light</label
+        >
+    </div>
+
+    <div class="form-check form-switch mb-3">
+        <input
+            class="form-check-input"
+            type="checkbox"
+            name="theme"
+            value="dark"
+            id="dark-check"
+        />
+        <label class="form-check-label" for="dark-check"
+            >Dark</label
+        >
+    </div>
+
+    <div class="form-check form-switch mb-1">
+        <input
+            class="form-check-input"
+            type="checkbox"
+            name="compact"
+            value="fixed"
+            id="fixed-check"
+            checked=""
+        />
+        <label class="form-check-label" for="fixed-check"
+            >Fixed</label
+        >
+    </div>
+
+    <div class="form-check form-switch mb-1">
+        <input
+            class="form-check-input"
+            type="checkbox"
+            name="compact"
+            value="condensed"
+            id="condensed-check"
+        />
+        <label class="form-check-label" for="condensed-check"
+            >Condensed</label
+        >
+    </div>
+
+    <div class="form-check form-switch mb-1">
+        <input
+            class="form-check-input"
+            type="checkbox"
+            name="compact"
+            value="scrollable"
+            id="scrollable-check"
+        />
+        <label class="form-check-label" for="scrollable-check"
+            >Scrollable</label
+        >
+    </div>
+</div>
+<!-- end padding-->
+</div>
+</div>
+
+<div class="rightbar-overlay"></div>
+<!-- /End-bar -->
 <script>
-var ctx = document.getElementById("chart-bars").getContext("2d");
-
-new Chart(ctx, {
-  type: "bar",
-  data: {
-    labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    datasets: [{
-      label: "Sales",
-      tension: 0.4,
-      borderWidth: 0,
-      borderRadius: 4,
-      borderSkipped: false,
-      backgroundColor: "#fff",
-      data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
-      maxBarThickness: 6
-    }, ],
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        display: false,
-      }
-    },
-    interaction: {
-      intersect: false,
-      mode: 'index',
-    },
-    scales: {
-      y: {
-        grid: {
-          drawBorder: false,
-          display: false,
-          drawOnChartArea: false,
-          drawTicks: false,
-        },
-        ticks: {
-          suggestedMin: 0,
-          suggestedMax: 500,
-          beginAtZero: true,
-          padding: 15,
-          font: {
-            size: 14,
-            family: "Open Sans",
-            style: 'normal',
-            lineHeight: 2
-          },
-          color: "#fff"
-        },
-      },
-      x: {
-        grid: {
-          drawBorder: false,
-          display: false,
-          drawOnChartArea: false,
-          drawTicks: false
-        },
-        ticks: {
-          display: false
-        },
-      },
-    },
-  },
-});
-
-
-var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
-gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-
-var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
-gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
-
-new Chart(ctx2, {
-  type: "line",
-  data: {
-    labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    datasets: [{
-        label: "Mobile apps",
-        tension: 0.4,
-        borderWidth: 0,
-        pointRadius: 0,
-        borderColor: "#cb0c9f",
-        borderWidth: 3,
-        backgroundColor: gradientStroke1,
-        fill: true,
-        data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-        maxBarThickness: 6
-
-      },
-      {
-        label: "Websites",
-        tension: 0.4,
-        borderWidth: 0,
-        pointRadius: 0,
-        borderColor: "#3A416F",
-        borderWidth: 3,
-        backgroundColor: gradientStroke2,
-        fill: true,
-        data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-        maxBarThickness: 6
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        display: false,
-      }
-    },
-    interaction: {
-      intersect: false,
-      mode: 'index',
-    },
-    scales: {
-      y: {
-        grid: {
-          drawBorder: false,
-          display: true,
-          drawOnChartArea: true,
-          drawTicks: false,
-          borderDash: [5, 5]
-        },
-        ticks: {
-          display: true,
-          padding: 10,
-          color: '#b2b9bf',
-          font: {
-            size: 11,
-            family: "Open Sans",
-            style: 'normal',
-            lineHeight: 2
-          },
-        }
-      },
-      x: {
-        grid: {
-          drawBorder: false,
-          display: false,
-          drawOnChartArea: false,
-          drawTicks: false,
-          borderDash: [5, 5]
-        },
-        ticks: {
-          display: true,
-          color: '#b2b9bf',
-          padding: 20,
-          font: {
-            size: 11,
-            family: "Open Sans",
-            style: 'normal',
-            lineHeight: 2
-          },
-        }
-      },
-    },
-  },
-});
+    $.NotificationApp.send("Title","Your awesome message text","bottom-right","success","Icon")
 </script>
-<script>
-var win = navigator.platform.indexOf('Win') > -1;
-if (win && document.querySelector('#sidenav-scrollbar')) {
-  var options = {
-    damping: '0.5'
-  }
-  Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-}
-</script>
-<!-- Github buttons -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="{{url('students/assets/js/soft-ui-dashboard.min.js?v=1.0.3')}}"></script>
+<!-- bundle -->
+<script src="{{url('admin/assets/js/vendor.min.js')}}"></script>
+<script src="{{url('admin/assets/js/app.min.js')}}"></script>
+
+<!-- third party js -->
+<script src="{{url('admin/assets/js/vendor/apexcharts.min.js')}}"></script>
+<script src="{{url('admin/assets/js/vendor/jquery-jvectormap-1.2.2.min.j')}}"></script>
+<script src="{{url('admin/assets/js/vendor/jquery-jvectormap-world-mill-en.js')}}"></script>
+<!-- third party js ends -->
+
+<!-- Todo js -->
+<script src="{{url('admin/assets/js/ui/component.todo.js')}}"></script>
+<script src="{{url('admin/assets/js/vendor/Chart.bundle.min.js')}}"></script>
+
+<!-- demo app -->
+<script src="{{url('admin/assets/js/pages/demo.dashboard.js')}}"></script>
+<script src="{{url('admin/assets/js/pages/demo.dashboard-analytics.js')}}"></script>
+<script src="{{url('admin/assets/js/pages/demo.dashboard-crm.js')}}"></script>
+<script src="{{url('admin/assets/js/pages/demo.dashboard-projects.js')}}"></script>
+<!-- end demo js-->
+
+<!-- Datatables js -->
+<script src="{{url('admin/assets/js/vendor/jquery.dataTables.min.js')}}"></script>
+<script src="{{url('admin/assets/js/vendor/dataTables.bootstrap5.js')}}"></script>
+<script src="{{url('admin/assets/js/vendor/dataTables.responsive.min.js')}}"></script>
+<script src="{{url('admin/assets/js/vendor/responsive.bootstrap5.min.js')}}"></script>
+
+<!-- Datatable Init js -->
+<script src="{{url('admin/assets/js/pages/demo.datatable-init.js')}}"></script>
 </body>
-
 </html>

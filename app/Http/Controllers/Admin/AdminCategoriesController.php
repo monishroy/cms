@@ -9,12 +9,19 @@ use App\Models\Session;
 use App\Models\TeacherPossion;
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class AdminCategoriesController extends Controller
 {
-    public function __construct()
+    public function index()
     {
-        return $this->middleware(['auth']);
+        $semister = Semister::all();
+        $department = Department::all();
+        $session = Session::all();
+        $possion = TeacherPossion::all();
+
+        $data = compact('semister','department','session','possion');
+        return view('admin.categories')->with($data);
     }
+    
     public function add_semister(Request $request)
     {
         $request->validate(

@@ -8,9 +8,13 @@ use Illuminate\Http\Request;
 
 class AdminTechnologyController extends Controller
 {
-    public function __construct()
+    public function index()
     {
-        return $this->middleware(['auth']);
+        $technology = Technology::all();
+
+        $data = compact('technology');
+        
+        return view('admin.technology')->with($data);
     }
     public function add(Request $request)
     {
@@ -72,6 +76,14 @@ class AdminTechnologyController extends Controller
         }else{
             return back()->with('error','Something is Worng!');
         }
+    }
+
+    public function trash_technology()
+    {
+        $technology = Technology::onlyTrashed()->get();
+
+        $data = compact('technology');
+        return view('admin.trash-technology')->with($data);
     }
 
     public function trash($id)

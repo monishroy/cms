@@ -35,6 +35,7 @@
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Status</th>
+                                <th>Role</th>
                                 <th>Added</th>
                                 <th>Action</th>
                             </tr>
@@ -52,18 +53,24 @@
                                 <td>{{$users->phone}}</td>
                                 <td>
                                     @if ($users->status == "1")
-                                     <span class="badge badge-outline-success">Active</span>
+                                     <a href=""><span class="badge badge-outline-success">Active</span></a>
                                     @else
-                                     <span class="badge badge-outline-danger">Deactive</span>
+                                     <a href=""><span class="badge badge-outline-danger">Deactive</span></a>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($users->role == "admin")
+                                     <span class="badge badge-outline-primary">Admin</span>
+                                    @elseif ($users->role == "teacher")
+                                     <span class="badge badge-outline-success">Teacher</span>
+                                    @else
+                                     <span class="badge badge-outline-info">User</span>
                                     @endif
                                 </td>
                                 <td>{{ date('d-M-Y', strtotime($users->created_at)) }}</td>
                                 <td class="table-action">
                                     <a href="javascript: void(0);" class="action-icon">
                                       <i class="mdi mdi-pencil"></i>
-                                    </a>
-                                    <a href="javascript: void(0);" class="action-icon">
-                                      <i class="mdi mdi-delete"></i>
                                     </a>
                                 </td>
                             </tr>

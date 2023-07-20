@@ -17,11 +17,19 @@ class LoginController extends Controller
     {
         $user = $request->validate([
             'email' => 'required|email|exists:users,email',
-            'password' => 'required|min:5'
+            'password' => 'required|min:5',
         ]);
 
         if (Auth::attempt($user)) {
-            return redirect('/admin/dashboard');
+            if(auth()->user()->role === 'admin'){
+                return redirect()->route('admin.dashboard');
+            }elseif(auth()->user()->role === 'user'){
+                return redirect('/user/dashboard');
+            }elseif(auth()->user()->role === 'teacher'){
+                return redirect()->route('teacher.dashboard');
+            }else{
+                return redirect('/login');
+            }
         } else {
             return back()->with('error','Please enter valid details!');
         }

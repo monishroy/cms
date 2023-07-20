@@ -6,12 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\Notice;
 use Illuminate\Http\Request;
 
-class NoticeBoardController extends Controller
+class AdminNoticeController extends Controller
 {
-    public function __construct()
+    public function index()
     {
-        return $this->middleware(['auth']);
+        $notice = Notice::all();
+
+        $data = compact('notice');
+        
+        return view('admin.notice-board')->with($data);
     }
+    
     public function add(Request $request)
     {
         $request->validate(
@@ -51,7 +56,14 @@ class NoticeBoardController extends Controller
         return response()->download($path);
     }
 
-  
+    public function trash_notice()
+    {
+        $notice = Notice::onlyTrashed()->get();
+
+        $data = compact('notice');
+        return view('admin.trash-notice')->with($data);
+    }
+    
     public function trash($id)
     {
         $notice = Notice::find($id);

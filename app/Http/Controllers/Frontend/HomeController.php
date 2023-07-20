@@ -12,19 +12,26 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function index($lang = null)
+    public function index()
     {
-        App::setLocale($lang);
-        if(Auth::user()){
-        $students = Student::count();
-        $users = User::count();
+        
 
-        return view('admin.index' , compact('students','users'));
+        if(Auth::user()){
+            // App::setLocale($lang);
+            if(auth()->user()->role === 'admin'){
+                $students = Student::count();
+                $users = User::count();
+                return view('admin.index' , compact('students','users'));
+            }elseif(auth()->user()->role === 'user'){
+                return redirect('/user/dashboard');
+            }elseif(auth()->user()->role === 'teacher'){
+                return redirect()->route('teacher.dashboard');
+            }else{
+                return view('/');
+            }
         }else{
             $notice = Notice::all();
-
-            $data = compact('notice');
-            return view('frontend.index')->with($data);
+            return view('frontend.index',compact('notice'));
         }
 
     }

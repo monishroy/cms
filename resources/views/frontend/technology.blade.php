@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title', 'Department')
+@section('title', 'Technology')
 @section('main-section')
 <!-- START FEATURES 1 -->
 <section
