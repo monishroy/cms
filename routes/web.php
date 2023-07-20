@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminCategoriesController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminNoticeController;
@@ -7,7 +8,6 @@ use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminStudentController;
 use App\Http\Controllers\Admin\AdminTechnologyController;
 use App\Http\Controllers\Admin\AdminUserController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\TechnologyController;
@@ -49,8 +49,10 @@ Route::middleware(['guest'])->group(function(){
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
 });
+Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 
-Route::middleware(['auth','admin'])->group(function(){
+//Admin Route Start
+Route::middleware(['auth','admin','status'])->group(function(){
 //Admin Dashboard Controller
 Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
@@ -88,6 +90,8 @@ Route::get('/admin/student/delete/{id}', [AdminStudentController::class, 'delete
 
 //Admin User Controller
 Route::get('/admin/users', [AdminUserController::class, 'index'])->name('admin.users');
+Route::get('/admin/users/active/{id}', [AdminUserController::class, 'status_active'])->name('user.status.active');
+Route::get('/admin/users/deactive/{id}', [AdminUserController::class, 'status_deactive'])->name('user.status.deactive');
 
 //Admin Categoties Controller
 Route::get('/admin/categories', [AdminCategoriesController::class, 'index'])->name('admin.categories');
@@ -97,20 +101,19 @@ Route::post('/admin/categories/session/add', [AdminCategoriesController::class, 
 Route::post('/admin/categories/possion/add', [AdminCategoriesController::class, 'add_possion'])->name('possion.add');
 
 });
+//Admin Route End
 
 //Teacher Route Start
-Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
-
-Route::middleware(['auth','teacher'])->group(function(){
+Route::middleware(['auth','teacher','status'])->group(function(){
 //Teacher Dashboard Controller
-Route::get('/teacher/dashboard', [TeacherDashboardController::class, 'index'])->name('teacher.dashboard');
+Route::get('/teacher/dashboard', [TeacherDashboardController::class, 'index'])->name('teacher.dashboard')->middleware('status');
 Route::get('/teacher/profile', [TeacherProfileController::class, 'index'])->name('teacher.profile');
 
 });
 //Teacher Route End
 
 //Student Route Start
-Route::middleware(['auth','user'])->group(function(){
+Route::middleware(['auth','user','status'])->group(function(){
 //Teacher Dashboard Controller
 Route::get('/user/dashboard', [StudentDashboardController::class, 'index'])->name('student.dashboard');
 Route::get('/user/profile', [StudentProfileController::class, 'index'])->name('student.profile');

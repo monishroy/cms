@@ -53,9 +53,9 @@
                                 <td>{{$users->phone}}</td>
                                 <td>
                                     @if ($users->status == "1")
-                                     <a href=""><span class="badge badge-outline-success">Active</span></a>
+                                     <a href="{{route('user.status.deactive',['id'=>$users->id])}}"><span class="badge badge-outline-success">Active</span></a>
                                     @else
-                                     <a href=""><span class="badge badge-outline-danger">Deactive</span></a>
+                                     <a href="{{route('user.status.active',['id'=>$users->id])}}"><span class="badge badge-outline-danger">Deactive</span></a>
                                     @endif
                                 </td>
                                 <td>
