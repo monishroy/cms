@@ -103,321 +103,177 @@
             <!-- end row -->
 
             <div class="row">
-              <div class="col-lg-4">
+              <div class="col-xl-4 col-lg-12">
                 <div class="card">
                   <div class="card-body">
                     <div class="dropdown float-end">
                       <a
                         href="#"
-                        class="dropdown-toggle arrow-none card-drop"
+                        class="dropdown-toggle arrow-none card-drop p-0"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
                         <i class="mdi mdi-dots-vertical"></i>
                       </a>
                       <div class="dropdown-menu dropdown-menu-end">
-                        <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item"
-                          >Weekly Report</a
+                          >Refresh Report</a
                         >
-                        <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item"
-                          >Monthly Report</a
-                        >
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item"
-                          >Action</a
-                        >
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item"
-                          >Settings</a
+                          >Export Report</a
                         >
                       </div>
                     </div>
-                    <h4 class="header-title mb-4">Project Status</h4>
+                    <h4 class="header-title">Views Per Minute</h4>
 
-                    <div class="my-4 chartjs-chart" style="height: 202px">
-                      <canvas
-                        id="project-status-chart"
-                        data-colors="#0acf97,#727cf5,#fa5c7c"
-                      ></canvas>
-                    </div>
+                    <div
+                      id="views-min"
+                      class="apex-charts mt-2"
+                      data-colors="#0acf97"
+                    ></div>
 
-                    <div class="row text-center mt-2 py-2">
-                      <div class="col-4">
-                        <i class="mdi mdi-trending-up text-success mt-3 h3"></i>
-                        <h3 class="fw-normal">
-                          <span>64%</span>
-                        </h3>
-                        <p class="text-muted mb-0">Completed</p>
-                      </div>
-                      <div class="col-4">
-                        <i
-                          class="mdi mdi-trending-down text-primary mt-3 h3"
-                        ></i>
-                        <h3 class="fw-normal">
-                          <span>26%</span>
-                        </h3>
-                        <p class="text-muted mb-0">In-progress</p>
-                      </div>
-                      <div class="col-4">
-                        <i
-                          class="mdi mdi-trending-down text-danger mt-3 h3"
-                        ></i>
-                        <h3 class="fw-normal">
-                          <span>10%</span>
-                        </h3>
-                        <p class="text-muted mb-0">Behind</p>
-                      </div>
-                    </div>
-                    <!-- end row-->
-                  </div>
-                  <!-- end card body-->
-                </div>
-                <!-- end card -->
-              </div>
-              <!-- end col-->
-
-              <div class="col-lg-8">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="dropdown float-end">
-                      <a
-                        href="#"
-                        class="dropdown-toggle arrow-none card-drop"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        <i class="mdi mdi-dots-vertical"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-end">
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item"
-                          >Weekly Report</a
-                        >
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item"
-                          >Monthly Report</a
-                        >
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item"
-                          >Action</a
-                        >
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item"
-                          >Settings</a
-                        >
-                      </div>
-                    </div>
-                    <h4 class="header-title mb-3">Tasks</h4>
-
-                    <p><b>107</b> Tasks completed out of 195</p>
-
-                    <div class="table-responsive">
-                      <table
-                        class="table table-centered table-nowrap table-hover mb-0"
-                      >
+                    <div class="table-responsive mt-3">
+                      <table class="table table-sm mb-0 font-13">
+                        <thead>
+                          <tr>
+                            <th>Page</th>
+                            <th>Views</th>
+                            <th>Bounce Rate</th>
+                          </tr>
+                        </thead>
                         <tbody>
                           <tr>
                             <td>
-                              <h5 class="font-14 my-1">
-                                <a href="javascript:void(0);" class="text-body"
-                                  >Coffee detail page - Main Page</a
-                                >
-                              </h5>
-                              <span class="text-muted font-13"
-                                >Due in 3 days</span
+                              <a href="javascript:void(0);" class="text-muted"
+                                >/hyper/dashboard-analytics</a
                               >
                             </td>
-                            <td>
-                              <span class="text-muted font-13">Status</span>
-                              <br />
-                              <span class="badge badge-warning-lighten"
-                                >In-progress</span
-                              >
-                            </td>
-                            <td>
-                              <span class="text-muted font-13"
-                                >Assigned to</span
-                              >
-                              <h5 class="font-14 mt-1 fw-normal">
-                                Logan R. Cohn
-                              </h5>
-                            </td>
-                            <td>
-                              <span class="text-muted font-13"
-                                >Total time spend</span
-                              >
-                              <h5 class="font-14 mt-1 fw-normal">3h 20min</h5>
-                            </td>
-                            <td class="table-action" style="width: 90px">
-                              <a
-                                href="javascript: void(0);"
-                                class="action-icon"
-                              >
-                                <i class="mdi mdi-pencil"></i
-                              ></a>
-                              <a
-                                href="javascript: void(0);"
-                                class="action-icon"
-                              >
-                                <i class="mdi mdi-delete"></i
-                              ></a>
-                            </td>
+                            <td>25</td>
+                            <td>87.5%</td>
                           </tr>
                           <tr>
                             <td>
-                              <h5 class="font-14 my-1">
-                                <a href="javascript:void(0);" class="text-body"
-                                  >Drinking bottle graphics</a
-                                >
-                              </h5>
-                              <span class="text-muted font-13"
-                                >Due in 27 days</span
+                              <a href="javascript:void(0);" class="text-muted"
+                                >/hyper/dashboard-crm</a
                               >
                             </td>
-                            <td>
-                              <span class="text-muted font-13">Status</span>
-                              <br />
-                              <span class="badge badge-danger-lighten"
-                                >Outdated</span
-                              >
-                            </td>
-                            <td>
-                              <span class="text-muted font-13"
-                                >Assigned to</span
-                              >
-                              <h5 class="font-14 mt-1 fw-normal">
-                                Jerry F. Powell
-                              </h5>
-                            </td>
-                            <td>
-                              <span class="text-muted font-13"
-                                >Total time spend</span
-                              >
-                              <h5 class="font-14 mt-1 fw-normal">12h 21min</h5>
-                            </td>
-                            <td class="table-action" style="width: 90px">
-                              <a
-                                href="javascript: void(0);"
-                                class="action-icon"
-                              >
-                                <i class="mdi mdi-pencil"></i
-                              ></a>
-                              <a
-                                href="javascript: void(0);"
-                                class="action-icon"
-                              >
-                                <i class="mdi mdi-delete"></i
-                              ></a>
-                            </td>
+                            <td>15</td>
+                            <td>21.48%</td>
                           </tr>
                           <tr>
                             <td>
-                              <h5 class="font-14 my-1">
-                                <a href="javascript:void(0);" class="text-body"
-                                  >App design and development</a
-                                >
-                              </h5>
-                              <span class="text-muted font-13"
-                                >Due in 7 days</span
+                              <a href="javascript:void(0);" class="text-muted"
+                                >/ubold/dashboard</a
                               >
                             </td>
-                            <td>
-                              <span class="text-muted font-13">Status</span>
-                              <br />
-                              <span class="badge badge-success-lighten"
-                                >Completed</span
-                              >
-                            </td>
-                            <td>
-                              <span class="text-muted font-13"
-                                >Assigned to</span
-                              >
-                              <h5 class="font-14 mt-1 fw-normal">
-                                Scot M. Smith
-                              </h5>
-                            </td>
-                            <td>
-                              <span class="text-muted font-13"
-                                >Total time spend</span
-                              >
-                              <h5 class="font-14 mt-1 fw-normal">78h 05min</h5>
-                            </td>
-                            <td class="table-action" style="width: 90px">
-                              <a
-                                href="javascript: void(0);"
-                                class="action-icon"
-                              >
-                                <i class="mdi mdi-pencil"></i
-                              ></a>
-                              <a
-                                href="javascript: void(0);"
-                                class="action-icon"
-                              >
-                                <i class="mdi mdi-delete"></i
-                              ></a>
-                            </td>
+                            <td>10</td>
+                            <td>63.59%</td>
                           </tr>
                           <tr>
                             <td>
-                              <h5 class="font-14 my-1">
-                                <a href="javascript:void(0);" class="text-body"
-                                  >Poster illustation design</a
-                                >
-                              </h5>
-                              <span class="text-muted font-13"
-                                >Due in 5 days</span
+                              <a href="javascript:void(0);" class="text-muted"
+                                >/minton/home</a
                               >
                             </td>
-                            <td>
-                              <span class="text-muted font-13">Status</span>
-                              <br />
-                              <span class="badge badge-warning-lighten"
-                                >In-progress</span
-                              >
-                            </td>
-                            <td>
-                              <span class="text-muted font-13"
-                                >Assigned to</span
-                              >
-                              <h5 class="font-14 mt-1 fw-normal">
-                                John P. Ritter
-                              </h5>
-                            </td>
-                            <td>
-                              <span class="text-muted font-13"
-                                >Total time spend</span
-                              >
-                              <h5 class="font-14 mt-1 fw-normal">26h 58min</h5>
-                            </td>
-                            <td class="table-action" style="width: 90px">
-                              <a
-                                href="javascript: void(0);"
-                                class="action-icon"
-                              >
-                                <i class="mdi mdi-pencil"></i
-                              ></a>
-                              <a
-                                href="javascript: void(0);"
-                                class="action-icon"
-                              >
-                                <i class="mdi mdi-delete"></i
-                              ></a>
-                            </td>
+                            <td>7</td>
+                            <td>56.12%</td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
-                    <!-- end table-responsive-->
                   </div>
-                  <!-- end card body-->
+                  <!-- end card-body-->
                 </div>
-                <!-- end card -->
+                <!-- end card-->
+              </div>
+              <!-- end col-->
+
+              <div class="col-xl-4 col-lg-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="dropdown float-end">
+                      <a
+                        href="#"
+                        class="dropdown-toggle arrow-none card-drop p-0"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="mdi mdi-dots-vertical"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Refresh Report</a
+                        >
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Export Report</a
+                        >
+                      </div>
+                    </div>
+                    <h4 class="header-title">Sessions by Browser</h4>
+
+                    <div
+                      id="sessions-browser"
+                      class="apex-charts mt-3"
+                      data-colors="#727cf5"
+                    ></div>
+                  </div>
+                  <!-- end card-body-->
+                </div>
+                <!-- end card-->
+              </div>
+              <!-- end col-->
+
+              <div class="col-xl-4 col-lg-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="dropdown float-end">
+                      <a
+                        href="#"
+                        class="dropdown-toggle arrow-none card-drop p-0"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="mdi mdi-dots-vertical"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Refresh Report</a
+                        >
+                        <a href="javascript:void(0);" class="dropdown-item"
+                          >Export Report</a
+                        >
+                      </div>
+                    </div>
+                    <h4 class="header-title">Sessions by Operating System</h4>
+
+                    <div
+                      id="sessions-os"
+                      class="apex-charts mt-3"
+                      data-colors="#727cf5,#0acf97,#fa5c7c,#ffbc00"
+                    ></div>
+
+                    <div class="row text-center mt-2">
+                      <div class="col-6">
+                        <h4 class="fw-normal">
+                          <span>6,510</span>
+                        </h4>
+                        <p class="text-muted mb-0">Online System</p>
+                      </div>
+                      <div class="col-6">
+                        <h4 class="fw-normal">
+                          <span>2,031</span>
+                        </h4>
+                        <p class="text-muted mb-0">Offline System</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end card-body-->
+                </div>
+                <!-- end card-->
               </div>
               <!-- end col-->
             </div>
-            <!-- end row-->
+            <!-- end row -->
 
             <div class="row">
               <div class="col-xl-6">

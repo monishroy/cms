@@ -58,7 +58,6 @@ Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name
 
 //Admin Profile Controller
 Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
-
 //Admin Notice Controller
 Route::get('/admin/frontend/notice-board', [AdminNoticeController::class, 'index'])->name('admin.frontend.notice');
 Route::get('/admin/trash/notice', [AdminNoticeController::class, 'trash_notice'])->name('admin.trash.notice');
@@ -67,7 +66,6 @@ Route::get('/admin/notice/trash/{id}', [AdminNoticeController::class, 'trash'])-
 Route::get('/admin/notice/restore/{id}', [AdminNoticeController::class, 'restore'])->name('notice.restore');
 Route::get('/admin/notice/delete/{id}', [AdminNoticeController::class, 'delete'])->name('notice.delete');
 Route::get('/admin/notice/download/{file}', [AdminNoticeController::class, 'download'])->name('admin.notice.download');
-
 //Admin Technology Controller
 Route::get('/admin/frontend/technology', [AdminTechnologyController::class, 'index'])->name('admin.frontend.technology');
 Route::get('/admin/trash/technology', [AdminTechnologyController::class, 'trash_technology'])->name('admin.trash.technology');
@@ -76,7 +74,6 @@ Route::post('/admin/technology/edit', [AdminTechnologyController::class, 'edit']
 Route::get('/admin/technology/trash/{id}', [AdminTechnologyController::class, 'trash'])->name('technology.trash');
 Route::get('/admin/technology/restore/{id}', [AdminTechnologyController::class, 'restore'])->name('technology.restore');
 Route::get('/admin/technology/delete/{id}', [AdminTechnologyController::class, 'delete'])->name('technology.delete');
-
 //Admin Student Controller
 Route::get('/admin/student/add', [AdminStudentController::class, 'index'])->name('admin.add-student');
 Route::get('/admin/students', [AdminStudentController::class, 'all_student'])->name('admin.all-student');
@@ -87,12 +84,10 @@ Route::post('/admin/student/update/{id}', [AdminStudentController::class, 'updat
 Route::get('/admin/student/trash/{id}', [AdminStudentController::class, 'trash'])->name('student.trash');
 Route::get('/admin/student/restore/{id}', [AdminStudentController::class, 'restore'])->name('student.restore');
 Route::get('/admin/student/delete/{id}', [AdminStudentController::class, 'delete'])->name('student.delete');
-
 //Admin User Controller
 Route::get('/admin/users', [AdminUserController::class, 'index'])->name('admin.users');
 Route::get('/admin/users/active/{id}', [AdminUserController::class, 'status_active'])->name('user.status.active');
 Route::get('/admin/users/deactive/{id}', [AdminUserController::class, 'status_deactive'])->name('user.status.deactive');
-
 //Admin Categoties Controller
 Route::get('/admin/categories', [AdminCategoriesController::class, 'index'])->name('admin.categories');
 Route::post('/admin/categories/semister/add', [AdminCategoriesController::class, 'add_semister'])->name('semister.add');
@@ -120,3 +115,4 @@ Route::get('/user/profile', [StudentProfileController::class, 'index'])->name('s
 
 });
 //Student Route End
+
