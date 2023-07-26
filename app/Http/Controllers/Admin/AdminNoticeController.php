@@ -52,7 +52,6 @@ class AdminNoticeController extends Controller
     public function download($file)
     {
         $path = public_path("storage/notice/$file");
-
         return response()->download($path);
     }
 

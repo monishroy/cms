@@ -30,7 +30,7 @@
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                         <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>SL</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -42,9 +42,9 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($users as $users)
+                            @foreach ($users as $index=>$users)
                             <tr>
-                                <td>{{$users->id}}</td>
+                                <td>{{++$index}}</td>
                                 <td>
                                     <img src="{{url('admin/assets/images/users/'.$users->image)}}" alt="image" class="img-fluid avatar-sm rounded me-3">
                                     {{$users->name}}

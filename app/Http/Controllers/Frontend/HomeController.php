@@ -14,8 +14,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        
-
         if(Auth::user()){
             // App::setLocale($lang);
             if(auth()->user()->role === 'admin'){

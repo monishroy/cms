@@ -44,7 +44,7 @@
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                       <thead>
                           <tr>
-                            <th>ID</th>
+                            <th>SL</th>
                             <th>Notice Title</th>
                             <th>Downloaded</th>
                             <th>Added on</th>
@@ -52,9 +52,9 @@
                           </tr>
                       </thead>
                       <tbody>
-                        @foreach ($notice as $notice)
+                        @foreach ($notice as $index=>$notice)
                         <tr>
-                          <td>{{ $notice->id }}</td>
+                          <td>{{ ++$index }}</td>
                           <td>{{ $notice->notice_title }}</td>
                           <td>50</td>
                           <td>{{ date('d-M-Y', strtotime($notice->created_at)) }}</td>

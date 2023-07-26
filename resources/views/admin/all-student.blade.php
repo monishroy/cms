@@ -44,7 +44,7 @@
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                         <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>SL</th>
                                 <th>Name</th>
                                 <th>Roll</th>
                                 <th>Registration</th>
@@ -60,9 +60,9 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($students as $student)
+                            @foreach ($students as $index=>$student)
                             <tr>
-                                <td>{{$student->id}}</td>
+                                <td>{{ ++$index }}</td>
                                 <td>{{$student->fname.' '.$student->lname}}</td>
                                 <td>{{$student->roll}}</td>
                                 <td>{{$student->registration}}</td>
