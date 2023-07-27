@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Department;
+use App\Models\Position;
 use App\Models\Semister;
 use App\Models\Session;
-use App\Models\TeacherPossion;
 use Illuminate\Http\Request;
 
 class AdminCategoriesController extends Controller
@@ -16,9 +16,9 @@ class AdminCategoriesController extends Controller
         $semister = Semister::all();
         $department = Department::all();
         $session = Session::all();
-        $possion = TeacherPossion::all();
+        $position = Position::all();
 
-        $data = compact('semister','department','session','possion');
+        $data = compact('semister','department','session','position');
         return view('admin.categories')->with($data);
     }
     
@@ -95,7 +95,7 @@ class AdminCategoriesController extends Controller
 
 
         //Insert Query
-        $posstion = new TeacherPossion();
+        $posstion = new Position();
         $posstion->name = $request['position_name'];
         $result = $posstion->save();
 

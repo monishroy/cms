@@ -243,7 +243,7 @@
                             <h4 class="header-title mb-4">Add Teacher Position</h4>
                             <!-- end nav-->
                             <div class="alert alert-warning" role="alert">
-                                <i class="dripicons-warning me-2"></i> Teacher Possion
+                                <i class="dripicons-warning me-2"></i> Employees Position
                                 <strong>Our </strong> Requirement
                             </div>
                             <div class="tab-content">
@@ -285,9 +285,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($possion as $possion)
+                                            @foreach ($position as $position)
                                         <tr>
-                                            <td>{{$possion['name']}}</td>
+                                            <td>{{$position['name']}}</td>
                                             <td>
                                                 <a href="" class="action-icon text-xs">
                                                     <i class="mdi mdi-pencil"></i>

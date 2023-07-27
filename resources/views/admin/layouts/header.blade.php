@@ -107,26 +107,9 @@
                                 <li>
                                     <a href="{{ route('admin.frontend.technology') }}">Technology</a>
                                 </li>
-                                <li class="side-nav-item">
-                                    <a data-bs-toggle="collapse" href="#sidebarSecondLevel" aria-expanded="false" aria-controls="sidebarSecondLevel" class="collapsed">
-                                      <span> Employees </span>
-                                      <span class="menu-arrow"></span>
-                                    </a>
-                                    <div class="collapse" id="sidebarSecondLevel" style="">
-                                      <ul class="side-nav-third-level">
-                                        <li>
-                                          <a href="javascript: void(0);">Principal</a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript: void(0);">Technology</a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript: void(0);">Office Sector</a>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </li>
-                                </ul>
+                                <li>
+                                    <a href="{{ route('admin.frontend.employees') }}">Employees</a>
+                                </li>
                             </div>
                         </li>
                         

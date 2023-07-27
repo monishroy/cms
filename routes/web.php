@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminCategoriesController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminEmployeesController;
 use App\Http\Controllers\Admin\AdminNoticeController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminStudentController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\TechnologyController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\frontend\NoticeController;
+use App\Http\Controllers\Frontend\EmployeesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -39,6 +41,7 @@ Route::get('/technology', [TechnologyController::class, 'index'])->name('technol
 Route::get('/technology/details/{id}', [TechnologyController::class, 'details'])->name('technology.details');
 Route::get('/notice', [NoticeController::class, 'index'])->name('notice');
 Route::get('/notice/download/{file}', [NoticeController::class, 'download'])->name('notice.download');
+Route::get('/employees', [EmployeesController::class, 'index'])->name('employees');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact/add', [ContactController::class, 'add'])->name('contact.add');
 
@@ -94,6 +97,9 @@ Route::post('/admin/categories/semister/add', [AdminCategoriesController::class,
 Route::post('/admin/categories/department/add', [AdminCategoriesController::class, 'add_department'])->name('department.add');
 Route::post('/admin/categories/session/add', [AdminCategoriesController::class, 'add_session'])->name('session.add');
 Route::post('/admin/categories/possion/add', [AdminCategoriesController::class, 'add_possion'])->name('possion.add');
+//Admin Employees Controller
+Route::get('/admin/frontend/employees', [AdminEmployeesController::class, 'index'])->name('admin.frontend.employees');
+Route::post('/admin/employees/add', [AdminEmployeesController::class, 'add'])->name('employees.add');
 
 });
 //Admin Route End
