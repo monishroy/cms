@@ -42,6 +42,7 @@ Route::get('/technology/details/{id}', [TechnologyController::class, 'details'])
 Route::get('/notice', [NoticeController::class, 'index'])->name('notice');
 Route::get('/notice/download/{file}', [NoticeController::class, 'download'])->name('notice.download');
 Route::get('/employees', [EmployeesController::class, 'index'])->name('employees');
+Route::get('/employees/department/{id}', [EmployeesController::class, 'department'])->name('employees.department');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact/add', [ContactController::class, 'add'])->name('contact.add');
 

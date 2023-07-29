@@ -107,9 +107,6 @@
                                 <li>
                                     <a href="{{ route('admin.frontend.technology') }}">Technology</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('admin.frontend.employees') }}">Employees</a>
-                                </li>
                             </div>
                         </li>
                         
@@ -166,16 +163,13 @@
                             </a>
                         </li>
 
-                        <li class="side-nav-title side-nav-item">Teacher</li>
+                        <li class="side-nav-title side-nav-item">Employees</li>
                         <li class="side-nav-item">
-                            <a href="{{ route('admin.users') }}" class="side-nav-link">
+                            <a href="{{ route('admin.frontend.employees') }}" class="side-nav-link">
                                 <i class="uil-graduation-hat"></i>
-                                <span> All Teacher </span>
+                                <span> Employees</span>
                             </a>
                         </li>
-                        
-                        
-                        
                     </ul>
 
                     <!-- End Sidebar -->

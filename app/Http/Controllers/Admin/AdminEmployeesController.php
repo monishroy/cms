@@ -29,7 +29,7 @@ class AdminEmployeesController extends Controller
                 'phone' => 'required|max:12|min:11',
                 'department' => 'required',
                 'position' => 'required',
-                'about' => 'required|max:100',
+                'about' => 'required',
             ]
         );
 
