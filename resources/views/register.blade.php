@@ -73,11 +73,9 @@
                       placeholder="Enter your name"
                       value="{{old('name')}}"
                     />
-                    <span class="text-danger text-sm">
-                        @error('name')
-                        {{$message}}
-                        @enderror
-                    </span>
+                    @error('name')
+                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                    @enderror
                   </div>
 
                   <div class="mb-3">
@@ -92,11 +90,9 @@
                       placeholder="Enter your email"
                       value="{{old('email')}}"
                     />
-                    <span class="text-danger text-sm">
-                        @error('email')
-                        {{$message}}
-                        @enderror
-                    </span>
+                    @error('email')
+                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                    @enderror
                   </div>
 
                   <div class="mb-3">
@@ -110,11 +106,9 @@
                       placeholder="Enter your phone"
                       value="{{old('phone')}}"
                     />
-                    <span class="text-danger text-sm">
-                        @error('phone')
-                        {{$message}}
-                        @enderror
-                    </span>
+                    @error('phone')
+                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                    @enderror
                   </div>
 
                   <div class="mb-3">
@@ -131,11 +125,9 @@
                         <span class="password-eye"></span>
                       </div>
                     </div>
-                    <span class="text-danger text-sm">
-                        @error('password')
-                        {{$message}}
-                        @enderror
-                      </span>
+                    @error('password')
+                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                    @enderror
                   </div>
 
                   <div class="mb-3 text-center">
@@ -153,9 +145,9 @@
               <div class="col-12 text-center">
                 <p class="text-muted">
                   Already have account?
-                  <a href="{{route('login')}}" class="text-muted ms-1"
-                    ><b>Log In</b></a
-                  >
+                  <a href="{{route('login')}}" class="text-muted ms-1">
+                    <b>Log In</b>
+                  </a>
                 </p>
               </div>
               <!-- end col-->

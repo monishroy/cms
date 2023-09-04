@@ -94,7 +94,7 @@
                 <!-- Personal-Information -->
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="header-title mt-0 mb-3">Seller Information</h4>
+                    <h4 class="header-title mt-0 mb-3">Admin Information</h4>
                     <p class="text-muted font-13">
                       Hye, I’m Michael Franklin residing in this beautiful
                       world. I create websites and mobile apps with great UX and
@@ -172,8 +172,61 @@
                 <!-- Messages-->
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="header-title mb-3">Messages</h4>
+                    <h4 class="header-title mb-3">Update Profile</h4>
+                      <form>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="mb-3">
+                                <label for="firstname" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="firstname" value="{{ Auth::user()->name }}" placeholder="Enter full name">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="mb-3">
+                                <label for="useremail" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="useremail" value="{{ Auth::user()->email }}" placeholder="Enter email">
+                              </div>
+                            </div>
+                            <!-- end col -->
+                          </div>
+                          <!-- end row -->
 
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="mb-3">
+                                <label for="userbio" class="form-label">Bio</label>
+                                <textarea class="form-control" id="userbio" rows="4" placeholder="Write something..."></textarea>
+                              </div>
+                            </div>
+                            <!-- end col -->
+                          </div>
+                          <!-- end row -->
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="mb-3">
+                                <label for="useremail" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="useremail" placeholder="Enter email">
+                                <span class="form-text text-muted"><small>If you want to change email please
+                                    <a href="javascript: void(0);">click</a>
+                                    here.</small></span>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="mb-3">
+                                <label for="userpassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="userpassword" placeholder="Enter password">
+                                <span class="form-text text-muted"><small>If you want to change password please
+                                    <a href="javascript: void(0);">click</a>
+                                    here.</small></span>
+                              </div>
+                            </div>
+                            <!-- end col -->
+                          </div>
+                          <!-- end row -->
+
+                          
+                        </form>
                     <div class="inbox-widget">
                       @foreach ($contact as $contact)
                       <div class="inbox-item">

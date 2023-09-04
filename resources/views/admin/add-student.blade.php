@@ -40,11 +40,9 @@
                                         <div class="invalid-feedback">
                                             Please enter first name.
                                         </div>
-                                        <span class="text-danger text-sm">
-                                            @error('fname')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
+                                        @error('fname')
+                                        <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -54,11 +52,9 @@
                                         <div class="invalid-feedback">
                                             Please enter last name.
                                         </div>
-                                        <span class="text-danger text-sm">
-                                            @error('lname')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
+                                        @error('lname')
+                                        <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -68,11 +64,9 @@
                                         <div class="invalid-feedback">
                                             Please enter roll.
                                         </div>
-                                        <span class="text-danger text-sm">
-                                            @error('roll')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
+                                        @error('roll')
+                                        <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -82,11 +76,9 @@
                                         <div class="invalid-feedback">
                                             Please enter Registration.
                                         </div>
-                                        <span class="text-danger text-sm">
-                                            @error('registration')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
+                                        @error('registration')
+                                        <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-4">
@@ -103,11 +95,9 @@
                                         <div class="invalid-feedback">
                                             Please enter Session.
                                         </div>
-                                        <span class="text-danger text-sm">
-                                            @error('session')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
+                                        @error('session')
+                                        <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-4">
@@ -117,11 +107,9 @@
                                         <div class="invalid-feedback">
                                             Please enter Phone Number.
                                         </div>
-                                        <span class="text-danger text-sm">
-                                            @error('phone')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
+                                        @error('phone')
+                                        <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-4">
@@ -131,11 +119,9 @@
                                         <div class="invalid-feedback">
                                             Please enter Guardian Phone Number.
                                         </div>
-                                        <span class="text-danger text-sm">
-                                            @error('gPhone')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
+                                        @error('gPhone')
+                                        <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-4">
@@ -152,11 +138,9 @@
                                         <div class="invalid-feedback">
                                             Please enter Semister.
                                         </div>
-                                        <span class="text-danger text-sm">
-                                            @error('semister')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
+                                        @error('semister')
+                                        <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-4">
@@ -173,11 +157,9 @@
                                         <div class="invalid-feedback">
                                             Please enter Gender.
                                         </div>
-                                        <span class="text-danger text-sm">
-                                            @error('gender')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
+                                        @error('department')
+                                        <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-4">
@@ -187,11 +169,9 @@
                                         <div class="invalid-feedback">
                                             Please enter Address.
                                         </div>
-                                        <span class="text-danger text-sm">
-                                            @error('address')
-                                            {{$message}}
-                                            @enderror
-                                        </span>
+                                        @error('address')
+                                        <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

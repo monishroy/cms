@@ -60,62 +60,32 @@
                 </div>
                 @endif
                 <form action="{{route('postlogin')}}" method="POST">
-                    @csrf
+                  @csrf
                   <div class="mb-3">
-                    <label for="emailaddress" class="form-label"
-                      >Email address</label
-                    >
-                    <input
-                      class="form-control"
-                      type="email"
-                      id="emailaddress"
-                      name="email"
-                      placeholder="Enter your email"
-                    />
-
-                    <span class="text-danger text-sm">
-                        @error('email')
-                        {{$message}}
-                        @enderror
-                      </span>
+                    <label for="emailaddress" class="form-label">Email address</label>
+                    <input class="form-control" type="email" id="emailaddress" name="email" placeholder="Enter your email"/>
+                    @error('email')
+                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                    @enderror
                   </div>
 
                   <div class="mb-3">
-                    <a href="pages-recoverpw.html" class="text-muted float-end"
-                      ><small>Forgot your password?</small></a
-                    >
                     <label for="password" class="form-label">Password</label>
                     <div class="input-group input-group-merge">
-                      <input
-                        class="form-control"
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Enter your password"
-                      />
+                      <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password" />
                       <div class="input-group-text" data-password="false">
                         <span class="password-eye"></span>
                       </div>
                     </div>
-
-                    <span class="text-danger text-sm">
-                        @error('password')
-                        {{$message}}
-                        @enderror
-                    </span>
+                    @error('password')
+                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                    @enderror
                   </div>
 
-                  <div class="mb-3 mb-3">
+                  <div class="mb-3">
                     <div class="form-check">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="checkbox-signin"
-                        checked
-                      />
-                      <label class="form-check-label" for="checkbox-signin"
-                        >Remember me</label
-                      >
+                      <input type="checkbox" class="form-check-input" id="checkbox-signin" checked/>
+                      <label class="form-check-label" for="checkbox-signin">Remember me</label>
                     </div>
                   </div>
                   <div class="mb-3 mb-0 text-center">
