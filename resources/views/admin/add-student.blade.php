@@ -3,25 +3,7 @@
 @section('title', 'Add Student')
 @section('main-section')
 
-          <!-- Start Content-->
-          <div class="container-fluid">
-            <!-- start page title -->
-            <div class="row">
-              <div class="col-12">
-                <div class="page-title-box">
-                  <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                      <li class="breadcrumb-item">
-                        <a href="javascript: void(0);">CMS</a>
-                      </li>
-                      <li class="breadcrumb-item active">Add Student</li>
-                    </ol>
-                  </div>
-                  <h4 class="page-title">{{$title_header}}</h4>
-                </div>
-              </div>
-            </div>
-            <!-- end page title -->
+          
 
             <div class="row">
               <div class="col-lg-12">
@@ -33,7 +15,7 @@
                         <form class="needs-validation" action="{{$url}}" method="POST" novalidate="">
                             @csrf
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-4">
                                     <div class="mb-3">
                                         <label class="form-label" for="fname">First name</label>
                                         <input type="text" class="form-control" name="fname" id="fname" placeholder="First name" required="" @if($title_header == 'Update Student') value="{{$student->fname}}" @else value="{{old('fname')}}" @endif>
@@ -45,7 +27,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-4">
                                     <div class="mb-3">
                                         <label class="form-label" for="lname">Last name</label>
                                         <input type="text" class="form-control" name="lname" id="lname" placeholder="Last name" required="" @if($title_header == 'Update Student') value="{{$student->lname}}" @else value="{{old('lname')}}" @endif>
@@ -53,6 +35,18 @@
                                             Please enter last name.
                                         </div>
                                         @error('lname')
+                                        <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="text" class="form-control" name="email" id="email" placeholder="Email" required="" @if($title_header == 'Update Student') value="{{$student->email}}" @else value="{{old('email')}}" @endif>
+                                        <div class="invalid-feedback">
+                                            Please enter email.
+                                        </div>
+                                        @error('email')
                                         <span class="text-danger form-text"><small>{{$message}}</small></span>
                                         @enderror
                                     </div>
@@ -103,7 +97,7 @@
                                 <div class="col-4">
                                     <div class="mb-3">
                                         <label class="form-label" for="phone">Phone Number</label>
-                                        <input type="text" class="form-control" name="phone" data-toggle="input-mask" data-mask-format="01000-000000" maxlength="11" placeholder="01XX-NNNNNNN" required="" @if($title_header == 'Update Student') value="{{$student->phone}}" @else value="{{old('phone')}}" @endif>
+                                        <input type="text" class="form-control" name="phone" data-toggle="input-mask" data-mask-format="01000000000" maxlength="11" placeholder="01XX-NNNNNNN" required="" @if($title_header == 'Update Student') value="{{$student->phone}}" @else value="{{old('phone')}}" @endif>
                                         <div class="invalid-feedback">
                                             Please enter Phone Number.
                                         </div>

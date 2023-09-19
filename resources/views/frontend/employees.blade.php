@@ -16,7 +16,7 @@
               <div class="text-center p-3">
                 <div class="avatar-sm m-auto">
                   <span class="avatar-title bg-primary-lighten rounded-circle">
-                    <i class="dripicons-trophy text-primary font-24"></i>
+                    <i class=" dripicons-user text-primary font-24"></i>
                   </span>
                 </div>
                 <h4 class="mt-3 text-body">{{ $department->name }}</h4>

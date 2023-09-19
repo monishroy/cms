@@ -8,6 +8,8 @@ use App\Models\Student;
 use App\Models\Semister;
 use App\Models\Department;
 use App\Models\Session;
+use App\Models\User as ModelsUser;
+use Illuminate\Support\Facades\Hash;
 
 class AdminStudentController extends Controller
 {
@@ -46,12 +48,13 @@ class AdminStudentController extends Controller
             [
                 'fname' => 'required|min:3',
                 'lname' => 'required|min:3',
+                'email' => 'required|email|unique:users,email',
                 'roll' => 'required|unique:students,roll',
                 'registration' => 'required|unique:students,registration',
                 'session' => 'required',
                 'department' => 'required',
                 'semister' => 'required',
-                'phone' => 'required|max:12|min:11|unique:students,phone',
+                'phone' => 'required|max:12|min:11|unique:users,phone',
                 'gPhone' => 'required|max:12|min:11',
                 'address' => 'required',
             ]
@@ -62,6 +65,7 @@ class AdminStudentController extends Controller
         $student = new Student();
         $student->fname = $request['fname'];
         $student->lname = $request['lname'];
+        $student->email = $request['email'];
         $student->roll = $request['roll'];
         $student->registration = $request['registration'];
         $student->department_id = $request['department'];
@@ -71,6 +75,15 @@ class AdminStudentController extends Controller
         $student->semister_id = $request['semister'];
         $student->address = $request['address'];
         $result = $student->save();
+
+        //Insert Query
+        $user = new ModelsUser();
+        $user->name = $request['fname'].' '.$request['lname'];
+        $user->email = $request['email'];
+        $user->phone = $request['phone'];
+        $user->image = rand(1, 5).'.png';
+        $user->password = Hash::make('123456');
+        $result = $user->save();
 
         if($result){
             return back()->with('success','Student Add Successfully');

@@ -3,25 +3,7 @@
 @section('title', 'Profile')
 @section('main-section')
 
-          <!-- Start Content-->
-          <div class="container-fluid">
-            <!-- start page title -->
-            <div class="row">
-              <div class="col-12">
-                <div class="page-title-box">
-                  <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                      <li class="breadcrumb-item">
-                        <a href="javascript: void(0);">CMS</a>
-                      </li>
-                      <li class="breadcrumb-item active">Profile</li>
-                    </ol>
-                  </div>
-                  <h4 class="page-title">Profile</h4>
-                </div>
-              </div>
-            </div>
-            <!-- end page title -->
+
 
             <div class="row">
               <div class="col-sm-12">
@@ -72,8 +54,7 @@
                       <div class="col-sm-4">
                         <div class="text-center mt-sm-0 mt-3 text-sm-end">
                           <button type="button" class="btn btn-light">
-                            <i class="mdi mdi-account-edit me-1"></i> Edit
-                            Profile
+                            <i class="mdi mdi-image me-1"></i> Change Picture
                           </button>
                         </div>
                       </div>
@@ -96,11 +77,7 @@
                   <div class="card-body">
                     <h4 class="header-title mt-0 mb-3">Admin Information</h4>
                     <p class="text-muted font-13">
-                      Hye, I’m Michael Franklin residing in this beautiful
-                      world. I create websites and mobile apps with great UX and
-                      UI design. I have done work with big companies like Nokia,
-                      Google and Yahoo. Meet me or Contact me for any queries.
-                      One Extra line for filling space. Fill as many you want.
+                      {{ Auth::user()->bio }}
                     </p>
 
                     <hr />
@@ -173,60 +150,52 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="header-title mb-3">Update Profile</h4>
-                      <form>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="mb-3">
-                                <label for="firstname" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="firstname" value="{{ Auth::user()->name }}" placeholder="Enter full name">
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="mb-3">
-                                <label for="useremail" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="useremail" value="{{ Auth::user()->email }}" placeholder="Enter email">
-                              </div>
-                            </div>
-                            <!-- end col -->
+                    <form action="{{ route('profile.update') }}" method="POST">
+                      @csrf
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" name="name" id="name" value="{{ Auth::user()->name }}" placeholder="Enter Full Name">
+                            @error('name')
+                              <span class="text-danger form-text"><small>{{$message}}</small></span>
+                            @enderror
                           </div>
-                          <!-- end row -->
-
-                          <div class="row">
-                            <div class="col-12">
-                              <div class="mb-3">
-                                <label for="userbio" class="form-label">Bio</label>
-                                <textarea class="form-control" id="userbio" rows="4" placeholder="Write something..."></textarea>
-                              </div>
-                            </div>
-                            <!-- end col -->
+                        </div>
+                        <div class="col-md-4">
+                          <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" value="{{ Auth::user()->email }}" placeholder="Enter Email">
+                            @error('email')
+                              <span class="text-danger form-text"><small>{{$message}}</small></span>
+                            @enderror
                           </div>
-                          <!-- end row -->
-
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="mb-3">
-                                <label for="useremail" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="useremail" placeholder="Enter email">
-                                <span class="form-text text-muted"><small>If you want to change email please
-                                    <a href="javascript: void(0);">click</a>
-                                    here.</small></span>
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="mb-3">
-                                <label for="userpassword" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="userpassword" placeholder="Enter password">
-                                <span class="form-text text-muted"><small>If you want to change password please
-                                    <a href="javascript: void(0);">click</a>
-                                    here.</small></span>
-                              </div>
-                            </div>
-                            <!-- end col -->
+                        </div>
+                        <div class="col-md-4">
+                          <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" class="form-control" name="phone" id="phone" value="{{ Auth::user()->phone }}" placeholder="Enter Phone">
+                            @error('phone')
+                              <span class="text-danger form-text"><small>{{$message}}</small></span>
+                            @enderror
                           </div>
-                          <!-- end row -->
-
-                          
-                        </form>
+                        </div>
+                        <div class="col-12">
+                          <div class="mb-3">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea class="form-control" id="bio" name="bio" rows="3" placeholder="Write something...">{{ Auth::user()->bio }}</textarea>
+                            @error('bio')
+                              <span class="text-danger form-text"><small>{{$message}}</small></span>
+                            @enderror
+                          </div>
+                        </div>
+                        <!-- end col -->
+                      </div>
+                      <!-- end row -->
+                      <button class="btn btn-primary" type="submit">
+                        Update Profile
+                      </button>
+                    </form>
                     <div class="inbox-widget">
                       @foreach ($contact as $contact)
                       <div class="inbox-item">

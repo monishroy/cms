@@ -24,15 +24,15 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
     <div class="col-md-4">
       <p class="text-muted">
         <span class="fw-bold">Customer Support:</span><br />
-        <span class="d-block mt-1">+8801817603163</span>
+        <span class="d-block mt-1">+8801705941415</span>
       </p>
       <p class="text-muted mt-4">
         <span class="fw-bold">Email Address:</span><br />
-        <span class="d-block mt-1">info@gmail.com</span>
+        <span class="d-block mt-1">riitpolybd@gmail.com</span>
       </p>
       <p class="text-muted mt-4">
         <span class="fw-bold">Institute Address:</span><br />
-        <span class="d-block mt-1">Central Road, Payra Chattor, Rangpur, Bangladesh</span>
+        <span class="d-block mt-1">রংপুর আইডিয়াল ইনস্টিটিউট অব টেকনোলজি সেন্ট্রাল রোড ( পায়রা চত্তর থেকে পূর্ব দিকে ও ভূমি অফিসের সামনে),</span>
       </p>
       <p class="text-muted mt-4">
         <span class="fw-bold">Online Time:</span><br />

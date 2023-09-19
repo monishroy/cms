@@ -93,6 +93,7 @@
                                 <span> Profile </span>
                             </a>
                         </li>
+                        
                         <li class="side-nav-item">
                             <a data-bs-toggle="collapse" href="#frontendSlid" aria-expanded="false" aria-controls="frontendSlid" class="side-nav-link collapsed">
                                 <i class="uil uil-window"></i>
@@ -106,6 +107,9 @@
                                 </li>
                                 <li>
                                     <a href="{{ route('admin.frontend.technology') }}">Technology</a>
+                                </li>
+                                <li class="side-nav-item">
+                                    <a href="{{ route('admin.frontend.employees') }}">Employees</a>
                                 </li>
                             </div>
                         </li>
@@ -163,13 +167,7 @@
                             </a>
                         </li>
 
-                        <li class="side-nav-title side-nav-item">Employees</li>
-                        <li class="side-nav-item">
-                            <a href="{{ route('admin.frontend.employees') }}" class="side-nav-link">
-                                <i class="uil-graduation-hat"></i>
-                                <span> Employees</span>
-                            </a>
-                        </li>
+                        
                     </ul>
 
                     <!-- End Sidebar -->
@@ -679,3 +677,22 @@
                         </div>
                     </div>
                     <!-- end Topbar -->
+            <!-- Start Content-->
+            <div class="container-fluid">
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item">
+                                        <a href="javascript: void(0);">CMS</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">Add Student</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">@yield('title')</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->

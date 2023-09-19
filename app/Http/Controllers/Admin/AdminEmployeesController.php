@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\Employee;
 use App\Models\Position;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminEmployeesController extends Controller
 {
@@ -48,6 +50,15 @@ class AdminEmployeesController extends Controller
         $employees->position_id = $request['position'];
         $employees->about = $request['about'];
         $result = $employees->save();
+
+        //Insert Query
+        $user = new User();
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->phone = $request['phone'];
+        $user->image = rand(1, 5).'.png';
+        $user->password = Hash::make('123456');
+        $result = $user->save();
 
         if($result){
             return back()->with('success','Employees Add Successfully');

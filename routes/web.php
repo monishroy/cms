@@ -62,6 +62,7 @@ Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name
 
 //Admin Profile Controller
 Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
+Route::post('/admin/profile/update', [AdminProfileController::class, 'update'])->name('profile.update');
 //Admin Notice Controller
 Route::get('/admin/frontend/notice-board', [AdminNoticeController::class, 'index'])->name('admin.frontend.notice');
 Route::get('/admin/trash/notice', [AdminNoticeController::class, 'trash_notice'])->name('admin.trash.notice');
