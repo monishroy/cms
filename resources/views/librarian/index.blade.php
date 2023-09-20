@@ -1,27 +1,9 @@
-﻿@extends('student.layouts.main')
+﻿@extends('librarian.layouts.main')
 
 @section('title', 'Dashboard')
 @section('main-section')
 
-          <!-- Start Content-->
-          <div class="container-fluid">
-            <!-- start page title -->
-            <div class="row">
-              <div class="col-12">
-                <div class="page-title-box">
-                  <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                      <li class="breadcrumb-item">
-                        <a href="javascript: void(0);">CMS</a>
-                      </li>
-                      <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                  </div>
-                  <h4 class="page-title">Dashboard</h4>
-                </div>
-              </div>
-            </div>
-            <!-- end page title -->
+          
 
             <div class="row">
               <div class="col-sm-6 col-xl-3">
@@ -48,8 +30,8 @@
                     <div class="float-end">
                       <i class="dripicons-user-group widget-icon bg-light-lighten rounded text-white"></i>
                     </div>
-                    <h5 class="fw-normal mt-0" title="Revenue">Total User</h5>
-                    <h3 class="mt-3 mb-3 text-white">{{ $users }}</h3>
+                    <h5 class="fw-normal mt-0" title="Revenue">Total Book</h5>
+                    <h3 class="mt-3 mb-3 text-white"></h3>
                     <p class="mb-0">
                       <span class="badge bg-info me-1">
                         <i class="mdi mdi-user"></i> 17.26%</span>

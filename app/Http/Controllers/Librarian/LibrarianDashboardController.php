@@ -1,19 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Student;
+namespace App\Http\Controllers\Librarian;
 
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class StudentDashboardController extends Controller
+class LibrarianDashboardController extends Controller
 {
     public function index()
     {
         $students = Student::count();
-        $users = User::count();
-
-        return view('student.index' , compact('students','users'));
+        return view('librarian.index', compact('students'));
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Notice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminNoticeController extends Controller
 {
@@ -23,7 +24,6 @@ class AdminNoticeController extends Controller
             [
                 'notice_title' => 'required',
                 'notice_file' => 'required',
-                'added_id' => 'required',
             ]
         );
 
@@ -38,7 +38,7 @@ class AdminNoticeController extends Controller
         $notice = new Notice();
         $notice->notice_title = $request['notice_title'];
         $notice->notice_file = $filename;
-        $notice->added_id = $request['added_id'];
+        $notice->user_id = Auth::user()->id;
         $result = $notice->save();
 
         if($result){

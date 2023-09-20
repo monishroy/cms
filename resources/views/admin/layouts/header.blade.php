@@ -497,7 +497,7 @@
                                 >
                                     <span class="account-user-avatar">
                                         <img
-                                            src="{{url('admin/assets/images/users/'.Auth::user()->image)}}"
+                                            src="{{ asset('storage/users/'.Auth::user()->image) }}"
                                             alt="user-image"
                                             class="rounded-circle"
                                         />

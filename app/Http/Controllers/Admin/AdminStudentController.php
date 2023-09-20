@@ -21,15 +21,7 @@ class AdminStudentController extends Controller
         $department = Department::all();
         $session = Session::all();
         
-        return view('admin.add-student',
-        [
-        'url' => $url,
-        'title_header' => $title_header,
-        'semister' => $semister,
-        'department' => $department,
-        'session' => $session,
-        ]
-        );
+        return view('admin.add-student', compact('url','title_header','semister','department','session'));
     }
 
     public function all_student()

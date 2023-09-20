@@ -27,7 +27,7 @@
                             <tr>
                                 <td>{{++$index}}</td>
                                 <td>
-                                    <img src="{{url('admin/assets/images/users/'.$users->image)}}" alt="image" class="img-fluid avatar-sm rounded me-3">
+                                    <img src="{{ asset('storage/users/'.$users->image) }}" alt="image" class="img-fluid avatar-sm rounded me-3">
                                     {{$users->name}}
                                 </td>
                                 <td>{{$users->email}}</td>

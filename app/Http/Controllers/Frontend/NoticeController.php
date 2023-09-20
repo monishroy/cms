@@ -22,7 +22,6 @@ class NoticeController extends Controller
         if(is_null($find)){
             return back()->with('error','File is not found!');
         }else{
-
             $id = $find->id;
             $download = $find->download+1;
 

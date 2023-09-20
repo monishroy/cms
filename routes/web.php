@@ -18,6 +18,8 @@ use App\Http\Controllers\Frontend\EmployeesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Librarian\LibrarianBooksController;
+use App\Http\Controllers\Librarian\LibrarianDashboardController;
 use App\Http\Controllers\Student\StudentDashboardController;
 use App\Http\Controllers\Student\StudentProfileController;
 use App\Http\Controllers\Teacher\TeacherDashboardController;
@@ -117,10 +119,20 @@ Route::get('/teacher/profile', [TeacherProfileController::class, 'index'])->name
 
 //Student Route Start
 Route::middleware(['auth','user','status'])->group(function(){
-//Teacher Dashboard Controller
-Route::get('/user/dashboard', [StudentDashboardController::class, 'index'])->name('student.dashboard');
 Route::get('/user/profile', [StudentProfileController::class, 'index'])->name('student.profile');
+Route::post('/user/profile/update', [StudentProfileController::class, 'update'])->name('student.profile.update');
 
 });
 //Student Route End
+
+//Teacher Route End
+
+//Librarian Route Start
+Route::middleware(['auth','librarian','status'])->group(function(){
+Route::get('/librarian/dashboard', [LibrarianDashboardController::class, 'index'])->name('librarian.dashboard');
+
+Route::resource('librarian/books', LibrarianBooksController::class);
+
+});
+//Librarian Route End
 

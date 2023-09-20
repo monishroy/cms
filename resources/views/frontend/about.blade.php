@@ -45,7 +45,80 @@
             </p>
           </div>
         </div>
-
+        <div class="row mt-2 py-5 align-items-center">
+          <div class="col-lg-6 offset-lg-1">
+            <h3 class="fw-normal">সুযোগ-সুবিধা</h3>
+            <div class="mt-4">
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                যুগোপযোগী টেকনোলজি ভিত্তিক ল্যাব ও ওয়ার্কশপ সমূহের আধুনিকরণের জন্য যন্ত্রপাতি ক্রয়।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 শিক্ষার্থীদের দক্ষতা বৃদ্ধির জন্য শিল্প কারখানায় বাস্তব প্রশিক্ষণ ও চাকুরী ব্যবস্থাকরণ।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 বিভিন্ন শিল্প কারখানায় দক্ষ ও অভিজ্ঞ ইঞ্জিনিয়ারগণকে শিক্ষার্থীদের বাস্তব জ্ঞান বৃদ্ধির জন্য গেস্ট লেকচারার হিসাবে নিয়োজিতকরণ।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 শিক্ষার্থীদের উন্নত শিক্ষার জন্য শিক্ষকগণের দেশে ও বিদেশে প্রশিক্ষণের ব্যাবস্থাকরণ।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 দক্ষ ও অভিজ্ঞ ইঞ্জিনিয়ার, কৃতি শিক্ষাবিদ, শিল্পোদ্যোগক্তাদের মাধ্যমে সেমিনার সিস্পোজিয়ামের ব্যবস্থা দ্বারা শিক্ষার্থীদের প্রযুক্তিগত জ্ঞান ও ধারণা বৃদ্ধি করা হয়।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                  RIIT এর দরিদ্র ও মেধাবী শিক্ষার্থীগণ  প্রতি পর্বে ৪০০০ টাকা বৃত্তি পাবে।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 সর্বোচ্চ সংখ্যক তাত্ত্বিক ও ব্যবহারিক ক্লাশের নিশ্চয়তা।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 ক্লাশে শতভাগ উপস্থিতির লক্ষ্যে বিভিন্ন কৌশল নির্ধারণ ও সার্বক্ষণিক অভিভাবকদের  ​​​​​​​সঙ্গে মতবিনিময়।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 হ্যান্ড নোট সহ অতিরিক্ত বিশেষ ক্লাশের ব্যবস্থা আছে, যার ফলে প্রাইভেট পড়ার প্রয়োজন হয় না।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 শিক্ষার্থীদের তত্তাবধানের জন্য গাইড শিক্ষকের ব্যবস্থা।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 মাল্টিমিডিয়া প্রজেক্টের মাধ্যমে ক্লাস গ্রহণ।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 ডাটাবেজ সফটওয়্যারের মাধ্যমে উপস্থিতি ফলাফলসহ প্রতিষ্ঠানের যাবতীয় তথ্যাদি ছাত্র-ছাত্রী ও অভিভাবকদের সহজে অবিহতকরণ।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 মহিলা শিক্ষার্থীদের আলাদা কমনরুম ও মহিলা গাইড শিক্ষকের ব্যবস্থা।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 এর মাধ্যমে ছাত্র/ছাত্রীরা প্রয়োজনীয় সময়ে ইন্টারনেট ব্যবহার করার সুবিধা।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 সম্পূর্ণ ক্যাম্পাস সিসি ক্যামেরার মাধ্যমে মনিটরিংকরণ।
+              </p>
+              <p class="text-muted">
+                <i class="mdi mdi-circle-medium text-primary"></i>
+                 কোর্স শেষে প্লেসমেন্ট সেলের মাধ্যমে কর্মসংস্থানের সহায়তা করা।
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <img src="{{url('admin/assets/images/features-1.svg')}}" class="img-fluid" alt="" />
+          </div>
+        </div>
         <div class="row pb-3 pt-5 align-items-center">
           <div class="col-lg-6">
             <h3 class="fw-normal">Md. Shakinur Alam</h3>

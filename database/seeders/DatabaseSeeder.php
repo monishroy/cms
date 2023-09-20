@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             PositionSeeder::class,
             StudentSeeder::class,
             UserSeeder::class,
+            NoticeSeeder::class,
         ]);
     }
 }

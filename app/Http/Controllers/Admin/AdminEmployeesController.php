@@ -39,6 +39,7 @@ class AdminEmployeesController extends Controller
         $imagename = date('dmY').time()."-employees.".$request->file('image')->getClientOriginalExtension();
 
         $request->file('image')->storeAs('public/employees',$imagename);
+        $request->file('image')->storeAs('public/users',$imagename);
 
         //Insert Query
         $employees = new Employee();
@@ -56,7 +57,7 @@ class AdminEmployeesController extends Controller
         $user->name = $request['name'];
         $user->email = $request['email'];
         $user->phone = $request['phone'];
-        $user->image = rand(1, 5).'.png';
+        $user->image = $imagename;
         $user->password = Hash::make('123456');
         $result = $user->save();
 

@@ -15,7 +15,6 @@
                         <form class="needs-validation" action="{{ route('notice.add') }}" method="POST" novalidate="" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <input type="hidden" name="added_id" value="{{ Auth::user()->id }}">
                                 <div class="col-12">
                                     <div class="mb-3">
                                         <label class="form-label" for="notice_title">Notice Title</label>

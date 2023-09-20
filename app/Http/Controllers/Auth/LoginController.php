@@ -24,9 +24,11 @@ class LoginController extends Controller
             if(auth()->user()->role === 'admin'){
                 return redirect()->route('admin.dashboard');
             }elseif(auth()->user()->role === 'user'){
-                return redirect('/user/dashboard');
+                return redirect()->route('student.profile');
             }elseif(auth()->user()->role === 'teacher'){
                 return redirect()->route('teacher.dashboard');
+            }elseif(auth()->user()->role === 'librarian'){
+                return redirect()->route('librarian.dashboard');
             }else{
                 return redirect('/login');
             }
