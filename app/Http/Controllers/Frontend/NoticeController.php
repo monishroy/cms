@@ -19,24 +19,25 @@ class NoticeController extends Controller
     public function download($file)
     {
         $find = Notice::where('notice_file', $file)->first();
-        if(is_null($find)){
-            return back()->with('error','File is not found!');
-        }else{
-            $id = $find->id;
-            $download = $find->download+1;
 
-            $notice = Notice::find($id);
-            $notice->download = $download;
-            $result = $notice->save();
+        dd($find);
+        // if(!is_null($find)){
+        //     $id = $find->id;
+        //     $download = $find->download;
 
-            if($result){
-                $path = public_path("storage/notice/$file");
-                return response()->download($path);
-            }else{
-                return back()->with('error','Something is Worng!');
-            }
-            
-        }
+        //     $notice = Notice::find($id);
+        //     $notice->download = $download+1;
+        //     $result = $notice->save();
+
+        //     if($result){
+        //         $path = public_path("storage/notice/$file");
+        //         return response()->download($path);
+        //     }else{
+        //         return back()->with('error','Something is Worng!');
+        //     }
+        // }else{
+        //     return back()->with('error','File is not found!');
+        // }
         
     }
 }

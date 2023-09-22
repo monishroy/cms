@@ -105,6 +105,12 @@
                                 <span> Issue Books </span>
                             </a>
                         </li>
+                        <li class="side-nav-item">
+                            <a href="{{ route('issue.index') }}" class="side-nav-link">
+                                <i class="uil-book-alt"></i>
+                                <span> Non Retuen Books </span>
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- End Sidebar -->

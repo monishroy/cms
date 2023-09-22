@@ -97,7 +97,14 @@
                         <strong>Email :</strong>
                         <span class="ms-2">{{ Auth::user()->email }}</span>
                       </p>
-
+                      <p class="text-muted">
+                        <strong>Status :</strong>
+                        @if (Auth::user()->status == 1)
+                          <span class="badge badge-outline-success">Active</span>
+                        @else
+                          <span class="badge badge-outline-danger">Deactive</span>
+                        @endif
+                      </p>
                       <p class="text-muted">
                         <strong>Location :</strong>
                         <span class="ms-2">Bangladesh</span>

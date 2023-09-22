@@ -18,7 +18,7 @@ class LibrarianBooksController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        $books = Book::where('status', 1)->get();
         return view('librarian.books', compact('books'));
     }
 
@@ -190,4 +190,5 @@ class LibrarianBooksController extends Controller
         $book->delete();
         return back()->with('success','Book Delete Successfully');
     }
+
 }

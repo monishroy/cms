@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title', 'Computer')
+@section('title', $department_name.' Employees')
 @section('main-section')
 <!-- START FEATURES 2 -->
 <section class="py-5">

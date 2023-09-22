@@ -90,7 +90,7 @@
                             <a href="{{ route('admin.notice.download',['file'=>$notice->notice_file]) }}" class="action-icon">
                               <i class="mdi mdi-download"></i>
                             </a>
-                            <a data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" title="Move to Trash" href="{{route('notice.trash',['id'=>$notice->id])}}"  class="action-icon">
+                            <a data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" title="Move to Trash" href="{{route('notice.delete',['id'=>$notice->id])}}"  class="action-icon">
                               <i class="mdi mdi-delete"></i>
                             </a>
                           </td>

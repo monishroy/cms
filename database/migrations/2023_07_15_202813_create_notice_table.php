@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('notice', function (Blueprint $table) {
             $table->id();
-            $table->string('notice_title', 100);
+            $table->text('notice_title',);
             $table->string('notice_file');
             $table->string('download')->default(0);
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

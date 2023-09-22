@@ -109,7 +109,7 @@
                                     <a href="{{ route('technology.create') }}">Add Technology</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('technology.index') }}">All Technology</a>
+                                    <a href="{{ route('technology.index') }}">Technology</a>
                                 </li>
                                 <li class="side-nav-item">
                                     <a href="{{ route('employees.create') }}">Add Employees</a>

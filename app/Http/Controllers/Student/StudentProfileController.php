@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
+use App\Models\IssueBook;
 use App\Models\Notice;
 use App\Models\Student;
 use App\Models\User;
@@ -47,5 +47,12 @@ class StudentProfileController extends Controller
         }else{
             return back()->with('error','Something is Worng!');
         }
+    }
+
+    public function books()
+    {
+        $notices = Notice::all();
+        $issue_books = IssueBook::where('user_id', Auth::user()->id)->get();
+        return view('student.books', compact('issue_books','notices'));
     }
 }

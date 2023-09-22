@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('image')->default('default-book.png');
             $table->string('subject_code');
-            $table->integer('book_code')->unique();
+            $table->string('book_code')->unique();
             $table->string('probidhan');
             $table->string('publication');
             $table->boolean('status')->default(1);

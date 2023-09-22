@@ -8,7 +8,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="row">
-                  @foreach ($employees as $employee)
+                  @forelse ($employees as $employee)
                   <div class="col-4">
                     <div class="card">
                       <div class="card-body">
@@ -50,7 +50,14 @@
                       <!-- end card-body-->
                     </div>
                   </div>
-                  @endforeach
+                  @empty
+                  <div class="text-center" style="margin-top: 180px">
+                    <img src="{{ url('admin/assets/images/not-found.png') }}" height="300" alt="File not found Image">
+                    <h4 class="text-uppercase text-muted">
+                      Employees Not Found
+                    </h4>
+                  </div>
+                  @endforelse
 
                 </div>
               </div>

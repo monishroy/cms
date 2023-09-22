@@ -22,15 +22,13 @@ class AdminCategoriesController extends Controller
         return view('admin.categories')->with($data);
     }
     
-    public function add_semister(Request $request)
+    public function semister_store(Request $request)
     {
         $request->validate(
             [
                 'semister_name' => 'required',
             ]
         );
-
-
         //Insert Query
         $semister = new Semister();
         $semister->name = $request['semister_name'];
@@ -43,7 +41,7 @@ class AdminCategoriesController extends Controller
         }
     }
 
-    public function add_department(Request $request)
+    public function department_store(Request $request)
     {
         $request->validate(
             [
@@ -64,15 +62,13 @@ class AdminCategoriesController extends Controller
         }
     }
 
-    public function add_session(Request $request)
+    public function session_store(Request $request)
     {
         $request->validate(
             [
                 'session_name' => 'required',
             ]
         );
-
-
         //Insert Query
         $session = new Session();
         $session->name = $request['session_name'];
@@ -85,7 +81,7 @@ class AdminCategoriesController extends Controller
         }
     }
 
-    public function add_possion(Request $request)
+    public function possion_store(Request $request)
     {
         $request->validate(
             [

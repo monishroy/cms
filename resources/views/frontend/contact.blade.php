@@ -69,11 +69,9 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
                 placeholder="Full Name..."
                 value="{{ old('fullname') }}"
               />
-              <span class="text-danger text-sm">
-                @error('fullname')
-                {{$message}}
-                @enderror
-            </span>
+              @error('fullname')
+                <small class="text-danger">{{$message}}</small>
+              @enderror
             </div>
           </div>
           <div class="col-lg-6">
@@ -89,11 +87,9 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
                 placeholder="Enter you email..."
                 value="{{ old('email') }}"
               />
-              <span class="text-danger text-sm">
-                @error('email')
-                {{$message}}
-                @enderror
-            </span>
+              @error('email')
+                <small class="text-danger">{{$message}}</small>
+              @enderror
             </div>
           </div>
         </div>
@@ -110,11 +106,9 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
                 placeholder="Enter subject..."
                 value="{{ old('subject') }}"
               />
-              <span class="text-danger text-sm">
-                @error('subject')
-                {{$message}}
-                @enderror
-            </span>
+              @error('subject')
+                <small class="text-danger">{{$message}}</small>
+              @enderror
             </div>
           </div>
         </div>
@@ -131,11 +125,9 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
                 placeholder="Type your message here..."
                 value="{{ old('message') }}"
               ></textarea>
-              <span class="text-danger text-sm">
-                @error('message')
-                {{$message}}
-                @enderror
-            </span>
+              @error('message')
+                <small class="text-danger">{{$message}}</small>
+              @enderror
             </div>
           </div>
         </div>

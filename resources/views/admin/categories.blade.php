@@ -16,7 +16,7 @@
                         </div>
                         <div class="tab-content">
                           <div class="tab-pane show active" id="custom-styles-preview">
-                            <form class="needs-validation" action="{{route('semister.add')}}" method="POST" novalidate="">
+                            <form class="needs-validation" action="{{route('semister.store')}}" method="POST" novalidate="">
                                 @csrf
                                 <div class="mb-3">
                                   <label class="form-label" for="semister_name">Semister Name</label>
@@ -88,7 +88,7 @@
                         </div>
                         <div class="tab-content">
                           <div class="tab-pane show active" id="custom-styles-preview">
-                            <form class="needs-validation" action="{{route('department.add')}}" method="POST" novalidate="">
+                            <form class="needs-validation" action="{{route('department.store')}}" method="POST" novalidate="">
                               @csrf
                               <div class="mb-3">
                                 <label class="form-label" for="department_name">Add Department</label>
@@ -158,7 +158,7 @@
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane show active" id="custom-styles-preview">
-                                <form class="needs-validation" action="{{route('session.add')}}" method="POST" novalidate="">
+                                <form class="needs-validation" action="{{route('session.store')}}" method="POST" novalidate="">
                                     @csrf
                                     <div class="mb-3">
                                         <label class="form-label" for="session_name">Add Session</label>
@@ -229,7 +229,7 @@
                             </div>
                             <div class="tab-content">
                                 <div class="tab-pane show active" id="custom-styles-preview">
-                                    <form class="needs-validation" action="{{route('possion.add')}}" method="POST" novalidate="">
+                                    <form class="needs-validation" action="{{route('possion.store')}}" method="POST" novalidate="">
                                         @csrf
                                         <div class="mb-3">
                                             <label class="form-label" for="position_name">Add Position</label>

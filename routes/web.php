@@ -39,7 +39,7 @@ use App\Http\Controllers\Teacher\TeacherProfileController;
 */
 
 //Frontent Part
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/technology', [TechnologyController::class, 'index'])->name('technology');
 Route::get('/technology/details/{id}', [TechnologyController::class, 'details'])->name('technology.details');
@@ -61,53 +61,42 @@ Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 
 //Admin Route Start
 Route::middleware(['auth','admin','status'])->group(function(){
-//Admin Dashboard Controller
-Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-
-//Admin Profile Controller
-Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
-Route::post('/admin/profile/update', [AdminProfileController::class, 'update'])->name('profile.update');
-//Admin Notice Controller
-Route::get('/admin/frontend/notice-board', [AdminNoticeController::class, 'index'])->name('admin.frontend.notice');
-Route::post('/admin/notice/add', [AdminNoticeController::class, 'add'])->name('notice.add');
-Route::get('/admin/notice/trash/{id}', [AdminNoticeController::class, 'trash'])->name('notice.trash');
-Route::get('/admin/notice/restore/{id}', [AdminNoticeController::class, 'restore'])->name('notice.restore');
-Route::get('/admin/notice/delete/{id}', [AdminNoticeController::class, 'delete'])->name('notice.delete');
-Route::get('/admin/notice/download/{file}', [AdminNoticeController::class, 'download'])->name('admin.notice.download');
-//Admin Technology Controller
-Route::resource('/admin/technology', AdminTechnologyController::class);
-
-//Admin Student Controller
-Route::resource('admin/students', AdminStudentController::class);
-//Admin User Controller
-Route::resource('/admin/users', AdminUserController::class);
-Route::get('/admin/users/active/{id}', [AdminUserController::class, 'status_active'])->name('user.status.active');
-Route::get('/admin/users/deactive/{id}', [AdminUserController::class, 'status_deactive'])->name('user.status.deactive');
-
-//Admin Categoties Controller
-Route::get('/admin/categories', [AdminCategoriesController::class, 'index'])->name('admin.categories');
-Route::post('/admin/categories/semister/add', [AdminCategoriesController::class, 'add_semister'])->name('semister.add');
-Route::post('/admin/categories/department/add', [AdminCategoriesController::class, 'add_department'])->name('department.add');
-Route::post('/admin/categories/session/add', [AdminCategoriesController::class, 'add_session'])->name('session.add');
-Route::post('/admin/categories/possion/add', [AdminCategoriesController::class, 'add_possion'])->name('possion.add');
-//Admin Employees Controller
-Route::resource('/admin/employees', AdminEmployeesController::class);
+    Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
+    Route::post('/admin/profile/update', [AdminProfileController::class, 'update'])->name('profile.update');
+    Route::get('/admin/notice', [AdminNoticeController::class, 'index'])->name('admin.frontend.notice');
+    Route::post('/admin/notice/add', [AdminNoticeController::class, 'add'])->name('notice.add');
+    Route::get('/admin/notice/delete/{id}', [AdminNoticeController::class, 'delete'])->name('notice.delete');
+    Route::get('/admin/notice/download/{file}', [AdminNoticeController::class, 'download'])->name('admin.notice.download');
+    Route::get('/admin/categories', [AdminCategoriesController::class, 'index'])->name('admin.categories');
+    Route::post('/admin/categories/semister', [AdminCategoriesController::class, 'semister_store'])->name('semister.store');
+    Route::post('/admin/categories/department/add', [AdminCategoriesController::class, 'department_store'])->name('department.store');
+    Route::post('/admin/categories/session/add', [AdminCategoriesController::class, 'session_store'])->name('session.store');
+    Route::post('/admin/categories/possion/add', [AdminCategoriesController::class, 'possion_store'])->name('possion.store');
+    Route::resource('/admin/technology', AdminTechnologyController::class);
+    Route::resource('admin/students', AdminStudentController::class);
+    Route::resource('/admin/employees', AdminEmployeesController::class);
+    Route::resource('/admin/users', AdminUserController::class);
+    Route::get('/admin/users/active/{id}', [AdminUserController::class, 'status_active'])->name('user.status.active');
+    Route::get('/admin/users/deactive/{id}', [AdminUserController::class, 'status_deactive'])->name('user.status.deactive');
+    
 });
 //Admin Route End
 
 //Teacher Route Start
 Route::middleware(['auth','teacher','status'])->group(function(){
-//Teacher Dashboard Controller
-Route::get('/teacher/dashboard', [TeacherDashboardController::class, 'index'])->name('teacher.dashboard');
-Route::get('/teacher/profile', [TeacherProfileController::class, 'index'])->name('teacher.profile');
+    //Teacher Dashboard Controller
+    Route::get('/teacher/dashboard', [TeacherDashboardController::class, 'index'])->name('teacher.dashboard');
+    Route::get('/teacher/profile', [TeacherProfileController::class, 'index'])->name('teacher.profile');
 
 });
 //Teacher Route End
 
 //Student Route Start
 Route::middleware(['auth','user','status'])->group(function(){
-Route::get('/user/profile', [StudentProfileController::class, 'index'])->name('student.profile');
-Route::post('/user/profile/update', [StudentProfileController::class, 'update'])->name('student.profile.update');
+    Route::get('/student/profile', [StudentProfileController::class, 'index'])->name('student.profile');
+    Route::post('/student/profile/update', [StudentProfileController::class, 'update'])->name('student.profile.update');
+    Route::get('/student/books', [StudentProfileController::class, 'books'])->name('student.books');
 
 });
 //Student Route End
@@ -116,10 +105,9 @@ Route::post('/user/profile/update', [StudentProfileController::class, 'update'])
 
 //Librarian Route Start
 Route::middleware(['auth','librarian','status'])->group(function(){
-Route::get('/librarian/dashboard', [LibrarianDashboardController::class, 'index'])->name('librarian.dashboard');
-
-Route::resource('librarian/books', LibrarianBooksController::class);
-Route::resource('librarian/issue', LibrarianBooksIssueController::class);
+    Route::get('/librarian/dashboard', [LibrarianDashboardController::class, 'index'])->name('librarian.dashboard');
+    Route::resource('librarian/books', LibrarianBooksController::class);
+    Route::resource('librarian/issue', LibrarianBooksIssueController::class);
 
 });
 //Librarian Route End

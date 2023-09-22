@@ -7,7 +7,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="row">
-                  @foreach ($technology as $technology)
+                  @forelse ($technology as $technology)
                   <div class="col-lg-4">
                     <div class="card ribbon-box">
                       <div class="card-body">
@@ -58,9 +58,6 @@
                     </div>
                     <!-- end card-->
                   </div>
-
-                  
-
                   <!-- Edit modal -->
                   <div class="modal fade" id="view-{{ $technology->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -94,7 +91,14 @@
                       </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                   </div><!-- /.modal -->
-                  @endforeach
+                  @empty
+                  <div class="text-center" style="margin-top: 180px">
+                    <img src="{{ url('admin/assets/images/not-found.png') }}" height="300" alt="File not found Image">
+                    <h4 class="text-uppercase text-muted">
+                      Technology Not Found
+                    </h4>
+                  </div>
+                  @endforelse
                 </div>
                 
                 <!-- end card-->

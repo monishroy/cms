@@ -87,7 +87,12 @@
                                 <span> Home </span>
                             </a>
                         </li>
-                        
+                        <li class="side-nav-item">
+                            <a href="{{ route('student.books') }}" class="side-nav-link">
+                                <i class="uil-book-alt"></i>
+                                <span> Books </span>
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- End Sidebar -->
@@ -364,10 +369,10 @@
                                 <li class="breadcrumb-item">
                                     <a href="javascript: void(0);">CMS</a>
                                 </li>
-                                <li class="breadcrumb-item active">Profile</li>
+                                <li class="breadcrumb-item active">@yield('title')</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Profile</h4>
+                            <h4 class="page-title">@yield('title')</h4>
                         </div>
                     </div>
                 </div>

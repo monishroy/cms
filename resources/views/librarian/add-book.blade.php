@@ -55,7 +55,7 @@
                         <div class="col-4">
                           <div class="mb-3">
                             <label class="form-label" for="book_code">Book Code</label>
-                            <input type="text" class="form-control" name="book_code" data-toggle="input-mask" data-mask-format="0000000" maxlength="11" placeholder="Book Code" required="" @if($title == 'Update Book') value="{{$book->book_code}}" @else value="{{old('book_code')}}" @endif>
+                            <input type="text" class="form-control" name="book_code" placeholder="Book Code" required="" @if($title == 'Update Book') value="{{$book->book_code}}" @else value="{{old('book_code')}}" @endif>
                             <div class="invalid-feedback">
                               Please enter book code.
                             </div>

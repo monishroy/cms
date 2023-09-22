@@ -13,27 +13,29 @@
         </div>
       </div>
       <div class="row my-4 d-flex justify-content-center">
-        <div class="col-md-8 row">
+        <div class="col-md-12 row">
           <img
             src="{{ asset("storage/technology/".$technology->image1) }}"
             alt="Image placeholder"
-            class="img-fluid rounded mb-3" />
-          <div class="col-md-6">
+            class="img-fluid rounded mb-3" 
+          />
+          <div class="col-md-6 mb-3">
             <img
               src="{{ asset("storage/technology/".$technology->image2) }}"
               alt="Image placeholder"
+              style="height: 350px; width: 700px;"
               class="img-fluid rounded" />
-            </div>
+          </div>
           <div class="col-md-6">
             <img
               src="{{ asset("storage/technology/".$technology->image3) }}"
               alt="Image placeholder"
+              style="height: 350px; width: 700px;"
               class="img-fluid rounded" />
           </div>
         </div>
-        
       </div>
-      <div class="row py-5 align-items-center">
+      <div class="row align-items-center">
         <div class="col-lg-12">
           <p class="text-muted">
             {!! $technology->content !!}
