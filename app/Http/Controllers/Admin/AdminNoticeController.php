@@ -55,13 +55,7 @@ class AdminNoticeController extends Controller
         return response()->download($path);
     }
 
-    public function trash_notice()
-    {
-        $notice = Notice::onlyTrashed()->get();
 
-        $data = compact('notice');
-        return view('admin.trash-notice')->with($data);
-    }
     
     public function trash($id)
     {

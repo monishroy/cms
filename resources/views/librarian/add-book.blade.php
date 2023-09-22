@@ -54,6 +54,18 @@
                         </div>
                         <div class="col-4">
                           <div class="mb-3">
+                            <label class="form-label" for="book_code">Book Code</label>
+                            <input type="text" class="form-control" name="book_code" data-toggle="input-mask" data-mask-format="0000000" maxlength="11" placeholder="Book Code" required="" @if($title == 'Update Book') value="{{$book->book_code}}" @else value="{{old('book_code')}}" @endif>
+                            <div class="invalid-feedback">
+                              Please enter book code.
+                            </div>
+                            @error('book_code')
+                            <span class="text-danger form-text"><small>{{$message}}</small></span>
+                            @enderror
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class="mb-3">
                             <label class="form-label" for="probidhan">Probidhan</label>
                             <select class="form-control select2" name="probidhan" data-toggle="select2">
                               <optgroup label="Select Publication">
@@ -74,8 +86,8 @@
                             <label class="form-label" for="publication">Publication</label>
                             <select class="form-control select2" name="publication" data-toggle="select2">
                               <optgroup label="Select Publication">
-                                <option @if($title == 'Update Book') {{$book->publication == "hock" ? "selected" : ""}} @else @endif value="hock">Hock</option>
-                                <option @if($title == 'Update Book') {{$book->publication == "technical" ? "selected" : ""}} @else @endif value="technical">Technical</option>
+                                <option @if($title == 'Update Book') {{$book->publication == "Hock" ? "selected" : ""}} @else @endif value="Hock">Hock</option>
+                                <option @if($title == 'Update Book') {{$book->publication == "Technical" ? "selected" : ""}} @else @endif value="Technical">Technical</option>
                               </optgroup>
                             </select>
                             <div class="invalid-feedback">
@@ -117,21 +129,9 @@
                               </optgroup>
                             </select>
                             <div class="invalid-feedback">
-                              Please enter Gender.
+                              Please enter Department.
                             </div>
                             @error('department')
-                            <span class="text-danger form-text"><small>{{$message}}</small></span>
-                            @enderror
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div class="mb-3">
-                            <label class="form-label" for="quantity">Book Quantity</label>
-                            <input type="text" class="form-control" name="quantity" data-toggle="input-mask" data-mask-format="0000000" maxlength="11" placeholder="Book Quantity" required="" @if($title == 'Update Book') value="{{$book->quantity}}" @else value="{{old('quantity')}}" @endif>
-                            <div class="invalid-feedback">
-                              Please enter book quantity.
-                            </div>
-                            @error('quantity')
                             <span class="text-danger form-text"><small>{{$message}}</small></span>
                             @enderror
                           </div>

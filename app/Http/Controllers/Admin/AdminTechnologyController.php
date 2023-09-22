@@ -8,42 +8,62 @@ use Illuminate\Http\Request;
 
 class AdminTechnologyController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $technology = Technology::all();
-
-        $data = compact('technology');
-        
-        return view('admin.technology')->with($data);
+        return view('admin.technology', compact('technology'));
     }
-    public function add(Request $request)
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $url = route('technology.store');
+        $title = 'Add Technology';
+        return view('admin.add-technology', compact('url','title'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
         $request->validate(
             [
                 'name' => 'required',
-                'image1' => 'required',
-                'image2' => 'required',
-                'text1' => 'required',
-                'text2' => 'required',
+                'image1' => 'required|image',
+                'image2' => 'required|image',
+                'image3' => 'required|image',        
+                'content' => 'required',
             ]
         );
 
-        // echo "<pre>";
-        // print_r($request->all());
-
         $imageName1 = date('dmY').time()."-1.".$request->file('image1')->getClientOriginalExtension();
         $imageName2 = date('dmY').time()."-2.".$request->file('image2')->getClientOriginalExtension();
+        $imageName3 = date('dmY').time()."-3.".$request->file('image3')->getClientOriginalExtension();
 
         $request->file('image1')->storeAs('public/technology',$imageName1);
         $request->file('image2')->storeAs('public/technology',$imageName2);
+        $request->file('image3')->storeAs('public/technology',$imageName3);
         
         //Insert Notice
         $technology = new Technology();
-        $technology->name = $request['name'];
+        $technology->name = $request->name;
         $technology->image1 = $imageName1;
         $technology->image2 = $imageName2;
-        $technology->text1 = $request['text1'];
-        $technology->text2 = $request['text2'];
+        $technology->image3 = $imageName3;
+        $technology->content = $request->content;
         $result = $technology->save();
 
         if($result){
@@ -53,84 +73,110 @@ class AdminTechnologyController extends Controller
         }
     }
 
-    public function edit(Request $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $url = route('technology.update', $id);
+        $title = 'Update Technology';
+        $technology = Technology::find($id);
+        return view('admin.add-technology', compact('url','title','technology'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
     {
         $request->validate(
             [
-                'id' => 'required',
-                'text1' => 'required',
-                'text2' => 'required',
+                'name' => 'required',
+                'content' => 'required',
             ]
         );
 
-        // echo "<pre>";
-        // print_r($request->all());
-        $id = $request['id'];
+        if($request->image1){
 
+            $imageName1 = date('dmY').time()."-1.".$request->file('image1')->getClientOriginalExtension();
+            $request->file('image1')->storeAs('public/technology',$imageName1);
+
+            $technology = Technology::find($id);
+            $technology->image1 = $imageName1;
+           $technology->save();
+            
+
+        }elseif($request->image2){
+
+            $imageName2 = date('dmY').time()."-2.".$request->file('image2')->getClientOriginalExtension();
+            $request->file('image2')->storeAs('public/technology',$imageName2);
+
+            $technology = Technology::find($id);
+            $technology->image2 = $imageName2;
+            $technology->save();
+            
+
+        }elseif($request->image3){
+
+            $imageName3 = date('dmY').time()."-3.".$request->file('image3')->getClientOriginalExtension();
+            $request->file('image3')->storeAs('public/technology',$imageName3);
+
+            $technology = Technology::find($id);
+            $technology->image3 = $imageName3;
+            $technology->save();
+            
+
+        }else{
+           
+        }
         $technology = Technology::find($id);
-        $technology->text1 = $request['text1'];
-        $technology->text2 = $request['text2'];
+        $technology->name = $request->name;
+        $technology->content = $request->content;
         $result = $technology->save();
         if($result){
             return back()->with('success','Technology Update Successfully');
         }else{
             return back()->with('error','Something is Worng!');
         }
+        
     }
 
-    public function trash_technology()
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-        $technology = Technology::onlyTrashed()->get();
+        
+        $result = Technology::find($id)->delete();
 
-        $data = compact('technology');
-        return view('admin.trash-technology')->with($data);
-    }
-
-    public function trash($id)
-    {
-        $technology = Technology::find($id);
-        if(is_null($technology)){
-            return back()->with('error','Technology Not Found!');
+        if($result){
+            return back()->with('success','Technology Delete Successfully');
         }else{
-            $result = $technology->delete();
-
-            if($result){
-                return back()->with('success','Technology Trash Successfully');
-            }else{
-                return back()->with('error','Something is Worng!');
-            }
+            return back()->with('error','Something is Worng!');
         }
+       
     }
 
-    public function restore($id)
-    {
-        $technology = Technology::withTrashed()->find($id);
-        if(is_null($technology)){
-            return back()->with('error','Technology Not Found!');
-        }else{
-            $result = $technology->restore();
-
-            if($result){
-                return back()->with('success','Technology Restore Successfully');
-            }else{
-                return back()->with('error','Something is Worng!');
-            }
-        }
-    }
-
-    public function delete($id)
-    {
-        $technology = Technology::withTrashed()->find($id);
-        if(is_null($technology)){
-            return back()->with('error','Technology Not Found!');
-        }else{
-            $result = $technology->forceDelete();
-
-            if($result){
-                return back()->with('success','Technology Delete Successfully');
-            }else{
-                return back()->with('error','Something is Worng!');
-            }
-        }
-    }
+    
 }

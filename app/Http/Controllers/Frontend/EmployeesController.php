@@ -11,7 +11,7 @@ class EmployeesController extends Controller
 {
     public function index()
     {
-        $departments = Department::all();
+        $departments = Department::take(6)->get();
         return view('frontend.employees', compact('departments'));
     }
 

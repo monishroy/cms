@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Librarian;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Book;
+use App\Models\Department;
+use App\Models\Semister;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
-class AdminUserController extends Controller
+class LibrarianBooksIssueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +18,7 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('admin.users', compact('users'));
+        return view();
     }
 
     /**
@@ -26,7 +28,9 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        //
+        $students = Student::all();
+        $books = Book::all();
+        return view('librarian.issue-book', compact('students','books'));
     }
 
     /**
@@ -37,7 +41,7 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -83,41 +87,5 @@ class AdminUserController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function status_active($id)
-    {
-        $users = User::find($id);
-        if(is_null($users)){
-            return back()->with('error','User Not Found!');
-        }else{
-            $users = User::find($id);
-            $users->status = '1';
-            $result = $users->save();
-
-            if($result){
-                return back()->with('success','User Active Successfully');
-            }else{
-                return back()->with('error','Something is Worng!');
-            }
-        }
-    }
-    
-    public function status_deactive($id)
-    {
-        $users = User::find($id);
-        if(is_null($users)){
-            return back()->with('error','User Not Found!');
-        }else{
-            $users = User::find($id);
-            $users->status = '0';
-            $result = $users->save();
-
-            if($result){
-                return back()->with('success','User Deactive Successfully');
-            }else{
-                return back()->with('error','Something is Worng!');
-            }
-        }
     }
 }

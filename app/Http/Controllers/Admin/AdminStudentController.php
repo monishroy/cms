@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Semister;
 use App\Models\Department;
@@ -13,9 +13,25 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminStudentController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $url = url('/admin/student/add');
+        $students = Student::all();
+        return view('admin.students', compact('students'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $url = route('students.store');
         $title_header = 'Add Student';
         $semister = Semister::all();
         $department = Department::all();
@@ -24,17 +40,13 @@ class AdminStudentController extends Controller
         return view('admin.add-student', compact('url','title_header','semister','department','session'));
     }
 
-    public function all_student()
-    {
-        // $students = Student::with('getDepartment')->get();
-        // $session = Session::findOrFail(3);
-        //dd();
-        $students = Student::all();
-        $data = compact('students');
-        return view('admin.all-student')->with($data);
-    }
-
-    public function add(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
         $request->validate(
             [
@@ -51,7 +63,6 @@ class AdminStudentController extends Controller
                 'address' => 'required',
             ]
         );
-
 
         //Insert Query
         $student = new Student();
@@ -82,16 +93,32 @@ class AdminStudentController extends Controller
         }else{
             return back()->with('error','Something is Worng!');
         }
-
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
         $student = Student::find($id);
         if(is_null($student)){
             return back()->with('error','Student Not Found!');
         }else{
-            $url = url('/admin/student/update/').'/'.$id;
+            $url = route('students.update', $id);
             $title_header = 'Update Student';
             $semister = Semister::all();
             $department = Department::all();
@@ -102,8 +129,31 @@ class AdminStudentController extends Controller
         }
     }
 
-    public function update($id, Request $request)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
     {
+        $request->validate(
+            [
+                'fname' => 'required|min:3',
+                'lname' => 'required|min:3',
+                'email' => 'required|email',
+                'roll' => 'required',
+                'registration' => 'required',
+                'session' => 'required',
+                'department' => 'required',
+                'semister' => 'required',
+                'phone' => 'required|max:12|min:11',
+                'gPhone' => 'required|max:12|min:11',
+                'address' => 'required',
+            ]
+        );
+
         $student = Student::find($id);
         $student->fname = $request['fname'];
         $student->lname = $request['lname'];
@@ -124,59 +174,21 @@ class AdminStudentController extends Controller
         }
     }
 
-    public function trash_students()
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-        $students = Student::onlyTrashed()->get();
+        $$result = Student::find($id)->delete();
 
-        $data = compact('students');
-        return view('admin.trash-student')->with($data);
-    }
-
-    public function trash($id)
-    {
-        $student = Student::find($id);
-        if(is_null($student)){
-            return back()->with('error','Student Not Found!');
+        if($result){
+            return back()->with('success','Technology Delete Successfully');
         }else{
-            $result = $student->delete();
-
-            if($result){
-                return back()->with('success','Student Trash Successfully');
-            }else{
-                return back()->with('error','Something is Worng!');
-            }
+            return back()->with('error','Something is Worng!');
         }
     }
 
-    public function restore($id)
-    {
-        $student = Student::withTrashed()->find($id);
-        if(is_null($student)){
-            return back()->with('error','Student Not Found!');
-        }else{
-            $result = $student->restore();
-
-            if($result){
-                return back()->with('success','Student Restore Successfully');
-            }else{
-                return back()->with('error','Something is Worng!');
-            }
-        }
-    }
-
-    public function delete($id)
-    {
-        $student = Student::withTrashed()->find($id);
-        if(is_null($student)){
-            return back()->with('error','Student Not Found!');
-        }else{
-            $result = $student->forceDelete();
-
-            if($result){
-                return back()->with('success','Student Delete Successfully');
-            }else{
-                return back()->with('error','Something is Worng!');
-            }
-        }
-    }
 }

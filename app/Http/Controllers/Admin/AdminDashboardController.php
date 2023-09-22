@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Book;
 use App\Models\Contact;
 use App\Models\Department;
+use App\Models\Employee;
 use App\Models\Notice;
 use App\Models\Semister;
 use App\Models\Session;
@@ -23,8 +25,10 @@ class AdminDashboardController extends Controller
     {
         $students = Student::count();
         $users = User::count();
+        $total_employees = Employee::count();
+        $total_books = Book::count();
 
-        return view('admin.index' , compact('students','users'));
+        return view('admin.index' , compact('students','users','total_employees','total_books'));
     }
    
 

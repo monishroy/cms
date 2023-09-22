@@ -106,10 +106,16 @@
                                     <a href="{{ route('admin.frontend.notice') }}">Notice Board</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('admin.frontend.technology') }}">Technology</a>
+                                    <a href="{{ route('technology.create') }}">Add Technology</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('technology.index') }}">All Technology</a>
                                 </li>
                                 <li class="side-nav-item">
-                                    <a href="{{ route('admin.frontend.employees') }}">Employees</a>
+                                    <a href="{{ route('employees.create') }}">Add Employees</a>
+                                </li>
+                                <li class="side-nav-item">
+                                    <a href="{{ route('employees.index') }}">Employees</a>
                                 </li>
                             </div>
                         </li>
@@ -123,50 +129,27 @@
                             </a>
                         </li>
                         <li class="side-nav-item">
-                            <a href="{{ route('admin.users') }}" class="side-nav-link">
+                            <a href="{{ route('users.index') }}" class="side-nav-link">
                                 <i class="uil-user"></i>
                                 <span> All User </span>
                             </a>
                         </li>
-                        <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#trashSection" aria-expanded="false" aria-controls="trashSection" class="side-nav-link collapsed">
-                                <i class="uil uil-trash"></i>
-                                <span> Trash </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="trashSection" style="">
-                                <ul class="side-nav-second-level">
-                                    <li>
-                                        <a href="{{ route('admin.trash.stucent') }}">Students</a>
-                                    </li>
-                                    <li>
-                                        <a href="apps-email-read.html">Teacher</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('admin.trash.notice') }}">Notice</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('admin.trash.technology') }}">Technology</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+                        
                         <li class="side-nav-title side-nav-item">Student</li>
 
                         <li class="side-nav-item">
-                            <a href="{{ route('admin.add-student') }}" class="side-nav-link">
+                            <a href="{{ route('students.create') }}" class="side-nav-link">
                                 <i class="uil-user-plus"></i>
                                 <span>Add Student </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="{{ route('admin.all-student') }}" class="side-nav-link">
+                            <a href="{{ route('students.index') }}" class="side-nav-link">
                                 <i class="uil-users-alt"></i>
                                 <span> All Student </span>
                             </a>
                         </li>
-
                         
                     </ul>
 
@@ -688,7 +671,7 @@
                                     <li class="breadcrumb-item">
                                         <a href="javascript: void(0);">CMS</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Add Student</li>
+                                    <li class="breadcrumb-item active">@yield('title')</li>
                                 </ol>
                             </div>
                             <h4 class="page-title">@yield('title')</h4>

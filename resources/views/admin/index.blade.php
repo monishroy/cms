@@ -6,81 +6,62 @@
 
 
             <div class="row">
+              
               <div class="col-sm-6 col-xl-3">
-                <div class="card widget-flat bg-success text-white">
+                <div class="card widget-flat">
                   <div class="card-body">
                     <div class="float-end">
-                      <i class="mdi mdi-account-multiple widget-icon bg-white text-success"></i>
+                      <i class="dripicons-user-group widget-icon"></i>
                     </div>
-                    <h6 class="text-uppercase mt-0" title="Customers">
-                      Total Students
-                    </h6>
-                    <h3 class="mt-3 mb-3">{{ $students }}</h3>
-                    <p class="mb-0">
-                      <span class="badge badge-light-lighten me-1">
-                        <i class="mdi mdi-arrow-up-bold"></i> 5.27%</span>
-                      <span class="text-nowrap">Since last month</span>
-                    </p>
+                    <h5 class="fw-normal mt-0">Total Students</h5>
+                    <h3 class="mt-3">{{ $students }}</h3>
                   </div>
                 </div>
               </div>
               <div class="col-sm-6 col-xl-3">
-                <div class="card widget-flat bg-primary text-white">
+                <div class="card widget-flat">
                   <div class="card-body">
                     <div class="float-end">
-                      <i class="dripicons-user-group widget-icon bg-light-lighten rounded text-white"></i>
+                      <i class="dripicons-user-group widget-icon"></i>
                     </div>
-                    <h5 class="fw-normal mt-0" title="Revenue">Total User</h5>
-                    <h3 class="mt-3 mb-3 text-white">{{ $users }}</h3>
-                    <p class="mb-0">
-                      <span class="badge bg-info me-1">
-                        <i class="mdi mdi-user"></i> 17.26%</span>
-                      <span class="text-nowrap">Since last month</span>
-                    </p>
+                    <h5 class="fw-normal mt-0">Total User</h5>
+                    <h3 class="mt-3">{{ $users }}</h3>
                   </div>
                 </div>
               </div>
-                <div class="col-sm-6 col-xl-3">
-                  <div class="card widget-flat">
-                    <div class="card-body">
-                      <div class="float-end">
-                        <i class="mdi mdi-currency-usd widget-icon"></i>
-                      </div>
-                      <h5 class="text-muted fw-normal mt-0" title="Average Revenue">
-                        Revenue
-                      </h5>
-                      <h3 class="mt-3 mb-3">$6,254</h3>
-                      <p class="mb-0 text-muted">
-                        <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> 7.00%</span>
-                        <span class="text-nowrap">Since last month</span>
-                      </p>
+              <div class="col-sm-6 col-xl-3">
+                <div class="card widget-flat">
+                  <div class="card-body">
+                    <div class="float-end">
+                      <i class="mdi mdi-currency-usd widget-icon"></i>
                     </div>
-                    <!-- end card-body-->
+                    <h5 class="text-muted fw-normal mt-0">
+                      Total Employees
+                    </h5>
+                    <h3 class="mt-3">{{ $total_employees }}</h3>
                   </div>
-                  <!-- end card-->
+                  <!-- end card-body-->
                 </div>
-                <!-- end col-->
+                <!-- end card-->
+              </div>
+              <!-- end col-->
 
-                <div class="col-sm-6 col-xl-3">
-                  <div class="card widget-flat">
-                    <div class="card-body">
-                      <div class="float-end">
-                        <i class="mdi mdi-pulse widget-icon"></i>
-                      </div>
-                      <h5 class="text-muted fw-normal mt-0" title="Growth">
-                        Growth
-                      </h5>
-                      <h3 class="mt-3 mb-3">+ 30.56%</h3>
-                      <p class="mb-0 text-muted">
-                        <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 4.87%</span>
-                        <span class="text-nowrap">Since last month</span>
-                      </p>
+              <div class="col-sm-6 col-xl-3">
+                <div class="card widget-flat">
+                  <div class="card-body">
+                    <div class="float-end">
+                      <i class="uil-book-alt widget-icon"></i>
                     </div>
-                    <!-- end card-body-->
+                    <h5 class="text-muted fw-normal mt-0" title="Growth">
+                      Total Books
+                    </h5>
+                    <h3 class="mt-3">{{ $total_books }}</h3>
                   </div>
-                  <!-- end card-->
+                  <!-- end card-body-->
                 </div>
-                <!-- end col-->
+                <!-- end card-->
+              </div>
+              <!-- end col-->
             </div>
             <!-- end row -->
 

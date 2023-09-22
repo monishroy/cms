@@ -229,6 +229,15 @@
 </div>
 
 <div class="rightbar-overlay"></div>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+    .create( document.querySelector( '#content' ) )
+    .catch( error => {
+        console.error( error );
+    } );
+</script>
 <!-- /End-bar -->
 <script>
     $.NotificationApp.send("Title","Your awesome message text","bottom-right","success","Icon")

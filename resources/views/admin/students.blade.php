@@ -1,8 +1,7 @@
 ﻿@extends('admin.layouts.main')
 
-@section('title', 'Trash Student')
+@section('title', 'All Student')
 @section('main-section')
-
 
             <div class="row">
               <div class="col-lg-12">
@@ -10,7 +9,7 @@
                   <div class="card-body">
                     <div class="row mb-2">
                         <div class="col-sm-4">
-                          <a href="{{route('admin.add-student')}}" class="btn btn-primary mb-2"><i class="mdi mdi-plus-circle me-2"></i> Add
+                          <a href="{{route('students.create')}}" class="btn btn-primary mb-2"><i class="mdi mdi-plus-circle me-2"></i> Add
                             Student</a>
                         </div>
                         <div class="col-sm-8">
@@ -43,7 +42,7 @@
                         <tbody>
                             @foreach ($students as $index=>$student)
                             <tr>
-                                <td>{{++$index}}</td>
+                                <td>{{ ++$index }}</td>
                                 <td>{{$student->fname.' '.$student->lname}}</td>
                                 <td>{{$student->roll}}</td>
                                 <td>{{$student->registration}}</td>
@@ -61,12 +60,22 @@
                                 <td>{{$student->address}}</td>
                                 <td>{{ date('d-M-Y', strtotime($student->created_at)) }}</td>
                                 <td class="table-action">
-                                    <a data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" title="Restore" href="{{route('student.restore',['id'=>$student->id])}}" class="action-icon">
-                                      <i class="uil uil-redo"></i>
+                                  <div class="dropdown">
+                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                      <i class="mdi mdi-dots-vertical"></i>
                                     </a>
-                                    <a data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" title="Parmanent Delete" href="{{route('student.delete',['id'=>$student->id])}}" class="action-icon">
-                                      <i class="mdi mdi-delete"></i>
-                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end" style="">
+                                      <!-- item-->
+                                      <a href="{{route('students.edit', $student->id)}}" class="dropdown-item">Edit</a>
+                                      <!-- item-->
+                                      <form action="{{ route('students.destroy', $student->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="dropdown-item">Delete</button>
+                                      </form>
+                                    </div>
+                                  </div>
+                                    
                                 </td>
                             </tr>
                             @endforeach

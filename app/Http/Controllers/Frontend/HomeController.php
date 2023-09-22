@@ -14,24 +14,22 @@ class HomeController extends Controller
 {
     public function index()
     {
-        if(Auth::user()){
-            // App::setLocale($lang);
+        if (Auth::user()) {
             if(auth()->user()->role === 'admin'){
-                $students = Student::count();
-                $users = User::count();
-                return view('admin.index' , compact('students','users'));
+                return redirect()->route('admin.dashboard');
             }elseif(auth()->user()->role === 'user'){
-                return redirect('/user/dashboard');
+                return redirect()->route('student.profile');
             }elseif(auth()->user()->role === 'teacher'){
                 return redirect()->route('teacher.dashboard');
+            }elseif(auth()->user()->role === 'librarian'){
+                return redirect()->route('librarian.dashboard');
             }else{
-                return view('/');
+                return redirect()->route('notice');
             }
-        }else{
-            $notice = Notice::all();
-            return view('frontend.index',compact('notice'));
-        }
-
+        } else {
+            return redirect()->route('notice');
+        } 
     }
 
 }
+

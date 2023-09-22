@@ -1,6 +1,6 @@
 ﻿@extends('admin.layouts.main')
 
-@section('title', 'Add Student')
+@section('title', $title_header)
 @section('main-section')
 
           
@@ -14,6 +14,10 @@
                       <div class="tab-pane show active" id="custom-styles-preview">
                         <form class="needs-validation" action="{{$url}}" method="POST" novalidate="">
                             @csrf
+                            @if($title_header == 'Update Student') 
+                            @method('PUT')
+                            @else
+                            @endif
                             <div class="row">
                                 <div class="col-4">
                                     <div class="mb-3">

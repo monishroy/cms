@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\Department;
 use App\Models\Semister;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LibrarianBooksController extends Controller
 {
@@ -47,30 +48,43 @@ class LibrarianBooksController extends Controller
         $request->validate(
             [
                 'name' => 'required|min:3',
-                'image' => 'required|mimes:png,jpg,jpeg',
-                'subject_code' => 'required|unique:books,subject_code',
+                'image' => 'mimes:png,jpg,jpeg',
+                'subject_code' => 'required',
+                'book_code' => 'required',
                 'probidhan' => 'required',
                 'publication' => 'required',
                 'semister' => 'required',
                 'department' => 'required',
-                'quantity' => 'required',
             ]
         );
 
-        $imageName = date('dmY').time()."-book.".$request->file('image')->getClientOriginalExtension();
+        if($request->image){
 
-        $request->file('image')->storeAs('public/books',$imageName);
-
-        $result = Book::create([
-            'name' => $request['name'],
-            'image' => $imageName,
-            'subject_code' => $request['subject_code'],
-            'probidhan' => $request['probidhan'],
-            'publication' => $request['publication'],
-            'semister_id' => $request['semister'],
-            'department_id' => $request['department'],
-            'quantity' => $request['quantity'],
-        ]);
+            $imageName = rand(1111, 9999).time()."-book.".$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('public/books',$imageName);
+                
+            $result = Book::create([
+                'name' => $request->name,
+                'image' => $imageName,
+                'subject_code' => $request->subject_code,
+                'book_code' => $request->book_code,
+                'probidhan' => $request->probidhan,
+                'publication' => $request->publication,
+                'user_id' => Auth::user()->id,
+                'semister_id' => $request->semister,
+                'department_id' => $request->department,
+            ]);
+        }else{
+            $result = Book::create([
+                'name' => $request->name,
+                'subject_code' => $request->subject_code,
+                'book_code' => $request->book_code,
+                'probidhan' => $request->probidhan,
+                'publication' => $request->publication,
+                'semister_id' => $request->semister,
+                'department_id' => $request->department,
+            ]);
+        }
 
         if($result){
             return back()->with('success','Book Add Successfully');
@@ -120,34 +134,39 @@ class LibrarianBooksController extends Controller
             [
                 'name' => 'required|min:3',
                 'subject_code' => 'required',
+                'book_code' => 'required',
                 'probidhan' => 'required',
                 'publication' => 'required',
                 'semister' => 'required',
                 'department' => 'required',
-                'quantity' => 'required',
+                'book_code' => 'required',
             ]
         );
 
         if($request->image){
+
+            $imageName = date('dmY').time()."-book.".$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('public/books',$imageName);
+
             $result = Book::find($id)->update([
                 'name' => $request->name,
-                'image' => $request->image,
+                'image' => $imageName,
                 'subject_code' => $request->subject_code,
+                'book_code' => $request->book_code,
                 'probidhan' => $request->probidhan,
                 'publication' => $request->publication,
                 'semister_id' => $request->semister,
                 'department_id' => $request->department,
-                'quantity' => $request->quantity,
             ]);
         }else{
             $result = Book::find($id)->update([
                 'name' => $request->name,
                 'subject_code' => $request->subject_code,
+                'book_code' => $request->book_code,
                 'probidhan' => $request->probidhan,
                 'publication' => $request->publication,
                 'semister_id' => $request->semister,
                 'department_id' => $request->department,
-                'quantity' => $request->quantity,
             ]);
         }
 
@@ -166,8 +185,9 @@ class LibrarianBooksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return back()->with('success','Book Delete Successfully');
     }
 }

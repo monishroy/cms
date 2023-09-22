@@ -15,7 +15,7 @@
                     <h6 class="text-uppercase mt-0" title="Customers">
                       Total Students
                     </h6>
-                    <h3 class="mt-3 mb-3">{{ $students }}</h3>
+                    <h3 class="mt-3 mb-3">{{ $students_count }}</h3>
                     <p class="mb-0">
                       <span class="badge badge-light-lighten me-1">
                         <i class="mdi mdi-arrow-up-bold"></i> 5.27%</span>
@@ -31,7 +31,7 @@
                       <i class="dripicons-user-group widget-icon bg-light-lighten rounded text-white"></i>
                     </div>
                     <h5 class="fw-normal mt-0" title="Revenue">Total Book</h5>
-                    <h3 class="mt-3 mb-3 text-white"></h3>
+                    <h3 class="mt-3 mb-3 text-white">{{ $books_count }}</h3>
                     <p class="mb-0">
                       <span class="badge bg-info me-1">
                         <i class="mdi mdi-user"></i> 17.26%</span>

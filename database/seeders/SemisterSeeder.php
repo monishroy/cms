@@ -42,5 +42,8 @@ class SemisterSeeder extends Seeder
         Semister::create([
             'name'=>"Complete",
         ]);
+        Semister::create([
+            'name'=>"N/A",
+        ]);
     }
 }

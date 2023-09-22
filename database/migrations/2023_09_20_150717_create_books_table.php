@@ -16,11 +16,13 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image')->default('book.png');
+            $table->string('image')->default('default-book.png');
             $table->string('subject_code');
+            $table->integer('book_code')->unique();
             $table->string('probidhan');
             $table->string('publication');
-            $table->string('quantity');
+            $table->boolean('status')->default(1);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('semister_id')->constrained()->onDelete('cascade');
             $table->foreignId('department_id')->constrained()->onDelete('cascade');
             $table->timestamps();

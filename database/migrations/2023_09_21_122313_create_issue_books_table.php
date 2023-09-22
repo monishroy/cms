@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('technology', function (Blueprint $table) {
+        Schema::create('issue_books', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 80);
-            $table->string('image1', 80);
-            $table->string('image2', 80);
-            $table->string('image3', 80);
-            $table->text('content');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('book_id')->constrained()->onDelete('cascade');
+            $table->date('issue_date');
+            $table->date('return_date')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('technology');
+        Schema::dropIfExists('issue_books');
     }
 };

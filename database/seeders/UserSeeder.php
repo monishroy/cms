@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'name'=>"Monish Roy",
-            'email'=>"monishroycoder@gmail.com",
+            'email'=>"librarian@gmail.com",
             'phone'=>"01580487212",
             'role'=>"librarian",
             'image'=>rand(1, 5).'.png',

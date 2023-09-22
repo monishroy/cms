@@ -99,6 +99,12 @@
                                 <span> All Books </span>
                             </a>
                         </li>
+                        <li class="side-nav-item">
+                            <a href="{{ route('issue.create') }}" class="side-nav-link">
+                                <i class="uil-book-alt"></i>
+                                <span> Issue Books </span>
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- End Sidebar -->

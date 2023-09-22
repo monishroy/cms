@@ -33,5 +33,8 @@ class DepartmentSeeder extends Seeder
         Department::create([
             'name'=>"Textail",
         ]);
+        Department::create([
+            'name'=>"N/A",
+        ]);
     }
 }
