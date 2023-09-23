@@ -19,7 +19,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
   </div>
 
   <div class="row mt-4">
-    @foreach ($technology as $technology)
+    @forelse ($technology as $technology)
     <div class="col-lg-4">
       <a href="{{route('technology.details',['id'=>$technology->id])}}">
         <div class="demo-box text-center">
@@ -33,8 +33,14 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
         </div>
       </a>
     </div>
-    @endforeach
-    
+    @empty
+    <div class="text-center">
+      <img src="{{ url('admin/assets/images/not-found.png') }}" height="300" alt="File not found Image">
+      <h4 class="text-uppercase text-muted">
+        Technology Not Found
+      </h4>
+    </div>
+    @endforelse
   </div>
 </div>
 </section>

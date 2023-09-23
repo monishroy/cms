@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             'bio'=>"I love my life",
             'email'=>"roymonish712@gmail.com",
             'phone'=>"01717568377",
-            'role'=>"user",
+            'role'=>"student",
             'image'=>rand(1, 5).'.png',
             'password'=>Hash::make("123456"),
         ]);

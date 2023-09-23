@@ -8,7 +8,6 @@ use App\Http\Controllers\Admin\AdminNoticeController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminStudentController;
 use App\Http\Controllers\Admin\AdminTechnologyController;
-use App\Http\Controllers\Admin\AdminTrashController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutController;
@@ -21,10 +20,8 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Librarian\LibrarianBooksController;
 use App\Http\Controllers\Librarian\LibrarianBooksIssueController;
-use App\Http\Controllers\Librarian\LibrarianDashboardController;
-use App\Http\Controllers\Student\StudentDashboardController;
+use App\Http\Controllers\Librarian\LibrarianProfileController;
 use App\Http\Controllers\Student\StudentProfileController;
-use App\Http\Controllers\Teacher\TeacherDashboardController;
 use App\Http\Controllers\Teacher\TeacherProfileController;
 
 /*
@@ -51,12 +48,12 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact/add', [ContactController::class, 'add'])->name('contact.add');
 
 Route::middleware(['guest'])->group(function(){
-    //Authentication Part
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
     Route::post('/register', [RegisterController::class, 'postRegister'])->name('postRegister');
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
 });
+
 Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 
 //Admin Route Start
@@ -73,10 +70,10 @@ Route::middleware(['auth','admin','status'])->group(function(){
     Route::post('/admin/categories/department/add', [AdminCategoriesController::class, 'department_store'])->name('department.store');
     Route::post('/admin/categories/session/add', [AdminCategoriesController::class, 'session_store'])->name('session.store');
     Route::post('/admin/categories/possion/add', [AdminCategoriesController::class, 'possion_store'])->name('possion.store');
-    Route::resource('/admin/technology', AdminTechnologyController::class);
+    Route::resource('admin/technology', AdminTechnologyController::class);
     Route::resource('admin/students', AdminStudentController::class);
-    Route::resource('/admin/employees', AdminEmployeesController::class);
-    Route::resource('/admin/users', AdminUserController::class);
+    Route::resource('admin/employees', AdminEmployeesController::class);
+    Route::resource('admin/users', AdminUserController::class);
     Route::get('/admin/users/active/{id}', [AdminUserController::class, 'status_active'])->name('user.status.active');
     Route::get('/admin/users/deactive/{id}', [AdminUserController::class, 'status_deactive'])->name('user.status.deactive');
     
@@ -85,28 +82,26 @@ Route::middleware(['auth','admin','status'])->group(function(){
 
 //Teacher Route Start
 Route::middleware(['auth','teacher','status'])->group(function(){
-    //Teacher Dashboard Controller
-    Route::get('/teacher/dashboard', [TeacherDashboardController::class, 'index'])->name('teacher.dashboard');
     Route::get('/teacher/profile', [TeacherProfileController::class, 'index'])->name('teacher.profile');
-
+    Route::post('/teacher/profile/update', [TeacherProfileController::class, 'update'])->name('teacher.profile.update');
 });
 //Teacher Route End
 
 //Student Route Start
-Route::middleware(['auth','user','status'])->group(function(){
+Route::middleware(['auth','student','status'])->group(function(){
     Route::get('/student/profile', [StudentProfileController::class, 'index'])->name('student.profile');
     Route::post('/student/profile/update', [StudentProfileController::class, 'update'])->name('student.profile.update');
     Route::get('/student/books', [StudentProfileController::class, 'books'])->name('student.books');
-
 });
 //Student Route End
 
-//Teacher Route End
-
 //Librarian Route Start
 Route::middleware(['auth','librarian','status'])->group(function(){
-    Route::get('/librarian/dashboard', [LibrarianDashboardController::class, 'index'])->name('librarian.dashboard');
+    Route::get('/librarian/profile', [LibrarianProfileController::class, 'index'])->name('librarian.profile');
     Route::resource('librarian/books', LibrarianBooksController::class);
+    Route::get('/librarian/return/book', [LibrarianBooksController::class, 'return_index'])->name('books.return');
+    Route::post('/librarian/return/book', [LibrarianBooksController::class, 'student_search'])->name('books.return');
+    Route::get('/librarian/return/book/{student_id}', [LibrarianBooksController::class, 'return_book_show'])->name('books.return.show');
     Route::resource('librarian/issue', LibrarianBooksIssueController::class);
 
 });

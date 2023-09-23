@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Register </title>
+    <title>Log In </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       content="A fully featured admin theme which can be used to build CRM, CMS, etc."
@@ -37,9 +37,9 @@
         <div class="row justify-content-center">
           <div class="col-xxl-4 col-lg-5">
             <div class="card">
-              <!-- Logo-->
+              <!-- Logo -->
               <div class="card-header pt-4 pb-4 text-center bg-primary">
-                <a href="index.html">
+                <a href="{{url('/')}}">
                   <span
                     ><img src="{{url('admin/assets/images/logo.png')}}" alt="" height="30"
                   /></span>
@@ -51,7 +51,6 @@
                 <div class="alert alert-success" role="alert">
                     <i class="dripicons-checkmark me-2"></i>
                     {{Session::get('success')}}
-                    <a href="{{url('/login')}}" class="alert-link">login</a>
                 </div>
                 @endif
                 @if (Session::has('error'))
@@ -60,67 +59,21 @@
                     {{Session::get('error')}}
                 </div>
                 @endif
-                <form method="POST" action="{{route('postRegister')}}">
-                    @csrf
-                  <input type="hidden" name="image" value="{{rand(1,5)}}.png">
+                <form action="{{route('postlogin')}}" method="POST">
+                  @csrf
                   <div class="mb-3">
-                    <label for="name" class="form-label">Full Name</label>
-                    <input
-                      class="form-control"
-                      type="text"
-                      id="name"
-                      name="name"
-                      placeholder="Enter your name"
-                      value="{{old('name')}}"
-                    />
-                    @error('name')
-                      <span class="text-danger form-text"><small>{{$message}}</small></span>
-                    @enderror
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="emailaddress" class="form-label"
-                      >Email address</label
-                    >
-                    <input
-                      class="form-control"
-                      type="email"
-                      id="emailaddress"
-                      name="email"
-                      placeholder="Enter your email"
-                      value="{{old('email')}}"
-                    />
+                    <label for="emailaddress" class="form-label">Email address</label>
+                    <input class="form-control" type="email" id="emailaddress" name="email" placeholder="Enter your email"/>
                     @error('email')
                       <span class="text-danger form-text"><small>{{$message}}</small></span>
                     @enderror
                   </div>
 
                   <div class="mb-3">
-                    <label for="phone" class="form-label">Phone</label>
-                    <input
-                      class="form-control"
-                      type="text"
-                      id="phone"
-                      name="phone"
-                      data-toggle="input-mask" data-mask-format="01000-000000" maxlength="11"
-                      placeholder="Enter your phone"
-                      value="{{old('phone')}}"
-                    />
-                    @error('phone')
-                      <span class="text-danger form-text"><small>{{$message}}</small></span>
-                    @enderror
-                  </div>
-
-                  <div class="mb-3">
+                    <a href="pages-recoverpw.html" class="text-muted float-end"><small>Forgot your password?</small></a>
                     <label for="password" class="form-label">Password</label>
                     <div class="input-group input-group-merge">
-                      <input
-                        class="form-control"
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Enter your password"
-                      />
+                      <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password" />
                       <div class="input-group-text" data-password="false">
                         <span class="password-eye"></span>
                       </div>
@@ -130,9 +83,15 @@
                     @enderror
                   </div>
 
-                  <div class="mb-3 text-center">
+                  <div class="mb-3">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="checkbox-signin" checked/>
+                      <label class="form-check-label" for="checkbox-signin">Remember me</label>
+                    </div>
+                  </div>
+                  <div class="text-center">
                     <button class="btn btn-primary" type="submit">
-                      Sign Up
+                      Log In
                     </button>
                   </div>
                 </form>
@@ -140,19 +99,6 @@
               <!-- end card-body -->
             </div>
             <!-- end card -->
-
-            <div class="row mt-3">
-              <div class="col-12 text-center">
-                <p class="text-muted">
-                  Already have account?
-                  <a href="{{route('login')}}" class="text-muted ms-1">
-                    <b>Log In</b>
-                  </a>
-                </p>
-              </div>
-              <!-- end col-->
-            </div>
-            <!-- end row -->
           </div>
           <!-- end col -->
         </div>

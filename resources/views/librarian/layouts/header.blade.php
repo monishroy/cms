@@ -40,51 +40,31 @@
                 <!-- LOGO -->
                 <a href="{{ url('/admin/dashboard') }}" class="logo text-center logo-light">
                     <span class="logo-lg">
-                        <img 
-                            src="{{url('admin/assets/images/logo.png')}}" 
-                            alt="" 
-                            height="30" 
-                        />
+                        <img src="{{url('admin/assets/images/logo.png')}}" alt="" height="30"/>
                     </span>
                     <span class="logo-sm">
-                        <img
-                            src="{{url('admin/assets/images/logo_sm.png')}}"
-                            alt=""
-                            height="30"
-                        />
+                        <img src="{{url('admin/assets/images/logo_sm.png')}}" alt="" height="30"/>
                     </span>
                 </a>
 
                 <!-- LOGO -->
                 <a href="{{ url('/admin/dashboard') }}" class="logo text-center logo-dark">
                     <span class="logo-lg">
-                        <img
-                            src="{{url('admin/assets/images/logo-dark.png')}}"
-                            alt=""
-                            height="30"
-                        />
+                        <img src="{{url('admin/assets/images/logo-dark.png')}}" alt="" height="30"/>
                     </span>
                     <span class="logo-sm">
-                        <img
-                            src="{{url('admin/assets/images/logo_sm_dark.png')}}"
-                            alt=""
-                            height="30"
-                        />
+                        <img src="{{url('admin/assets/images/logo_sm_dark.png')}}" alt="" height="30"/>
                     </span>
                 </a>
 
-                <div
-                    class="h-100"
-                    id="leftside-menu-container"
-                    data-simplebar=""
-                >
+                <div class="h-100" id="leftside-menu-container" data-simplebar="">
                     <!--- Sidemenu -->
                     <ul class="side-nav">
                         <li class="side-nav-title side-nav-item">Navigation</li>
                         <li class="side-nav-item">
-                            <a href="{{ route('librarian.dashboard') }}" class="side-nav-link">
+                            <a href="{{ route('librarian.profile') }}" class="side-nav-link">
                                 <i class="uil-home-alt"></i>
-                                <span> Dashboard </span>
+                                <span> Profile </span>
                             </a>
                         </li>
                         <li class="side-nav-item">
@@ -106,15 +86,13 @@
                             </a>
                         </li>
                         <li class="side-nav-item">
-                            <a href="{{ route('issue.index') }}" class="side-nav-link">
+                            <a href="{{ route('books.return') }}" class="side-nav-link">
                                 <i class="uil-book-alt"></i>
-                                <span> Non Retuen Books </span>
+                                <span> Retuen Books </span>
                             </a>
                         </li>
                     </ul>
-
                     <!-- End Sidebar -->
-
                     <div class="clearfix"></div>
                 </div>
                 <!-- Sidebar -left -->
@@ -141,9 +119,7 @@
                                 >
                                     <i class="dripicons-search noti-icon"></i>
                                 </a>
-                                <div
-                                    class="dropdown-menu dropdown-menu-animated dropdown-lg p-0"
-                                >
+                                <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
                                     <form class="p-3">
                                         <input
                                             type="text"
@@ -167,9 +143,7 @@
                                     <i class="dripicons-bell noti-icon"></i>
                                     <span class="noti-icon-badge"></span>
                                 </a>
-                                <div
-                                    class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg"
-                                >
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg">
                                     <!-- item-->
                                     <div class="dropdown-item noti-title">
                                         <h5 class="m-0">
@@ -183,45 +157,26 @@
                                             >Notification
                                         </h5>
                                     </div>
-
-                                    <div
-                                        style="max-height: 230px"
-                                        data-simplebar=""
-                                    >
+                                    <div style="max-height: 230px" data-simplebar="">
                                         <!-- item-->
-                                        <a
-                                            href="javascript:void(0);"
-                                            class="dropdown-item notify-item"
-                                        >
+                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-primary">
-                                                <i
-                                                    class="mdi mdi-comment-account-outline"
-                                                ></i>
+                                                <i class="mdi mdi-comment-account-outline"></i>
                                             </div>
                                             <p class="notify-details">
-                                                Caleb Flakelar commented on
-                                                Admin
-                                                <small class="text-muted"
-                                                    >1 min ago</small
-                                                >
+                                                Caleb Flakelar commented on Admin
+                                                <small class="text-muted">1 min ago</small>
                                             </p>
                                         </a>
 
                                         <!-- item-->
-                                        <a
-                                            href="javascript:void(0);"
-                                            class="dropdown-item notify-item"
-                                        >
+                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="notify-icon bg-info">
-                                                <i
-                                                    class="mdi mdi-account-plus"
-                                                ></i>
+                                                <i class="mdi mdi-account-plus"></i>
                                             </div>
                                             <p class="notify-details">
                                                 New user registered.
-                                                <small class="text-muted"
-                                                    >5 hours ago</small
-                                                >
+                                                <small class="text-muted">5 hours ago</small>
                                             </p>
                                         </a>
 
@@ -440,7 +395,7 @@
                                 >
                                     <span class="account-user-avatar">
                                         <img
-                                            src="{{url('admin/assets/images/users/'.Auth::user()->image)}}"
+                                            src="{{ asset('storage/users/'.Auth::user()->image)}}"
                                             alt="user-image"
                                             class="rounded-circle"
                                         />

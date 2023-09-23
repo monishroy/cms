@@ -31,8 +31,9 @@ class LibrarianBooksIssueController extends Controller
     public function create()
     {
         $students = Student::all();
+        $user_id = 1;
         $books = Book::all()->where('status', 1);
-        return view('librarian.add-issue-book', compact('students','books'));
+        return view('librarian.add-issue-book', compact('students','books','user_id'));
     }
 
     /**
@@ -45,24 +46,22 @@ class LibrarianBooksIssueController extends Controller
     {
         $request->validate(
             [
-                'user_id' => 'required|exists:users,id',
-                'book_id' => 'required|exists:books,id',
-                'issue_date' => 'required|date',
+                'student' => 'required|exists:users,id',
+                'book' => 'required|exists:books,id',
             ]
         );
 
-        $date_time = date('Y-m-d', strtotime($request->issue_date));
+        $issue_date = date('Y-m-d h:i:s');
 
         $result = IssueBook::create([
-            'user_id' => $request->user_id,
-            'book_id' => $request->book_id,
-            'issue_date' => $date_time,
+            'student_id' => $request->student,
+            'book_id' => $request->book,
+            'issue_date' => $issue_date,
         ]);
 
-        $result = Book::find($request->book_id)->update([
+        $result = Book::find($request->book)->update([
             'status' => 0,
         ]);
-
         if($result){
             return back()->with('success','Book Issue Successfully');
         }else{
@@ -101,7 +100,26 @@ class LibrarianBooksIssueController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'old_book_code' => 'required',
+            'book_code' => 'required|same:old_book_code',
+            'book_id' => 'required',
+        ]);
+
+        IssueBook::find($id)->update([
+            'return_date' => date('Y-m-d h:i:s'),
+        ]);
+
+        $result = Book::find($request->book_id)->update([
+            'status' => 1,
+        ]);
+
+        if($result){
+            return back()->with('success','Book Return Successfully');
+        }else{
+            return back()->with('error','Something is Worng!');
+        }
+
     }
 
     /**

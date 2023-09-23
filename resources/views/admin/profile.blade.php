@@ -109,11 +109,6 @@
                         <strong>Location :</strong>
                         <span class="ms-2">Bangladesh</span>
                       </p>
-
-                      <p class="text-muted">
-                        <strong>Languages :</strong>
-                        <span class="ms-2"> English, Bangla </span>
-                      </p>
                       <p class="text-muted mb-0" id="tooltip-container">
                         <strong>Elsewhere :</strong>
                         <a

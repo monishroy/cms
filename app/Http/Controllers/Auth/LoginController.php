@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('login');
+        return view('auth.login');
     }
 
     public function postlogin(Request $request)
@@ -23,12 +23,12 @@ class LoginController extends Controller
         if (Auth::attempt($user)) {
             if(auth()->user()->role === 'admin'){
                 return redirect()->route('admin.dashboard');
-            }elseif(auth()->user()->role === 'user'){
+            }elseif(auth()->user()->role === 'student'){
                 return redirect()->route('student.profile');
             }elseif(auth()->user()->role === 'teacher'){
-                return redirect()->route('teacher.dashboard');
+                return redirect()->route('teacher.profile');
             }elseif(auth()->user()->role === 'librarian'){
-                return redirect()->route('librarian.dashboard');
+                return redirect()->route('librarian.profile');
             }else{
                 return redirect('/login');
             }

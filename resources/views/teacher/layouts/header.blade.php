@@ -80,13 +80,7 @@
                 >
                     <!--- Sidemenu -->
                     <ul class="side-nav">
-                        <li class="side-nav-title side-nav-item">Navigation</li>
-                        <li class="side-nav-item">
-                            <a href="{{ route('teacher.dashboard') }}" class="side-nav-link">
-                                <i class="uil-home-alt"></i>
-                                <span> Dashboard </span>
-                            </a>
-                        </li>
+                        <li class="side-nav-title side-nav-item">Navigation</li>                        
                         <li class="side-nav-item">
                             <a href="{{ route('teacher.profile') }}" class="side-nav-link">
                                 <i class="uil-user"></i>
@@ -423,7 +417,7 @@
                                 >
                                     <span class="account-user-avatar">
                                         <img
-                                            src="{{url('admin/assets/images/users/'.Auth::user()->image)}}"
+                                            src="{{asset('storage/users/'. Auth::user()->image)}}"
                                             alt="user-image"
                                             class="rounded-circle"
                                         />

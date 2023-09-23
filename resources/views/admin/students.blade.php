@@ -8,19 +8,18 @@
                 <div class="card">
                   <div class="card-body">
                     <div class="row mb-2">
-                        <div class="col-sm-4">
-                          <a href="{{route('students.create')}}" class="btn btn-primary mb-2"><i class="mdi mdi-plus-circle me-2"></i> Add
-                            Student</a>
-                        </div>
-                        <div class="col-sm-8">
-                          <div class="text-sm-end">
-                            <button type="button" class="btn btn-light mb-2">
-                              Export
-                            </button>
-                          </div>
-                        </div>
-                        <!-- end col-->
+                      <div class="col-sm-4">
+                        <a href="{{route('students.create')}}" class="btn btn-primary mb-2"><i class="mdi mdi-plus-circle me-2"></i> Add
+                          Student</a>
                       </div>
+                      <div class="col-sm-8">
+                        <div class="text-sm-end">
+                          <button type="button" class="btn btn-light mb-2">
+                            Export
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                         <thead>
                             <tr>

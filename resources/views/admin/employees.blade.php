@@ -9,7 +9,7 @@
               <div class="col-lg-12">
                 <div class="row">
                   @forelse ($employees as $employee)
-                  <div class="col-4">
+                  <div class="col-12 col-md-4">
                     <div class="card">
                       <div class="card-body">
                         <span class="float-start m-2 me-4">

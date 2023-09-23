@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class User
+class Student
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class User
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->role === 'user') {
+        if(auth()->user()->role === 'student') {
             return $next($request);
         }else {
             Auth::logout();

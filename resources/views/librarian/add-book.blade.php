@@ -16,7 +16,7 @@
                         
                       @endif
                       <div class="row">
-                        <div class="col-8">
+                        <div class="col-md-8 col-12">
                           <div class="mb-3">
                             <label class="form-label" for="name">Book Name</label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="Book name" required="" @if($title == 'Update Book') value="{{$book->name}}" @else value="{{old('name')}}" @endif>
@@ -28,7 +28,7 @@
                             @enderror
                           </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4">
                           <div class="mb-3">
                             <label class="form-label" for="image">Book Image</label>
                             <input type="file" class="form-control" name="image" id="image" placeholder="Book image" >
@@ -40,7 +40,7 @@
                             @enderror
                           </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4 col-12">
                           <div class="mb-3">
                             <label class="form-label" for="subject_code">Subject Code</label>
                             <input type="text" class="form-control" name="subject_code" data-toggle="input-mask" data-mask-format="0000000" maxlength="11" placeholder="Book Subject Code" required="" @if($title == 'Update Book') value="{{$book->subject_code}}" @else value="{{old('subject_code')}}" @endif>
@@ -52,7 +52,7 @@
                             @enderror
                           </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4 col-12">
                           <div class="mb-3">
                             <label class="form-label" for="book_code">Book Code</label>
                             <input type="text" class="form-control" name="book_code" placeholder="Book Code" required="" @if($title == 'Update Book') value="{{$book->book_code}}" @else value="{{old('book_code')}}" @endif>
@@ -64,7 +64,7 @@
                             @enderror
                           </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4 col-12">
                           <div class="mb-3">
                             <label class="form-label" for="probidhan">Probidhan</label>
                             <select class="form-control select2" name="probidhan" data-toggle="select2">
@@ -81,7 +81,7 @@
                             @enderror
                           </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4 col-12">
                           <div class="mb-3">
                             <label class="form-label" for="publication">Publication</label>
                             <select class="form-control select2" name="publication" data-toggle="select2">
@@ -98,7 +98,7 @@
                             @enderror
                           </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4 col-12">
                           <div class="mb-3">
                             <label class="form-label" for="semister">Semister</label>
                             <!-- Single Select -->
@@ -117,7 +117,7 @@
                             @enderror
                           </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4 col-12">
                           <div class="mb-3">
                             <label class="form-label" for="department">Department</label>
                             <!-- Single Select -->

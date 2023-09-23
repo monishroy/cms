@@ -71,7 +71,20 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'role' => 'required',
+        ]);
+
+
+        $users = User::find($id);
+        $users->role = $request->role;
+        $result = $users->save();
+
+        if($result){
+            return back()->with('success','Role Update Successfully');
+        }else{
+            return back()->with('error','Something is Worng!');
+        }
     }
 
     /**

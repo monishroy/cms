@@ -34,7 +34,7 @@
                           <div class="col-auto">
                             <div class="avatar-lg">
                               <img
-                                src="{{url('admin/assets/images/users/'.Auth::user()->image)}}"
+                                src="{{url('storage/users/'.Auth::user()->image)}}"
                                 alt=""
                                 class="rounded-circle img-thumbnail"
                               />
@@ -46,18 +46,12 @@
                                 {{ Auth::user()->name }}
                               </h4>
                               <p class="font-13 text-white-50">
-                                Admin
+                                Teacher
                               </p>
 
                               <ul class="mb-0 list-inline text-light">
-                                <li class="list-inline-item me-3">
-                                  <h5 class="mb-1">{{ $user }}</h5>
-                                  <p class="mb-0 font-13 text-white-50">
-                                    Total User
-                                  </p>
-                                </li>
                                 <li class="list-inline-item">
-                                  <h5 class="mb-1">{{ $students }}</h5>
+                                  <h5 class="mb-1">{{ $students_count }}</h5>
                                   <p class="mb-0 font-13 text-white-50">
                                     Total Student
                                   </p>
@@ -72,8 +66,8 @@
                       <div class="col-sm-4">
                         <div class="text-center mt-sm-0 mt-3 text-sm-end">
                           <button type="button" class="btn btn-light">
-                            <i class="mdi mdi-account-edit me-1"></i> Edit
-                            Profile
+                            <i class="mdi mdi-image me-1"></i>
+                            Change Picture
                           </button>
                         </div>
                       </div>
@@ -94,13 +88,9 @@
                 <!-- Personal-Information -->
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="header-title mt-0 mb-3">Seller Information</h4>
+                    <h4 class="header-title mt-0 mb-3">Information</h4>
                     <p class="text-muted font-13">
-                      Hye, I’m Michael Franklin residing in this beautiful
-                      world. I create websites and mobile apps with great UX and
-                      UI design. I have done work with big companies like Nokia,
-                      Google and Yahoo. Meet me or Contact me for any queries.
-                      One Extra line for filling space. Fill as many you want.
+                     {{ Auth::user()->bio }}
                     </p>
 
                     <hr />
@@ -172,34 +162,54 @@
                 <!-- Messages-->
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="header-title mb-3">Messages</h4>
-
-                    <div class="inbox-widget">
-                      @foreach ($contact as $contact)
-                      <div class="inbox-item">
-                        <div class="inbox-item-img">
-                          <img
-                            src="assets/images/users/2.png"
-                            class="rounded-circle"
-                            alt=""
-                          />
+                    <h4 class="header-title mb-3">Update Profile</h4>
+                    <form action="{{ route('teacher.profile.update') }}" method="POST">
+                      @csrf
+                      <input type="hidden" name="emloyee_id" value="{{ $employee->id }}">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" name="name" id="name" value="{{ Auth::user()->name }}" placeholder="Enter Full Name">
+                            @error('name')
+                              <span class="text-danger form-text"><small>{{$message}}</small></span>
+                            @enderror
+                          </div>
                         </div>
-                        <p class="inbox-item-author">{{ $contact->name }}</p>
-                        <p class="inbox-item-text">
-                          {{ $contact->message }}
-                        </p>
-                        <p class="inbox-item-date">
-                          <a
-                            href="#"
-                            class="btn btn-sm btn-link text-info font-13"
-                          >
-                            Reply
-                          </a>
-                        </p>
+                        <div class="col-md-4">
+                          <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" value="{{ Auth::user()->email }}" placeholder="Enter Email" readonly>
+                            @error('email')
+                              <span class="text-danger form-text"><small>{{$message}}</small></span>
+                            @enderror
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" class="form-control" name="phone" id="phone" value="{{ Auth::user()->phone }}" placeholder="Enter Phone">
+                            @error('phone')
+                              <span class="text-danger form-text"><small>{{$message}}</small></span>
+                            @enderror
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="mb-3">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea class="form-control" id="bio" name="bio" rows="3" placeholder="Write something...">{{ Auth::user()->bio }}</textarea>
+                            @error('bio')
+                              <span class="text-danger form-text"><small>{{$message}}</small></span>
+                            @enderror
+                          </div>
+                        </div>
+                        <!-- end col -->
                       </div>
-                      @endforeach
-                      
-                    </div>
+                      <!-- end row -->
+                      <button class="btn btn-primary" type="submit">
+                        Update Profile
+                      </button>
+                    </form>
                     <!-- end inbox-widget -->
                   </div>
                   <!-- end card-body-->

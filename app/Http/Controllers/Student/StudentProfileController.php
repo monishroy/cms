@@ -14,10 +14,9 @@ class StudentProfileController extends Controller
 {
     public function index()
     {
-        $students = Student::where('id', Auth::user()->id)->first();
+        $student = Student::where('phone', Auth::user()->phone)->first();
         $notices = Notice::all();
-        $data = compact('students','notices');
-        return view('student.profile')->with($data);
+        return view('student.profile', compact('student','notices'));
     }
 
     public function update(Request $request)
@@ -27,19 +26,18 @@ class StudentProfileController extends Controller
                 'name' => 'required',
                 'phone' => 'required|min:11',
                 'bio' => 'required',
-                'student_id' => 'required'
+                'student_id' => 'required',
             ]
         );
 
-        //Insert Query
         $user = User::find(Auth::user()->id);
-        $user->name = $request['name'];
-        $user->phone = $request['phone'];
-        $user->bio = $request['bio'];
-        $result = $user->save();
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->bio = $request->bio;
+        $user->save();
 
         $student = Student::find($request['student_id']);
-        $student->phone = $request['phone'];
+        $student->phone = $request->phone;
         $result = $student->save();
 
         if($result){
@@ -51,8 +49,9 @@ class StudentProfileController extends Controller
 
     public function books()
     {
+        $student = Student::where('phone', Auth::user()->phone)->first();
         $notices = Notice::all();
-        $issue_books = IssueBook::where('user_id', Auth::user()->id)->get();
+        $issue_books = IssueBook::where('student_id', $student->id)->where('return_date', null)->get();
         return view('student.books', compact('issue_books','notices'));
     }
 }

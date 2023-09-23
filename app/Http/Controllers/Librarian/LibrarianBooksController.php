@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Librarian;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Department;
+use App\Models\IssueBook;
 use App\Models\Semister;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,7 +52,7 @@ class LibrarianBooksController extends Controller
                 'name' => 'required|min:3',
                 'image' => 'mimes:png,jpg,jpeg',
                 'subject_code' => 'required',
-                'book_code' => 'required',
+                'book_code' => 'required|unique:books,book_code',
                 'probidhan' => 'required',
                 'publication' => 'required',
                 'semister' => 'required',
@@ -81,6 +83,7 @@ class LibrarianBooksController extends Controller
                 'book_code' => $request->book_code,
                 'probidhan' => $request->probidhan,
                 'publication' => $request->publication,
+                'user_id' => Auth::user()->id,
                 'semister_id' => $request->semister,
                 'department_id' => $request->department,
             ]);
@@ -134,7 +137,7 @@ class LibrarianBooksController extends Controller
             [
                 'name' => 'required|min:3',
                 'subject_code' => 'required',
-                'book_code' => 'required',
+                'book_code' => 'required|exists:books,book_code',
                 'probidhan' => 'required',
                 'publication' => 'required',
                 'semister' => 'required',
@@ -155,6 +158,7 @@ class LibrarianBooksController extends Controller
                 'book_code' => $request->book_code,
                 'probidhan' => $request->probidhan,
                 'publication' => $request->publication,
+                'user_id' => Auth::user()->id,
                 'semister_id' => $request->semister,
                 'department_id' => $request->department,
             ]);
@@ -165,6 +169,7 @@ class LibrarianBooksController extends Controller
                 'book_code' => $request->book_code,
                 'probidhan' => $request->probidhan,
                 'publication' => $request->publication,
+                'user_id' => Auth::user()->id,
                 'semister_id' => $request->semister,
                 'department_id' => $request->department,
             ]);
@@ -191,4 +196,28 @@ class LibrarianBooksController extends Controller
         return back()->with('success','Book Delete Successfully');
     }
 
+    public function return_index()
+    {
+        $students = Student::all();
+        return view('librarian.return-book', compact('students'));
+    }
+
+    public function student_search(Request $request)
+    {
+        $request->validate([
+            'roll' => 'required|exists:students,roll',
+        ]);
+
+        $student = Student::where('roll', $request->roll)->first();
+
+        return redirect()->route('books.return.show', $student->id);
+    }
+
+    public function return_book_show($student_id)
+    {
+        $student = Student::where('id', $student_id)->first();
+        $issue_books = IssueBook::where('student_id', $student_id)->where('return_date', null)->get();
+        return view('librarian.return-book-show', compact('student','issue_books'));
+    }
 }
+;

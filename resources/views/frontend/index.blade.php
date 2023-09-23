@@ -55,7 +55,7 @@
       </div>
 
       <div class="row mt-5">
-        @foreach ($notice as $notice)
+        @foreach ($notices as $notice)
         <div class="col-lg-5 offset-lg-1">
           <a href="{{ route('notice.download',['file'=>$notice->notice_file]) }}">
             <div class="faq-question-q-box"><i class="uil uil-file text-body"></i></div>
