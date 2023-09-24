@@ -9,7 +9,7 @@
               <div class="col-lg-12">
                 <div class="row">
                   @forelse ($employees as $employee)
-                  <div class="col-12 col-md-4">
+                  <div class="col-12 col-md-3">
                     <div class="card">
                       <div class="card-body">
                         <span class="float-start m-2 me-4">
@@ -22,7 +22,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" style="">
                               <!-- item-->
-                              <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                              <a href="{{ route('employees.edit', $employee->id) }}" class="dropdown-item">Edit</a>
                               <!-- item-->
                               <a href="javascript:void(0);" class="dropdown-item">Delete</a>
                             </div>
@@ -34,10 +34,6 @@
                             <li class="list-inline-item me-3">
                               <h5 class="mt-1 mb-1">Phone</h5>
                               <p class="mb-0 font-13">{{ $employee->phone }}</p>
-                            </li>
-                            <li class="list-inline-item me-3">
-                              <h5 class="mt-1 mb-1">Email</h5>
-                              <p class="mb-0 font-13">{{ Str::limit($employee->email, 20, '...')  }}</p>
                             </li>
                             <li class="list-inline-item">
                               <h5 class="mt-1 mb-1">Department</h5>

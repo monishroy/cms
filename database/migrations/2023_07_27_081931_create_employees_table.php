@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('image');
             $table->string('email');
             $table->string('phone');
-            $table->text('about');
             $table->foreignId('department_id')->constrained()->onDelete('cascade');
             $table->foreignId('position_id')->constrained()->onDelete('cascade');
             $table->timestamps();

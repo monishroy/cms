@@ -97,6 +97,7 @@ Route::middleware(['auth','student','status'])->group(function(){
 //Librarian Route Start
 Route::middleware(['auth','librarian','status'])->group(function(){
     Route::get('/librarian/profile', [LibrarianProfileController::class, 'index'])->name('librarian.profile');
+    Route::post('/librarian/profile/update', [LibrarianProfileController::class, 'update'])->name('librarian.profile.update');
     Route::resource('librarian/books', LibrarianBooksController::class);
     Route::resource('librarian/issue', LibrarianBooksIssueController::class);
     Route::post('/librarian/issue/book', [LibrarianBooksIssueController::class, 'issue_search'])->name('issue.search');

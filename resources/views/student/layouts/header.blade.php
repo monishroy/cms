@@ -38,7 +38,7 @@
             <!-- ========== Left Sidebar Start ========== -->
             <div class="leftside-menu">
                 <!-- LOGO -->
-                <a href="{{ url('/admin/dashboard') }}" class="logo text-center logo-light">
+                <a href="{{ url('/') }}" class="logo text-center logo-light">
                     <span class="logo-lg">
                         <img 
                             src="{{url('admin/assets/images/logo.png')}}" 
@@ -56,7 +56,7 @@
                 </a>
 
                 <!-- LOGO -->
-                <a href="{{ url('/admin/dashboard') }}" class="logo text-center logo-dark">
+                <a href="{{ url('/') }}" class="logo text-center logo-dark">
                     <span class="logo-lg">
                         <img
                             src="{{url('admin/assets/images/logo-dark.png')}}"
@@ -83,8 +83,8 @@
                         <li class="side-nav-title side-nav-item">Navigation</li>
                         <li class="side-nav-item">
                             <a href="{{ route('student.profile') }}" class="side-nav-link">
-                                <i class="uil-home-alt"></i>
-                                <span> Home </span>
+                                <i class="uil-user"></i>
+                                <span> Profile </span>
                             </a>
                         </li>
                         <li class="side-nav-item">
@@ -112,7 +112,9 @@
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
                         <ul class="list-unstyled topbar-menu float-end mb-0">
-                            
+                            <li class="mt-2">
+                                <h4 class="text-body me-4" style="margin-top: 16px" id="clock"></h4>
+                            </li>
                             
                             <li class="dropdown notification-list">
                                 <a
@@ -243,21 +245,17 @@
                                     <input
                                         type="text"
                                         class="form-control dropdown-toggle"
-                                        placeholder="Search..."
+                                        placeholder="Search.dfd.."
+                                        autocomplete="off"
                                         id="top-search"
                                     />
-                                    <span
-                                        class="mdi mdi-magnify search-icon"
-                                    ></span>
-                                    <button
-                                        class="input-group-text btn-primary"
-                                        type="submit"
-                                    >
+                                    <span class="mdi mdi-magnify search-icon"></span>
+                                    <button class="input-group-text btn-primary" type="submit">
                                         Search
                                     </button>
                                 </div>
+                                
                             </form>
-
                             <div
                                 class="dropdown-menu dropdown-menu-animated dropdown-lg"
                                 id="search-dropdown"
@@ -265,9 +263,7 @@
                                 <!-- item-->
                                 <div class="dropdown-header noti-title">
                                     <h5 class="text-overflow mb-2">
-                                        Found
-                                        <span class="text-danger">17</span>
-                                        results
+                                        Search result ..
                                     </h5>
                                 </div>
 
@@ -298,65 +294,10 @@
                                     <span>User profile settings</span>
                                 </a>
 
-                                <!-- item-->
-                                <div class="dropdown-header noti-title">
-                                    <h6
-                                        class="text-overflow mb-2 text-uppercase"
-                                    >
-                                        Users
-                                    </h6>
-                                </div>
-
-                                <div class="notification-list">
-                                    <!-- item-->
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="dropdown-item notify-item"
-                                    >
-                                        <div class="d-flex">
-                                            <img
-                                                class="d-flex me-2 rounded-circle"
-                                                src="{{url('admin/assets/images/users/avatar-2.jpg')}}"
-                                                alt="Generic placeholder image"
-                                                height="32"
-                                            />
-                                            <div class="w-100">
-                                                <h5 class="m-0 font-14">
-                                                    Erwin Brown
-                                                </h5>
-                                                <span class="font-12 mb-0"
-                                                    >UI Designer</span
-                                                >
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="dropdown-item notify-item"
-                                    >
-                                        <div class="d-flex">
-                                            <img
-                                                class="d-flex me-2 rounded-circle"
-                                                src="{{url('admin/assets/images/users/avatar-5.jpg')}}"
-                                                alt="Generic placeholder image"
-                                                height="32"
-                                            />
-                                            <div class="w-100">
-                                                <h5 class="m-0 font-14">
-                                                    Jacob Deo
-                                                </h5>
-                                                <span class="font-12 mb-0"
-                                                    >Developer</span
-                                                >
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
+                    
                     <!-- end Topbar -->
             <!-- Start Content-->
             <div class="container-fluid">

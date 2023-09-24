@@ -69,167 +69,42 @@
 </div>
 <!-- END wrapper -->
 
-<!-- Right Sidebar -->
-<div class="end-bar">
-<div class="rightbar-title">
-<a href="javascript:void(0);" class="end-bar-toggle float-end">
-    <i class="dripicons-cross noti-icon"></i>
-</a>
-<h5 class="m-0">Settings</h5>
-</div>
+<script>
+    const curentTime = () => {
+        const element = document.getElementById('clock');
 
-<div class="rightbar-content h-100" data-simplebar="">
-<div class="p-3">
-    <!-- Settings -->
-    <h5 class="mt-3">Color Scheme</h5>
-    <hr class="mt-1" />
+        let date = new Date(),
+        hours = date.getHours(),
+        minutes = date.getMinutes(),
+        seconds = date.getSeconds();
 
-    <div class="form-check form-switch mb-1">
-        <input
-            class="form-check-input"
-            type="checkbox"
-            name="color-scheme-mode"
-            value="light"
-            id="light-mode-check"
-            checked=""
-        />
-        <label class="form-check-label" for="light-mode-check"
-            >Light Mode</label
-        >
-    </div>
+        let day;
+        day = hours < 12 ? "AM" : "PM";
+        hours = hours > 12 ? hours - 12 : hours;
+        hours = hours == 0 ? (hours = 12) : hours;
 
-    <div class="form-check form-switch mb-1">
-        <input
-            class="form-check-input"
-            type="checkbox"
-            name="color-scheme-mode"
-            value="dark"
-            id="dark-mode-check"
-        />
-        <label class="form-check-label" for="dark-mode-check"
-            >Dark Mode</label
-        >
-    </div>
+        hours = hours < 10 ? `0${hours}` : hours;
+        minutes = minutes < 10 ? `0${minutes}` : minutes;
+        seconds = seconds < 10 ? `0${seconds}` : seconds;
 
-    <!-- Width -->
-    <h5 class="mt-4">Width</h5>
-    <hr class="mt-1" />
-    <div class="form-check form-switch mb-1">
-        <input
-            class="form-check-input"
-            type="checkbox"
-            name="width"
-            value="fluid"
-            id="fluid-check"
-            checked=""
-        />
-        <label class="form-check-label" for="fluid-check"
-            >Fluid</label
-        >
-    </div>
+        element.textContent = `${hours}:${minutes}:${seconds} ${day}`;
 
-    <div class="form-check form-switch mb-1">
-        <input
-            class="form-check-input"
-            type="checkbox"
-            name="width"
-            value="boxed"
-            id="boxed-check"
-        />
-        <label class="form-check-label" for="boxed-check"
-            >Boxed</label
-        >
-    </div>
+    };
+    curentTime();
+    setInterval(curentTime, 1000);
 
-    <!-- Left Sidebar-->
-    <h5 class="mt-4">Left Sidebar</h5>
-    <hr class="mt-1" />
-    <div class="form-check form-switch mb-1">
-        <input
-            class="form-check-input"
-            type="checkbox"
-            name="theme"
-            value="default"
-            id="default-check"
-        />
-        <label class="form-check-label" for="default-check"
-            >Default</label
-        >
-    </div>
-
-    <div class="form-check form-switch mb-1">
-        <input
-            class="form-check-input"
-            type="checkbox"
-            name="theme"
-            value="light"
-            id="light-check"
-            checked=""
-        />
-        <label class="form-check-label" for="light-check"
-            >Light</label
-        >
-    </div>
-
-    <div class="form-check form-switch mb-3">
-        <input
-            class="form-check-input"
-            type="checkbox"
-            name="theme"
-            value="dark"
-            id="dark-check"
-        />
-        <label class="form-check-label" for="dark-check"
-            >Dark</label
-        >
-    </div>
-
-    <div class="form-check form-switch mb-1">
-        <input
-            class="form-check-input"
-            type="checkbox"
-            name="compact"
-            value="fixed"
-            id="fixed-check"
-            checked=""
-        />
-        <label class="form-check-label" for="fixed-check"
-            >Fixed</label
-        >
-    </div>
-
-    <div class="form-check form-switch mb-1">
-        <input
-            class="form-check-input"
-            type="checkbox"
-            name="compact"
-            value="condensed"
-            id="condensed-check"
-        />
-        <label class="form-check-label" for="condensed-check"
-            >Condensed</label
-        >
-    </div>
-
-    <div class="form-check form-switch mb-1">
-        <input
-            class="form-check-input"
-            type="checkbox"
-            name="compact"
-            value="scrollable"
-            id="scrollable-check"
-        />
-        <label class="form-check-label" for="scrollable-check"
-            >Scrollable</label
-        >
-    </div>
-</div>
-<!-- end padding-->
-</div>
-</div>
-
-<div class="rightbar-overlay"></div>
-<!-- /End-bar -->
+</script>
+<script>
+    let container = document.getElementById("showup");
+    let timeNow = new Date().getHours();
+    let greeting =
+    timeNow >= 5 && timeNow < 12
+        ? "Good Morning "
+        : timeNow >= 12 && timeNow < 18
+        ? "Good Afternoon"
+        : "Good Evening";
+    container.innerHTML = `${greeting}`;
+</script>
 <script>
     $.NotificationApp.send("Title","Your awesome message text","bottom-right","success","Icon")
 </script>

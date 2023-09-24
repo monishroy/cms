@@ -21,27 +21,36 @@ class UserSeeder extends Seeder
             'bio'=>"I love my life",
             'email'=>"monishroy87@gmail.com",
             'phone'=>"01817603163",
-            'role'=>"admin",
             'image'=>rand(1, 5).'.png',
             'password'=>Hash::make("123456"),
+            'role'=>"admin",
         ]);
         User::create([
             'name'=>"Ronobir Roy",
             'bio'=>"I love my life",
             'email'=>"roymonish712@gmail.com",
             'phone'=>"01717568377",
-            'role'=>"student",
             'image'=>rand(1, 5).'.png',
             'password'=>Hash::make("123456"),
+            'role'=>"student",
         ]);
         User::create([
             'name'=>"Monish Roy",
             'bio'=>"I love my life",
             'email'=>"librarian@gmail.com",
             'phone'=>"01580487212",
-            'role'=>"librarian",
             'image'=>rand(1, 5).'.png',
             'password'=>Hash::make("123456"),
+            'role'=>"librarian",
+        ]);
+        User::create([
+            'name'=>"Emdadul Hock",
+            'bio'=>"I love my life",
+            'email'=>"emdadulhaque1995@gmail.com",
+            'phone'=>"01750403009",
+            'image'=>"240920231695573624-employees.jpg",
+            'password'=>Hash::make("123456"),
+            'role'=>"teacher",
         ]);
     }
 }

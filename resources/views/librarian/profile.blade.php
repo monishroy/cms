@@ -27,21 +27,19 @@
                               <h4 class="mt-1 mb-1 text-white">
                                 {{ Auth::user()->name }}
                               </h4>
-                              <p class="font-13 text-white-50">
-                                Librarian
-                              </p>
+                              <p id="showup" class="font-13 text-white-50"></p>
 
                               <ul class="mb-0 list-inline text-light">                                
-                                <li class="list-inline-item">
-                                  <h5 class="mb-1">{{ $students_count }}</h5>
-                                  <p class="mb-0 font-13 text-white-50">
-                                    Total Student
-                                  </p>
-                                </li>
                                 <li class="list-inline-item me-3">
                                   <h5 class="mb-1">{{ $books_count }}</h5>
                                   <p class="mb-0 font-13 text-white-50">
                                     Total Book
+                                  </p>
+                                </li>
+                                <li class="list-inline-item">
+                                  <h5 class="mb-1">{{ $issue_book_count }}</h5>
+                                  <p class="mb-0 font-13 text-white-50">
+                                    Total Issue Book
                                   </p>
                                 </li>
                               </ul>
@@ -75,7 +73,7 @@
                 <!-- Personal-Information -->
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="header-title mt-0 mb-3">Admin Information</h4>
+                    <h4 class="header-title mt-0 mb-3">Librarian Information</h4>
                     <p class="text-muted font-13">
                       {{ Auth::user()->bio }}
                     </p>
@@ -152,7 +150,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="header-title mb-3">Update Profile</h4>
-                    <form action="{{ route('profile.update') }}" method="POST">
+                    <form action="{{ route('librarian.profile.update') }}" method="POST">
                       @csrf
                       <div class="row">
                         <div class="col-md-4">
@@ -167,7 +165,7 @@
                         <div class="col-md-4">
                           <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" value="{{ Auth::user()->email }}" placeholder="Enter Email" readonly>
+                            <input type="email" class="form-control" id="email" value="{{ Auth::user()->email }}" placeholder="Enter Email" readonly>
                             @error('email')
                               <span class="text-danger form-text"><small>{{$message}}</small></span>
                             @enderror

@@ -27,10 +27,7 @@
                               <h4 class="mt-1 mb-1 text-white">
                                 {{ Auth::user()->name }}
                               </h4>
-                              <p class="font-13 text-white-50">
-                                Student
-                              </p>
-
+                              <p id="showup" class="font-13 text-white-50"></p>
                               <ul class="mb-0 list-inline text-light">
                                 <li class="list-inline-item me-3">
                                   <h5 class="mb-1">{{ $student->semister->name }}</h5>

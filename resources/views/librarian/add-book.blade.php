@@ -7,7 +7,6 @@
               <div class="col-sm-12">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="header-title mb-3">{{ $title }}</h4>
                     <form class="needs-validation" action="{{$url}}" method="POST" novalidate  enctype="multipart/form-data">
                       @csrf
                       @if($title == 'Update Book') 

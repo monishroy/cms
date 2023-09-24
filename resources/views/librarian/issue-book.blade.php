@@ -10,7 +10,7 @@
                     <h4 class="header-title text-center mb-4">Issue Book</h4>
                     <form action="{{ route('issue.search') }}" class="row" method="POST">
                       @csrf
-                      <div class="col-6">
+                      <div class="col-md-6 col-12">
                         <div class="mb-3">
                           <label class="form-label" >Enter Roll</label>
                           <input type="text" class="form-control" name="roll" placeholder="Enter Roll">
@@ -22,7 +22,7 @@
                           @enderror
                         </div>
                       </div>
-                      <div class="col-6">
+                      <div class="col-md-6 col-12">
                         <div class="mb-3">
                           <label class="form-label">Return Date</label>
                           <div class="input-group">

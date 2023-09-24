@@ -27,7 +27,7 @@
                   </form>
                 </div>
               </div>
-              <h4 class="my-1 text-white">{{ Str::limit(ucwords($book->name), 18, '...')  }}</h4>
+              <h4 class="my-1 text-body">{{ Str::limit(ucwords($book->name), 18, '...')  }}</h4>
               <p class="font-13 text-primary">
                 <span class="text-primay">{{ $book->subject_code }}</span>
                 <i class="mdi mdi-circle-medium text-info"></i>

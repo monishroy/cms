@@ -31,14 +31,14 @@
 
     <body
         class="loading"
-        data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":true, "showRightSidebarOnStart": true}'
+        data-layout-config='{"leftSideBarTheme":"light","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'
     >
         <!-- Begin page -->
         <div class="wrapper">
             <!-- ========== Left Sidebar Start ========== -->
             <div class="leftside-menu">
                 <!-- LOGO -->
-                <a href="{{ url('/admin/dashboard') }}" class="logo text-center logo-light">
+                <a href="{{ url('/') }}" class="logo text-center logo-light">
                     <span class="logo-lg">
                         <img src="{{url('admin/assets/images/logo.png')}}" alt="" height="30"/>
                     </span>
@@ -48,7 +48,7 @@
                 </a>
 
                 <!-- LOGO -->
-                <a href="{{ url('/admin/dashboard') }}" class="logo text-center logo-dark">
+                <a href="{{ url('/') }}" class="logo text-center logo-dark">
                     <span class="logo-lg">
                         <img src="{{url('admin/assets/images/logo-dark.png')}}" alt="" height="30"/>
                     </span>
@@ -63,7 +63,7 @@
                         <li class="side-nav-title side-nav-item">Navigation</li>
                         <li class="side-nav-item">
                             <a href="{{ route('librarian.profile') }}" class="side-nav-link">
-                                <i class="uil-home-alt"></i>
+                                <i class="uil-user"></i>
                                 <span> Profile </span>
                             </a>
                         </li>
@@ -108,282 +108,9 @@
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
                         <ul class="list-unstyled topbar-menu float-end mb-0">
-                            <li class="dropdown notification-list d-lg-none">
-                                <a
-                                    class="nav-link dropdown-toggle arrow-none"
-                                    data-bs-toggle="dropdown"
-                                    href="#"
-                                    role="button"
-                                    aria-haspopup="false"
-                                    aria-expanded="false"
-                                >
-                                    <i class="dripicons-search noti-icon"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
-                                    <form class="p-3">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Search ..."
-                                            aria-label="Recipient's username"
-                                        />
-                                    </form>
-                                </div>
+                            <li class="mt-2">
+                                <h4 class="text-body" style="margin-top: 16px; margin-right: 85px" id="clock"></h4>
                             </li>
-                            
-                            <li class="dropdown notification-list">
-                                <a
-                                    class="nav-link dropdown-toggle arrow-none"
-                                    data-bs-toggle="dropdown"
-                                    href="#"
-                                    role="button"
-                                    aria-haspopup="false"
-                                    aria-expanded="false"
-                                >
-                                    <i class="dripicons-bell noti-icon"></i>
-                                    <span class="noti-icon-badge"></span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg">
-                                    <!-- item-->
-                                    <div class="dropdown-item noti-title">
-                                        <h5 class="m-0">
-                                            <span class="float-end">
-                                                <a
-                                                    href="javascript: void(0);"
-                                                    class="text-dark"
-                                                >
-                                                    <small>Clear All</small>
-                                                </a> </span
-                                            >Notification
-                                        </h5>
-                                    </div>
-                                    <div style="max-height: 230px" data-simplebar="">
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon bg-primary">
-                                                <i class="mdi mdi-comment-account-outline"></i>
-                                            </div>
-                                            <p class="notify-details">
-                                                Caleb Flakelar commented on Admin
-                                                <small class="text-muted">1 min ago</small>
-                                            </p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon bg-info">
-                                                <i class="mdi mdi-account-plus"></i>
-                                            </div>
-                                            <p class="notify-details">
-                                                New user registered.
-                                                <small class="text-muted">5 hours ago</small>
-                                            </p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a
-                                            href="javascript:void(0);"
-                                            class="dropdown-item notify-item"
-                                        >
-                                            <div class="notify-icon">
-                                                <img
-                                                    src="{{url('admin/assets/images/users/avatar-2.jpg')}}"
-                                                    class="img-fluid rounded-circle"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <p class="notify-details">
-                                                Cristina Pride
-                                            </p>
-                                            <p class="text-muted mb-0 user-msg">
-                                                <small
-                                                    >Hi, How are you? What about
-                                                    our next meeting</small
-                                                >
-                                            </p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a
-                                            href="javascript:void(0);"
-                                            class="dropdown-item notify-item"
-                                        >
-                                            <div class="notify-icon bg-primary">
-                                                <i
-                                                    class="mdi mdi-comment-account-outline"
-                                                ></i>
-                                            </div>
-                                            <p class="notify-details">
-                                                Caleb Flakelar commented on
-                                                Admin
-                                                <small class="text-muted"
-                                                    >4 days ago</small
-                                                >
-                                            </p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a
-                                            href="javascript:void(0);"
-                                            class="dropdown-item notify-item"
-                                        >
-                                            <div class="notify-icon">
-                                                <img
-                                                    src="{{url('admin/assets/images/users/avatar-4.jpg')}}"
-                                                    class="img-fluid rounded-circle"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <p class="notify-details">
-                                                Karen Robinson
-                                            </p>
-                                            <p class="text-muted mb-0 user-msg">
-                                                <small
-                                                    >Wow ! this admin looks good
-                                                    and awesome design</small
-                                                >
-                                            </p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a
-                                            href="javascript:void(0);"
-                                            class="dropdown-item notify-item"
-                                        >
-                                            <div class="notify-icon bg-info">
-                                                <i class="mdi mdi-heart"></i>
-                                            </div>
-                                            <p class="notify-details">
-                                                Carlos Crouch liked
-                                                <b>Admin</b>
-                                                <small class="text-muted"
-                                                    >13 days ago</small
-                                                >
-                                            </p>
-                                        </a>
-                                    </div>
-
-                                    <!-- All-->
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="dropdown-item text-center text-primary notify-item notify-all"
-                                    >
-                                        View All
-                                    </a>
-                                </div>
-                            </li>
-
-                            <li
-                                class="dropdown notification-list d-none d-sm-inline-block"
-                            >
-                                <a
-                                    class="nav-link dropdown-toggle arrow-none"
-                                    data-bs-toggle="dropdown"
-                                    href="#"
-                                    role="button"
-                                    aria-haspopup="false"
-                                    aria-expanded="false"
-                                >
-                                    <i
-                                        class="dripicons-view-apps noti-icon"
-                                    ></i>
-                                </a>
-                                <div
-                                    class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg p-0"
-                                >
-                                    <div class="p-2">
-                                        <div class="row g-0">
-                                            <div class="col">
-                                                <a
-                                                    class="dropdown-icon-item"
-                                                    href="https://mnotion.com"
-                                                    target="_blank"
-                                                >
-                                                    <img
-                                                        src="{{url('admin/assets/images/favicon.ico')}}"
-                                                        alt="slack"
-                                                    />
-                                                    <span>Mnotion</span>
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                                <a
-                                                    class="dropdown-icon-item"
-                                                    href="#"
-                                                >
-                                                    <img
-                                                        src="{{url('admin/assets/images/brands/github.png')}}"
-                                                        alt="Github"
-                                                    />
-                                                    <span>GitHub</span>
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                                <a
-                                                    class="dropdown-icon-item"
-                                                    href="#"
-                                                >
-                                                    <img
-                                                        src="{{url('admin/assets/images/brands/dribbble.png')}}"
-                                                        alt="dribbble"
-                                                    />
-                                                    <span>Dribbble</span>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="row g-0">
-                                            <div class="col">
-                                                <a
-                                                    class="dropdown-icon-item"
-                                                    href="#"
-                                                >
-                                                    <img
-                                                        src="{{url('admin/assets/images/brands/bitbucket.png')}}"
-                                                        alt="bitbucket"
-                                                    />
-                                                    <span>Bitbucket</span>
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                                <a
-                                                    class="dropdown-icon-item"
-                                                    href="#"
-                                                >
-                                                    <img
-                                                        src="{{url('admin/assets/images/brands/dropbox.png')}}"
-                                                        alt="dropbox"
-                                                    />
-                                                    <span>Dropbox</span>
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                                <a
-                                                    class="dropdown-icon-item"
-                                                    href="#"
-                                                >
-                                                    <img
-                                                        src="{{url('admin/assets/images/brands/g-suite.png')}}"
-                                                        alt="G Suite"
-                                                    />
-                                                    <span>G Suite</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- end row-->
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="notification-list">
-                                <a
-                                    class="nav-link end-bar-toggle"
-                                    href="javascript: void(0);"
-                                >
-                                    <i class="dripicons-gear noti-icon"></i>
-                                </a>
-                            </li>
-
                             <li class="dropdown notification-list">
                                 <a
                                     class="nav-link dropdown-toggle nav-user arrow-none me-0"
@@ -440,6 +167,7 @@
                                         type="text"
                                         class="form-control dropdown-toggle"
                                         placeholder="Search..."
+                                        autocomplete="off"
                                         id="top-search"
                                     />
                                     <span
@@ -499,7 +227,7 @@
                                     <h6
                                         class="text-overflow mb-2 text-uppercase"
                                     >
-                                        Users
+                                        Books
                                     </h6>
                                 </div>
 
@@ -511,17 +239,17 @@
                                     >
                                         <div class="d-flex">
                                             <img
-                                                class="d-flex me-2 rounded-circle"
-                                                src="{{url('admin/assets/images/users/avatar-2.jpg')}}"
+                                                class="d-flex me-2"
+                                                src="{{asset('storage/books/default-book.png')}}"
                                                 alt="Generic placeholder image"
                                                 height="32"
                                             />
                                             <div class="w-100">
                                                 <h5 class="m-0 font-14">
-                                                    Erwin Brown
+                                                    Web Development
                                                 </h5>
                                                 <span class="font-12 mb-0"
-                                                    >UI Designer</span
+                                                    >66643</span
                                                 >
                                             </div>
                                         </div>
@@ -534,17 +262,17 @@
                                     >
                                         <div class="d-flex">
                                             <img
-                                                class="d-flex me-2 rounded-circle"
-                                                src="{{url('admin/assets/images/users/avatar-5.jpg')}}"
+                                                class="d-flex me-2 "
+                                                src="{{asset('storage/books/default-book.png')}}"
                                                 alt="Generic placeholder image"
                                                 height="32"
                                             />
                                             <div class="w-100">
                                                 <h5 class="m-0 font-14">
-                                                    Jacob Deo
+                                                    Database Management
                                                 </h5>
                                                 <span class="font-12 mb-0"
-                                                    >Developer</span
+                                                    >66653</span
                                                 >
                                             </div>
                                         </div>

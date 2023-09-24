@@ -45,10 +45,7 @@
                               <h4 class="mt-1 mb-1 text-white">
                                 {{ Auth::user()->name }}
                               </h4>
-                              <p class="font-13 text-white-50">
-                                Teacher
-                              </p>
-
+                              <p id="showup" class="font-13 text-white-50"></p>
                               <ul class="mb-0 list-inline text-light">
                                 <li class="list-inline-item">
                                   <h5 class="mb-1">{{ $students_count }}</h5>
@@ -88,7 +85,7 @@
                 <!-- Personal-Information -->
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="header-title mt-0 mb-3">Information</h4>
+                    <h4 class="header-title mt-0 mb-3">Teacher Information</h4>
                     <p class="text-muted font-13">
                      {{ Auth::user()->bio }}
                     </p>
@@ -112,13 +109,15 @@
                       </p>
 
                       <p class="text-muted">
-                        <strong>Location :</strong>
-                        <span class="ms-2">Bangladesh</span>
+                        <strong>Position :</strong>
+                        <span class="ms-2">
+                            <span class="badge badge-outline-success">{{ $employee->position->name }}</span>
+                        </span>
                       </p>
 
                       <p class="text-muted">
-                        <strong>Languages :</strong>
-                        <span class="ms-2"> English, Bangla </span>
+                        <strong>Department :</strong>
+                        <span class="ms-2"> {{ $employee->department->name }} </span>
                       </p>
                       <p class="text-muted mb-0" id="tooltip-container">
                         <strong>Elsewhere :</strong>
