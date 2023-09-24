@@ -86,7 +86,7 @@
                             </a>
                         </li>
                         <li class="side-nav-item">
-                            <a href="{{ route('books.return') }}" class="side-nav-link">
+                            <a href="{{ route('return.index') }}" class="side-nav-link">
                                 <i class="uil-book-alt"></i>
                                 <span> Retuen Books </span>
                             </a>

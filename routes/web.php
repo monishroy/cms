@@ -21,6 +21,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Librarian\LibrarianBooksController;
 use App\Http\Controllers\Librarian\LibrarianBooksIssueController;
 use App\Http\Controllers\Librarian\LibrarianProfileController;
+use App\Http\Controllers\Librarian\LibrarianReturnBookController;
 use App\Http\Controllers\Student\StudentProfileController;
 use App\Http\Controllers\Teacher\TeacherProfileController;
 
@@ -48,8 +49,6 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact/add', [ContactController::class, 'add'])->name('contact.add');
 
 Route::middleware(['guest'])->group(function(){
-    Route::get('/register', [RegisterController::class, 'index'])->name('register');
-    Route::post('/register', [RegisterController::class, 'postRegister'])->name('postRegister');
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
 });
@@ -99,11 +98,14 @@ Route::middleware(['auth','student','status'])->group(function(){
 Route::middleware(['auth','librarian','status'])->group(function(){
     Route::get('/librarian/profile', [LibrarianProfileController::class, 'index'])->name('librarian.profile');
     Route::resource('librarian/books', LibrarianBooksController::class);
-    Route::get('/librarian/return/book', [LibrarianBooksController::class, 'return_index'])->name('books.return');
-    Route::post('/librarian/return/book', [LibrarianBooksController::class, 'student_search'])->name('books.return');
-    Route::get('/librarian/return/book/{student_id}', [LibrarianBooksController::class, 'return_book_show'])->name('books.return.show');
     Route::resource('librarian/issue', LibrarianBooksIssueController::class);
-
+    Route::post('/librarian/issue/book', [LibrarianBooksIssueController::class, 'issue_search'])->name('issue.search');
+    Route::get('/librarian/issue/book/{student_id}', [LibrarianBooksIssueController::class, 'issue_book_show'])->name('issue.book.show');
+    Route::post('/librarian/issue/books', [LibrarianBooksIssueController::class, 'issue_book'])->name('issue.book');
+    Route::get('/librarian/return', [LibrarianReturnBookController::class, 'index'])->name('return.index');
+    Route::post('/librarian/return/book', [LibrarianReturnBookController::class, 'return_search'])->name('return.search');
+    Route::get('/librarian/return/book/{student_id}', [LibrarianReturnBookController::class, 'return_book_show'])->name('return.book.show');
+    Route::post('/librarian/return/books/{id}', [LibrarianReturnBookController::class, 'return_book'])->name('return.book');
 });
 //Librarian Route End
 

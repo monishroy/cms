@@ -1,21 +1,14 @@
 ﻿@extends('librarian.layouts.main')
 
-@section('title',  'Return Book' )
+@section('title',  'Issue Book' )
 @section('main-section')
 
             <div class="row">
               <div class="col-sm-6 mx-auto">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="header-title text-center mb-4">Return Book</h4>
+                    <h4 class="header-title text-center mb-4">Issue Book</h4>
                     <div class="row">
-                      <div class="col-lg-12 col-12">
-                      @error('book_code')
-                        <div class="alert alert-danger" role="alert">
-                          <i class="dripicons-wrong me-2"></i><strong>{{$message}}</strong>
-                        </div>
-                      @enderror
-                      </div>
                       <div class="col-lg-6 col-12">
                         <div class="mb-3">
                           <label class="form-label" for="student">Roll</label>
@@ -24,7 +17,7 @@
                       </div>
                       <div class="col-lg-6 col-12">
                         <div class="mb-3">
-                          <label class="form-label">Return Date</label>
+                          <label class="form-label">Issue Date</label>
                           <div class="input-group">
                             <input type="text" class="form-control" value="{{ date('d-M-Y  h:i A') }}" readonly>
                             <button type="submit" class="btn btn-primary" disabled>Search</button>
@@ -50,28 +43,30 @@
                         </div>
                       </div>
                     </div>
-                    @foreach ($issue_books as $issue_book)
-                    <form class="row" action="{{ route('return.book', $issue_book->id) }}" method="POST">
+                    <form action="{{ route('issue.store') }}" method="POST">
                       @csrf
-                      <div class="col-lg-6 col-12">
-                        <div class="mb-3">
-                          <label class="form-label" >Book Name</label>
-                          <input type="hidden" name="book_id" value="{{ $issue_book->book->id }}">
-                          <input type="hidden" name="old_book_code" value="{{ $issue_book->book->book_code }}">
-                          <input type="text" class="form-control" value="{{ $issue_book->book->name.' ('.$issue_book->book->subject_code.')'.'('.$issue_book->book->book_code.')' }}" readonly>
-                        </div>
-                      </div>
-                      <div class="col-lg-6 col-12">
-                        <div class="mb-3">
-                          <label class="form-label">Book Code</label>
-                          <div class="input-group">
-                            <input type="text" name="book_code" class="form-control" placeholder="Enter Book Code">
-                            <button type="submit" class="btn btn-primary">Return Book</button>
+                      <div class="mb-3">
+                        <label class="form-label" for="book">Book </label>
+                        <input type="hidden" name="student" value="{{ $student->id }}">
+                        <div class="row">
+                          <div class="col-lg-10 col-12 mb-3">
+                            <select class="form-control select2" name="book" id="book" data-toggle="select2">
+                              <optgroup label="Select book">
+                                @foreach ($books as $book)
+                                <option value="{{ $book->id }}">{{ucwords($book->name).' ('.$book->subject_code.') '.' ('.$book->book_code.') '}}</option>
+                                @endforeach
+                              </optgroup>
+                            </select>
+                          </div>
+                          <div class="col-lg-2 col-12 text-end">
+                            <button class="btn btn-outline-primary" type="submit">Issue Book</button>
                           </div>
                         </div>
+                        @error('book')
+                        <span class="text-danger form-text"><small>{{$message}}</small></span>
+                        @enderror
                       </div>
                     </form>
-                    @endforeach
                   </div>
                 </div>
               </div>

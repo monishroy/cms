@@ -30,10 +30,7 @@ class LibrarianBooksIssueController extends Controller
      */
     public function create()
     {
-        $students = Student::all();
-        $user_id = 1;
-        $books = Book::all()->where('status', 1);
-        return view('librarian.add-issue-book', compact('students','books','user_id'));
+        return view('librarian.issue-book');
     }
 
     /**
@@ -100,25 +97,7 @@ class LibrarianBooksIssueController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'old_book_code' => 'required',
-            'book_code' => 'required|same:old_book_code',
-            'book_id' => 'required',
-        ]);
-
-        IssueBook::find($id)->update([
-            'return_date' => date('Y-m-d h:i:s'),
-        ]);
-
-        $result = Book::find($request->book_id)->update([
-            'status' => 1,
-        ]);
-
-        if($result){
-            return back()->with('success','Book Return Successfully');
-        }else{
-            return back()->with('error','Something is Worng!');
-        }
+        //
 
     }
 
@@ -131,5 +110,23 @@ class LibrarianBooksIssueController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function issue_search(Request $request)
+    {
+        $request->validate([
+            'roll' => 'required|exists:students,roll',
+        ]);
+
+        $student = Student::where('roll', $request->roll)->first();
+
+        return redirect()->route('issue.book.show', $student->id);
+    }
+
+    public function issue_book_show($student_id)
+    {
+        $books = Book::where('status', 1)->get();
+        $student = Student::where('id', $student_id)->first();
+        return view('librarian.issue-book-show', compact('student','books'));
     }
 }

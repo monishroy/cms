@@ -1,14 +1,14 @@
 ﻿@extends('librarian.layouts.main')
 
-@section('title',  'Return Book' )
+@section('title', 'Issue Books')
 @section('main-section')
 
             <div class="row">
               <div class="col-sm-6 mx-auto">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="header-title text-center mb-4">Return Book</h4>
-                    <form action="{{ route('return.search') }}" class="row" method="POST">
+                    <h4 class="header-title text-center mb-4">Issue Book</h4>
+                    <form action="{{ route('issue.search') }}" class="row" method="POST">
                       @csrf
                       <div class="col-6">
                         <div class="mb-3">

@@ -195,29 +195,5 @@ class LibrarianBooksController extends Controller
         $book->delete();
         return back()->with('success','Book Delete Successfully');
     }
-
-    public function return_index()
-    {
-        $students = Student::all();
-        return view('librarian.return-book', compact('students'));
-    }
-
-    public function student_search(Request $request)
-    {
-        $request->validate([
-            'roll' => 'required|exists:students,roll',
-        ]);
-
-        $student = Student::where('roll', $request->roll)->first();
-
-        return redirect()->route('books.return.show', $student->id);
-    }
-
-    public function return_book_show($student_id)
-    {
-        $student = Student::where('id', $student_id)->first();
-        $issue_books = IssueBook::where('student_id', $student_id)->where('return_date', null)->get();
-        return view('librarian.return-book-show', compact('student','issue_books'));
-    }
+    
 }
-;
