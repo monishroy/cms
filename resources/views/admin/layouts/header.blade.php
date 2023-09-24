@@ -170,6 +170,10 @@
                     <!-- Topbar Start -->
                     <div class="navbar-custom">
                         <ul class="list-unstyled topbar-menu float-end mb-0">
+                            
+                            <li class="mt-2">
+                                <h4 class="text-body" style="margin-top: 16px; margin-right: 10px" id="clock"></h4>
+                            </li>
                             <li class="dropdown notification-list d-lg-none">
                                 <a
                                     class="nav-link dropdown-toggle arrow-none"
@@ -194,7 +198,6 @@
                                     </form>
                                 </div>
                             </li>
-                            
                             <li class="dropdown notification-list">
                                 <a
                                     class="nav-link dropdown-toggle arrow-none"
@@ -355,108 +358,6 @@
                                     >
                                         View All
                                     </a>
-                                </div>
-                            </li>
-
-                            <li
-                                class="dropdown notification-list d-none d-sm-inline-block"
-                            >
-                                <a
-                                    class="nav-link dropdown-toggle arrow-none"
-                                    data-bs-toggle="dropdown"
-                                    href="#"
-                                    role="button"
-                                    aria-haspopup="false"
-                                    aria-expanded="false"
-                                >
-                                    <i
-                                        class="dripicons-view-apps noti-icon"
-                                    ></i>
-                                </a>
-                                <div
-                                    class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg p-0"
-                                >
-                                    <div class="p-2">
-                                        <div class="row g-0">
-                                            <div class="col">
-                                                <a
-                                                    class="dropdown-icon-item"
-                                                    href="https://mnotion.com"
-                                                    target="_blank"
-                                                >
-                                                    <img
-                                                        src="{{url('admin/assets/images/favicon.ico')}}"
-                                                        alt="slack"
-                                                    />
-                                                    <span>Mnotion</span>
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                                <a
-                                                    class="dropdown-icon-item"
-                                                    href="#"
-                                                >
-                                                    <img
-                                                        src="{{url('admin/assets/images/brands/github.png')}}"
-                                                        alt="Github"
-                                                    />
-                                                    <span>GitHub</span>
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                                <a
-                                                    class="dropdown-icon-item"
-                                                    href="#"
-                                                >
-                                                    <img
-                                                        src="{{url('admin/assets/images/brands/dribbble.png')}}"
-                                                        alt="dribbble"
-                                                    />
-                                                    <span>Dribbble</span>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="row g-0">
-                                            <div class="col">
-                                                <a
-                                                    class="dropdown-icon-item"
-                                                    href="#"
-                                                >
-                                                    <img
-                                                        src="{{url('admin/assets/images/brands/bitbucket.png')}}"
-                                                        alt="bitbucket"
-                                                    />
-                                                    <span>Bitbucket</span>
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                                <a
-                                                    class="dropdown-icon-item"
-                                                    href="#"
-                                                >
-                                                    <img
-                                                        src="{{url('admin/assets/images/brands/dropbox.png')}}"
-                                                        alt="dropbox"
-                                                    />
-                                                    <span>Dropbox</span>
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                                <a
-                                                    class="dropdown-icon-item"
-                                                    href="#"
-                                                >
-                                                    <img
-                                                        src="{{url('admin/assets/images/brands/g-suite.png')}}"
-                                                        alt="G Suite"
-                                                    />
-                                                    <span>G Suite</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- end row-->
-                                    </div>
                                 </div>
                             </li>
 

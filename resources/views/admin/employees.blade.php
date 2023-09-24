@@ -24,7 +24,11 @@
                               <!-- item-->
                               <a href="{{ route('employees.edit', $employee->id) }}" class="dropdown-item">Edit</a>
                               <!-- item-->
-                              <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                              <form action="{{ route('employees.destroy', $employee->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="dropdown-item">Delete</button>
+                              </form>
                             </div>
                           </div>
                           <h4 class="mt-1 mb-1">{{ $employee->name }}</h4>

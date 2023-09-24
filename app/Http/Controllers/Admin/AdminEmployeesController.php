@@ -65,12 +65,12 @@ class AdminEmployeesController extends Controller
 
         //Insert Employee
         $employees = new Employee();
-        $employees->name = $request['name'];
+        $employees->name = $request->name;
         $employees->image = $imagename;
-        $employees->email = $request['email'];
-        $employees->phone = $request['phone'];
-        $employees->department_id = $request['department'];
-        $employees->position_id = $request['position'];
+        $employees->email = $request->email;
+        $employees->phone = $request->phone;
+        $employees->department_id = $request->department;
+        $employees->position_id = $request->position;
         $result = $employees->save();
 
         //Insert User
@@ -206,8 +206,9 @@ class AdminEmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Employee $employee)
     {
-        //
+        $employee->delete();
+        return back()->with('success','Employee Delete Successfully');
     }
 }

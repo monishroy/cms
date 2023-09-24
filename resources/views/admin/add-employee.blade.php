@@ -14,9 +14,9 @@
                           @csrf
                           @if($title == 'Update Employee') 
                           @method('PUT')
+                          <input type="hidden" name="user_id" value="{{ $user->id }}">
                           @else
                           @endif
-                          <input type="text" name="user_id" value="{{ $user->id }}">
                           <div class="row">
                             <div class="col-md-4 col-12">
                               <div class="mb-3">
