@@ -95,6 +95,7 @@
 </script>
 <script>
     let container = document.getElementById("showup");
+    let getup = document.getElementById("getup");
     let timeNow = new Date().getHours();
     let greeting =
     timeNow >= 5 && timeNow < 12
@@ -103,6 +104,7 @@
         ? "Good Afternoon"
         : "Good Evening";
     container.innerHTML = `${greeting}`;
+    getup.innerHTML = `${greeting}`;
 </script>
 <script>
     $.NotificationApp.send("Title","Your awesome message text","bottom-right","success","Icon")

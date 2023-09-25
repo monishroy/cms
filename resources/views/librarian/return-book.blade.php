@@ -13,7 +13,7 @@
                       <div class="col-md-6 col-12">
                         <div class="mb-3">
                           <label class="form-label" >Enter Roll</label>
-                          <input type="text" class="form-control" name="roll" placeholder="Enter Roll">
+                          <input type="text" class="form-control" name="roll" data-toggle="input-mask" data-mask-format="000000" maxlength="6" placeholder="Enter Roll">
                           <div class="invalid-feedback">
                             Please select roll.
                           </div>

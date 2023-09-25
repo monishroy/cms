@@ -75,7 +75,6 @@ Route::middleware(['auth','admin','status'])->group(function(){
     Route::resource('admin/users', AdminUserController::class);
     Route::get('/admin/users/active/{id}', [AdminUserController::class, 'status_active'])->name('user.status.active');
     Route::get('/admin/users/deactive/{id}', [AdminUserController::class, 'status_deactive'])->name('user.status.deactive');
-    
 });
 //Admin Route End
 

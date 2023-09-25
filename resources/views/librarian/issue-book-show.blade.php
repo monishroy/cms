@@ -53,7 +53,7 @@
                             <select class="form-control select2" name="book" id="book" data-toggle="select2">
                               <optgroup label="Select book">
                                 @foreach ($books as $book)
-                                <option value="{{ $book->id }}">{{ucwords($book->name).' ('.$book->subject_code.') '.' ('.$book->book_code.') '}}</option>
+                                <option value="{{ $book->id }}">{{ucwords($book->name).'-'.$book->subject_code.' ('.$book->book_code.') '}}</option>
                                 @endforeach
                               </optgroup>
                             </select>

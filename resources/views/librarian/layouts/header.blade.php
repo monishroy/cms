@@ -142,7 +142,7 @@
                                     <!-- item-->
                                     <div class="dropdown-header noti-title">
                                         <h6 class="text-overflow m-0">
-                                            Welcome {{ Auth::user()->name }} !
+                                            <span id="getup"></span>, {{ Auth::user()->name }} !
                                         </h6>
                                     </div>
 

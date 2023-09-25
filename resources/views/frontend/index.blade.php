@@ -28,7 +28,7 @@
         </div>
         <div class="col-md-5 offset-md-2">
           <div class="text-md-end mt-3 mt-md-0">
-            <img src="{{url('admin/assets/images/startup.svg')}}" alt="" class="img-fluid" />
+            <img src="{{url('admin/assets/images/banner.png')}}" alt="" class="img-fluid" />
           </div>
         </div>
       </div>

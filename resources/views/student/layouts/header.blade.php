@@ -210,7 +210,7 @@
                                     <!-- item-->
                                     <div class="dropdown-header noti-title">
                                         <h6 class="text-overflow m-0">
-                                            Welcome {{ Auth::user()->name }} !
+                                            <span  id="showup"></span> {{ Auth::user()->name }} !
                                         </h6>
                                     </div>
 
@@ -245,7 +245,7 @@
                                     <input
                                         type="text"
                                         class="form-control dropdown-toggle"
-                                        placeholder="Search.dfd.."
+                                        placeholder="Search..."
                                         autocomplete="off"
                                         id="top-search"
                                     />

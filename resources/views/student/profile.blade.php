@@ -42,7 +42,7 @@
                       <div class="col-sm-4">
                         <div class="text-center mt-sm-0 mt-3 text-sm-end">
                           <button type="button" class="btn btn-light">
-                            <i class="mdi mdi-account-edit me-1"></i> Edit
+                            <i class="mdi mdi-image me-1"></i> Edit
                             Profile Picture
                           </button>
                         </div>
