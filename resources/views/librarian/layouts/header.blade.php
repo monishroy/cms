@@ -75,8 +75,8 @@
                         </li>
                         <li class="side-nav-item">
                             <a href="{{ route('books.index') }}" class="side-nav-link">
-                                <i class="uil-book-alt"></i>
-                                <span> All Books </span>
+                                <i class="uil-books"></i>
+                                <span> Books </span>
                             </a>
                         </li>
                         <li class="side-nav-item">

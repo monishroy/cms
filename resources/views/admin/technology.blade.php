@@ -19,10 +19,8 @@
                             <i class="mdi mdi-dots-vertical"></i>
                           </a>
                           <div class="dropdown-menu dropdown-menu-end" style="">
-                            <!-- item-->
                             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view-{{ $technology->id }}" class="dropdown-item">View</a>
-                            <a href="{{route('technology.edit', $technology->id)}}" class="dropdown-item">Edit</a>
-                            <!-- item-->
+                            <a href="{{ route('technology.edit', $technology->id) }}" class="dropdown-item">Edit</a>
                             <form action="{{ route('technology.destroy', $technology->id) }}" method="POST">
                               @csrf
                               @method('DELETE')
@@ -33,23 +31,23 @@
                         <div class="ribbon-content">
                           <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                             <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block img-fluid" src="{{ url("storage/technology/$technology->image1") }}" style="height: 280px" alt="First slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block img-fluid" src="{{ url("storage/technology/$technology->image2") }}" style="height: 280px" alt="Second slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block img-fluid" src="{{ url("storage/technology/$technology->image3") }}" style="height: 280px" alt="Second slide">
-                                </div>
+                              <div class="carousel-item active">
+                                <img class="d-block img-fluid" src="{{ url("storage/technology/$technology->image1") }}" style="height: 280px" alt="First slide">
+                              </div>
+                              <div class="carousel-item">
+                                <img class="d-block img-fluid" src="{{ url("storage/technology/$technology->image2") }}" style="height: 280px" alt="Second slide">
+                              </div>
+                              <div class="carousel-item">
+                                <img class="d-block img-fluid" src="{{ url("storage/technology/$technology->image3") }}" style="height: 280px" alt="Second slide">
+                              </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
                             </a>
                             <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
                             </a>
                           </div>
                         </div>
@@ -100,7 +98,6 @@
                   </div>
                   @endforelse
                 </div>
-                
                 <!-- end card-->
               </div>
               <!-- end col-->

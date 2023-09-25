@@ -17,7 +17,7 @@
                             <div class="avatar-lg">
                               <img
                                 src="{{url('admin/assets/images/users/'.Auth::user()->image)}}"
-                                alt=""
+                                alt="{{ Auth::user()->image }}"
                                 class="rounded-circle img-thumbnail"
                               />
                             </div>
@@ -30,7 +30,6 @@
                               <p class="font-13 text-white-50">
                                 Admin
                               </p>
-
                               <ul class="mb-0 list-inline text-light">
                                 <li class="list-inline-item me-3">
                                   <h5 class="mb-1">{{ $user }}</h5>
@@ -50,11 +49,10 @@
                         </div>
                       </div>
                       <!-- end col-->
-
                       <div class="col-sm-4">
                         <div class="text-center mt-sm-0 mt-3 text-sm-end">
                           <button type="button" class="btn btn-light">
-                            <i class="mdi mdi-image me-1"></i> Change Picture
+                            <i class="uil-image-edit me-1"></i> Change Picture
                           </button>
                         </div>
                       </div>
@@ -79,20 +77,16 @@
                     <p class="text-muted font-13">
                       {{ Auth::user()->bio }}
                     </p>
-
                     <hr />
-
                     <div class="text-start">
                       <p class="text-muted">
                         <strong>Full Name :</strong>
                         <span class="ms-2">{{ Auth::user()->name }}</span>
                       </p>
-
                       <p class="text-muted">
-                        <strong>Mobile :</strong
-                        ><span class="ms-2">{{ Auth::user()->phone }}</span>
+                        <strong>Mobile :</strong>
+                        <span class="ms-2">{{ Auth::user()->phone }}</span>
                       </p>
-
                       <p class="text-muted">
                         <strong>Email :</strong>
                         <span class="ms-2">{{ Auth::user()->email }}</span>
@@ -143,7 +137,6 @@
                   </div>
                 </div>
                 <!-- Personal-Information -->
-                
               </div>
               <!-- end col-->
 
@@ -213,16 +206,12 @@
                           {{ $contact->message }}
                         </p>
                         <p class="inbox-item-date">
-                          <a
-                            href="#"
-                            class="btn btn-sm btn-link text-info font-13"
-                          >
+                          <a href="#" class="btn btn-sm btn-link text-info font-13">
                             Reply
                           </a>
                         </p>
                       </div>
                       @endforeach
-                      
                     </div>
                     <!-- end inbox-widget -->
                   </div>

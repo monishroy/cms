@@ -55,7 +55,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
       </div>
       <!--error end toast-->
       @endif
-      <form action="{{ route('contact.add') }}" method="POST">
+      <form action="{{ route('contact.store') }}" method="POST">
         @csrf
         <div class="row mt-4">
           <div class="col-lg-6">

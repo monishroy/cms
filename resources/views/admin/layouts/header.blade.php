@@ -93,64 +93,70 @@
                                 <span> Profile </span>
                             </a>
                         </li>
-                        
-                        <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#frontendSlid" aria-expanded="false" aria-controls="frontendSlid" class="side-nav-link collapsed">
-                                <i class="uil uil-window"></i>
-                                <span> Frontend </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="frontendSlid" style="">
-                                <ul class="side-nav-second-level">
-                                <li>
-                                    <a href="{{ route('admin.frontend.notice') }}">Notice Board</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('technology.create') }}">Add Technology</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('technology.index') }}">Technologys</a>
-                                </li>
-                                <li class="side-nav-item">
-                                    <a href="{{ route('employees.create') }}">Add Employee</a>
-                                </li>
-                                <li class="side-nav-item">
-                                    <a href="{{ route('employees.index') }}">Employees</a>
-                                </li>
-                            </div>
-                        </li>
-                        
                         <li class="side-nav-title side-nav-item">Settings</li>
-
                         <li class="side-nav-item">
                             <a href="{{ route('admin.categories') }}" class="side-nav-link">
-                                <i class="uil-layers"></i>
+                                <i class="uil-apps"></i>
                                 <span> Catagores </span>
                             </a>
                         </li>
                         <li class="side-nav-item">
                             <a href="{{ route('users.index') }}" class="side-nav-link">
-                                <i class="uil-user"></i>
-                                <span> All User </span>
+                                <i class="uil-shield-check"></i>
+                                <span> Users </span>
                             </a>
                         </li>
-                        
+                        <li class="side-nav-title side-nav-item">Frontend</li>
+                        <li class="side-nav-item">
+                            <a href="{{ route('admin.frontend.notice') }}" class="side-nav-link">
+                                <i class=" uil-notes"></i>
+                                <span> Notice Board </span>
+                            </a>
+                        </li>
+                        <li class="side-nav-item">
+                            <a href="{{ route('technology.create') }}" class="side-nav-link">
+                                <i class=" uil-file-plus"></i>
+                                <span> Add Technology </span>
+                            </a>
+                        </li>
+                        <li class="side-nav-item">
+                            <a href="{{ route('technology.index') }}" class="side-nav-link">
+                                <i class=" uil-clapper-board"></i>
+                                <span> Technologys </span>
+                            </a>
+                        </li>
+                        <li class="side-nav-item">
+                            <a href="{{ route('employees.create') }}" class="side-nav-link">
+                                <i class="uil-folder-plus"></i>
+                                <span> Add Employee </span>
+                            </a>
+                        </li>
+                        <li class="side-nav-item">
+                            <a href="{{ route('employees.index') }}" class="side-nav-link">
+                                <i class="uil-layer-group"></i>
+                                <span> Employees </span>
+                            </a>
+                        </li>
                         <li class="side-nav-title side-nav-item">Student</li>
-
                         <li class="side-nav-item">
                             <a href="{{ route('students.create') }}" class="side-nav-link">
                                 <i class="uil-user-plus"></i>
                                 <span>Add Student </span>
                             </a>
                         </li>
-
                         <li class="side-nav-item">
                             <a href="{{ route('students.index') }}" class="side-nav-link">
-                                <i class="uil-users-alt"></i>
-                                <span> All Student </span>
+                                <i class="uil-graduation-hat"></i>
+                                <span> Students </span>
                             </a>
                         </li>
-                        
+                        <li class="side-nav-title side-nav-item">Contact</li>
+                        <li class="side-nav-item">
+                            <a href="{{ route('message.index') }}" class="side-nav-link">
+                                <i class="uil-envelopes"></i>
+                                <span> Message </span>
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- End Sidebar -->

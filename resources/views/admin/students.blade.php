@@ -21,64 +21,62 @@
                       </div>
                     </div>
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
-                        <thead>
-                            <tr>
-                                <th>SL</th>
-                                <th>Name</th>
-                                <th>Roll</th>
-                                <th>Registration</th>
-                                <th>Session</th>
-                                <th>Phone</th>
-                                <th>Guardian Phone</th>
-                                <th>Semister</th>
-                                <th>Department</th>
-                                <th>Address</th>
-                                <th>Added</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach ($students as $index=>$student)
-                            <tr>
-                                <td>{{ ++$index }}</td>
-                                <td>{{$student->fname.' '.$student->lname}}</td>
-                                <td>{{$student->roll}}</td>
-                                <td>{{$student->registration}}</td>
-                                <td>
-                                  {{ $student->session->name }}
-                                </td>
-                                <td>{{$student->phone}}</td>
-                                <td>{{$student->gPhone}}</td>
-                                <td>
-                                  {{ $student->semister->name }}
-                                </td>
-                                <td>
-                                  {{ $student->department->name }}
-                                </td>
-                                <td>{{$student->address}}</td>
-                                <td>{{ date('d-M-Y', strtotime($student->created_at)) }}</td>
-                                <td class="table-action">
-                                  <div class="dropdown">
-                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                      <i class="mdi mdi-dots-vertical"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end" style="">
-                                      <!-- item-->
-                                      <a href="{{route('students.edit', $student->id)}}" class="dropdown-item">Edit</a>
-                                      <!-- item-->
-                                      <form action="{{ route('students.destroy', $student->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="dropdown-item">Delete</button>
-                                      </form>
-                                    </div>
-                                  </div>
-                                    
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
+                      <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Name</th>
+                            <th>Roll</th>
+                            <th>Registration</th>
+                            <th>Session</th>
+                            <th>Phone</th>
+                            <th>Guardian Phone</th>
+                            <th>Semister</th>
+                            <th>Department</th>
+                            <th>Address</th>
+                            <th>Added</th>
+                            <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach ($students as $index=>$student)
+                        <tr>
+                          <td>{{ ++$index }}</td>
+                          <td>{{$student->fname.' '.$student->lname}}</td>
+                          <td>{{$student->roll}}</td>
+                          <td>{{$student->registration}}</td>
+                          <td>
+                            {{ $student->session->name }}
+                          </td>
+                          <td>{{$student->phone}}</td>
+                          <td>{{$student->gPhone}}</td>
+                          <td>
+                            {{ $student->semister->name }}
+                          </td>
+                          <td>
+                            {{ $student->department->name }}
+                          </td>
+                          <td>{{$student->address}}</td>
+                          <td>{{ date('d-M-Y', strtotime($student->created_at)) }}</td>
+                          <td class="table-action">
+                            <div class="dropdown">
+                              <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-dots-vertical"></i>
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-end" style="">
+                                <!-- item-->
+                                <a href="{{route('students.edit', $student->id)}}" class="dropdown-item">Edit</a>
+                                <!-- item-->
+                                <form action="{{ route('students.destroy', $student->id) }}" method="POST">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button type="submit" class="dropdown-item">Delete</button>
+                                </form>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        @endforeach
+                      </tbody>
                     </table>
                   </div>
                   <!-- end card-body-->
