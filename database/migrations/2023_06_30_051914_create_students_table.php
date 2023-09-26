@@ -17,6 +17,7 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('fname', 30);
             $table->string('lname', 30);
+            $table->string('image');
             $table->string('email');
             $table->string('roll');
             $table->string('registration');

@@ -191,29 +191,7 @@
                         Update Profile
                       </button>
                     </form>
-                    <div class="inbox-widget">
-                      @foreach ($contact as $contact)
-                      <div class="inbox-item">
-                        <div class="inbox-item-img">
-                          <img
-                            src="assets/images/users/2.png"
-                            class="rounded-circle"
-                            alt=""
-                          />
-                        </div>
-                        <p class="inbox-item-author">{{ $contact->name }}</p>
-                        <p class="inbox-item-text">
-                          {{ $contact->message }}
-                        </p>
-                        <p class="inbox-item-date">
-                          <a href="#" class="btn btn-sm btn-link text-info font-13">
-                            Reply
-                          </a>
-                        </p>
-                      </div>
-                      @endforeach
-                    </div>
-                    <!-- end inbox-widget -->
+                    
                   </div>
                   <!-- end card-body-->
                 </div>

@@ -10,6 +10,7 @@ use App\Models\Department;
 use App\Models\Session;
 use App\Models\User as ModelsUser;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AdminStudentController extends Controller
 {
@@ -48,43 +49,54 @@ class AdminStudentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(
-            [
-                'fname' => 'required|min:3',
-                'lname' => 'required|min:3',
-                'email' => 'required|email|unique:users,email',
-                'roll' => 'required|unique:students,roll',
-                'registration' => 'required|unique:students,registration',
-                'session' => 'required',
-                'department' => 'required',
-                'semister' => 'required',
-                'phone' => 'required|max:12|min:11|unique:users,phone',
-                'gPhone' => 'required|max:12|min:11',
-                'address' => 'required',
-            ]
-        );
+        $request->validate([
+            'fname' => 'required|min:3',
+            'lname' => 'required|min:3',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
+            'email' => 'required|email|unique:users,email',
+            'roll' => 'required|unique:students,roll',
+            'registration' => 'required|unique:students,registration',
+            'session' => 'required',
+            'department' => 'required',
+            'semister' => 'required',
+            'phone' => 'required|max:12|min:11|unique:users,phone',
+            'gPhone' => 'required|max:12|min:11',
+            'address' => 'required',
+        ]);
+
 
         //Insert Query
         $student = new Student();
-        $student->fname = $request['fname'];
-        $student->lname = $request['lname'];
-        $student->email = $request['email'];
-        $student->roll = $request['roll'];
-        $student->registration = $request['registration'];
-        $student->department_id = $request['department'];
-        $student->session_id = $request['session'];
-        $student->phone = $request['phone'];
-        $student->gPhone = $request['gPhone'];
-        $student->semister_id = $request['semister'];
-        $student->address = $request['address'];
+        $student->fname = $request->fname;
+        $student->lname = $request->lname;
+        if(is_file($request->image)){
+            $imageName = date('dmY').time()."-user.".$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('public/users',$imageName);
+            $student->image = $imageName;
+        }else{
+            $student->image = rand(1, 5).'.png';
+        }
+        $student->email = $request->email;
+        $student->roll = $request->roll;
+        $student->registration = $request->registration;
+        $student->department_id = $request->department;
+        $student->session_id = $request->session;
+        $student->phone = $request->phone;
+        $student->gPhone = $request->gPhone;
+        $student->semister_id = $request->semister;
+        $student->address = $request->address;
         $result = $student->save();
 
         //Insert Query
         $user = new ModelsUser();
-        $user->name = $request['fname'].' '.$request['lname'];
-        $user->email = $request['email'];
-        $user->phone = $request['phone'];
-        $user->image = rand(1, 5).'.png';
+        $user->name = $request->fname.' '.$request->lname;
+        if(is_file($request->image)){
+            $user->image = $imageName;
+        }else{
+            $user->image = rand(1, 5).'.png';
+        }
+        $user->email = $request->email;
+        $user->phone = $request->phone;
         $user->password = Hash::make('123456');
         $result = $user->save();
 
@@ -93,6 +105,7 @@ class AdminStudentController extends Controller
         }else{
             return back()->with('error','Something is Worng!');
         }
+        
     }
 
     /**
@@ -138,25 +151,34 @@ class AdminStudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate(
-            [
-                'fname' => 'required|min:3',
-                'lname' => 'required|min:3',
-                'email' => 'required|email',
-                'roll' => 'required',
-                'registration' => 'required',
-                'session' => 'required',
-                'department' => 'required',
-                'semister' => 'required',
-                'phone' => 'required|max:12|min:11',
-                'gPhone' => 'required|max:12|min:11',
-                'address' => 'required',
-            ]
-        );
+        $request->validate([
+            'fname' => 'required|min:3',
+            'lname' => 'required|min:3',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
+            'email' => 'required|email',
+            'roll' => 'required',
+            'registration' => 'required',
+            'session' => 'required',
+            'department' => 'required',
+            'semister' => 'required',
+            'phone' => 'required|max:12|min:11',
+            'gPhone' => 'required|max:12|min:11',
+            'address' => 'required',
+        ]);
 
         $student = Student::find($id);
         $student->fname = $request['fname'];
         $student->lname = $request['lname'];
+        if(is_file($request->image)){
+            $imageName = date('dmY').time()."si-$student->id.".$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('public/users',$imageName);
+            
+            // if($student->image != '1.png' && $student->image != '2.png' && $student->image != '3.png' && $student->image != '4.png' && $student->image != '5.png'){
+            //     $imagePath = public_path('storage/users/'. $student->image);
+            //     unlink($imagePath);
+            // }
+            $student->image = $imageName;
+        }
         $student->roll = $request['roll'];
         $student->registration = $request['registration'];
         $student->department_id = $request['department'];

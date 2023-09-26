@@ -1,6 +1,6 @@
 ﻿@extends('admin.layouts.main')
 
-@section('title', 'All Student')
+@section('title', 'Students')
 @section('main-section')
 
             <div class="row">
@@ -41,7 +41,12 @@
                         @foreach ($students as $index=>$student)
                         <tr>
                           <td>{{ ++$index }}</td>
-                          <td>{{$student->fname.' '.$student->lname}}</td>
+                          <td>
+                            @if ($student->image)
+                            <img src="{{ asset('storage/users/'.$student->image) }}" alt="image" class="img-fluid avatar-sm rounded me-3">
+                            @endif
+                            {{$student->fname.' '.$student->lname}}
+                          </td>
                           <td>{{$student->roll}}</td>
                           <td>{{$student->registration}}</td>
                           <td>

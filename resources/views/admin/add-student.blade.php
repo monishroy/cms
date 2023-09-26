@@ -12,7 +12,7 @@
                     <!-- end nav-->
                     <div class="tab-content">
                       <div class="tab-pane show active" id="custom-styles-preview">
-                        <form class="needs-validation" action="{{$url}}" method="POST" novalidate="">
+                        <form class="needs-validation" action="{{$url}}" method="POST" novalidate="" enctype="multipart/form-data">
                             @csrf
                             @if($title_header == 'Update Student') 
                             @method('PUT')
@@ -45,6 +45,18 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="mb-3">
+                                        <label class="form-label" for="image">Image</label>
+                                        <input type="file" class="form-control" name="image" id="image" accept="image/png, image/jpeg, image/jpg">
+                                        <div class="invalid-feedback">
+                                            Please enter image.
+                                        </div>
+                                        @error('image')
+                                        <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
                                         <label class="form-label" for="email">Email</label>
                                         <input type="text" class="form-control" name="email" id="email" placeholder="Email" required="" @if($title_header == 'Update Student') value="{{$student->email}}" @else value="{{old('email')}}" @endif>
                                         <div class="invalid-feedback">
@@ -55,7 +67,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-4">
                                     <div class="mb-3">
                                         <label class="form-label" for="roll">Roll</label>
                                         <input type="text" class="form-control" name="roll" id="roll" data-toggle="input-mask" data-mask-format="000000" maxlength="6" placeholder="Roll" required="" @if($title_header == 'Update Student') value="{{$student->roll}}" @else value="{{old('roll')}}" @endif>
@@ -67,7 +79,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-4">
                                     <div class="mb-3">
                                         <label class="form-label" for="registration">Registration</label>
                                         <input type="text" class="form-control" name="registration" id="registration" placeholder="Registration" required="" @if($title_header == 'Update Student') value="{{$student->registration}}" @else value="{{old('registration')}}" @endif>
@@ -185,6 +197,10 @@
                   <!-- end card-body-->
                 </div>
                 <!-- end card-->
+                @if($title_header == 'Update Student')
+                <img src="{{ asset('storage/users/'.$student->image) }}" alt="" style="height: 200px">
+                @else  
+                @endif
               </div>
               <!-- end col-->
 

@@ -264,13 +264,17 @@
 
 </script>
 <!-- /End-bar -->
+@if (Session::has('success'))
+<script>
+    $me.NotificationApp.send("Title","{{Session::get('success')}}","bottom-right","success","Icon")
+</script>
+@endif
 <script>
     $.NotificationApp.send("Title","Your awesome message text","bottom-right","success","Icon")
 </script>
 <!-- bundle -->
 <script src="{{url('admin/assets/js/vendor.min.js')}}"></script>
 <script src="{{url('admin/assets/js/app.min.js')}}"></script>
-
 <!-- third party js -->
 <script src="{{url('admin/assets/js/vendor/apexcharts.min.js')}}"></script>
 <script src="{{url('admin/assets/js/vendor/jquery-jvectormap-1.2.2.min.j')}}"></script>
@@ -294,6 +298,10 @@
 <script src="{{url('admin/assets/js/vendor/dataTables.responsive.min.js')}}"></script>
 <script src="{{url('admin/assets/js/vendor/responsive.bootstrap5.min.js')}}"></script>
 
+<!-- SimpleMDE js -->
+<script src="{{url('admin/assets/js/vendor/simplemde.min.js')}}"></script>
+<!-- Page init js -->
+<script src="{{url('assets/js/pages/demo.inbox.js')}}"></script>
 <!-- Datatable Init js -->
 <script src="{{url('admin/assets/js/pages/demo.datatable-init.js')}}"></script>
 </body>

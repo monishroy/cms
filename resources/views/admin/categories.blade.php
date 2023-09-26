@@ -288,6 +288,76 @@
                     </div>
                     <!-- end card-->
                 </div>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title mb-4">Add Class Name</h4>
+                            <!-- end nav-->
+                            <div class="alert alert-warning" role="alert">
+                                <i class="dripicons-warning me-2"></i> Class Name
+                                <strong>Our </strong> Requirement
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane show active" id="custom-styles-preview">
+                                    <form class="needs-validation" action="{{route('possion.store')}}" method="POST" novalidate="">
+                                        @csrf
+                                        <div class="mb-3">
+                                            <label class="form-label" for="position_name">Add Class</label>
+                                            <input type="text" class="form-control" id="position_name" name="position_name" placeholder="Class name" value="{{old('position_name')}}" required="">
+                                            <div class="invalid-feedback">Please enter position name.</div>
+                                            <h6 class="text-danger text-sm">
+                                                @error('position_name')
+                                                {{$message}}
+                                                @enderror
+                                            </h6>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <button class="btn btn-primary" type="submit">
+                                            Submit
+                                            </button>
+                                            <button class="btn btn-primary" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#possionList"
+                                                aria-expanded="false" aria-controls="possionList">
+                                                Class List
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- end tab-content-->
+                            <div class="collapse" id="possionList">
+                                <div class="mt-4 border">
+                                    <!-- end preview-->
+                                    <table class="table table-sm table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Position Name</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{-- @foreach ($position as $position)
+                                            <tr>
+                                                <td>{{$position['name']}}</td>
+                                                <td>
+                                                    <a href="" class="action-icon text-xs">
+                                                        <i class="mdi mdi-pencil"></i>
+                                                    </a>
+                                                    <a href="javascript: void(0);" class="action-icon">
+                                                        <i class="mdi mdi-delete"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            @endforeach --}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card-body-->
+                    </div>
+                    <!-- end card-->
+                </div>
             </div>
             <!-- end row -->
           </div>

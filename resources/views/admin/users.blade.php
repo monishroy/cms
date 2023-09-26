@@ -1,6 +1,6 @@
 ﻿@extends('admin.layouts.main')
 
-@section('title', 'All Users')
+@section('title', 'Users')
 @section('main-section')
 
 
@@ -50,7 +50,7 @@
                               <span class="badge badge-outline-info">Student</span>
                             @endif
                           </td>
-                          <td>{{ date('d-M-Y', strtotime($users->created_at)) }}</td>
+                          <td>{{ Carbon\Carbon::parse($users->created_at)->diffForHumans() }}</td>
                           <td class="table-action">
                             <a href="javascript: void(0);" data-bs-toggle="modal" data-bs-target="#edit-{{ $users->id }}" class="btn btn-sm btn-success">
                               <i class=" uil-edit"></i>

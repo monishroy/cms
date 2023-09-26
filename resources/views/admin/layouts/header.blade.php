@@ -160,7 +160,6 @@
                     </ul>
 
                     <!-- End Sidebar -->
-
                     <div class="clearfix"></div>
                 </div>
                 <!-- Sidebar -left -->
@@ -412,31 +411,13 @@
                                     </div>
 
                                     <!-- item-->
-                                    <a
-                                        href="{{ route('admin.profile') }}"
-                                        class="dropdown-item notify-item"
-                                    >
-                                        <i
-                                            class="mdi mdi-account-circle me-1"
-                                        ></i>
+                                    <a href="{{ route('admin.profile') }}" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-account-circle me-1"></i>
                                         <span>My Account</span>
-                                    </a>
-                                    <!-- item-->
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="dropdown-item notify-item"
-                                    >
-                                        <i
-                                            class="mdi mdi-lock-outline me-1"
-                                        ></i>
-                                        <span>Lock Screen</span>
                                     </a>
 
                                     <!-- item-->
-                                    <a
-                                        href="{{route('logout')}}"
-                                        class="dropdown-item notify-item"
-                                    >
+                                    <a href="{{route('logout')}}" class="dropdown-item notify-item">
                                         <i class="mdi mdi-logout me-1"></i>
                                         <span>Logout</span>
                                     </a>
@@ -453,6 +434,7 @@
                                         type="text"
                                         class="form-control dropdown-toggle"
                                         placeholder="Search..."
+                                        autocomplete="off"
                                         id="top-search"
                                     />
                                     <span

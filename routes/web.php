@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminStudentController;
 use App\Http\Controllers\Admin\AdminTechnologyController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Auth\ChangePasswordController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\TechnologyController;
@@ -54,6 +56,13 @@ Route::middleware(['guest'])->group(function(){
 });
 
 Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
+Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('forgotPassword');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'forgot'])->name('forgotPasswordPost');
+Route::get('/forgot-password/send-mail/{id}', [ForgotPasswordController::class, 'sendMail'])->name('forgotPasswordSendMail');
+Route::get('/forgot-password/verification/{id}/{token}', [ForgotPasswordController::class, 'varification'])->name('forgotPasswordVerification');
+Route::post('/forgot-password/verify', [ForgotPasswordController::class, 'verify'])->name('forgotPasswordVerify');
+Route::get('/change-password/{id}/{token}', [ChangePasswordController::class, 'index'])->name('changePassword');
+Route::post('/change-password/', [ChangePasswordController::class, 'change_password'])->name('changePasswordPost');
 
 //Admin Route Start
 Route::middleware(['auth','admin','status'])->group(function(){

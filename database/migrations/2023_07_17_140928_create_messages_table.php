@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('subject');
             $table->text('message');
-            $table->text('replay')->nullable();
+            $table->text('reply')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

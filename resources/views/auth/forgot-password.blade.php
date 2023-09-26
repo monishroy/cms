@@ -5,7 +5,7 @@
     <title>Log In </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
-      content="A fully featured admin theme which can be used to build CRM, CMS, etc."
+      content="Wallpaper Galaxy Forgot Password Page"
       name="description"
     />
     <meta content="Coderthemes" name="author" />
@@ -40,9 +40,7 @@
               <!-- Logo -->
               <div class="card-header pt-4 pb-4 text-center bg-primary">
                 <a href="{{url('/')}}">
-                  <span
-                    ><img src="{{url('admin/assets/images/logo.png')}}" alt="" height="30"
-                  /></span>
+                  <span><img src="{{url('admin/assets/images/logo.png')}}" alt="" height="30"/></span>
                 </a>
               </div>
 
@@ -59,46 +57,46 @@
                     {{Session::get('error')}}
                 </div>
                 @endif
-                <form action="{{route('postlogin')}}" method="POST">
+                <div class="text-center w-75 m-auto">
+                  <h4 class="text-dark-50 text-center mt-0 fw-bold">
+                    Reset Password
+                  </h4>
+                  <p class="text-muted mb-4">
+                    Enter your email address and we'll send you an email with
+                    instructions to reset your password.
+                  </p>
+                </div>
+
+                <form action="{{ route('forgotPasswordPost') }}" method="POST">
                   @csrf
                   <div class="mb-3">
                     <label for="emailaddress" class="form-label">Email address</label>
-                    <input class="form-control" type="email" id="emailaddress" name="email" placeholder="Enter your email"/>
+                    <input class="form-control" type="email" id="emailaddress" name="email" placeholder="Enter your email" value="{{ old('email') }}">
                     @error('email')
-                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                    <span class="text-danger form-text"><small>{{$message}}</small></span>
                     @enderror
                   </div>
-
-                  <div class="mb-3">
-                    <a href="{{ route('forgotPassword') }}" class="text-muted float-end"><small>Forgot your password?</small></a>
-                    <label for="password" class="form-label">Password</label>
-                    <div class="input-group input-group-merge">
-                      <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password" />
-                      <div class="input-group-text" data-password="false">
-                        <span class="password-eye"></span>
-                      </div>
-                    </div>
-                    @error('password')
-                      <span class="text-danger form-text"><small>{{$message}}</small></span>
-                    @enderror
-                  </div>
-
-                  <div class="mb-3">
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="checkbox-signin" checked/>
-                      <label class="form-check-label" for="checkbox-signin">Remember me</label>
-                    </div>
-                  </div>
-                  <div class="text-center">
+                  <div class="mb-0 text-center">
                     <button class="btn btn-primary" type="submit">
-                      Log In
+                      Reset Password
                     </button>
                   </div>
                 </form>
               </div>
-              <!-- end card-body -->
+              <!-- end card-body-->
             </div>
             <!-- end card -->
+
+            <div class="row mt-3">
+              <div class="col-12 text-center">
+                <p class="text-muted">
+                  Back to
+                  <a href="{{ route('login') }}" class="text-muted ms-1"><b>Log In</b></a>
+                </p>
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row -->
           </div>
           <!-- end col -->
         </div>

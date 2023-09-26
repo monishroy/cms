@@ -20,6 +20,7 @@ class StudentSeeder extends Seeder
         Student::create([
             'fname'=>"Monish",
             'lname'=>'Roy',
+            'image'=>rand(1, 5).'.png',
             'email'=>"monishroy87@gmail.com",
             'roll'=>"407401",
             'registration'=>"1502002992",
@@ -33,6 +34,7 @@ class StudentSeeder extends Seeder
         Student::create([
             'fname'=>"Ronobir",
             'lname'=>'Roy',
+            'image'=>rand(1, 5).'.png',
             'email'=>"roymonish712@gmail.com",
             'roll'=>"407402",
             'registration'=>"1502002993",
