@@ -67,46 +67,10 @@
     container.innerHTML = `${greeting}`;
     getup.innerHTML = `${greeting}`;
 </script>
-<!-- Toastr Notification -->
-<script src="{{url('admin/assets/js/jquery/jquery.min.js')}}"></script>
-<script src="{{url('admin/assets/js/toastr/toastr.min.js')}}"></script>
-<script>
-    @if(Session::has('success'))
-    toastr.options =
-    {
-        "closeButton" : true,
-        "progressBar" : true,
-        "positionClass": "toast-bottom-right",
-        "timeOut": "5000",
-    }
-    toastr.success("{{ session('success') }}");
-    @endif
 
-    @if(Session::has('error'))
-    toastr.options =
-    {
-        "closeButton" : true,
-        "progressBar" : true,
-        "positionClass": "toast-bottom-right",
-        "timeOut": "5000",
-    }
-    toastr.error("{{ session('error') }}");
-    @endif
-
-    @if(Session::has('warning'))
-    toastr.options =
-    {
-        "closeButton" : true,
-        "progressBar" : true,
-        "positionClass": "toast-bottom-right",
-        "timeOut": "5000",
-    }
-    toastr.warning("{{ session('warning') }}");
-    @endif
-</script>  
-<script>
+{{-- <script>
     $.NotificationApp.send("Title","Your awesome message text","bottom-right","success","Icon")
-</script>
+</script> --}}
 <!-- bundle -->
 <script src="{{url('admin/assets/js/vendor.min.js')}}"></script>
 <script src="{{url('admin/assets/js/app.min.js')}}"></script>

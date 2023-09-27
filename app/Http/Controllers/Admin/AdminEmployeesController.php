@@ -168,7 +168,7 @@ class AdminEmployeesController extends Controller
             ]);
 
             if($result){
-                return back()->with('success','Employees Add Successfully');
+                return back()->with('success','Employee Update Successfully');
             }else{
                 return back()->with('error','Something is Worng!');
             }
@@ -191,7 +191,7 @@ class AdminEmployeesController extends Controller
             ]);
 
             if($result){
-                return back()->with('success','Employees Add Successfully');
+                return back()->with('success','Employee Update Successfully');
             }else{
                 return back()->with('error','Something is Worng!');
             }

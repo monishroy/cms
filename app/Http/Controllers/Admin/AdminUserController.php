@@ -109,9 +109,9 @@ class AdminUserController extends Controller
             $result = $users->save();
 
             if($result){
-                return back()->with('success','User Active Successfully');
+                return back()->with('success','User Active Successfully.');
             }else{
-                return back()->with('error','Something is Worng!');
+                return back()->with('Something is Worng!');
             }
         }
     }
@@ -127,9 +127,9 @@ class AdminUserController extends Controller
             $result = $users->save();
 
             if($result){
-                return back()->with('success','User Deactive Successfully');
+                return back()->with('success','User Deactive Successfully.');
             }else{
-                return back()->with('error','Something is Worng!');
+                return back()->with('Something is Worng!');
             }
         }
     }
