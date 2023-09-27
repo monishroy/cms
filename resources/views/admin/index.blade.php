@@ -22,7 +22,7 @@
                 <div class="card widget-flat">
                   <div class="card-body">
                     <div class="float-end">
-                      <i class="dripicons-user-group widget-icon"></i>
+                      <i class="uil-shield-check widget-icon"></i>
                     </div>
                     <h5 class="fw-normal mt-0">Total User</h5>
                     <h3 class="mt-3">{{ $users }}</h3>

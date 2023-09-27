@@ -39,15 +39,13 @@ class AdminTechnologyController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(
-            [
-                'name' => 'required',
-                'image1' => 'required|image',
-                'image2' => 'required|image',
-                'image3' => 'required|image',        
-                'content' => 'required',
-            ]
-        );
+        $request->validate([
+            'name' => 'required',
+            'image1' => 'required|image|mimes:jpg,png,jpeg|max:1024',
+            'image2' => 'required|image|mimes:jpg,png,jpeg|max:1024',
+            'image3' => 'required|image|mimes:jpg,png,jpeg|max:1024',        
+            'content' => 'required',
+        ]);
 
         $imageName1 = date('dmY').time()."-1.".$request->file('image1')->getClientOriginalExtension();
         $imageName2 = date('dmY').time()."-2.".$request->file('image2')->getClientOriginalExtension();

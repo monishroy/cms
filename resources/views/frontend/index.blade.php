@@ -9,8 +9,8 @@
         <div class="col-md-5">
           <div class="mt-md-4">
             <div>
-              <span class="text-white-50 ms-1"
-                >Welcome to collage</span
+              <h4 class="text-white-50 ms-1"
+                >Welcome to</h4
               >
             </div>
             <h2 class="text-white fw-normal mb-4 mt-3 hero-title">
@@ -18,7 +18,7 @@
             </h2>
 
             <p class="mb-4 font-16 text-white-50">
-              This website is collage management system
+              Collage Management System
             </p>
 
             <a href="{{ route('about') }}" class="btn btn-success"

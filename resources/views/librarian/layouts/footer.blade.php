@@ -1,42 +1,3 @@
-<div class="jq-toast-wrap bottom-right">
-    <!-- Stacking Toast -->
-    <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
-        <!-- Position it -->
-        <div class="toast-container" style="position: absolute; top: 30%; right: 0;">
-            @if (Session::has('success'))
-            <!-- Then put toasts within -->
-            <div class="toast fade show p-2 pt-1 bg-success" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header bg-success text-white">
-                    <img src="{{url('admin/assets/images/logo_sm_light.png')}}" alt="brand-logo" height="12" class="me-1" />
-                    <strong class="me-auto">Success</strong>
-                    <small class="text-white">just now</small>
-                    <button type="button" class="ms-2 mb-1 btn-close me-1 mt-1" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body text-white mt-2">
-                    <i class="dripicons-checkmark me-2"></i>
-                    {{Session::get('success')}}
-                </div>
-            </div>
-            @endif
-            <!--success end toast-->
-            @if (Session::has('error'))
-            <div class="toast fade show p-2 pt-1 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header bg-danger text-white">
-                    <img src="{{url('admin/assets/images/logo_sm_light.png')}}" alt="brand-logo" height="12" class="me-1" />
-                    <strong class="me-auto">Error</strong>
-                    <small class="text-white">just now</small>
-                    <button type="button" class="ms-2 mb-1 btn-close me-1 mt-1" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body text-white mt-2">
-                    <i class="dripicons-wrong me-2"></i>
-                    {{Session::get('error')}}
-                </div>
-            </div>
-            <!--error end toast-->
-            @endif
-        </div>
-    </div>
-</div>
 
 <!-- Footer Start -->
 <footer class="footer">
@@ -106,6 +67,43 @@
     container.innerHTML = `${greeting}`;
     getup.innerHTML = `${greeting}`;
 </script>
+<!-- Toastr Notification -->
+<script src="{{url('admin/assets/js/jquery/jquery.min.js')}}"></script>
+<script src="{{url('admin/assets/js/toastr/toastr.min.js')}}"></script>
+<script>
+    @if(Session::has('success'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true,
+        "positionClass": "toast-bottom-right",
+        "timeOut": "5000",
+    }
+    toastr.success("{{ session('success') }}");
+    @endif
+
+    @if(Session::has('error'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true,
+        "positionClass": "toast-bottom-right",
+        "timeOut": "5000",
+    }
+    toastr.error("{{ session('error') }}");
+    @endif
+
+    @if(Session::has('warning'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true,
+        "positionClass": "toast-bottom-right",
+        "timeOut": "5000",
+    }
+    toastr.warning("{{ session('warning') }}");
+    @endif
+</script>  
 <script>
     $.NotificationApp.send("Title","Your awesome message text","bottom-right","success","Icon")
 </script>

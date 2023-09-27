@@ -21,13 +21,11 @@ class LibrarianProfileController extends Controller
 
     public function update(Request $request)
     {
-        $request->validate(
-            [
-                'name' => 'required',
-                'phone' => 'required|min:11',
-                'bio' => 'required',
-            ]
-        );
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required|min:11',
+            'bio' => 'required',
+        ]);
 
         $user = User::find(Auth::user()->id);
         $user->name = $request->name;

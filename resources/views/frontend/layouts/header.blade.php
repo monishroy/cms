@@ -64,22 +64,22 @@
           <!-- left menu -->
           <ul class="navbar-nav me-auto align-items-center">
             <li class="nav-item mx-lg-1">
-              <a class="nav-link {{ Request::is('/') ? 'active':''}} " href="{{url('/')}}">Home</a>
+              <a class="nav-link {{ Request::is('/') ? 'active':''}} " href="{{url('/')}}"><h5>Home</h5></a>
             </li>
             <li class="nav-item mx-lg-1">
-              <a class="nav-link {{ Request::is('notice') ? 'active':''}}" href="{{route('notice')}}">Notice</a>
+              <a class="nav-link {{ Request::is('notice') ? 'active':''}}" href="{{route('notice')}}"><h5>Notice</h5></a>
             </li>
             <li class="nav-item mx-lg-1">
-              <a class="nav-link {{ Request::is('about') ? 'active':''}}" href="{{route('about')}}">About</a>
+              <a class="nav-link {{ Request::is('about') ? 'active':''}}" href="{{route('about')}}"><h5>About</h5></a>
             </li>
             <li class="nav-item mx-lg-1">
-              <a class="nav-link {{ Request::is('technology') ? 'active':''}}" href="{{route('technology')}}">Technology</a>
+              <a class="nav-link {{ Request::is('technology') ? 'active':''}}" href="{{route('technology')}}"><h5>Technology</h5></a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link {{ Request::is('employees') ? 'active':''}}" href="{{route('employees')}}">Employees</a>
+              <a class="nav-link {{ Request::is('employees') ? 'active':''}}" href="{{route('employees')}}"><h5>Employees</h5></a>
             </li>
             <li class="nav-item mx-lg-1">
-              <a class="nav-link {{ Request::is('contact') ? 'active':''}}" href="{{route('contact')}}">Contact</a>
+              <a class="nav-link {{ Request::is('contact') ? 'active':''}}" href="{{route('contact')}}"><h5>Contact</h5></a>
             </li>
           </ul>
 

@@ -29,20 +29,7 @@
                 ><i class="mdi mdi-google"></i
               ></a>
             </li>
-            <li class="list-inline-item text-center">
-              <a
-                href="javascript: void(0);"
-                class="social-list-item border-info text-info"
-                ><i class="mdi mdi-twitter"></i
-              ></a>
-            </li>
-            <li class="list-inline-item text-center">
-              <a
-                href="javascript: void(0);"
-                class="social-list-item border-secondary text-secondary"
-                ><i class="mdi mdi-github"></i
-              ></a>
-            </li>
+            
           </ul>
         </div>
 

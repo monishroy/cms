@@ -41,7 +41,7 @@ class StudentProfileController extends Controller
         $result = $student->save();
 
         if($result){
-            return back()->with('success','User Update Successfully');
+            return back()->with('success','Profile Update Successfully');
         }else{
             return back()->with('error','Something is Worng!');
         }

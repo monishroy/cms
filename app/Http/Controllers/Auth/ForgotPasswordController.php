@@ -20,7 +20,7 @@ class ForgotPasswordController extends Controller
     public function forgot(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|exists:users,email',
+            'email' => 'required|email:filter|exists:users,email',
         ]);
 
         $user = User::where('email', $request['email'])->first();
@@ -76,8 +76,8 @@ class ForgotPasswordController extends Controller
     {
         $request->validate(
             [
-                'email' => 'required',
-                'otp' => 'required',
+                'email' => 'required|email:filter',
+                'otp' => 'required|numeric',
             ]
         );
 

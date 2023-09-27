@@ -50,7 +50,7 @@ class LibrarianBooksController extends Controller
         $request->validate(
             [
                 'name' => 'required|min:3',
-                'image' => 'mimes:png,jpg,jpeg',
+                'image' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
                 'subject_code' => 'required',
                 'book_code' => 'required|unique:books,book_code',
                 'probidhan' => 'required',
@@ -136,6 +136,7 @@ class LibrarianBooksController extends Controller
         $request->validate(
             [
                 'name' => 'required|min:3',
+                'image' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
                 'subject_code' => 'required',
                 'book_code' => 'required|exists:books,book_code',
                 'probidhan' => 'required',

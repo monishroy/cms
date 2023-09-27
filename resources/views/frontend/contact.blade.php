@@ -23,7 +23,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
   <div class="row align-items-center mt-3">
     <div class="col-md-4">
       <p class="text-muted">
-        <span class="fw-bold">Customer Support:</span><br />
+        <span class="fw-bold">Phone Number:</span><br />
         <span class="d-block mt-1">+8801705941415</span>
       </p>
       <p class="text-muted mt-4">

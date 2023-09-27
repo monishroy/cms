@@ -75,7 +75,7 @@ Route::middleware(['auth','admin','status'])->group(function(){
     Route::get('/admin/notice/download/{file}', [AdminNoticeController::class, 'download'])->name('admin.notice.download');
     Route::get('admin/message', [AdminMessageController::class, 'index'])->name('message.index');
     Route::get('/admin/categories', [AdminCategoriesController::class, 'index'])->name('admin.categories');
-    Route::post('/admin/categories/semister', [AdminCategoriesController::class, 'semister_store'])->name('semister.store');
+    Route::post('/admin/categories/semister/add', [AdminCategoriesController::class, 'semister_store'])->name('semister.store');
     Route::post('/admin/categories/department/add', [AdminCategoriesController::class, 'department_store'])->name('department.store');
     Route::post('/admin/categories/session/add', [AdminCategoriesController::class, 'session_store'])->name('session.store');
     Route::post('/admin/categories/possion/add', [AdminCategoriesController::class, 'possion_store'])->name('possion.store');

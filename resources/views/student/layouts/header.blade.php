@@ -27,6 +27,8 @@
         <!-- Datatables css -->
         <link href="{{url('admin/assets/css/vendor/dataTables.bootstrap5.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{url('admin/assets/css/vendor/responsive.bootstrap5.css')}}" rel="stylesheet" type="text/css" />
+        <!-- Toastr Notification -->
+        <link href="{{url('admin/assets/css/vendor/toastr.min.css')}}" rel="stylesheet" type="text/css" />
     </head>
 
     <body

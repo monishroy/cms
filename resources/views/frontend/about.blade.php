@@ -46,6 +46,7 @@
             <img src="{{url('admin/assets/images/introduction.png')}}" class="img-fluid" alt="" />
           </div>
         </div>
+        <hr>
         <div class="row mt-2 py-5 align-items-center">
           <div class="col-lg-3">
             <img src="{{url('admin/assets/images/opportunities.png')}}" class="img-fluid" alt="" />
@@ -119,8 +120,8 @@
               </p>
             </div>
           </div>
-          
         </div>
+        <hr>
         <div class="row pb-3 pt-5 align-items-center">
           <div class="col-lg-6">
             <h3 class="fw-normal">Md. Shakinur Alam</h3>

@@ -13,7 +13,7 @@
                     <div class="card">
                       <div class="card-body">
                         <span class="float-start m-2 me-4">
-                          <img src="{{ url("storage/employees/$employee->image") }}" style="height: 100px" alt="" class="rounded-circle img-thumbnail">
+                          <img src="{{ url("storage/users/$employee->image") }}" style="height: 100px" alt="" class="rounded-circle img-thumbnail">
                         </span>
                         <div class="">
                           <div class="dropdown float-end">

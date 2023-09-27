@@ -134,7 +134,7 @@ class AdminEmployeesController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'image|mimes:png,jpg,jpeg',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
             'email' => 'required',
             'phone' => 'required|max:12|min:11',
             'department' => 'required',
@@ -147,7 +147,6 @@ class AdminEmployeesController extends Controller
         if($request->image){
 
             $imagename = date('dmY').time()."-employees.".$request->file('image')->getClientOriginalExtension();    
-            $request->file('image')->storeAs('public/employees',$imagename);
             $request->file('image')->storeAs('public/users',$imagename);
 
             Employee::findOrFail($id)->update([
