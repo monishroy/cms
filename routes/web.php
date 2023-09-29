@@ -1,8 +1,5 @@
 <?php
-
-use App\Http\Controllers\Admin\AdminBloodGroupController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AdminCategoriesController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminEmployeesController;
 use App\Http\Controllers\Admin\AdminMessageController;
@@ -53,11 +50,7 @@ Route::get('/employees/department/{id}', [EmployeesController::class, 'departmen
 Route::get('/contact', [MessageController::class, 'index'])->name('contact');
 Route::post('/contact', [MessageController::class, 'store'])->name('contact.store');
 
-Route::middleware(['guest'])->group(function(){
-    Route::get('/login', [LoginController::class, 'index'])->name('login');
-    Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
-});
-
+//Auth Part
 Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('forgotPassword');
 Route::post('/forgot-password', [ForgotPasswordController::class, 'forgot'])->name('forgotPasswordPost');
@@ -69,6 +62,11 @@ Route::post('/change-password/', [ChangePasswordController::class, 'change_passw
 
 Route::post('/fetch/district', [DropdownController::class, 'fatchDistrict'])->name('fatchDistrict');
 Route::post('/fetch/upazila', [DropdownController::class, 'fatchUpazila'])->name('fatchUpazila');
+
+Route::middleware(['guest'])->group(function(){
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
+});
 
 //Admin Route Start
 Route::middleware(['auth','admin','status'])->group(function(){

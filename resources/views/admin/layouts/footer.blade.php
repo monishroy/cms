@@ -299,12 +299,15 @@
 <script src="{{url('admin/assets/js/vendor/dataTables.bootstrap5.js')}}"></script>
 <script src="{{url('admin/assets/js/vendor/dataTables.responsive.min.js')}}"></script>
 <script src="{{url('admin/assets/js/vendor/responsive.bootstrap5.min.js')}}"></script>
-
+<script src="{{url('admin/assets/js/vendor/dataTables.checkboxes.min.js')}}"></script>
+<!-- third party js -->
+    
 <!-- SimpleMDE js -->
 <script src="{{url('admin/assets/js/vendor/simplemde.min.js')}}"></script>
 <!-- Page init js -->
 <script src="{{url('assets/js/pages/demo.inbox.js')}}"></script>
 <!-- Datatable Init js -->
 <script src="{{url('admin/assets/js/pages/demo.datatable-init.js')}}"></script>
+<script src="{{url('admin/assets/js/pages/demo.customers.js')}}"></script>
 </body>
 </html>

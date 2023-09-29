@@ -8,7 +8,7 @@
               <div class="col-lg-12">
                 <div class="card">
                   <div class="card-body">
-                    <table id="basic-datatable" class="table dt-responsive nowrap w-100">
+                    <table id="basic-datatable" class="table dt-responsive table-hover nowrap w-100">
                       <thead>
                         <tr>
                           <th>SL</th>
@@ -59,40 +59,79 @@
                         </tr>
 
                         {{-- Model Start --}}
-                        <div class="modal fade" id="edit-{{ $users->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-sm">
+                        <div class="modal fade" id="edit-{{ $users->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-lg">
                             <div class="modal-content">
-                              <div class="modal-header">
-                                <h4 class="modal-title" id="mySmallModalLabel">Update Role</h4>
+                              <div class="modal-header bg-primary">
+                                <h4 class="modal-title text-white" id="myLargeModalLabel">Update User</h4>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
                               </div>
                               <div class="modal-body">
                                 <form class="needs-validation row" action="{{ route('users.update', $users->id) }}" method="POST" novalidate="">
                                   @csrf
                                   @method('PUT')
-                                  <div class="mb-3 col-12">
-                                    <label class="form-label" for="role">Role</label>
-                                    <select class="form-control" name="role" >
-                                      <optgroup label="Select Role">
-                                        <option @if ($users->role == 'admin') selected @else @endif value="admin">Admin</option>
-                                        <option @if ($users->role == 'student') selected @else @endif value="student">Student</option>
-                                        <option @if ($users->role == 'teacher') selected @else @endif value="teacher">Teacher</option>
-                                        <option @if ($users->role == 'librarian') selected @else @endif value="librarian">Librarian</option>
-                                      </optgroup>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Please enter Role.
+                                  <div class="row">
+                                    <div class="col-md-6 col-12">
+                                      <div class="mb-3">
+                                        <label class="form-label" for="name">Full Name<span class="text-danger"> *</span></label>
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Full Name" required="" value="{{ $users->name }}">
+                                        <div class="invalid-feedback">
+                                          Please enter name.
+                                        </div>
+                                        @error('name')
+                                          <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
+                                      </div>
                                     </div>
-                                    @error('role')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                    @enderror
+                                    <div class="col-md-6 col-12">
+                                      <div class="mb-3">
+                                        <label class="form-label" for="email">Email<span class="text-danger"> *</span></label>
+                                        <input type="text" class="form-control" name="email" id="email" placeholder="Email" required="" value="{{ $users->email }}">
+                                        <div class="invalid-feedback">
+                                          Please enter email.
+                                        </div>
+                                        @error('email')
+                                          <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                      <div class="mb-3">
+                                        <label class="form-label" for="phone">Phone Number<span class="text-danger"> *</span></label>
+                                        <input type="text" class="form-control" name="phone" data-toggle="input-mask" data-mask-format="01000000000" maxlength="11" placeholder="01XX-NNNNNNN" required="" value="{{ $users->phone }}">
+                                        <div class="invalid-feedback">
+                                          Please enter Phone Number.
+                                        </div>
+                                        @error('phone')
+                                          <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                        @enderror
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3 col-12">
+                                      <label class="form-label" for="role">Role</label>
+                                      <select class="form-control" name="role" >
+                                        <optgroup label="Select Role">
+                                          <option @if ($users->role == 'admin') selected @else @endif value="admin">Admin</option>
+                                          <option @if ($users->role == 'student') selected @else @endif value="student">Student</option>
+                                          <option @if ($users->role == 'teacher') selected @else @endif value="teacher">Teacher</option>
+                                          <option @if ($users->role == 'librarian') selected @else @endif value="librarian">Librarian</option>
+                                        </optgroup>
+                                      </select>
+                                      <div class="invalid-feedback">
+                                          Please enter Role.
+                                      </div>
+                                      @error('role')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                      @enderror
+                                    </div>
                                   </div>
-                                  <button type="submit" class="btn btn-sm btn-primary col-12">Submit</button>
+                                  <button type="submit" class="btn btn-sm btn-primary float-end">Submit</button>
                                 </form>
                               </div>
                             </div><!-- /.modal-content -->
                           </div><!-- /.modal-dialog -->
                         </div><!-- /.modal -->
+                        
                         @endforeach
                       </tbody>
                     </table>

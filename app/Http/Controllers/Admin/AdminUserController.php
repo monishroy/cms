@@ -72,15 +72,21 @@ class AdminUserController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'name' => 'required',
+            'email' => 'required|email:filter',
+            'phone' => 'required|numeric',
             'role' => 'required',
         ]);
 
         $result = User::findOrFail($id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
             'role' => $request->role,
         ]);
 
         if($result){
-            return back()->with('success','Role Update Successfully');
+            return back()->with('success','User Update Successfully');
         }else{
             return back()->with('error','Something is Worng!');
         }

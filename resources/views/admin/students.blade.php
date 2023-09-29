@@ -20,7 +20,7 @@
                         </div>
                       </div>
                     </div>
-                    <table id="basic-datatable" class="table dt-responsive nowrap w-100">
+                    <table id="basic-datatable" class="table dt-responsive table-hover nowrap w-100">
                       <thead>
                         <tr>
                             <th>SL</th>
@@ -32,7 +32,7 @@
                             <th>Guardian Phone</th>
                             <th>Semister</th>
                             <th>Department</th>
-                            <th>Address</th>
+                            <th>Permanent Address</th>
                             <th>Added</th>
                             <th>Action</th>
                         </tr>
@@ -42,9 +42,7 @@
                         <tr>
                           <td>{{ ++$index }}</td>
                           <td>
-                            @if ($student->image)
-                            <img src="{{ asset('storage/users/'.$student->image) }}" alt="image" class="img-fluid avatar-sm rounded me-3">
-                            @endif
+                            
                             {{$student->fname.' '.$student->lname}}
                           </td>
                           <td>{{$student->roll}}</td>
@@ -53,14 +51,14 @@
                             {{ $student->session->name }}
                           </td>
                           <td>{{$student->phone}}</td>
-                          <td>{{$student->gPhone}}</td>
+                          <td>{{$student->guardian_phone}}</td>
                           <td>
                             {{ $student->semister->name }}
                           </td>
                           <td>
                             {{ $student->department->name }}
                           </td>
-                          <td>{{$student->address}}</td>
+                          <td>{{$student->permanent_address}}</td>
                           <td>{{ date('d-M-Y', strtotime($student->created_at)) }}</td>
                           <td class="table-action">
                             <div class="dropdown">
