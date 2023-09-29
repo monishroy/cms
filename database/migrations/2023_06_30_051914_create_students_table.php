@@ -15,18 +15,28 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('fname', 30);
-            $table->string('lname', 30);
+            $table->string('fname');
+            $table->string('lname');
+            $table->string('father_name');
+            $table->string('mother_name');
             $table->string('image');
             $table->string('email');
             $table->string('roll');
             $table->string('registration');
+            $table->string('dob');
+            $table->string('gender');
+            $table->string('phone');
+            $table->string('guardian_phone');
             $table->foreignId('department_id')->constrained()->onDelete('cascade');
             $table->foreignId('session_id')->constrained()->onDelete('cascade');
             $table->foreignId('semister_id')->constrained()->onDelete('cascade');
-            $table->string('phone');
-            $table->string('gPhone');
-            $table->text('address');
+            $table->foreignId('blood_group_id')->constrained()->onDelete('cascade');
+            $table->string('nationality');
+            $table->foreignId('division_id')->constrained()->onDelete('cascade');
+            $table->foreignId('district_id')->constrained()->onDelete('cascade');
+            $table->foreignId('upazila_id')->constrained()->onDelete('cascade');
+            $table->text('present_address');
+            $table->text('permanent_address');
             $table->timestamps();
         });
     }

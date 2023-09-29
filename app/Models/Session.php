@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Session extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     public function students()
     {
         return $this->hasMany(Session::class);

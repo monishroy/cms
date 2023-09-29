@@ -39,16 +39,14 @@ class AdminEmployeesController extends Controller
     public function create()
     {
         
-        $department = Department::all();
-        $position = Position::all();
-        $blood_group = BloodGroup::all();
-        $divisions = Division::all();
-        $districts = District::all();
-        $upazilas = Upazila::all();
-        $boards = Board::all();
-        $academic_exams = AcademicExam::all();
+        $data['departments'] = Department::all();
+        $data['positions'] = Position::all();
+        $data['blood_groups'] = BloodGroup::all();
+        $data['divisions'] = Division::all();
+        $data['boards'] = Board::all();
+        $data['academic_exams'] = AcademicExam::all();
 
-        return view('admin.add-employee', compact('department','position','blood_group','divisions','districts','upazilas','boards','academic_exams'));
+        return view('admin.add-employee', $data);
     }
 
     /**
@@ -64,7 +62,7 @@ class AdminEmployeesController extends Controller
             'father_name' => 'required',
             'mother_name' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:1024',
-            'email' => 'required',
+            'email' => 'required|email:filter',
             'dob' => 'required',
             'gender' => 'required',
             'merital_status' => 'required',
@@ -81,8 +79,8 @@ class AdminEmployeesController extends Controller
             'exam_name' => 'required',
             'passing_year' => 'required',
             'board' => 'required',
-            'roll' => 'required',
-            'reg_no' => 'required',
+            'roll' => 'required|numeric',
+            'reg_no' => 'required|numeric',
             'gpa' => 'required',
             'marksheet' => 'required|image|mimes:png,jpg,jpeg|max:1024',
             'certificate' => 'required|image|mimes:png,jpg,jpeg|max:1024',

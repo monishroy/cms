@@ -139,7 +139,7 @@
                                 <label class="form-label" for="department">Department<span class="text-danger"> *</span></label>
                                 <select class="form-control select2" name="department" data-toggle="select2">
                                   <option value="">Select Department</option>
-                                  @foreach ($department as $department)
+                                  @foreach ($departments as $department)
                                   <option {{old('department') == "$department->id" ? "selected" : ""}} value="{{ $department->id }}">{{$department->name}}</option>
                                   @endforeach
                                 </select>
@@ -153,7 +153,7 @@
                                 <label class="form-label" for="position">Position<span class="text-danger"> *</span></label>
                                 <select class="form-control select2" name="position" data-toggle="select2">
                                   <option value="">Select Position</option>
-                                  @foreach ($position as $position)
+                                  @foreach ($positions as $position)
                                   <option {{old('position') == "$position->id" ? "selected" : ""}} value="{{ $position->id }}">{{$position->name}}</option>
                                   @endforeach
                                 </select>
@@ -167,7 +167,7 @@
                                 <label class="form-label">Blood Group<span class="text-danger"> *</span></label>
                                 <select class="form-control select2" name="blood_group" data-toggle="select2">
                                   <option value="">Select Blood Group</option>
-                                  @foreach ($blood_group as $blood)
+                                  @foreach ($blood_groups as $blood)
                                   <option {{old('blood_group') == "$blood->id" ? "selected" : ""}} value="{{ $blood->id }}">{{$blood->name}}</option>
                                   @endforeach
                                 </select>
@@ -240,11 +240,11 @@
                             {{-- Academic information start --}}
                             <div class="row" id="addmore">
                               <h5 class="mb-3 text-uppercase bg-light p-2">
-                                  <div class="float-start mt-1">
-                                    <i class="mdi mdi-office-building me-1"></i> 
+                                <div class="float-start" style="margin-top: 8px">
+                                  <i class="mdi mdi-office-building me-1"></i> 
                                   <span class="mt-4">Academic Information</span>
-                                  </div>
-                                  <button type="button" class="btn btn-sm btn-primary float-end position-absulute">Add More</button>
+                                </div>
+                                <button type="button" class="btn btn-sm btn-primary float-end position-absulute">Add More</button>
                               </h5>
                               <div class="col-md-3 col-12">
                                 <div class="mb-3">

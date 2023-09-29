@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AcademicExam;
 use App\Models\BloodGroup;
+use App\Models\Board;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Semister;
 use App\Models\Department;
+use App\Models\District;
 use App\Models\Division;
 use App\Models\Session;
+use App\Models\StudentAcademicInfo;
+use App\Models\Upazila;
 use App\Models\User as ModelsUser;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -34,15 +39,15 @@ class AdminStudentController extends Controller
      */
     public function create()
     {
-        $url = route('students.store');
-        $title = 'Add Student';
-        $semister = Semister::all();
-        $department = Department::all();
-        $session = Session::all();
-        $blood_group = BloodGroup::all();
-        $divisions = Division::all();
-        
-        return view('admin.add-student', compact('url','title','semister','department','session','divisions','blood_group'));
+        $data['departments'] = Department::all();
+        $data['sessions'] = Session::all();
+        $data['semisters'] = Semister::all();
+        $data['blood_groups'] = BloodGroup::all();
+        $data['divisions'] = Division::all();
+        $data['boards'] = Board::all();
+        $data['academic_exams'] = AcademicExam::all();
+
+        return view('admin.add-student', $data);
     }
 
     /**
@@ -54,55 +59,110 @@ class AdminStudentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'fname' => 'required|min:3',
-            'lname' => 'required|min:3',
-            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
-            'email' => 'required|email:filter|unique:users,email',
-            'roll' => 'required|unique:students,roll',
-            'registration' => 'required|unique:students,registration',
-            'session' => 'required',
+            'fname' => 'required',
+            'lname' => 'required',
+            'father_name' => 'required',
+            'mother_name' => 'required',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024',
+            'email' => 'required|email:filter',
+            'roll' => 'required|numeric',
+            'registration' => 'required|numeric',
+            'dob' => 'required',
+            'gender' => 'required',
+            'phone' => 'required|max:12|min:11',
+            'guardian_phone' => 'required|max:12|min:11',
             'department' => 'required',
             'semister' => 'required',
-            'phone' => 'required|max:12|min:11|unique:users,phone',
-            'gPhone' => 'required|max:12|min:11',
-            'address' => 'required',
+            'session' => 'required',
+            'blood_group' => 'required',
+            'nationality' => 'required',
+            'division' => 'required',
+            'district' => 'required',
+            'upazila' => 'required',
+            'present_address' => 'required',
+            'permanent_address' => 'required',
+            'exam_name' => 'required',
+            'passing_year' => 'required',
+            'board' => 'required',
+            'board_roll' => 'required|numeric',
+            'reg_no' => 'required|numeric',
+            'gpa' => 'required',
+            'marksheet' => 'required|image|mimes:png,jpg,jpeg|max:1024',
+            'certificate' => 'nullable|image|mimes:png,jpg,jpeg|max:1024',
         ]);
 
+        $imagename = date('dmY').time()."-student.".$request->file('image')->getClientOriginalExtension();
+        $request->file('image')->storeAs('public/users',$imagename);
 
-        //Insert Query
-        $student = new Student();
-        $student->fname = $request->fname;
-        $student->lname = $request->lname;
-        if(is_file($request->image)){
-            $imageName = date('dmY').time()."-user.".$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('public/users',$imageName);
-            $student->image = $imageName;
-        }else{
-            $student->image = rand(1, 5).'.png';
-        }
-        $student->email = $request->email;
-        $student->roll = $request->roll;
-        $student->registration = $request->registration;
-        $student->department_id = $request->department;
-        $student->session_id = $request->session;
-        $student->phone = $request->phone;
-        $student->gPhone = $request->gPhone;
-        $student->semister_id = $request->semister;
-        $student->address = $request->address;
-        $result = $student->save();
+        //Insert Employee
+        $student = Student::create([
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'father_name' => $request->father_name,
+            'mother_name' => $request->mother_name,
+            'image' => $imagename,
+            'email' => $request->email,
+            'roll' => $request->roll,
+            'registration' => $request->registration,
+            'dob' => $request->dob,
+            'gender' => $request->gender,
+            'phone' => $request->phone,
+            'guardian_phone' => $request->guardian_phone,
+            'department_id' => $request->department,
+            'semister_id' => $request->semister,
+            'session_id' => $request->session,
+            'blood_group_id' => $request->blood_group,
+            'nationality' => $request->nationality,
+            'division_id' => $request->division,
+            'district_id' => $request->district,
+            'upazila_id' => $request->upazila,
+            'present_address' => $request->present_address,
+            'permanent_address' => $request->permanent_address,
+        ]);
 
-        //Insert Query
-        $user = new ModelsUser();
-        $user->name = $request->fname.' '.$request->lname;
-        if(is_file($request->image)){
-            $user->image = $imageName;
+        if(is_file($request->marksheet)){
+
+            $marksheet = date('dmY').time()."-marksheet.".$request->file('marksheet')->getClientOriginalExtension();
+            $request->file('marksheet')->storeAs('public/document',$marksheet);
+
+            $result = StudentAcademicInfo::create([
+                'student_id' => $student->id,
+                'academic_exam_id' => $request->exam_name,
+                'passing_year' => $request->passing_year,
+                'board_id' => $request->board,
+                'board_roll' => $request->board_roll,
+                'reg_no' => $request->reg_no,
+                'gpa' => $request->gpa,
+                'marksheet' => $marksheet,
+            ]);
+
+        }elseif(is_file($request->certificate)){
+
+            $certificate = date('dmY').time()."-certificate.".$request->file('certificate')->getClientOriginalExtension();
+            $request->file('certificate')->storeAs('public/document',$certificate);
+
+            $result = StudentAcademicInfo::create([
+                'student_id' => $student->id,
+                'academic_exam_id' => $request->exam_name,
+                'passing_year' => $request->passing_year,
+                'board_id' => $request->board,
+                'board_roll' => $request->board_roll,
+                'reg_no' => $request->reg_no,
+                'gpa' => $request->gpa,
+                'certificate' => $certificate,
+            ]);
+
         }else{
-            $user->image = rand(1, 5).'.png';
+            $result = StudentAcademicInfo::create([
+                'student_id' => $student->id,
+                'academic_exam_id' => $request->exam_name,
+                'passing_year' => $request->passing_year,
+                'board_id' => $request->board,
+                'board_roll' => $request->board_roll,
+                'reg_no' => $request->reg_no,
+                'gpa' => $request->gpa,
+            ]);
         }
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->password = Hash::make('123456');
-        $result = $user->save();
 
         if($result){
             return back()->with('success','Student Add Successfully');
