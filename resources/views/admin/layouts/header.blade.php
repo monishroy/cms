@@ -31,7 +31,7 @@
 
     <body
         class="loading"
-        data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":true, "showRightSidebarOnStart": true}'
+        data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'
     >
         <!-- Begin page -->
         <div class="wrapper">
@@ -95,9 +95,9 @@
                         </li>
                         <li class="side-nav-title side-nav-item">Settings</li>
                         <li class="side-nav-item">
-                            <a href="{{ route('admin.categories') }}" class="side-nav-link">
-                                <i class="uil-apps"></i>
-                                <span> Catagores </span>
+                            <a href="{{ route('admin.setup') }}" class="side-nav-link">
+                                <i class="uil-layers-alt"></i>
+                                <span> Setup </span>
                             </a>
                         </li>
                         <li class="side-nav-item">
@@ -126,30 +126,84 @@
                             </a>
                         </li>
                         <li class="side-nav-item">
-                            <a href="{{ route('employees.create') }}" class="side-nav-link">
-                                <i class="uil-folder-plus"></i>
-                                <span> Add Employee </span>
+                            <a data-bs-toggle="collapse" href="#employee" aria-expanded="false" aria-controls="employee" class="side-nav-link">
+                                <i class="uil-award"></i>
+                                <span> Employee </span>
+                                <span class="menu-arrow"></span>
                             </a>
+                            <div class="collapse" id="employee">
+                                <ul class="side-nav-second-level">
+                                    <li class="side-nav-item">
+                                        <a data-bs-toggle="collapse" href="#addemployee" aria-expanded="false" aria-controls="addemployee">
+                                            <span> Add Employee </span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <div class="collapse" id="addemployee">
+                                            <ul class="side-nav-third-level">
+                                                <li>
+                                                    <a href="{{ route('employees.create') }}">New Employee</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript: void(0);">Panding Employee</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript: void(0);">Declined Employee</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('employees.index') }}"> Employee List</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"> Employee Attendance</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"> Employee Report</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="side-nav-item">
-                            <a href="{{ route('employees.index') }}" class="side-nav-link">
-                                <i class="uil-layer-group"></i>
-                                <span> Employees </span>
-                            </a>
-                        </li>
-                        <li class="side-nav-title side-nav-item">Student</li>
-                        <li class="side-nav-item">
-                            <a href="{{ route('students.create') }}" class="side-nav-link">
-                                <i class="uil-user-plus"></i>
-                                <span>Add Student </span>
-                            </a>
-                        </li>
-                        <li class="side-nav-item">
-                            <a href="{{ route('students.index') }}" class="side-nav-link">
+                            <a data-bs-toggle="collapse" href="#student" aria-expanded="false" aria-controls="student" class="side-nav-link">
                                 <i class="uil-graduation-hat"></i>
-                                <span> Students </span>
+                                <span> Student </span>
+                                <span class="menu-arrow"></span>
                             </a>
+                            <div class="collapse" id="student">
+                                <ul class="side-nav-second-level">
+                                    <li class="side-nav-item">
+                                        <a data-bs-toggle="collapse" href="#addstudent" aria-expanded="false" aria-controls="addstudent">
+                                            <span> Add Student </span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <div class="collapse" id="addstudent">
+                                            <ul class="side-nav-third-level">
+                                                <li>
+                                                    <a href="{{ route('students.create') }}">New Student</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript: void(0);">Panding Student</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript: void(0);">Declined Student</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('students.index') }}"> Student List</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"> Student Attendance</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"> Student Report</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
+                        
                         <li class="side-nav-title side-nav-item">Contact</li>
                         <li class="side-nav-item">
                             <a href="{{ route('message.index') }}" class="side-nav-link">
@@ -507,13 +561,13 @@
                                         <div class="d-flex">
                                             <img
                                                 class="d-flex me-2 rounded-circle"
-                                                src="{{url('admin/assets/images/users/avatar-2.jpg')}}"
+                                                src="{{url('admin/assets/images/users/avatar-1.jpg')}}"
                                                 alt="Generic placeholder image"
                                                 height="32"
                                             />
                                             <div class="w-100">
                                                 <h5 class="m-0 font-14">
-                                                    Erwin Brown
+                                                    Monish Roy
                                                 </h5>
                                                 <span class="font-12 mb-0"
                                                     >UI Designer</span
@@ -536,7 +590,7 @@
                                             />
                                             <div class="w-100">
                                                 <h5 class="m-0 font-14">
-                                                    Jacob Deo
+                                                   Ronobir Roy
                                                 </h5>
                                                 <span class="font-12 mb-0"
                                                     >Developer</span

@@ -15,32 +15,12 @@ class SemisterSeeder extends Seeder
      */
     public function run()
     {
-        Semister::create([
-            'name'=>"1st Semister",
-        ]);
-        Semister::create([
-            'name'=>"2nd Semister",
-        ]);
-        Semister::create([
-            'name'=>"3rd Semister",
-        ]);
-        Semister::create([
-            'name'=>"4th Semister",
-        ]);
-        Semister::create([
-            'name'=>"5th Semister",
-        ]);
-        Semister::create([
-            'name'=>"6th Semister",
-        ]);
-        Semister::create([
-            'name'=>"7th Semister",
-        ]);
-        Semister::create([
-            'name'=>"8th Semister",
-        ]);
-        Semister::create([
-            'name'=>"N/A",
-        ]);
+        $data = ['1st Semister','2nd Semister','3rd Semister','4th Semister','5th Semister','6th Semister','7th Semister','8th Semister','N/A'];
+        
+        for ($i=0; $i < count($data); $i++) { 
+            Semister::create([
+                'name'=>$data[$i],
+            ]);
+        }
     }
 }

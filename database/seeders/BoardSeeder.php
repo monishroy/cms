@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Session;
+use App\Models\Board;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SessionSeeder extends Seeder
+class BoardSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +15,10 @@ class SessionSeeder extends Seeder
      */
     public function run()
     {
-        $data = ['2018-19','2019-20','2020-21','2021-22','2022-23','2023-24'];
+        $data = ['Barisal','Chattogram','Cumilla','Dhaka','Dinajpur','Jashore','Mymensingh','Rajshahi','Sylhet','Technical Education Board','Madrasah Education Board'];
         
         for ($i=0; $i < count($data); $i++) { 
-            Session::create([
+            Board::create([
                 'name'=>$data[$i],
             ]);
         }

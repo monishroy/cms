@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminBloodGroupController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminCategoriesController;
 use App\Http\Controllers\Admin\AdminDashboardController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\Admin\AdminEmployeesController;
 use App\Http\Controllers\Admin\AdminMessageController;
 use App\Http\Controllers\Admin\AdminNoticeController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminSetupController;
 use App\Http\Controllers\Admin\AdminStudentController;
 use App\Http\Controllers\Admin\AdminTechnologyController;
 use App\Http\Controllers\Admin\AdminUserController;
@@ -19,6 +21,7 @@ use App\Http\Controllers\frontend\NoticeController;
 use App\Http\Controllers\Frontend\EmployeesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\Frontend\MessageController;
 use App\Http\Controllers\Librarian\LibrarianBooksController;
 use App\Http\Controllers\Librarian\LibrarianBooksIssueController;
@@ -64,6 +67,9 @@ Route::post('/forgot-password/verify', [ForgotPasswordController::class, 'verify
 Route::get('/change-password/{id}/{token}', [ChangePasswordController::class, 'index'])->name('changePassword');
 Route::post('/change-password/', [ChangePasswordController::class, 'change_password'])->name('changePasswordPost');
 
+Route::post('/fetch/district', [DropdownController::class, 'fatchDistrict'])->name('fatchDistrict');
+Route::post('/fetch/upazila', [DropdownController::class, 'fatchUpazila'])->name('fatchUpazila');
+
 //Admin Route Start
 Route::middleware(['auth','admin','status'])->group(function(){
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
@@ -74,11 +80,15 @@ Route::middleware(['auth','admin','status'])->group(function(){
     Route::get('/admin/notice/delete/{id}', [AdminNoticeController::class, 'delete'])->name('notice.delete');
     Route::get('/admin/notice/download/{file}', [AdminNoticeController::class, 'download'])->name('admin.notice.download');
     Route::get('admin/message', [AdminMessageController::class, 'index'])->name('message.index');
-    Route::get('/admin/categories', [AdminCategoriesController::class, 'index'])->name('admin.categories');
-    Route::post('/admin/categories/semister/add', [AdminCategoriesController::class, 'semister_store'])->name('semister.store');
-    Route::post('/admin/categories/department/add', [AdminCategoriesController::class, 'department_store'])->name('department.store');
-    Route::post('/admin/categories/session/add', [AdminCategoriesController::class, 'session_store'])->name('session.store');
-    Route::post('/admin/categories/possion/add', [AdminCategoriesController::class, 'possion_store'])->name('possion.store');
+    Route::get('/admin/setup', [AdminSetupController::class, 'index'])->name('admin.setup');
+    Route::post('/admin/setup/semister/add', [AdminSetupController::class, 'semister_store'])->name('semister.store');
+    Route::post('/admin/setup/department/add', [AdminSetupController::class, 'department_store'])->name('department.store');
+    Route::post('/admin/setup/session/add', [AdminSetupController::class, 'session_store'])->name('session.store');
+    Route::post('/admin/setup/possion/add', [AdminSetupController::class, 'possion_store'])->name('possion.store');
+    Route::post('/admin/setup/blood-group/add', [AdminSetupController::class, 'blood_group_store'])->name('blood_group.store');
+    Route::post('/admin/setup/board/add', [AdminSetupController::class, 'board_store'])->name('board.store');
+    Route::post('/admin/setup/academic-exam/add', [AdminSetupController::class, 'academic_exam_store'])->name('academic_exam.store');
+
     Route::resource('admin/technology', AdminTechnologyController::class);
     Route::resource('admin/students', AdminStudentController::class);
     Route::resource('admin/employees', AdminEmployeesController::class);

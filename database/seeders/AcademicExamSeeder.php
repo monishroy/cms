@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Session;
+use App\Models\AcademicExam;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SessionSeeder extends Seeder
+class AcademicExamSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +15,10 @@ class SessionSeeder extends Seeder
      */
     public function run()
     {
-        $data = ['2018-19','2019-20','2020-21','2021-22','2022-23','2023-24'];
+        $data = ['SSC','HSC','Honours','Masters'];
         
         for ($i=0; $i < count($data); $i++) { 
-            Session::create([
+            AcademicExam::create([
                 'name'=>$data[$i],
             ]);
         }

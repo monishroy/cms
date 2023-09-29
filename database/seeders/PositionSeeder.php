@@ -15,11 +15,12 @@ class PositionSeeder extends Seeder
      */
     public function run()
     {
-        Position::create([
-            'name'=>"Assistant Teacher",
-        ]);
-        Position::create([
-            'name'=>"Department Head",
-        ]);
+        $data = ['Assistant Teacher','Department Head'];
+        
+        for ($i=0; $i < count($data); $i++) { 
+            Position::create([
+                'name'=>$data[$i],
+            ]);
+        }
     }
 }

@@ -3,9 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AcademicExam;
+use App\Models\BloodGroup;
+use App\Models\Board;
 use App\Models\Department;
+use App\Models\District;
+use App\Models\Division;
 use App\Models\Employee;
+use App\Models\EmployeeAcademicInfo;
 use App\Models\Position;
+use App\Models\Upazila;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -31,12 +38,17 @@ class AdminEmployeesController extends Controller
      */
     public function create()
     {
-        $url = route('employees.store');
-        $title = 'Add Employee';
+        
         $department = Department::all();
         $position = Position::all();
+        $blood_group = BloodGroup::all();
+        $divisions = Division::all();
+        $districts = District::all();
+        $upazilas = Upazila::all();
+        $boards = Board::all();
+        $academic_exams = AcademicExam::all();
 
-        return view('admin.add-employee', compact('url','title','department','position'));
+        return view('admin.add-employee', compact('department','position','blood_group','divisions','districts','upazilas','boards','academic_exams'));
     }
 
     /**
@@ -49,40 +61,76 @@ class AdminEmployeesController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg',
+            'father_name' => 'required',
+            'mother_name' => 'required',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024',
             'email' => 'required',
+            'dob' => 'required',
+            'gender' => 'required',
+            'merital_status' => 'required',
             'phone' => 'required|max:12|min:11',
             'department' => 'required',
             'position' => 'required',
-            'role' => 'required',
-            'bio' => 'required',
+            'blood_group' => 'required',
+            'nationality' => 'required',
+            'division' => 'required',
+            'district' => 'required',
+            'upazila' => 'required',
+            'present_address' => 'required',
+            'permanent_address' => 'required',
+            'exam_name' => 'required',
+            'passing_year' => 'required',
+            'board' => 'required',
+            'roll' => 'required',
+            'reg_no' => 'required',
+            'gpa' => 'required',
+            'marksheet' => 'required|image|mimes:png,jpg,jpeg|max:1024',
+            'certificate' => 'required|image|mimes:png,jpg,jpeg|max:1024',
         ]);
 
         $imagename = date('dmY').time()."-employees.".$request->file('image')->getClientOriginalExtension();
 
-        $request->file('image')->storeAs('public/employees',$imagename);
         $request->file('image')->storeAs('public/users',$imagename);
 
         //Insert Employee
-        $employees = new Employee();
-        $employees->name = $request->name;
-        $employees->image = $imagename;
-        $employees->email = $request->email;
-        $employees->phone = $request->phone;
-        $employees->department_id = $request->department;
-        $employees->position_id = $request->position;
-        $result = $employees->save();
+        $employee = Employee::create([
+            'name' => $request->name,
+            'father_name' => $request->father_name,
+            'mother_name' => $request->mother_name,
+            'image' => $imagename,
+            'email' => $request->email,
+            'dob' => $request->dob,
+            'gender' => $request->gender,
+            'merital_status' => $request->merital_status,
+            'phone' => $request->phone,
+            'department_id' => $request->department,
+            'position_id' => $request->position,
+            'blood_group_id' => $request->blood_group,
+            'nationality' => $request->nationality,
+            'division_id' => $request->division,
+            'district_id' => $request->district,
+            'upazila_id' => $request->upazila,
+            'present_address' => $request->present_address,
+            'permanent_address' => $request->permanent_address,
+        ]);
 
-        //Insert User
-        $user = new User();
-        $user->name = $request->name;
-        $user->bio = $request->bio;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->image = $imagename;
-        $user->password = Hash::make('123456');
-        $user->role = $request->role;
-        $result = $user->save();
+        $marksheet = date('dmY').time()."-marksheet.".$request->file('marksheet')->getClientOriginalExtension();
+        $certificate = date('dmY').time()."-certificate.".$request->file('certificate')->getClientOriginalExtension();
+
+        $request->file('marksheet')->storeAs('public/document',$marksheet);
+        $request->file('certificate')->storeAs('public/document',$certificate);
+
+        $result = EmployeeAcademicInfo::create([
+            'employee_id' => $employee->id,
+            'academic_exam_id' => $request->exam_name,
+            'passing_year' => $request->passing_year,
+            'board_id' => $request->board,
+            'roll' => $request->roll,
+            'reg_no' => $request->reg_no,
+            'gpa' => $request->gpa,
+            'marksheet' => $marksheet,
+            'certificate' => $certificate,
+        ]);
 
         if($result){
             return back()->with('success','Employees Add Successfully');
@@ -114,12 +162,11 @@ class AdminEmployeesController extends Controller
         if(is_null($employee)){
             return back()->with('error','Student Not Found!');
         }else{
-            $url = route('employees.update', $id);
-            $title = 'Update Employee';
+            
             $user = User::where('phone', $employee->phone)->first();
             $department = Department::all();
             $position = Position::all();
-            return view('admin.add-employee', compact('employee','url','title','department','position','user'));
+            return view('admin.add-employee', compact('employee','department','position','user'));
         }
     }
 
@@ -210,4 +257,6 @@ class AdminEmployeesController extends Controller
         $employee->delete();
         return back()->with('success','Employee Delete Successfully');
     }
+
+
 }

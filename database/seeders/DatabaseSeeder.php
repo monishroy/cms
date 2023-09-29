@@ -27,10 +27,16 @@ class DatabaseSeeder extends Seeder
             SemisterSeeder::class,
             SessionSeeder::class,
             PositionSeeder::class,
+            BloodGroupSeeder::class,
+            BoardSeeder::class,
+            AcademicExamSeeder::class,
+            DivisionSeeder::class,
+            DistrictSeeder::class,
+            UpazilaSeeder::class,
             StudentSeeder::class,
             UserSeeder::class,
             NoticeSeeder::class,
-            EmployeeSeeder::class,
+            // EmployeeSeeder::class,
         ]);
     }
 }

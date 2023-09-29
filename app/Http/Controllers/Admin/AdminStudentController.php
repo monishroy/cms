@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BloodGroup;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Semister;
 use App\Models\Department;
+use App\Models\Division;
 use App\Models\Session;
 use App\Models\User as ModelsUser;
 use Illuminate\Support\Facades\Hash;
@@ -33,12 +35,14 @@ class AdminStudentController extends Controller
     public function create()
     {
         $url = route('students.store');
-        $title_header = 'Add Student';
+        $title = 'Add Student';
         $semister = Semister::all();
         $department = Department::all();
         $session = Session::all();
+        $blood_group = BloodGroup::all();
+        $divisions = Division::all();
         
-        return view('admin.add-student', compact('url','title_header','semister','department','session'));
+        return view('admin.add-student', compact('url','title','semister','department','session','divisions','blood_group'));
     }
 
     /**

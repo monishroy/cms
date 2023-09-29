@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Session;
+use App\Models\BloodGroup;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SessionSeeder extends Seeder
+class BloodGroupSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +15,10 @@ class SessionSeeder extends Seeder
      */
     public function run()
     {
-        $data = ['2018-19','2019-20','2020-21','2021-22','2022-23','2023-24'];
+        $data = ['A+','A-','B+','B-','O+','O-','AB+','AB-'];
         
         for ($i=0; $i < count($data); $i++) { 
-            Session::create([
+            BloodGroup::create([
                 'name'=>$data[$i],
             ]);
         }

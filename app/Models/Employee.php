@@ -20,4 +20,24 @@ class Employee extends Model
         return $this->belongsTo(Position::class);
     }
 
+    public function blood_group()
+    {
+        return $this->belongsTo(BloodGroup::class);
+    }
+
+    public function division()
+    {
+        return $this->belongsTo(Division::class);
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public function upazila()
+    {
+        return $this->belongsTo(Upazila::class);
+    }
+
 }

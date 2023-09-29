@@ -15,26 +15,13 @@ class DepartmentSeeder extends Seeder
      */
     public function run()
     {
-        Department::create([
-            'name'=>"Computer",
-        ]);
-        Department::create([
-            'name'=>"Electrical",
-        ]);
-        Department::create([
-            'name'=>"Electronics",
-        ]);
-        Department::create([
-            'name'=>"Civil",
-        ]);
-        Department::create([
-            'name'=>"Mechanical",
-        ]);
-        Department::create([
-            'name'=>"Textail",
-        ]);
-        Department::create([
-            'name'=>"N/A",
-        ]);
+
+        $data = ['Computer','Electrical','Electronics','Civil','Mechanical','Textail','N/A'];
+        
+        for ($i=0; $i < count($data); $i++) { 
+            Department::create([
+                'name'=>$data[$i],
+            ]);
+        }
     }
 }
