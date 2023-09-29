@@ -26,9 +26,9 @@ class AdminEmployeesController extends Controller
      */
     public function index()
     {
-        $employees = Employee::all();
+        $data['employees'] = Employee::all();
 
-        return view('admin.employees', compact('employees'));
+        return view('admin.employees', $data);
     }
 
     /**
@@ -87,7 +87,6 @@ class AdminEmployeesController extends Controller
         ]);
 
         $imagename = date('dmY').time()."-employees.".$request->file('image')->getClientOriginalExtension();
-
         $request->file('image')->storeAs('public/users',$imagename);
 
         //Insert Employee
@@ -156,16 +155,15 @@ class AdminEmployeesController extends Controller
      */
     public function edit($id)
     {
-        $employee = Employee::find($id);
-        if(is_null($employee)){
-            return back()->with('error','Student Not Found!');
-        }else{
-            
-            $user = User::where('phone', $employee->phone)->first();
-            $department = Department::all();
-            $position = Position::all();
-            return view('admin.add-employee', compact('employee','department','position','user'));
-        }
+        $data['employee'] = Employee::findOrFail($id);
+        $data['departments'] = Department::all();
+        $data['positions'] = Position::all();
+        $data['blood_groups'] = BloodGroup::all();
+        $data['divisions'] = Division::all();
+        $data['boards'] = Board::all();
+        $data['academic_exams'] = AcademicExam::all();
+
+        return view('admin.add-employee', $data);
     }
 
     /**
@@ -179,69 +177,34 @@ class AdminEmployeesController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
-            'email' => 'required',
+            'father_name' => 'required',
+            'mother_name' => 'required',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024',
+            'email' => 'required|email:filter',
+            'dob' => 'required',
+            'gender' => 'required',
+            'merital_status' => 'required',
             'phone' => 'required|max:12|min:11',
             'department' => 'required',
             'position' => 'required',
-            'role' => 'required',
-            'bio' => 'required',
-            'user_id' => 'required',
+            'blood_group' => 'required',
+            'nationality' => 'required',
+            'division' => 'required',
+            'district' => 'required',
+            'upazila' => 'required',
+            'present_address' => 'required',
+            'permanent_address' => 'required',
+            'exam_name' => 'required',
+            'passing_year' => 'required',
+            'board' => 'required',
+            'roll' => 'required|numeric',
+            'reg_no' => 'required|numeric',
+            'gpa' => 'required',
+            'marksheet' => 'required|image|mimes:png,jpg,jpeg|max:1024',
+            'certificate' => 'required|image|mimes:png,jpg,jpeg|max:1024',
         ]);
 
-        if($request->image){
-
-            $imagename = date('dmY').time()."-employees.".$request->file('image')->getClientOriginalExtension();    
-            $request->file('image')->storeAs('public/users',$imagename);
-
-            Employee::findOrFail($id)->update([
-                'name' => $request->name,
-                'image' => $imagename,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'department_id' => $request->department,
-                'position_id' => $request->position,
-            ]);
-
-            $result = User::findOrFail($request->user_id)->update([
-                'name' => $request->name,
-                'bio' => $request->bio,
-                'image' => $imagename,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'role' => $request->role,
-            ]);
-
-            if($result){
-                return back()->with('success','Employee Update Successfully');
-            }else{
-                return back()->with('error','Something is Worng!');
-            }
-        }else{
-            
-            Employee::findOrFail($id)->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'department_id' => $request->department,
-                'position_id' => $request->position,
-            ]);
-
-            $result = User::findOrFail($request->user_id)->update([
-                'name' => $request->name,
-                'bio' => $request->bio,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'role' => $request->role,
-            ]);
-
-            if($result){
-                return back()->with('success','Employee Update Successfully');
-            }else{
-                return back()->with('error','Something is Worng!');
-            }
-        }
-
+        dd($request);
     }
 
     /**
@@ -252,8 +215,14 @@ class AdminEmployeesController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        $employee->delete();
-        return back()->with('success','Employee Delete Successfully');
+        $result = $employee->delete();
+
+        if($result){
+            return back()->with('success','Employee Delete Successfully');
+        }else{
+            return back()->with('error','Something is Worng!');
+        }
+        
     }
 
 

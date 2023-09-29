@@ -66,7 +66,7 @@
                 <form action="{{ route('changePasswordPost') }}" method="POST">
                   @csrf
                   <input type="hidden" name="id" value="{{ $id }}">
-                  <input type="hidden" name="varify-token" value="{{ $token }}">
+                  <input type="hidden" name="varify_token" value="{{ $token }}">
                   <div class="mb-3">
                     <label for="newpassword" class="form-label">New Password</label>
                     <div class="input-group input-group-merge">

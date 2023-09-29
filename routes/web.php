@@ -75,8 +75,8 @@ Route::middleware(['auth','admin','status'])->group(function(){
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
     Route::post('/admin/profile/update', [AdminProfileController::class, 'update'])->name('profile.update');
-    Route::get('/admin/notice', [AdminNoticeController::class, 'index'])->name('admin.frontend.notice');
-    Route::post('/admin/notice/add', [AdminNoticeController::class, 'add'])->name('notice.add');
+    Route::get('/admin/notice', [AdminNoticeController::class, 'index'])->name('notice.index');
+    Route::post('/admin/notice/store', [AdminNoticeController::class, 'store'])->name('notice.store');
     Route::get('/admin/notice/delete/{id}', [AdminNoticeController::class, 'delete'])->name('notice.delete');
     Route::get('/admin/notice/download/{file}', [AdminNoticeController::class, 'download'])->name('admin.notice.download');
     Route::get('admin/message', [AdminMessageController::class, 'index'])->name('message.index');

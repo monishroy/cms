@@ -23,7 +23,7 @@ class ForgotPasswordController extends Controller
             'email' => 'required|email:filter|exists:users,email',
         ]);
 
-        $user = User::where('email', $request['email'])->first();
+        $user = User::where('email', $request->email)->first();
 
         $user_id = $user->id;
 
@@ -55,11 +55,11 @@ class ForgotPasswordController extends Controller
         $token = Str::random(40);
         $otp = rand(100000,999999);
 
-        $user = User::find($id);
-        $user->otp = $otp;
-        $user->expire_otp = time();
-        $user->token = $token;
-        $user->save();
+        $user = User::findOrFail($id)->update([
+            'otp' => $otp,
+            'expire_otp' => time(),
+            'token' => $token,
+        ]);
 
         $email = $user->email;
         $title = 'Email Verification';
@@ -74,16 +74,13 @@ class ForgotPasswordController extends Controller
 
     public function verify(Request $request)
     {
-        $request->validate(
-            [
-                'email' => 'required|email:filter',
-                'otp' => 'required|numeric',
-            ]
-        );
-
+        $request->validate([
+            'email' => 'required|email:filter',
+            'otp' => 'required|numeric',
+        ]);
         
-        $email = $request['email'];
-        $otp = $request['otp'];
+        $email = $request->email;
+        $otp = $request->otp;
         $user = User::where('email', $email)->first();
 
         $oldOTP = $user->otp;

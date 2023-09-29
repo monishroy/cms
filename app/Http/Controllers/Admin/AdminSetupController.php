@@ -16,16 +16,15 @@ class AdminSetupController extends Controller
 {
     public function index()
     {
-        $semister = Semister::all();
-        $department = Department::all();
-        $session = Session::all();
-        $position = Position::all();
-        $blood_group = BloodGroup::all();
-        $boards = Board::all();
-        $academic_exams = AcademicExam::all();
+        $data['semister'] = Semister::all();
+        $data['department'] = Department::all();
+        $data['session'] = Session::all();
+        $data['position'] = Position::all();
+        $data['blood_group'] = BloodGroup::all();
+        $data['boards'] = Board::all();
+        $data['academic_exams'] = AcademicExam::all();
 
-        $data = compact('semister','department','session','position','blood_group','boards','academic_exams');
-        return view('admin.setup')->with($data);
+        return view('admin.setup', $data);
     }
     
     public function semister_store(Request $request)
@@ -33,10 +32,11 @@ class AdminSetupController extends Controller
         $request->validate([
             'semister_name' => 'required',
         ]);
-        //Insert Query
-        $semister = new Semister();
-        $semister->name = $request['semister_name'];
-        $result = $semister->save();
+
+        //Insert Semister
+        $result = Semister::create([
+            'name' => $request->semister_name,
+        ]);
 
         if($result){
             return back()->with('success','Semister Add Successfully');
@@ -51,11 +51,10 @@ class AdminSetupController extends Controller
             'department_name' => 'required',
         ]);
 
-
-        //Insert Query
-        $department = new Department();
-        $department->name = $request['department_name'];
-        $result = $department->save();
+        //Insert Department
+        $result = Department::create([
+            'name' => $request->department_name,
+        ]);
 
         if($result){
             return back()->with('success','Department Add Successfully');
@@ -69,10 +68,11 @@ class AdminSetupController extends Controller
         $request->validate([
             'session_name' => 'required',
         ]);
-        //Insert Query
-        $session = new Session();
-        $session->name = $request['session_name'];
-        $result = $session->save();
+
+        //Insert Session
+        $result = Session::create([
+            'name' => $request->session_name,
+        ]);
 
         if($result){
             return back()->with('success','Session Add Successfully');
@@ -87,10 +87,10 @@ class AdminSetupController extends Controller
             'position_name' => 'required',
         ]);
 
-        //Insert Query
-        $posstion = new Position();
-        $posstion->name = $request['position_name'];
-        $result = $posstion->save();
+        //Insert Position
+        $result = Position::create([
+            'name' => $request->position_name,
+        ]);
 
         if($result){
             return back()->with('success','Possion Add Successfully');
@@ -105,10 +105,10 @@ class AdminSetupController extends Controller
             'blood_group' => 'required',
         ]);
 
-        //Insert Query
-        $blood_group = new BloodGroup();
-        $blood_group->name = $request['blood_group'];
-        $result = $blood_group->save();
+        //Insert Blood Group
+        $result = BloodGroup::create([
+            'name' => $request->blood_group,
+        ]);
 
         if($result){
             return back()->with('success','Blood Group Add Successfully');
@@ -123,10 +123,10 @@ class AdminSetupController extends Controller
             'board_name' => 'required',
         ]);
 
-        //Insert Query
-        $board = new Board();
-        $board->name = $request['board_name'];
-        $result = $board->save();
+        //Insert Board
+        $result = Board::create([
+            'name' => $request->board_name,
+        ]);
 
         if($result){
             return back()->with('success','Board Add Successfully');
@@ -141,10 +141,10 @@ class AdminSetupController extends Controller
             'academic_exam' => 'required',
         ]);
 
-        //Insert Query
-        $exam = new AcademicExam();
-        $exam->name = $request['academic_exam'];
-        $result = $exam->save();
+        //Insert Academic Exam
+        $result = AcademicExam::create([
+            'name' => $request->academic_exam,
+        ]);
 
         if($result){
             return back()->with('success','Academic Exam Add Successfully');

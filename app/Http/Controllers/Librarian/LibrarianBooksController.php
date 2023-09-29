@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Librarian;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Department;
-use App\Models\IssueBook;
 use App\Models\Semister;
-use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,8 +18,8 @@ class LibrarianBooksController extends Controller
      */
     public function index()
     {
-        $books = Book::where('status', 1)->get();
-        return view('librarian.books', compact('books'));
+        $data['books'] = Book::where('status', 1)->get();
+        return view('librarian.books', $data);
     }
 
     /**
@@ -31,12 +29,12 @@ class LibrarianBooksController extends Controller
      */
     public function create()
     {
-        $url = route('books.store');
-        $title = 'Add Book';
-        $semister = Semister::all();
-        $department = Department::all();
+        $data['url'] = route('books.store');
+        $data['title'] = 'Add Book';
+        $data['semister'] = Semister::all();
+        $data['department'] = Department::all();
         
-        return view('librarian.add-book', compact('url','title','semister','department'));
+        return view('librarian.add-book', $data);
     }
 
     /**
@@ -47,20 +45,18 @@ class LibrarianBooksController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(
-            [
-                'name' => 'required|min:3',
-                'image' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
-                'subject_code' => 'required',
-                'book_code' => 'required|unique:books,book_code',
-                'probidhan' => 'required',
-                'publication' => 'required',
-                'semister' => 'required',
-                'department' => 'required',
-            ]
-        );
+        $request->validate([
+            'name' => 'required|min:3',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
+            'subject_code' => 'required',
+            'book_code' => 'required|unique:books,book_code',
+            'probidhan' => 'required',
+            'publication' => 'required',
+            'semister' => 'required',
+            'department' => 'required',
+        ]);
 
-        if($request->image){
+        if(is_file($request->image)){
 
             $imageName = rand(1111, 9999).time()."-book.".$request->file('image')->getClientOriginalExtension();
             $request->file('image')->storeAs('public/books',$imageName);
@@ -76,7 +72,9 @@ class LibrarianBooksController extends Controller
                 'semister_id' => $request->semister,
                 'department_id' => $request->department,
             ]);
+
         }else{
+
             $result = Book::create([
                 'name' => $request->name,
                 'subject_code' => $request->subject_code,
@@ -87,6 +85,7 @@ class LibrarianBooksController extends Controller
                 'semister_id' => $request->semister,
                 'department_id' => $request->department,
             ]);
+
         }
 
         if($result){
@@ -115,13 +114,13 @@ class LibrarianBooksController extends Controller
      */
     public function edit($id)
     {
-        $book = Book::where('id', $id)->first();
-        $url = route('books.update', $id);
-        $title = 'Update Book';
-        $semister = Semister::all();
-        $department = Department::all();
+        $data['book'] = Book::where('id', $id)->first();
+        $data['url'] = route('books.update', $id);
+        $data['title'] = 'Update Book';
+        $data['semister'] = Semister::all();
+        $data['department'] = Department::all();
 
-        return view('librarian.add-book', compact('book','url','title','semister','department'));
+        return view('librarian.add-book', $data);
     }
 
     /**
@@ -133,21 +132,19 @@ class LibrarianBooksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate(
-            [
-                'name' => 'required|min:3',
-                'image' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
-                'subject_code' => 'required',
-                'book_code' => 'required|exists:books,book_code',
-                'probidhan' => 'required',
-                'publication' => 'required',
-                'semister' => 'required',
-                'department' => 'required',
-                'book_code' => 'required',
-            ]
-        );
+        $request->validate([
+            'name' => 'required|min:3',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
+            'subject_code' => 'required',
+            'book_code' => 'required|exists:books,book_code',
+            'probidhan' => 'required',
+            'publication' => 'required',
+            'semister' => 'required',
+            'department' => 'required',
+            'book_code' => 'required',
+        ]);
 
-        if($request->image){
+        if(is_file($request->image)){
 
             $imageName = date('dmY').time()."-book.".$request->file('image')->getClientOriginalExtension();
             $request->file('image')->storeAs('public/books',$imageName);
@@ -163,7 +160,9 @@ class LibrarianBooksController extends Controller
                 'semister_id' => $request->semister,
                 'department_id' => $request->department,
             ]);
+
         }else{
+
             $result = Book::find($id)->update([
                 'name' => $request->name,
                 'subject_code' => $request->subject_code,
@@ -174,9 +173,8 @@ class LibrarianBooksController extends Controller
                 'semister_id' => $request->semister,
                 'department_id' => $request->department,
             ]);
-        }
 
-        
+        }
         
         if($result){
             return back()->with('success','Book Update Successfully');
@@ -193,8 +191,14 @@ class LibrarianBooksController extends Controller
      */
     public function destroy(Book $book)
     {
-        $book->delete();
-        return back()->with('success','Book Delete Successfully');
+        $result = $book->delete();
+
+        if($result){
+            return back()->with('success','Book Delete Successfully');
+        }else{
+            return back()->with('error','Something is Worng!');
+        }
+        
     }
     
 }

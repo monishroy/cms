@@ -12,8 +12,8 @@ class LibrarianReturnBookController extends Controller
 {
     public function index()
     {
-        $students = Student::all();
-        return view('librarian.return-book', compact('students'));
+        $data['students'] = Student::all();
+        return view('librarian.return-book', $data);
     }
 
     public function return_search(Request $request)
@@ -29,9 +29,10 @@ class LibrarianReturnBookController extends Controller
 
     public function return_book_show($student_id)
     {
-        $student = Student::where('id', $student_id)->first();
-        $issue_books = IssueBook::where('student_id', $student_id)->where('return_date', null)->get();
-        return view('librarian.return-book-show', compact('student','issue_books'));
+        $data['student'] = Student::where('id', $student_id)->first();
+        $data['issue_books'] = IssueBook::where('student_id', $student_id)->where('return_date', null)->get();
+
+        return view('librarian.return-book-show', $data);
     }
 
     public function return_book(Request $request, $id)

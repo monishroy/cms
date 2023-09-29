@@ -15,8 +15,8 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('admin.users', compact('users'));
+        $data['users'] = User::all();
+        return view('admin.users', $data);
     }
 
     /**
@@ -75,10 +75,9 @@ class AdminUserController extends Controller
             'role' => 'required',
         ]);
 
-
-        $users = User::find($id);
-        $users->role = $request->role;
-        $result = $users->save();
+        $result = User::findOrFail($id)->update([
+            'role' => $request->role,
+        ]);
 
         if($result){
             return back()->with('success','Role Update Successfully');

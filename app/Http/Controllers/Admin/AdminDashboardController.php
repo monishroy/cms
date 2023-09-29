@@ -23,12 +23,12 @@ class AdminDashboardController extends Controller
     // }
     public function index()
     {
-        $students = Student::count();
-        $users = User::count();
-        $total_employees = Employee::count();
-        $total_books = Book::count();
+        $data['students'] = Student::count();
+        $data['users'] = User::count();
+        $data['total_employees'] = Employee::count();
+        $data['total_books'] = Book::count();
 
-        return view('admin.index' , compact('students','users','total_employees','total_books'));
+        return view('admin.index' , $data);
     }
    
 

@@ -10,10 +10,9 @@ class NoticeController extends Controller
 {
     public function index()
     {
-        $notice = Notice::all();
+        $data['notice'] = Notice::all();
 
-        $data = compact('notice');
-        return view('frontend.notice')->with($data);
+        return view('frontend.notice', $data);
     }
 
     public function download($file)

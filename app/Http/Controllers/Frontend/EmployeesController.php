@@ -11,8 +11,8 @@ class EmployeesController extends Controller
 {
     public function index()
     {
-        $departments = Department::take(6)->get();
-        return view('frontend.employees', compact('departments'));
+        $data['departments'] = Department::take(6)->get();
+        return view('frontend.employees', $data);
     }
 
     public function department($id)
@@ -21,10 +21,10 @@ class EmployeesController extends Controller
         if(is_null($employees)){
             return back()->with('error','Employees Not Found!');
         }else{
-            $department = Department::find($id);
+            $department = Department::findOrFail($id);
             $department_name = $department->name;
-            $data = compact('employees','department_name');
-            return view('frontend.employees-details')->with($data);
+
+            return view('frontend.employees-details', compact('employees','department_name'));
         }
     }
 }

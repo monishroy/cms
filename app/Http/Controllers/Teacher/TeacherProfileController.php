@@ -31,16 +31,16 @@ class TeacherProfileController extends Controller
             ]
         );
 
-        $user = User::find(Auth::user()->id);
-        $user->name = $request->name;
-        $user->phone = $request->phone;
-        $user->bio = $request->bio;
-        $user->save();
+        User::findOrFail(Auth::user()->id)->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'bio' => $request->bio,
+        ]);
 
-        $student = Employee::find($request->emloyee_id);
-        $student->name = $request->name;
-        $student->phone = $request->phone;
-        $result = $student->save();
+        $result = Employee::findOrFail($request->emloyee_id)->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+        ]);
 
         if($result){
             return back()->with('success','Profile Update Successfully');

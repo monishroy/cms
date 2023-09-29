@@ -108,7 +108,7 @@
                         </li>
                         <li class="side-nav-title side-nav-item">Frontend</li>
                         <li class="side-nav-item">
-                            <a href="{{ route('admin.frontend.notice') }}" class="side-nav-link">
+                            <a href="{{ route('notice.index') }}" class="side-nav-link">
                                 <i class=" uil-notes"></i>
                                 <span> Notice Board </span>
                             </a>

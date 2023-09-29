@@ -30,29 +30,25 @@ class ChangePasswordController extends Controller
 
     public function change_password(Request $request)
     {
-        $request->validate(
-            [
-                'id' => 'required|exists:users,id',
-                'varify-token' => 'required',
-                'new_password' => 'required|same:re_new_password',
-                're_new_password' => 'required',
-            ]
-        );
+        $request->validate([
+            'id' => 'required|exists:users,id',
+            'varify_token' => 'required',
+            'new_password' => 'required|same:re_new_password',
+            're_new_password' => 'required',
+        ]);
 
-        $new_password = $request['new_password'];
-
-        $id = $request['id'] ;
+        $id = $request->id;
         $user = User::where('id', $id)->first();
 
         $old_token = $user->token;
 
-        $token = $request['varify-token'];
+        $token = $request->varify_token;
 
         if($old_token == $token){
-            $user = User::find($id);
-            $user->password = Hash::make($new_password);
-            $user->token = Str::random(40);
-            $result = $user->save();
+            $result = User::findOrFail($id)->update([
+                'password' => Hash::make($request->new_password),
+                'token' => Str::random(40),
+            ]);
             if($result){
                 return redirect()->route('login')->with('success','Password Change successfully.');
             }else{

@@ -15,8 +15,9 @@ class AdminTechnologyController extends Controller
      */
     public function index()
     {
-        $technology = Technology::all();
-        return view('admin.technology', compact('technology'));
+        $data['technology'] = Technology::all();
+
+        return view('admin.technology', $data);
     }
 
     /**
@@ -26,9 +27,10 @@ class AdminTechnologyController extends Controller
      */
     public function create()
     {
-        $url = route('technology.store');
-        $title = 'Add Technology';
-        return view('admin.add-technology', compact('url','title'));
+        $data['url'] = route('technology.store');
+        $data['title'] = 'Add Technology';
+
+        return view('admin.add-technology', $data);
     }
 
     /**
@@ -55,14 +57,14 @@ class AdminTechnologyController extends Controller
         $request->file('image2')->storeAs('public/technology',$imageName2);
         $request->file('image3')->storeAs('public/technology',$imageName3);
         
-        //Insert Notice
-        $technology = new Technology();
-        $technology->name = $request->name;
-        $technology->image1 = $imageName1;
-        $technology->image2 = $imageName2;
-        $technology->image3 = $imageName3;
-        $technology->content = $request->content;
-        $result = $technology->save();
+        //Insert Technology
+        $result = Technology::create([
+            'name' => $request->name,
+            'image1' => $imageName1,
+            'image2' => $imageName2,
+            'image3' => $imageName3,
+            'content' => $request->content,
+        ]);
 
         if($result){
             return back()->with('success','Technology Add Successfully');
@@ -90,10 +92,11 @@ class AdminTechnologyController extends Controller
      */
     public function edit($id)
     {
-        $url = route('technology.update', $id);
-        $title = 'Update Technology';
-        $technology = Technology::find($id);
-        return view('admin.add-technology', compact('url','title','technology'));
+        $data['url'] = route('technology.update', $id);
+        $data['title'] = 'Update Technology';
+        $data['technology'] = Technology::findOrFail($id);
+
+        return view('admin.add-technology', $data);
     }
 
     /**
@@ -105,21 +108,24 @@ class AdminTechnologyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate(
-            [
-                'name' => 'required',
-                'content' => 'required',
-            ]
-        );
+        $request->validate([
+            'name' => 'required',
+            'image1' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
+            'image2' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
+            'image3' => 'nullable|image|mimes:jpg,png,jpeg|max:1024', 
+            'content' => 'required',
+        ]);
 
         if($request->image1){
 
             $imageName1 = date('dmY').time()."-1.".$request->file('image1')->getClientOriginalExtension();
             $request->file('image1')->storeAs('public/technology',$imageName1);
 
-            $technology = Technology::find($id);
-            $technology->image1 = $imageName1;
-           $technology->save();
+            $result = Technology::findOrFail($id)->update([
+                'name' => $request->name,
+                'image1' => $imageName1,
+                'content' => $request->content,
+            ]);
             
 
         }elseif($request->image2){
@@ -127,9 +133,11 @@ class AdminTechnologyController extends Controller
             $imageName2 = date('dmY').time()."-2.".$request->file('image2')->getClientOriginalExtension();
             $request->file('image2')->storeAs('public/technology',$imageName2);
 
-            $technology = Technology::find($id);
-            $technology->image2 = $imageName2;
-            $technology->save();
+            $result = Technology::findOrFail($id)->update([
+                'name' => $request->name,
+                'image2' => $imageName2,
+                'content' => $request->content,
+            ]);
             
 
         }elseif($request->image3){
@@ -137,18 +145,21 @@ class AdminTechnologyController extends Controller
             $imageName3 = date('dmY').time()."-3.".$request->file('image3')->getClientOriginalExtension();
             $request->file('image3')->storeAs('public/technology',$imageName3);
 
-            $technology = Technology::find($id);
-            $technology->image3 = $imageName3;
-            $technology->save();
-            
+            $result = Technology::findOrFail($id)->update([
+                'name' => $request->name,
+                'image3' => $imageName3,
+                'content' => $request->content,
+            ]);
 
         }else{
-           
+
+            $result = Technology::findOrFail($id)->update([
+                'name' => $request->name,
+                'content' => $request->content,
+            ]);
+            
         }
-        $technology = Technology::find($id);
-        $technology->name = $request->name;
-        $technology->content = $request->content;
-        $result = $technology->save();
+
         if($result){
             return back()->with('success','Technology Update Successfully');
         }else{

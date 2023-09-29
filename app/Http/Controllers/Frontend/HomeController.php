@@ -27,8 +27,8 @@ class HomeController extends Controller
                 return redirect()->route('notice');
             }
         } else {
-            $notices = Notice::all();
-            return view('frontend.index', compact('notices'));
+            $data['notices'] = Notice::all();
+            return view('frontend.index', $data);
         } 
     }
 

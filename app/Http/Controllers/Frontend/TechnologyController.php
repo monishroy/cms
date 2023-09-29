@@ -10,20 +10,16 @@ class TechnologyController extends Controller
 {
     public function index()
     {
-        $technology = Technology::all();
+        $data['technology'] = Technology::all();
 
-        $data = compact('technology');
-        return view('frontend.technology')->with($data);
+        return view('frontend.technology', $data);
     }
 
     public function details($id)
     {
-        $technology = Technology::find($id);
-        if(is_null($technology)){
-            return back()->with('error','Technology Not Found!');
-        }else{
-            $data = compact('technology');
-            return view('frontend.technology-details')->with($data);
-        }
+        $data['technology'] = Technology::findOrFail($id);
+        
+        return view('frontend.technology-details', $data);
+        
     }
 }

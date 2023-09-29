@@ -12,7 +12,7 @@
                     <!-- end nav-->
                     <div class="tab-content">
                       <div class="tab-pane show active" id="custom-styles-preview">
-                        <form class="needs-validation" action="{{ route('notice.add') }}" method="POST" novalidate="" enctype="multipart/form-data">
+                        <form class="needs-validation" action="{{ route('notice.store') }}" method="POST" novalidate="" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-12">

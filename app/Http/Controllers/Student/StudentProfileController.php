@@ -14,31 +14,25 @@ class StudentProfileController extends Controller
 {
     public function index()
     {
-        $student = Student::where('phone', Auth::user()->phone)->first();
-        $notices = Notice::all();
-        return view('student.profile', compact('student','notices'));
+        $data['student'] = Student::where('phone', Auth::user()->phone)->first();
+        $data['notices'] = Notice::all();
+        return view('student.profile', $data);
     }
 
     public function update(Request $request)
     {
-        $request->validate(
-            [
-                'name' => 'required',
-                'phone' => 'required|min:11',
-                'bio' => 'required',
-                'student_id' => 'required',
-            ]
-        );
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required|min:11',
+            'bio' => 'required',
+            'student_id' => 'required',
+        ]);
 
-        $user = User::find(Auth::user()->id);
-        $user->name = $request->name;
-        $user->phone = $request->phone;
-        $user->bio = $request->bio;
-        $user->save();
-
-        $student = Student::find($request['student_id']);
-        $student->phone = $request->phone;
-        $result = $student->save();
+        $result = User::findOrFail(Auth::user()->id)->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'bio' => $request->bio,
+        ]);
 
         if($result){
             return back()->with('success','Profile Update Successfully');
@@ -50,8 +44,10 @@ class StudentProfileController extends Controller
     public function books()
     {
         $student = Student::where('phone', Auth::user()->phone)->first();
-        $notices = Notice::all();
-        $issue_books = IssueBook::where('student_id', $student->id)->where('return_date', null)->get();
-        return view('student.books', compact('issue_books','notices'));
+
+        $data['issue_books'] = IssueBook::where('student_id', $student->id)->where('return_date', null)->get();
+        $data['notices'] = Notice::all();
+
+        return view('student.books', $data);
     }
 }

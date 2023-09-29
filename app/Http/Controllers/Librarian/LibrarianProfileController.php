@@ -13,10 +13,10 @@ class LibrarianProfileController extends Controller
 {
     public function index()
     {
-        $issue_book_count = IssueBook::where('return_date', null)->count();
-        $books_count = Book::count();
+        $data['issue_book_count'] = IssueBook::where('return_date', null)->count();
+        $data['books_count'] = Book::count();
 
-        return view('librarian.profile', compact('issue_book_count', 'books_count'));
+        return view('librarian.profile', $data);
     }
 
     public function update(Request $request)
@@ -27,11 +27,11 @@ class LibrarianProfileController extends Controller
             'bio' => 'required',
         ]);
 
-        $user = User::find(Auth::user()->id);
-        $user->name = $request->name;
-        $user->phone = $request->phone;
-        $user->bio = $request->bio;
-        $result = $user->save();
+        $result = User::find(Auth::user()->id)->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'bio' => $request->bio,
+        ]);
 
         if($result){
             return back()->with('success','Profile Update Successfully');

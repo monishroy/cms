@@ -11,35 +11,27 @@ class AdminNoticeController extends Controller
 {
     public function index()
     {
-        $notice = Notice::all();
-
-        $data = compact('notice');
+        $data['notice'] = Notice::all();
         
-        return view('admin.notice-board')->with($data);
+        return view('admin.notice-board', $data);
     }
     
-    public function add(Request $request)
+    public function store(Request $request)
     {
-        $request->validate(
-            [
-                'notice_title' => 'required',
-                'notice_file' => 'required',
-            ]
-        );
-
-        // echo "<pre>";
-        // print_r($request->all());
+        $request->validate([
+            'notice_title' => 'required',
+            'notice_file' => 'required',
+        ]);
 
         $filename = date('dmY').time()."-notice.".$request->file('notice_file')->getClientOriginalExtension();
-
         $request->file('notice_file')->storeAs('public/notice',$filename);
         
         //Insert Notice
-        $notice = new Notice();
-        $notice->notice_title = $request['notice_title'];
-        $notice->notice_file = $filename;
-        $notice->user_id = Auth::user()->id;
-        $result = $notice->save();
+        $result = Notice::create([
+            'notice_title' => $request->notice_title,
+            'notice_file' => $filename,
+            'user_id' => Auth::user()->id,
+        ]);
 
         if($result){
             return back()->with('success','Notice Add Successfully');
@@ -57,17 +49,12 @@ class AdminNoticeController extends Controller
 
     public function delete($id)
     {
-        $notice = Notice::withTrashed()->find($id);
-        if(is_null($notice)){
-            return back()->with('error','Notice Not Found!');
-        }else{
-            $result = $notice->delete();
+        $result = Notice::findOrFail($id)->delete();
 
-            if($result){
-                return back()->with('success','Notice Delete Successfully');
-            }else{
-                return back()->with('error','Something is Worng!');
-            }
+        if($result){
+            return back()->with('success','Notice Delete Successfully');
+        }else{
+            return back()->with('error','Something is Worng!');
         }
     }  
 }

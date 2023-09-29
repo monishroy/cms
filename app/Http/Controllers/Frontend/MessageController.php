@@ -19,15 +19,16 @@ class MessageController extends Controller
             'fullname' => 'required',
             'email' => 'required|email:filter',
             'subject' => 'required',
-            'message' => 'required',
+            'message' => 'required|min:10',
         ]);
 
-        $message = new Message();
-        $message->name = $request['fullname'];
-        $message->email = $request['email'];
-        $message->subject = $request['subject'];
-        $message->message = $request['message'];
-        $result = $message->save();
+        $result = Message::create([
+            'name' => $request->fullname,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+        ]);
+        
 
         if($result){
             return back()->with('success','Send Successfully');

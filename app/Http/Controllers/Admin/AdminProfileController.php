@@ -12,30 +12,28 @@ class AdminProfileController extends Controller
 {
     public function index()
     {
-        $user = User::count();
-        $students = Student::count();
-        $data = compact('user','students');
-        return view('admin.profile')->with($data);
+        $data['user'] = User::count();
+        $data['students'] = Student::count();
+
+        return view('admin.profile', $data);
     }
 
     public function update(Request $request)
     {
-        $request->validate(
-            [
-                'name' => 'required',
-                'email' => 'required|email',
-                'phone' => 'required|min:11',
-                'bio' => 'required',
-            ]
-        );
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email:filter',
+            'phone' => 'required|min:11',
+            'bio' => 'required',
+        ]);
 
         //Insert Query
-        $user = User::find(Auth::user()->id);
-        $user->name = $request['name'];
-        $user->email = $request['email'];
-        $user->phone = $request['phone'];
-        $user->bio = $request['bio'];
-        $result = $user->save();
+        $result = User::findOrFail(Auth::user()->id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'bio' => $request->bio,
+        ]);
 
         if($result){
             return back()->with('success','Profile Update Successfully');

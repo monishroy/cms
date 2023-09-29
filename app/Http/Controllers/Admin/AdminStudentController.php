@@ -28,8 +28,9 @@ class AdminStudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
-        return view('admin.students', compact('students'));
+        $data['students'] = Student::all();
+        
+        return view('admin.students', $data);
     }
 
     /**
@@ -94,7 +95,7 @@ class AdminStudentController extends Controller
         $imagename = date('dmY').time()."-student.".$request->file('image')->getClientOriginalExtension();
         $request->file('image')->storeAs('public/users',$imagename);
 
-        //Insert Employee
+        //Insert Student
         $student = Student::create([
             'fname' => $request->fname,
             'lname' => $request->lname,
@@ -191,19 +192,16 @@ class AdminStudentController extends Controller
      */
     public function edit($id)
     {
-        $student = Student::find($id);
-        if(is_null($student)){
-            return back()->with('error','Student Not Found!');
-        }else{
-            $url = route('students.update', $id);
-            $title_header = 'Update Student';
-            $semister = Semister::all();
-            $department = Department::all();
-            $session = Session::all();
+        $data['student'] = Student::findOrFail($id);
+        $data['departments'] = Department::all();
+        $data['sessions'] = Session::all();
+        $data['semisters'] = Semister::all();
+        $data['blood_groups'] = BloodGroup::all();
+        $data['divisions'] = Division::all();
+        $data['boards'] = Board::all();
+        $data['academic_exams'] = AcademicExam::all();
 
-            $data = compact('student','url','title_header','semister','department','session');
-            return view('admin.add-student')->with($data);
-        }
+        return view('admin.add-student', $data);
     }
 
     /**
@@ -216,48 +214,39 @@ class AdminStudentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'fname' => 'required|min:3',
-            'lname' => 'required|min:3',
-            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:1024',
+            'fname' => 'required',
+            'lname' => 'required',
+            'father_name' => 'required',
+            'mother_name' => 'required',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024',
             'email' => 'required|email:filter',
-            'roll' => 'required',
-            'registration' => 'required',
-            'session' => 'required',
+            'roll' => 'required|numeric',
+            'registration' => 'required|numeric',
+            'dob' => 'required',
+            'gender' => 'required',
+            'phone' => 'required|max:12|min:11',
+            'guardian_phone' => 'required|max:12|min:11',
             'department' => 'required',
             'semister' => 'required',
-            'phone' => 'required|max:12|min:11',
-            'gPhone' => 'required|max:12|min:11',
-            'address' => 'required',
+            'session' => 'required',
+            'blood_group' => 'required',
+            'nationality' => 'required',
+            'division' => 'required',
+            'district' => 'required',
+            'upazila' => 'required',
+            'present_address' => 'required',
+            'permanent_address' => 'required',
+            'exam_name' => 'required',
+            'passing_year' => 'required',
+            'board' => 'required',
+            'board_roll' => 'required|numeric',
+            'reg_no' => 'required|numeric',
+            'gpa' => 'required',
+            'marksheet' => 'required|image|mimes:png,jpg,jpeg|max:1024',
+            'certificate' => 'nullable|image|mimes:png,jpg,jpeg|max:1024',
         ]);
 
-        $student = Student::find($id);
-        $student->fname = $request['fname'];
-        $student->lname = $request['lname'];
-        if(is_file($request->image)){
-            $imageName = date('dmY').time()."si-$student->id.".$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('public/users',$imageName);
-            
-            // if($student->image != '1.png' && $student->image != '2.png' && $student->image != '3.png' && $student->image != '4.png' && $student->image != '5.png'){
-            //     $imagePath = public_path('storage/users/'. $student->image);
-            //     unlink($imagePath);
-            // }
-            $student->image = $imageName;
-        }
-        $student->roll = $request['roll'];
-        $student->registration = $request['registration'];
-        $student->department_id = $request['department'];
-        $student->session_id = $request['session'];
-        $student->phone = $request['phone'];
-        $student->gPhone = $request['gPhone'];
-        $student->semister_id = $request['semister'];
-        $student->address = $request['address'];
-        $result = $student->save();
-
-        if($result){
-            return back()->with('success','Student Update Successfully');
-        }else{
-            return back()->with('error','Something is Worng!');
-        }
+        dd($request);
     }
 
     /**
@@ -268,10 +257,10 @@ class AdminStudentController extends Controller
      */
     public function destroy($id)
     {
-        $$result = Student::find($id)->delete();
+        $result = Student::findOrFail($id)->delete();
 
         if($result){
-            return back()->with('success','Technology Delete Successfully');
+            return back()->with('success','Student Delete Successfully');
         }else{
             return back()->with('error','Something is Worng!');
         }
