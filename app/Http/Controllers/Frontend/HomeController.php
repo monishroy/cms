@@ -15,7 +15,9 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::user()) {
-            if(auth()->user()->role === 'admin'){
+            if(auth()->user()->role === 'super-admin'){
+                return redirect()->route('super-admin.dashboard');
+            }elseif(auth()->user()->role === 'admin'){
                 return redirect()->route('admin.dashboard');
             }elseif(auth()->user()->role === 'student'){
                 return redirect()->route('student.profile');
@@ -24,7 +26,7 @@ class HomeController extends Controller
             }elseif(auth()->user()->role === 'librarian'){
                 return redirect()->route('librarian.profile');
             }else{
-                return redirect()->route('notice');
+                return redirect('/login');
             }
         } else {
             $data['notices'] = Notice::all();

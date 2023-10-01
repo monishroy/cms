@@ -15,7 +15,7 @@
       @foreach ($employees as $employee)
       <div class="row mt-2 py-5 align-items-center">
         <div class="col-lg-5">
-          <img src="{{ url("storage/employees/$employee->image") }}" class="img-fluid rounded border border-4" alt="" style="max-height:300px" />
+          <img src="{{ asset("storage/users/$employee->image") }}" class="img-fluid rounded border border-4" alt="" style="max-height:300px" />
         </div>
         <div class="col-lg-6 offset-lg-1">
           <h3 class="fw-normal">{{ $employee->name }}</h3>

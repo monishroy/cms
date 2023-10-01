@@ -41,21 +41,34 @@ class LibrarianBooksIssueController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'student' => 'required|exists:users,id',
-            'book' => 'required|exists:books,id',
+            'inputs.*.student' => 'required|exists:users,id',
+            'inputs.*.book_code' => 'required|exists:books,book_code',
+        ],
+        [
+            'inputs.*.student.required' => 'The student field is required',
+            'inputs.*.book_code.required' => 'The book code field is required',
+            'inputs.*.book_code.exists' => 'The book not found',
         ]);
 
         $issue_date = date('Y-m-d h:i:s');
 
-        IssueBook::create([
-            'student_id' => $request->student,
-            'book_id' => $request->book,
-            'issue_date' => $issue_date,
-        ]);
+        foreach ($request->inputs as $value) {
 
-        $result = Book::findOrFail($request->book)->update([
-            'status' => 0,
-        ]);
+            $student_id = $value['student'];
+
+            $book = Book::where('book_code', $value['book_code'])->first();
+            $book_id = $book->id;
+
+            IssueBook::create([
+                'student_id' => $student_id,
+                'book_id' => $book_id,
+                'issue_date' => $issue_date,
+            ]);
+
+            $result = Book::findOrFail($book_id)->update([
+                'status' => 0,
+            ]);
+        }
         
         if($result){
             return back()->with('success','Book Issue Successfully');

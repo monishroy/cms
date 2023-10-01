@@ -95,35 +95,67 @@
                         </li>
                         <li class="side-nav-title side-nav-item">Settings</li>
                         <li class="side-nav-item">
-                            <a href="{{ route('admin.setup') }}" class="side-nav-link">
+                            <a href="{{ route('setup.index') }}" class="side-nav-link">
                                 <i class="uil-layers-alt"></i>
                                 <span> Setup </span>
                             </a>
                         </li>
                         <li class="side-nav-item">
-                            <a href="{{ route('users.index') }}" class="side-nav-link">
+                            <a href="{{ route('a-users.index') }}" class="side-nav-link">
                                 <i class="uil-shield-check"></i>
                                 <span> Users </span>
                             </a>
                         </li>
                         <li class="side-nav-title side-nav-item">Frontend</li>
                         <li class="side-nav-item">
-                            <a href="{{ route('notice.index') }}" class="side-nav-link">
-                                <i class=" uil-notes"></i>
-                                <span> Notice Board </span>
+                            <a data-bs-toggle="collapse" href="#Notice" aria-expanded="false" aria-controls="Notice" class="side-nav-link">
+                                <i class="uil-clipboard"></i>
+                                <span> Notice </span>
+                                <span class="menu-arrow"></span>
                             </a>
+                            <div class="collapse" id="Notice">
+                                <ul class="side-nav-second-level">
+                                    <li class="side-nav-item">
+                                        <a data-bs-toggle="collapse" href="#addNotice" aria-expanded="false" aria-controls="addNotice">
+                                            <span> Add Notice </span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <div class="collapse" id="addNotice">
+                                            <ul class="side-nav-third-level">
+                                                <li>
+                                                    <a href="{{ route('admin.notice.create') }}">New Notice</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('admin.notice.panding') }}">Panding Notice</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('admin.notice.declined') }}">Declined Notice</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.notice.index') }}"> Notice List</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="side-nav-item">
-                            <a href="{{ route('technology.create') }}" class="side-nav-link">
-                                <i class=" uil-file-plus"></i>
-                                <span> Add Technology </span>
+                            <a data-bs-toggle="collapse" href="#technology" aria-expanded="false" aria-controls="technology" class="side-nav-link">
+                                <i class="uil-award"></i>
+                                <span> Technology </span>
+                                <span class="menu-arrow"></span>
                             </a>
-                        </li>
-                        <li class="side-nav-item">
-                            <a href="{{ route('technology.index') }}" class="side-nav-link">
-                                <i class=" uil-clapper-board"></i>
-                                <span> Technologys </span>
-                            </a>
+                            <div class="collapse" id="technology">
+                                <ul class="side-nav-second-level">                                    
+                                    <li>
+                                        <a href="{{ route('a-technology.create') }}"> Add Technology</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('a-technology.index') }}"> Technology List</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="side-nav-item">
                             <a data-bs-toggle="collapse" href="#employee" aria-expanded="false" aria-controls="employee" class="side-nav-link">
@@ -141,19 +173,19 @@
                                         <div class="collapse" id="addemployee">
                                             <ul class="side-nav-third-level">
                                                 <li>
-                                                    <a href="{{ route('employees.create') }}">New Employee</a>
+                                                    <a href="{{ route('a-employees.create') }}">New Employee</a>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript: void(0);">Panding Employee</a>
+                                                    <a href="{{ route('admin.employees.panding') }}">Panding Employee</a>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript: void(0);">Declined Employee</a>
+                                                    <a href="{{ route('admin.employees.declined') }}">Declined Employee</a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="{{ route('employees.index') }}"> Employee List</a>
+                                        <a href="{{ route('a-employees.index') }}"> Employee List</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)"> Employee Attendance</a>
@@ -166,7 +198,7 @@
                         </li>
                         <li class="side-nav-item">
                             <a data-bs-toggle="collapse" href="#student" aria-expanded="false" aria-controls="student" class="side-nav-link">
-                                <i class="uil-graduation-hat"></i>
+                                <i class="dripicons-graduation"></i>
                                 <span> Student </span>
                                 <span class="menu-arrow"></span>
                             </a>
@@ -180,7 +212,7 @@
                                         <div class="collapse" id="addstudent">
                                             <ul class="side-nav-third-level">
                                                 <li>
-                                                    <a href="{{ route('students.create') }}">New Student</a>
+                                                    <a href="{{ route('a-students.create') }}">New Student</a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript: void(0);">Panding Student</a>
@@ -192,7 +224,7 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="{{ route('students.index') }}"> Student List</a>
+                                        <a href="{{ route('a-students.index') }}"> Student List</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)"> Student Attendance</a>
@@ -206,7 +238,7 @@
                         
                         <li class="side-nav-title side-nav-item">Contact</li>
                         <li class="side-nav-item">
-                            <a href="{{ route('message.index') }}" class="side-nav-link">
+                            <a href="{{ route('admin.message.index') }}" class="side-nav-link">
                                 <i class="uil-envelopes"></i>
                                 <span> Message </span>
                             </a>

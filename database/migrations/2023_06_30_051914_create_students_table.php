@@ -37,6 +37,8 @@ class CreateStudentsTable extends Migration
             $table->foreignId('upazila_id')->constrained()->onDelete('cascade');
             $table->text('present_address');
             $table->text('permanent_address');
+            $table->enum('status',['0','1','2'])->default('0');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

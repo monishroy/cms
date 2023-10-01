@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Status
+class SuperAdmin
 {
     /**
      * Handle an incoming request.
@@ -17,11 +17,11 @@ class Status
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->status == 1) {
+        if(auth()->user()->role === 'super-admin') {
             return $next($request);
         }else {
             Auth::logout();
-            return redirect()->route('login')->with('error','Your accout is deactive!');
+            return redirect()->route('login')->with('error','Your accout not Permission!');
         }
     }
 }

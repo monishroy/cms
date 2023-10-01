@@ -33,10 +33,10 @@ class DatabaseSeeder extends Seeder
             DivisionSeeder::class,
             DistrictSeeder::class,
             UpazilaSeeder::class,
-            // StudentSeeder::class,
             UserSeeder::class,
             NoticeSeeder::class,
-            // EmployeeSeeder::class,
+            StudentSeeder::class,
+            EmployeeSeeder::class,
         ]);
     }
 }

@@ -26,46 +26,65 @@
                       </div>
                       <div class="col-lg-4 col-12">
                         <div class="mb-3">
-                          <label class="form-label" for="student">Name</label>
-                          <input type="text" name="book_code" class="form-control" value="{{ $student->fname.' '.$student->lname }}" readonly>
+                          <p class="text-muted">
+                            <i class="uil-check-circle text-success fs-4 lh-2"></i>
+                            <strong> Name :</strong>
+                            <span class="ms-2">{{ $student->fname.' '.$student->lname }}</span>
+                          </p>
                         </div>
                       </div>
                       <div class="col-lg-4 col-12">
                         <div class="mb-3">
-                          <label class="form-label" for="student">Department</label>
-                          <input type="text" name="book_code" class="form-control" value="{{ $student->department->name }}" readonly>
+                          <p class="text-muted">
+                            <i class="uil-check-circle text-success fs-4 lh-2"></i>
+                            <strong> Department :</strong>
+                            <span class="ms-2">{{ $student->department->name }}</span>
+                          </p>
                         </div>
                       </div>
                       <div class="col-lg-4 col-12">
                         <div class="mb-3">
-                          <label class="form-label" for="student">Semister</label>
-                          <input type="text" name="book_code" class="form-control" value="{{ $student->semister->name }}" readonly>
+                          <p class="text-muted">
+                            <i class="uil-check-circle text-success fs-4 lh-2"></i>
+                            <strong> Semister :</strong>
+                            <span class="ms-2">{{ $student->semister->name }}</span>
+                          </p>
                         </div>
                       </div>
                     </div>
-                    <form action="{{ route('issue.store') }}" method="POST">
+                    @if ($errors->any())
+                      <div class="text-danger">
+                        <ul>
+                          @foreach ($errors->all() as $index=>$error)
+                            <li>{{ $error }}</li>
+                          @endforeach
+                        </ul>
+                      </div>
+                    @endif
+                    <form class="needs-validation" action="{{ route('issue.store') }}" method="POST" novalidate>
                       @csrf
-                      <div class="mb-3">
-                        <label class="form-label" for="book">Book </label>
-                        <input type="hidden" name="student" value="{{ $student->id }}">
-                        <div class="row">
-                          <div class="col-lg-10 col-12 mb-3">
-                            <select class="form-control select2" name="book" id="book" data-toggle="select2">
-                              <optgroup label="Select book">
-                                @foreach ($books as $book)
-                                <option value="{{ $book->id }}">{{ucwords($book->name).'-'.$book->subject_code.' ('.$book->book_code.') '}}</option>
-                                @endforeach
-                              </optgroup>
-                            </select>
-                          </div>
-                          <div class="col-lg-2 col-12 text-end">
-                            <button class="btn btn-outline-primary" type="submit">Issue Book</button>
+                      <div class="mb-1" id="book-section">
+                        <div>
+                          <label class="form-label" for="book">Book Code</label>
+                          <input type="hidden" name="inputs[1][student]" value="{{ $student->id }}">
+                          <div class="row">
+                            
+                            <div class="col-lg-11 col-12 mb-3">
+                              <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupSelect01">01</label>
+                                <input type="text" name="inputs[1][book_code]" class="form-control" placeholder="Enter Book Code" value="{{ old('inputs[0][book_code]') }}" required>
+                              </div>
+                              <div class="invalid-feedback">
+                                Please enter book code.
+                              </div>
+                            </div>
+                            <div class="col-lg-1 col-12 text-end">
+                              <button class="btn btn-outline-primary" id="addMore" type="button"><i class="uil-plus"></i></button>
+                            </div>
                           </div>
                         </div>
-                        @error('book')
-                        <span class="text-danger form-text"><small>{{$message}}</small></span>
-                        @enderror
                       </div>
+                      <button class="btn btn-primary" type="submit">Issue Book</button>
                     </form>
                   </div>
                 </div>
@@ -79,4 +98,33 @@
         </div>
         <!-- content -->
 
+<!-- Add More Script -->
+<script>
+  var i = 1;
+  $('#addMore').click(function(){
+    ++i;
+    $('#book-section').append(
+    `<div id="more">
+      <input type="hidden" name="inputs[`+i+`][student]" value="{{ $student->id }}">
+      <div class="row">
+        <div class="col-lg-11 col-12 mb-3">
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">0`+i+`</label>
+            <input type="text" name="inputs[`+i+`][book_code]" class="form-control" placeholder="Enter Book Code" value="{{ old('inputs[`+i+`][book_code]') }}" required>
+          </div>
+          <div class="invalid-feedback">
+            Please enter book code.
+          </div>
+        </div>
+        <div class="col-lg-1 col-12 text-end">
+          <button type="button" class="btn btn-outline-danger remove-table-row" ><i class="uil-minus"></i></button>
+        </div>
+      </div>
+    </div>`);
+  });
+
+  $(document).on('click','.remove-table-row', function(){
+      $(this).parents('#more').remove();
+  })
+</script>
 @endsection

@@ -15,7 +15,7 @@ class AcademicExamSeeder extends Seeder
      */
     public function run()
     {
-        $data = ['SSC','HSC','Honours','Masters'];
+        $data = ['SSC','HSC','B.Sc','M.Sc'];
         
         for ($i=0; $i < count($data); $i++) { 
             AcademicExam::create([

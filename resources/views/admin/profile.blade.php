@@ -145,7 +145,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="header-title mb-3">Update Profile</h4>
-                    <form action="{{ route('profile.update') }}" method="POST">
+                    <form action="{{ route('admin.profile.update') }}" method="POST">
                       @csrf
                       <div class="row">
                         <div class="col-md-4">

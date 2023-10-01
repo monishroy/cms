@@ -33,24 +33,33 @@
                       </div>
                       <div class="col-lg-4 col-12">
                         <div class="mb-3">
-                          <label class="form-label" for="student">Name</label>
-                          <input type="text" name="book_code" class="form-control" value="{{ $student->fname.' '.$student->lname }}" readonly>
+                          <p class="text-muted">
+                            <i class="uil-check-circle text-success fs-4 lh-2"></i>
+                            <strong> Name :</strong>
+                            <span class="ms-2">{{ $student->fname.' '.$student->lname }}</span>
+                          </p>
                         </div>
                       </div>
                       <div class="col-lg-4 col-12">
                         <div class="mb-3">
-                          <label class="form-label" for="student">Department</label>
-                          <input type="text" name="book_code" class="form-control" value="{{ $student->department->name }}" readonly>
+                          <p class="text-muted">
+                            <i class="uil-check-circle text-success fs-4 lh-2"></i>
+                            <strong> Department :</strong>
+                            <span class="ms-2">{{ $student->department->name }}</span>
+                          </p>
                         </div>
                       </div>
                       <div class="col-lg-4 col-12">
                         <div class="mb-3">
-                          <label class="form-label" for="student">Semister</label>
-                          <input type="text" name="book_code" class="form-control" value="{{ $student->semister->name }}" readonly>
+                          <p class="text-muted">
+                            <i class="uil-check-circle text-success fs-4 lh-2"></i>
+                            <strong> Semister :</strong>
+                            <span class="ms-2">{{ $student->semister->name }}</span>
+                          </p>
                         </div>
                       </div>
                     </div>
-                    @foreach ($issue_books as $issue_book)
+                    @forelse ($issue_books as $issue_book)
                     <form class="row" action="{{ route('return.book', $issue_book->id) }}" method="POST">
                       @csrf
                       <div class="col-lg-6 col-12">
@@ -71,7 +80,14 @@
                         </div>
                       </div>
                     </form>
-                    @endforeach
+                    @empty
+                    <div class="text-center mt-4">
+                      <img src="{{ url('admin/assets/images/not-found.png') }}" height="100" alt="File not found Image">
+                      <h4 class="text-uppercase text-muted">
+                        Books Not Found
+                      </h4>
+                    </div>
+                    @endforelse 
                   </div>
                 </div>
               </div>

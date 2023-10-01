@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('otp')->nullable();
             $table->string('password');
-            $table->enum('role',['admin','student','teacher','librarian'])->default('student');
+            $table->enum('role',['super-admin','admin','student','teacher','librarian'])->default('student');
             $table->boolean('status')->default(1);
             $table->string('expire_otp')->nullable();
             $table->string('token')->nullable();

@@ -20,8 +20,8 @@
                           </a>
                           <div class="dropdown-menu dropdown-menu-end" style="">
                             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view-{{ $technology->id }}" class="dropdown-item">View</a>
-                            <a href="{{ route('technology.edit', $technology->id) }}" class="dropdown-item">Edit</a>
-                            <form action="{{ route('technology.destroy', $technology->id) }}" method="POST">
+                            <a href="{{ route('a-technology.edit', $technology->id) }}" class="dropdown-item">Edit</a>
+                            <form action="{{ route('a-technology.destroy', $technology->id) }}" method="POST">
                               @csrf
                               @method('DELETE')
                               <button type="submit" class="dropdown-item">Delete</button>

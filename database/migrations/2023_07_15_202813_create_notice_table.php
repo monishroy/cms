@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('notice', function (Blueprint $table) {
             $table->id();
-            $table->text('notice_title',);
-            $table->string('notice_file');
+            $table->text('name',);
+            $table->string('file');
             $table->string('download')->default(0);
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->enum('status',['0','1','2'])->default('0');
             $table->timestamps();
         });
     }

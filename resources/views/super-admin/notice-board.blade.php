@@ -1,4 +1,4 @@
-﻿@extends('admin.layouts.main')
+﻿@extends('super-admin.layouts.main')
 
 @section('title', 'Notice Board')
 @section('main-section')

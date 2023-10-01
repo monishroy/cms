@@ -27,7 +27,7 @@ class AdminTechnologyController extends Controller
      */
     public function create()
     {
-        $data['url'] = route('technology.store');
+        $data['url'] = route('a-technology.store');
         $data['title'] = 'Add Technology';
 
         return view('admin.add-technology', $data);
@@ -92,7 +92,7 @@ class AdminTechnologyController extends Controller
      */
     public function edit($id)
     {
-        $data['url'] = route('technology.update', $id);
+        $data['url'] = route('a-technology.update', $id);
         $data['title'] = 'Update Technology';
         $data['technology'] = Technology::findOrFail($id);
 

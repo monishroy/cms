@@ -72,6 +72,8 @@
     $.NotificationApp.send("Title","Your awesome message text","bottom-right","success","Icon")
 </script> --}}
 <!-- bundle -->
+
+
 <script src="{{url('admin/assets/js/vendor.min.js')}}"></script>
 <script src="{{url('admin/assets/js/app.min.js')}}"></script>
 

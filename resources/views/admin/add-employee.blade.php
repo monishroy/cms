@@ -10,7 +10,7 @@
                     <!-- end nav-->
                     <div class="tab-content">
                       <div class="tab-pane show active" id="custom-styles-preview">
-                        <form class="needs-validation" action="{{ route('employees.store') }}" method="POST" novalidate="" enctype="multipart/form-data">
+                        <form class="needs-validation" action="{{ route('a-employees.store') }}" method="POST" novalidate="" enctype="multipart/form-data">
                           @csrf
                           <h5 class="mb-4 text-uppercase">
                             <i class="mdi mdi-account-circle me-1"></i> Personal Info

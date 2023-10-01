@@ -17,11 +17,24 @@ class EmployeeSeeder extends Seeder
     {
         Employee::create([
             'name'=>"Emdadul Hock",
+            'father_name' => "Mahafuz islam",
+            'mother_name' => "Farena Khatun",
             'image'=>"240920231695573624-employees.jpg",
             'email'=>"emdadulhaque1995@gmail.com",
-            'phone'=>"01750403009",
+            'dob' => "15-Aug-1982",
+            'gender' => "M",
+            'merital_status' => 'merried',
+            'phone' => "01750403009",
             'department_id'=>1,
             'position_id'=>2,
+            'blood_group_id' => 5,
+            'nationality' => "Bangladeshi",
+            'division_id' => 7,
+            'district_id' => 59,
+            'upazila_id' => 440,
+            'present_address' => "Rangpur RCIT",
+            'permanent_address' => "Rangpur Sadar",
+            'user_id' => 1,
         ]);
     }
 }

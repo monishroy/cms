@@ -18,10 +18,8 @@
                           <th>Status</th>
                           <th>Role</th>
                           <th>Added</th>
-                          <th>Action</th>
                         </tr>
                       </thead>
-
                       <tbody>
                         @foreach ($users as $index=>$users)
                         <tr>
@@ -34,104 +32,26 @@
                           <td>{{$users->phone}}</td>
                           <td>
                             @if ($users->status == "1")
-                              <a href="{{route('user.status.deactive',['id'=>$users->id])}}"><span class="badge badge-outline-success">Active</span></a>
+                              <span class="badge badge-outline-success">Active</span>
                             @else
-                              <a href="{{route('user.status.active',['id'=>$users->id])}}"><span class="badge badge-outline-danger">Deactive</span></a>
+                              <span class="badge badge-outline-danger">Deactive</span>
                             @endif
                           </td>
                           <td>
-                            @if ($users->role == "admin")
-                              <span class="badge badge-outline-primary">Admin</span>
+                            @if ($users->role == "super-admin")
+                              <span class="badge badge-outline-primary">{{ $users->role }}</span>
+                            @elseif ($users->role == "admin")
+                              <span class="badge badge-outline-danger">{{ $users->role }}</span>
                             @elseif ($users->role == "teacher")
-                              <span class="badge badge-outline-success">Teacher</span>
+                              <span class="badge badge-outline-success">{{ $users->role }}</span>
                             @elseif ($users->role == "librarian")
-                              <span class="badge badge-outline-warning">Librarian</span>
+                              <span class="badge badge-outline-warning">{{ $users->role }}</span>
                             @else
                               <span class="badge badge-outline-info">Student</span>
                             @endif
                           </td>
                           <td>{{ Carbon\Carbon::parse($users->created_at)->diffForHumans() }}</td>
-                          <td class="table-action">
-                            <a href="javascript: void(0);" data-bs-toggle="modal" data-bs-target="#edit-{{ $users->id }}" class="btn btn-sm btn-success">
-                              <i class=" uil-edit"></i>
-                            </a>
-                          </td>
                         </tr>
-
-                        {{-- Model Start --}}
-                        <div class="modal fade" id="edit-{{ $users->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                              <div class="modal-header bg-primary">
-                                <h4 class="modal-title text-white" id="myLargeModalLabel">Update User</h4>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
-                              </div>
-                              <div class="modal-body">
-                                <form class="needs-validation row" action="{{ route('users.update', $users->id) }}" method="POST" novalidate="">
-                                  @csrf
-                                  @method('PUT')
-                                  <div class="row">
-                                    <div class="col-md-6 col-12">
-                                      <div class="mb-3">
-                                        <label class="form-label" for="name">Full Name<span class="text-danger"> *</span></label>
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="Full Name" required="" value="{{ $users->name }}">
-                                        <div class="invalid-feedback">
-                                          Please enter name.
-                                        </div>
-                                        @error('name')
-                                          <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                        @enderror
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="mb-3">
-                                        <label class="form-label" for="email">Email<span class="text-danger"> *</span></label>
-                                        <input type="text" class="form-control" name="email" id="email" placeholder="Email" required="" value="{{ $users->email }}">
-                                        <div class="invalid-feedback">
-                                          Please enter email.
-                                        </div>
-                                        @error('email')
-                                          <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                        @enderror
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="mb-3">
-                                        <label class="form-label" for="phone">Phone Number<span class="text-danger"> *</span></label>
-                                        <input type="text" class="form-control" name="phone" data-toggle="input-mask" data-mask-format="01000000000" maxlength="11" placeholder="01XX-NNNNNNN" required="" value="{{ $users->phone }}">
-                                        <div class="invalid-feedback">
-                                          Please enter Phone Number.
-                                        </div>
-                                        @error('phone')
-                                          <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                        @enderror
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3 col-12">
-                                      <label class="form-label" for="role">Role</label>
-                                      <select class="form-control" name="role" >
-                                        <optgroup label="Select Role">
-                                          <option @if ($users->role == 'admin') selected @else @endif value="admin">Admin</option>
-                                          <option @if ($users->role == 'student') selected @else @endif value="student">Student</option>
-                                          <option @if ($users->role == 'teacher') selected @else @endif value="teacher">Teacher</option>
-                                          <option @if ($users->role == 'librarian') selected @else @endif value="librarian">Librarian</option>
-                                        </optgroup>
-                                      </select>
-                                      <div class="invalid-feedback">
-                                          Please enter Role.
-                                      </div>
-                                      @error('role')
-                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                      @enderror
-                                    </div>
-                                  </div>
-                                  <button type="submit" class="btn btn-sm btn-primary float-end">Submit</button>
-                                </form>
-                              </div>
-                            </div><!-- /.modal-content -->
-                          </div><!-- /.modal-dialog -->
-                        </div><!-- /.modal -->
-                        
                         @endforeach
                       </tbody>
                     </table>

@@ -27,7 +27,7 @@
         <!-- Datatables css -->
         <link href="{{url('admin/assets/css/vendor/dataTables.bootstrap5.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{url('admin/assets/css/vendor/responsive.bootstrap5.css')}}" rel="stylesheet" type="text/css" />
-
+        <script src="{{url('admin/assets/js/jquery/jquery-3.5.1.min.js')}}"></script>
     </head>
 
     <body

@@ -26,7 +26,25 @@ class AdminEmployeesController extends Controller
      */
     public function index()
     {
-        $data['employees'] = Employee::all();
+        $data['employees'] = Employee::where('status', '1')->get();
+        $data['title'] = 'Employees';
+
+        return view('admin.employees', $data);
+    }
+        
+    public function panding()
+    {
+        $data['employees'] = Employee::where('status', '0')->get();
+        $data['title'] = 'Panding Employees';
+
+
+        return view('admin.employees', $data);
+    }
+
+    public function declined()
+    {
+        $data['employees'] = Employee::where('status', '2')->get();
+        $data['title'] = 'Declined Employees';
 
         return view('admin.employees', $data);
     }
@@ -163,7 +181,7 @@ class AdminEmployeesController extends Controller
         $data['boards'] = Board::all();
         $data['academic_exams'] = AcademicExam::all();
 
-        return view('admin.add-employee', $data);
+        return view('admin.edit-employee', $data);
     }
 
     /**
@@ -179,7 +197,7 @@ class AdminEmployeesController extends Controller
             'name' => 'required',
             'father_name' => 'required',
             'mother_name' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg|max:1024',
+            'image' => 'nullable|image|mimes:png,jpg,jpeg|max:1024',
             'email' => 'required|email:filter',
             'dob' => 'required',
             'gender' => 'required',
@@ -194,17 +212,64 @@ class AdminEmployeesController extends Controller
             'upazila' => 'required',
             'present_address' => 'required',
             'permanent_address' => 'required',
-            'exam_name' => 'required',
-            'passing_year' => 'required',
-            'board' => 'required',
-            'roll' => 'required|numeric',
-            'reg_no' => 'required|numeric',
-            'gpa' => 'required',
-            'marksheet' => 'required|image|mimes:png,jpg,jpeg|max:1024',
-            'certificate' => 'required|image|mimes:png,jpg,jpeg|max:1024',
         ]);
 
-        dd($request);
+        if($request->image){
+
+            $imagename = date('dmY').time()."-employees.".$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('public/users',$imagename);
+
+            //Insert Employee
+            $employee = Employee::findOrFail($id)->update([
+                'name' => $request->name,
+                'father_name' => $request->father_name,
+                'mother_name' => $request->mother_name,
+                'image' => $imagename,
+                'email' => $request->email,
+                'dob' => $request->dob,
+                'gender' => $request->gender,
+                'merital_status' => $request->merital_status,
+                'phone' => $request->phone,
+                'department_id' => $request->department,
+                'position_id' => $request->position,
+                'blood_group_id' => $request->blood_group,
+                'nationality' => $request->nationality,
+                'division_id' => $request->division,
+                'district_id' => $request->district,
+                'upazila_id' => $request->upazila,
+                'present_address' => $request->present_address,
+                'permanent_address' => $request->permanent_address,
+            ]);
+
+        }else{
+
+            $employee = Employee::findOrFail($id)->update([
+                'name' => $request->name,
+                'father_name' => $request->father_name,
+                'mother_name' => $request->mother_name,
+                'email' => $request->email,
+                'dob' => $request->dob,
+                'gender' => $request->gender,
+                'merital_status' => $request->merital_status,
+                'phone' => $request->phone,
+                'department_id' => $request->department,
+                'position_id' => $request->position,
+                'blood_group_id' => $request->blood_group,
+                'nationality' => $request->nationality,
+                'division_id' => $request->division,
+                'district_id' => $request->district,
+                'upazila_id' => $request->upazila,
+                'present_address' => $request->present_address,
+                'permanent_address' => $request->permanent_address,
+            ]);
+        }
+
+        if($employee){
+            return back()->with('success','Employee Update Successfully');
+        }else{
+            return back()->with('error','Something is Worng!');
+        }
+        
     }
 
     /**
@@ -224,6 +289,5 @@ class AdminEmployeesController extends Controller
         }
         
     }
-
 
 }

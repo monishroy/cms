@@ -9,7 +9,7 @@
                   <div class="card-body">
                     <div class="row mb-2">
                       <div class="col-sm-4">
-                        <a href="{{route('students.create')}}" class="btn btn-primary mb-2"><i class="mdi mdi-plus-circle me-2"></i> Add
+                        <a href="{{route('a-students.create')}}" class="btn btn-primary mb-2"><i class="mdi mdi-plus-circle me-2"></i> Add
                           Student</a>
                       </div>
                       <div class="col-sm-8">
@@ -67,9 +67,9 @@
                               </a>
                               <div class="dropdown-menu dropdown-menu-end" style="">
                                 <!-- item-->
-                                <a href="{{route('students.edit', $student->id)}}" class="dropdown-item">Edit</a>
+                                <a href="{{route('a-students.edit', $student->id)}}" class="dropdown-item">Edit</a>
                                 <!-- item-->
-                                <form action="{{ route('students.destroy', $student->id) }}" method="POST">
+                                <form action="{{ route('a-students.destroy', $student->id) }}" method="POST">
                                   @csrf
                                   @method('DELETE')
                                   <button type="submit" class="dropdown-item">Delete</button>

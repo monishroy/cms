@@ -10,14 +10,9 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Semister;
 use App\Models\Department;
-use App\Models\District;
 use App\Models\Division;
 use App\Models\Session;
 use App\Models\StudentAcademicInfo;
-use App\Models\Upazila;
-use App\Models\User as ModelsUser;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 
 class AdminStudentController extends Controller
 {
@@ -201,7 +196,7 @@ class AdminStudentController extends Controller
         $data['boards'] = Board::all();
         $data['academic_exams'] = AcademicExam::all();
 
-        return view('admin.add-student', $data);
+        return view('admin.edit-student', $data);
     }
 
     /**
@@ -236,17 +231,41 @@ class AdminStudentController extends Controller
             'upazila' => 'required',
             'present_address' => 'required',
             'permanent_address' => 'required',
-            'exam_name' => 'required',
-            'passing_year' => 'required',
-            'board' => 'required',
-            'board_roll' => 'required|numeric',
-            'reg_no' => 'required|numeric',
-            'gpa' => 'required',
-            'marksheet' => 'required|image|mimes:png,jpg,jpeg|max:1024',
-            'certificate' => 'nullable|image|mimes:png,jpg,jpeg|max:1024',
         ]);
 
-        dd($request);
+        $imagename = date('dmY').time()."-student.".$request->file('image')->getClientOriginalExtension();
+        $request->file('image')->storeAs('public/users',$imagename);
+
+        $student = Student::findOrFail($id)->update([
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'father_name' => $request->father_name,
+            'mother_name' => $request->mother_name,
+            'image' => $imagename,
+            'email' => $request->email,
+            'roll' => $request->roll,
+            'registration' => $request->registration,
+            'dob' => $request->dob,
+            'gender' => $request->gender,
+            'phone' => $request->phone,
+            'guardian_phone' => $request->guardian_phone,
+            'department_id' => $request->department,
+            'semister_id' => $request->semister,
+            'session_id' => $request->session,
+            'blood_group_id' => $request->blood_group,
+            'nationality' => $request->nationality,
+            'division_id' => $request->division,
+            'district_id' => $request->district,
+            'upazila_id' => $request->upazila,
+            'present_address' => $request->present_address,
+            'permanent_address' => $request->permanent_address,
+        ]);
+
+        if($student){
+            return back()->with('success','Student Update Successfully');
+        }else{
+            return back()->with('error','Something is Worng!');
+        }
     }
 
     /**
