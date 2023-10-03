@@ -65,6 +65,7 @@
                                 @enderror
                               </div>
                             </div>
+                            @if (Auth::user()->role == 'super-admin')
                             <div class="col-md-6 col-12">
                               <div class="mb-3">
                                 <label class="form-label" for="role">Role<span class="text-danger"> *</span></label>
@@ -96,6 +97,7 @@
                                 @enderror
                               </div>
                             </div>
+                            @endif
                           </div>
                           <button class="btn btn-primary" type="submit">
                             Submit

@@ -16,7 +16,7 @@
                           <div class="col-auto">
                             <div class="avatar-lg">
                               <img
-                                src="{{url('admin/assets/images/users/'.Auth::user()->image)}}"
+                                src="{{ asset('storage/users/'.Auth::user()->image)}}"
                                 alt=""
                                 class="rounded-circle img-thumbnail"
                               />

@@ -74,33 +74,61 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email:filter',
-            'image' => 'nullable|image|mimes:png,jpg,jpeg|max:1024',
-            'phone' => 'required',
-        ]);
         
-        if($request->image){
-
-            $imageName = date('dmY').time()."-user.".$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('public/users',$imageName);
-
-            $result = User::findOrFail($id)->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'image' => $imageName,
-                'phone' => $request->phone,
-                'role' => $request->role,
+        if(Auth::user()->role == 'super-admin'){
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email:filter',
+                'image' => 'nullable|image|mimes:png,jpg,jpeg|max:1024',
+                'phone' => 'required',
+                'role' => 'required',
+                'password' => 'nullable|min:6',
             ]);
+
+            $user = User::findOrFail($id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            if($request->hasFile('image')){
+                $imageName = date('dmY').time()."-user.".$request->file('image')->getClientOriginalExtension();
+                $request->file('image')->storeAs('public/users',$imageName);
+
+                $user->image = $imageName;
+            }
+            $user->phone = $request->phone;
+            $user->role = $request->role;
+            if(!is_null($request->password)){
+                $user->password = Hash::make($request->password);
+            }
+            $result = $user->save();
+            
         }else{
-            $result = User::find($id)->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'role' => $request->role,
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email:filter',
+                'image' => 'nullable|image|mimes:png,jpg,jpeg|max:1024',
+                'phone' => 'required',
             ]);
+
+
+            if($request->image){
+                $imageName = date('dmY').time()."-user.".$request->file('image')->getClientOriginalExtension();
+                $request->file('image')->storeAs('public/users',$imageName);
+
+                $result = User::findOrFail($id)->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'image' => $imageName,
+                    'phone' => $request->phone,
+                ]);
+            }else{
+                $result = User::find($id)->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'phone' => $request->phone,
+                ]);
+            }
         }
+        
 
         if($result){
             return back()->with('success','User Update Successfully');
@@ -117,13 +145,18 @@ class AdminUserController extends Controller
      */
     public function destroy(User $user)
     {
-        $result = $user->delete();
+        if(Auth::user()->role == 'super-admin'){
+            $result = $user->delete();
 
-        if($result){
-            return back()->with('success','User Delete Successfully.');
+            if($result){
+                return back()->with('success','User Delete Successfully.');
+            }else{
+                return back()->with('Something is Worng!');
+            }
         }else{
             return back()->with('Something is Worng!');
         }
+        
     }
 
     public function status_active($id)

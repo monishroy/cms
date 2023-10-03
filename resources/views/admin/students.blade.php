@@ -1,6 +1,6 @@
 ﻿@extends('admin.layouts.main')
 
-@section('title', 'Students')
+@section('title', $title)
 @section('main-section')
 
             <div class="row">
@@ -9,7 +9,7 @@
                   <div class="card-body">
                     <div class="row mb-2">
                       <div class="col-sm-4">
-                        <a href="{{route('students.create')}}" class="btn btn-primary mb-2"><i class="mdi mdi-plus-circle me-2"></i> Add
+                        <a href="{{route('students.create')}}" class="btn btn-primary mb-2"> Add
                           Student</a>
                       </div>
                       <div class="col-sm-8">
@@ -67,11 +67,13 @@
                               <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-primary me-1">
                                 <i class="uil-edit"></i>
                               </a>
+                              @if (Auth::user()->role == 'super-admin')
                               <form action="{{ route('students.destroy', $student->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger"><i class="uil-trash-alt"></i></button>
                               </form>
+                              @endif
                             </div>
                           </td>
                         </tr>

@@ -68,15 +68,14 @@ Route::middleware(['guest'])->group(function(){
     Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
 });
 
-
-//Super Admin Route End
-
 //Admin Route Start
 Route::middleware(['auth','admin'])->group(function(){
     Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
     Route::post('admin/profile/update', [AdminProfileController::class, 'update'])->name('profile.update');
     Route::resource('admin/notice', AdminNoticeController::class);
+    Route::get('admin/notice-panding', [AdminNoticeController::class, 'panding'])->name('notice.panding');
+    Route::get('admin/notice-declined', [AdminNoticeController::class, 'declined'])->name('notice.declined');
     Route::get('admin/notice/download/{file}', [AdminNoticeController::class, 'download'])->name('admin.notice.download');
     Route::get('admin/message', [AdminMessageController::class, 'index'])->name('message.index');
     Route::get('admin/setup/', [AdminSetupController::class, 'index'])->name('setup.index');
@@ -89,7 +88,11 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::post('admin/setup/academic-exam/add', [AdminSetupController::class, 'academic_exam_store'])->name('academic_exam.store');
     Route::resource('admin/technology', AdminTechnologyController::class);
     Route::resource('admin/students', AdminStudentController::class);
+    Route::get('admin/students-panding', [AdminStudentController::class, 'panding'])->name('students.panding');
+    Route::get('admin/students-declined', [AdminStudentController::class, 'declined'])->name('students.declined');
     Route::resource('admin/employees', AdminEmployeesController::class);
+    Route::get('admin/employees-panding', [AdminEmployeesController::class, 'panding'])->name('employees.panding');
+    Route::get('admin/employees-declined', [AdminEmployeesController::class, 'declined'])->name('employees.declined');
     Route::resource('admin/users', AdminUserController::class);
     Route::get('admin/users/active/{id}', [AdminUserController::class, 'status_active'])->name('user.status.active');
     Route::get('admin/users/deactive/{id}', [AdminUserController::class, 'status_deactive'])->name('user.status.deactive');

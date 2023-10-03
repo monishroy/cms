@@ -127,10 +127,10 @@
                                                     <a href="{{ route('notice.create') }}">New Notice</a>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript: void(0);">Panding Notice</a>
+                                                    <a href="{{ route('notice.panding') }}">Panding Notice</a>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript: void(0);">Declined Notice</a>
+                                                    <a href="{{ route('notice.declined') }}">Declined Notice</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -177,10 +177,10 @@
                                                     <a href="{{ route('employees.create') }}">New Employee</a>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript: void(0);">Panding Employee</a>
+                                                    <a href="{{ route('employees.panding') }}">Panding Employee</a>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript: void(0);">Declined Employee</a>
+                                                    <a href="{{ route('employees.declined') }}">Declined Employee</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -216,10 +216,10 @@
                                                     <a href="{{ route('students.create') }}">New Student</a>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript: void(0);">Panding Student</a>
+                                                    <a href="{{ route('students.panding') }}">Panding Student</a>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript: void(0);">Declined Student</a>
+                                                    <a href="{{ route('students.declined') }}">Declined Student</a>
                                                 </li>
                                             </ul>
                                         </div>

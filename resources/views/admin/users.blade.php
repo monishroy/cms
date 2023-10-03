@@ -57,11 +57,13 @@
                               <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-primary me-1">
                                 <i class="uil-edit"></i>
                               </a>
+                              @if (Auth::user()->role == 'super-admin')
                               <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger"><i class="uil-trash-alt"></i></button>
                               </form>
+                              @endif
                             </div>
                           </td>
                         </tr>

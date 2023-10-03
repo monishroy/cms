@@ -30,6 +30,22 @@ class AdminStudentController extends Controller
         return view('admin.students', $data);
     }
 
+    public function panding()
+    {
+        $data['students'] = Student::where('status', '0')->get();
+        $data['title'] = 'Panding Students';
+
+
+        return view('admin.students', $data);
+    }
+
+    public function declined()
+    {
+        $data['students'] = Student::where('status', '2')->get();
+        $data['title'] = 'Declined Students';
+
+        return view('admin.students', $data);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -289,23 +305,5 @@ class AdminStudentController extends Controller
         }
     }
 
-
-    public function panding()
-    {
-        dd('HEllo');
-        $data['students'] = Student::where('status', '0')->get();
-        $data['title'] = 'Panding Students';
-
-
-        return view('admin.students', $data);
-    }
-
-    public function declined()
-    {
-        $data['students'] = Student::where('status', '2')->get();
-        $data['title'] = 'Declined Students';
-
-        return view('admin.students', $data);
-    }
 
 }
