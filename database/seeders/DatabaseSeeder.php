@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             NoticeSeeder::class,
             StudentSeeder::class,
             EmployeeSeeder::class,
+            TechnologySeeder::class,
         ]);
     }
 }

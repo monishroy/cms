@@ -27,7 +27,7 @@ class AdminTechnologyController extends Controller
      */
     public function create()
     {
-        $data['url'] = route('a-technology.store');
+        $data['url'] = route('technology.store');
         $data['title'] = 'Add Technology';
 
         return view('admin.add-technology', $data);
@@ -43,9 +43,9 @@ class AdminTechnologyController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image1' => 'required|image|mimes:jpg,png,jpeg|max:1024',
-            'image2' => 'required|image|mimes:jpg,png,jpeg|max:1024',
-            'image3' => 'required|image|mimes:jpg,png,jpeg|max:1024',        
+            'image1' => 'required|image|max:1024',
+            'image2' => 'required|image|max:1024',
+            'image3' => 'required|image|max:1024',        
             'content' => 'required',
         ]);
 
@@ -92,7 +92,7 @@ class AdminTechnologyController extends Controller
      */
     public function edit($id)
     {
-        $data['url'] = route('a-technology.update', $id);
+        $data['url'] = route('technology.update', $id);
         $data['title'] = 'Update Technology';
         $data['technology'] = Technology::findOrFail($id);
 

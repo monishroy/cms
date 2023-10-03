@@ -34,6 +34,7 @@ class EmployeeSeeder extends Seeder
             'upazila_id' => 440,
             'present_address' => "Rangpur RCIT",
             'permanent_address' => "Rangpur Sadar",
+            'status' => "1",
             'user_id' => 1,
         ]);
     }

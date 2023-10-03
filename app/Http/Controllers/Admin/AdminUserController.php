@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminUserController extends Controller
 {
@@ -59,7 +61,8 @@ class AdminUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['user'] = User::findOrFail($id);
+        return view('admin.edit-user', $data);
     }
 
     /**
@@ -74,16 +77,30 @@ class AdminUserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email:filter',
-            'phone' => 'required|numeric',
-            'role' => 'required',
+            'image' => 'nullable|image|mimes:png,jpg,jpeg|max:1024',
+            'phone' => 'required',
         ]);
+        
+        if($request->image){
 
-        $result = User::findOrFail($id)->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'role' => $request->role,
-        ]);
+            $imageName = date('dmY').time()."-user.".$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('public/users',$imageName);
+
+            $result = User::findOrFail($id)->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'image' => $imageName,
+                'phone' => $request->phone,
+                'role' => $request->role,
+            ]);
+        }else{
+            $result = User::find($id)->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'role' => $request->role,
+            ]);
+        }
 
         if($result){
             return back()->with('success','User Update Successfully');
@@ -98,9 +115,15 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $result = $user->delete();
+
+        if($result){
+            return back()->with('success','User Delete Successfully.');
+        }else{
+            return back()->with('Something is Worng!');
+        }
     }
 
     public function status_active($id)

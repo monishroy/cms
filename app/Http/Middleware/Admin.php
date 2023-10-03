@@ -17,7 +17,9 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->role === 'admin') {
+        if(Auth::user()->role === 'super-admin') {
+            return $next($request);
+        }elseif(Auth::user()->role === 'admin') {
             return $next($request);
         }else {
             Auth::logout();

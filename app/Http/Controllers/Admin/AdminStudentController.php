@@ -13,6 +13,7 @@ use App\Models\Department;
 use App\Models\Division;
 use App\Models\Session;
 use App\Models\StudentAcademicInfo;
+use Illuminate\Support\Facades\Auth;
 
 class AdminStudentController extends Controller
 {
@@ -23,10 +24,12 @@ class AdminStudentController extends Controller
      */
     public function index()
     {
-        $data['students'] = Student::all();
-        
+        $data['students'] = Student::where('status', '1')->get();
+        $data['title'] = 'Students';
+
         return view('admin.students', $data);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -114,6 +117,7 @@ class AdminStudentController extends Controller
             'upazila_id' => $request->upazila,
             'present_address' => $request->present_address,
             'permanent_address' => $request->permanent_address,
+            'user_id' => Auth::user()->id,
         ]);
 
         if(is_file($request->marksheet)){
@@ -283,6 +287,25 @@ class AdminStudentController extends Controller
         }else{
             return back()->with('error','Something is Worng!');
         }
+    }
+
+
+    public function panding()
+    {
+        dd('HEllo');
+        $data['students'] = Student::where('status', '0')->get();
+        $data['title'] = 'Panding Students';
+
+
+        return view('admin.students', $data);
+    }
+
+    public function declined()
+    {
+        $data['students'] = Student::where('status', '2')->get();
+        $data['title'] = 'Declined Students';
+
+        return view('admin.students', $data);
     }
 
 }

@@ -10,7 +10,7 @@
                     <!-- end nav-->
                     <div class="tab-content">
                       <div class="tab-pane show active" id="custom-styles-preview">
-                        <form class="needs-validation" action="{{ route('a-employees.update', $employee->id) }}" method="POST" novalidate="" enctype="multipart/form-data">
+                        <form class="needs-validation" action="{{ route('employees.update', $employee->id) }}" method="POST" novalidate="" enctype="multipart/form-data">
                           @csrf
                           @method('PUT')
                           <h5 class="mb-4 text-uppercase">

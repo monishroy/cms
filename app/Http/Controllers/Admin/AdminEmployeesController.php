@@ -15,6 +15,7 @@ use App\Models\Position;
 use App\Models\Upazila;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AdminEmployeesController extends Controller
@@ -94,14 +95,34 @@ class AdminEmployeesController extends Controller
             'upazila' => 'required',
             'present_address' => 'required',
             'permanent_address' => 'required',
-            'exam_name' => 'required',
-            'passing_year' => 'required',
-            'board' => 'required',
-            'roll' => 'required|numeric',
-            'reg_no' => 'required|numeric',
-            'gpa' => 'required',
-            'marksheet' => 'required|image|mimes:png,jpg,jpeg|max:1024',
-            'certificate' => 'required|image|mimes:png,jpg,jpeg|max:1024',
+
+            'inputs.*.exam_name' => 'required',
+            'inputs.*.passing_year' => 'required',
+            'inputs.*.board' => 'required',
+            'inputs.*.roll' => 'required|numeric',
+            'inputs.*.reg_no' => 'required|numeric',
+            'inputs.*.gpa' => 'required',
+            'inputs.*.marksheet' => 'required|image|mimes:png,jpg,jpeg|max:1024',
+            'inputs.*.certificate' => 'required|image|mimes:png,jpg,jpeg|max:1024',
+        ],
+        [
+            'inputs.*.exam_name.required' => 'The exam name fild is requerd',
+            'inputs.*.passing_year.required' => 'The passing year fild is requerd',
+            'inputs.*.board.required' => 'The board fild is requerd',
+            'inputs.*.roll.required' => 'The roll fild is requerd',
+            'inputs.*.roll.numeric' => 'The roll fild is must be number',
+            'inputs.*.reg_no.required' => 'The reg no fild is requerd',
+            'inputs.*.reg_no.numeric' => 'The reg no fild is must be number',
+            'inputs.*.gpa.required' => 'The gpa fild is requerd',
+            'inputs.*.marksheet.required' => 'The marksheet fild is requerd',
+            'inputs.*.marksheet.image' => 'The marksheet is must be image',
+            'inputs.*.marksheet.mimes' => 'The marksheet format is jpg, png, jpeg',
+            'inputs.*.marksheet.max' => 'The marksheet size max 1 MB',
+            'inputs.*.certificate.required' => 'The certificate fild is requerd',
+            'inputs.*.certificate.image' => 'The certificate is must be image',
+            'inputs.*.certificate.mimes' => 'The certificate format is jpg, png, jpeg',
+            'inputs.*.certificate.max' => 'The certificate size max 1 MB',
+
         ]);
 
         $imagename = date('dmY').time()."-employees.".$request->file('image')->getClientOriginalExtension();
@@ -127,26 +148,37 @@ class AdminEmployeesController extends Controller
             'upazila_id' => $request->upazila,
             'present_address' => $request->present_address,
             'permanent_address' => $request->permanent_address,
+            'user_id' => Auth::user()->id,
         ]);
 
-        $marksheet = date('dmY').time()."-marksheet.".$request->file('marksheet')->getClientOriginalExtension();
-        $certificate = date('dmY').time()."-certificate.".$request->file('certificate')->getClientOriginalExtension();
+        foreach ($request->inputs as $value) {
 
-        $request->file('marksheet')->storeAs('public/document',$marksheet);
-        $request->file('certificate')->storeAs('public/document',$certificate);
+            $result = EmployeeAcademicInfo::create([
+                'employee_id' => $employee->id,
+                'academic_exam_id' => $value['exam_name'],
+                'passing_year' => $value['passing_year'],
+                'board_id' => $value['board'],
+                'roll' => $value['roll'],
+                'reg_no' => $value['reg_no'],
+                'gpa' => $value['gpa'],
+            ]);
 
-        $result = EmployeeAcademicInfo::create([
-            'employee_id' => $employee->id,
-            'academic_exam_id' => $request->exam_name,
-            'passing_year' => $request->passing_year,
-            'board_id' => $request->board,
-            'roll' => $request->roll,
-            'reg_no' => $request->reg_no,
-            'gpa' => $request->gpa,
-            'marksheet' => $marksheet,
-            'certificate' => $certificate,
-        ]);
+        }
 
+        foreach ($request->file('inputs') as $value) {
+
+            $marksheet = date('dmY').time()."-marksheet.".$request->file($value['marksheet'])->getClientOriginalExtension();
+            $certificate = date('dmY').time()."-certificate.".$request->file($value['certificate'])->getClientOriginalExtension();
+
+            $request->file($value['marksheet'])->storeAs('public/document',$marksheet);
+            $request->file($value['certificate'])->storeAs('public/document',$certificate);
+
+            $result = EmployeeAcademicInfo::create([
+                'marksheet' => $marksheet,
+                'certificate' => $certificate,
+            ]);
+
+        }
         if($result){
             return back()->with('success','Employees Add Successfully');
         }else{

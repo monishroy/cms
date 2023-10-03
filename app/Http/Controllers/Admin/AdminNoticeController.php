@@ -120,17 +120,6 @@ class AdminNoticeController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
-
-    public function download($file)
-    {
-        $path = public_path("storage/notice/$file");
-        return response()->download($path);
-    }
-
-    public function delete($id)
-    {
         $result = Notice::findOrFail($id)->delete();
 
         if($result){
@@ -138,5 +127,12 @@ class AdminNoticeController extends Controller
         }else{
             return back()->with('error','Something is Worng!');
         }
-    }  
+    }
+
+    public function download($file)
+    {
+        $path = public_path("storage/notice/$file");
+        return response()->download($path);
+    }
+ 
 }

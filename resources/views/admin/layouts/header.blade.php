@@ -27,6 +27,7 @@
         <!-- Datatables css -->
         <link href="{{url('admin/assets/css/vendor/dataTables.bootstrap5.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{url('admin/assets/css/vendor/responsive.bootstrap5.css')}}" rel="stylesheet" type="text/css" />
+        <script src="{{url('admin/assets/js/jquery/jquery-3.5.1.min.js')}}"></script>
     </head>
 
     <body
@@ -101,7 +102,7 @@
                             </a>
                         </li>
                         <li class="side-nav-item">
-                            <a href="{{ route('a-users.index') }}" class="side-nav-link">
+                            <a href="{{ route('users.index') }}" class="side-nav-link">
                                 <i class="uil-shield-check"></i>
                                 <span> Users </span>
                             </a>
@@ -123,19 +124,19 @@
                                         <div class="collapse" id="addNotice">
                                             <ul class="side-nav-third-level">
                                                 <li>
-                                                    <a href="{{ route('admin.notice.create') }}">New Notice</a>
+                                                    <a href="{{ route('notice.create') }}">New Notice</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ route('admin.notice.panding') }}">Panding Notice</a>
+                                                    <a href="javascript: void(0);">Panding Notice</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ route('admin.notice.declined') }}">Declined Notice</a>
+                                                    <a href="javascript: void(0);">Declined Notice</a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="{{ route('admin.notice.index') }}"> Notice List</a>
+                                        <a href="{{ route('notice.index') }}"> Notice List</a>
                                     </li>
                                 </ul>
                             </div>
@@ -149,10 +150,10 @@
                             <div class="collapse" id="technology">
                                 <ul class="side-nav-second-level">                                    
                                     <li>
-                                        <a href="{{ route('a-technology.create') }}"> Add Technology</a>
+                                        <a href="{{ route('technology.create') }}"> Add Technology</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('a-technology.index') }}"> Technology List</a>
+                                        <a href="{{ route('technology.index') }}"> Technology List</a>
                                     </li>
                                 </ul>
                             </div>
@@ -173,19 +174,19 @@
                                         <div class="collapse" id="addemployee">
                                             <ul class="side-nav-third-level">
                                                 <li>
-                                                    <a href="{{ route('a-employees.create') }}">New Employee</a>
+                                                    <a href="{{ route('employees.create') }}">New Employee</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ route('admin.employees.panding') }}">Panding Employee</a>
+                                                    <a href="javascript: void(0);">Panding Employee</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ route('admin.employees.declined') }}">Declined Employee</a>
+                                                    <a href="javascript: void(0);">Declined Employee</a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="{{ route('a-employees.index') }}"> Employee List</a>
+                                        <a href="{{ route('employees.index') }}"> Employee List</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)"> Employee Attendance</a>
@@ -212,7 +213,7 @@
                                         <div class="collapse" id="addstudent">
                                             <ul class="side-nav-third-level">
                                                 <li>
-                                                    <a href="{{ route('a-students.create') }}">New Student</a>
+                                                    <a href="{{ route('students.create') }}">New Student</a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript: void(0);">Panding Student</a>
@@ -224,7 +225,7 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="{{ route('a-students.index') }}"> Student List</a>
+                                        <a href="{{ route('students.index') }}"> Student List</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)"> Student Attendance</a>
@@ -238,7 +239,7 @@
                         
                         <li class="side-nav-title side-nav-item">Contact</li>
                         <li class="side-nav-item">
-                            <a href="{{ route('admin.message.index') }}" class="side-nav-link">
+                            <a href="{{ route('message.index') }}" class="side-nav-link">
                                 <i class="uil-envelopes"></i>
                                 <span> Message </span>
                             </a>
@@ -482,7 +483,7 @@
                                             >{{ Auth::user()->name }}</span
                                         >
                                         <span class="account-position"
-                                            >Admin</span
+                                            >{{ Auth::user()->role }}</span
                                         >
                                     </span>
                                 </a>

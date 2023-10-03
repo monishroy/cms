@@ -40,6 +40,7 @@ class StudentSeeder extends Seeder
             'upazila_id' => 417,
             'present_address' => "Dhaka Mirpur 10",
             'permanent_address' => "Lalmonirhat",
+            'status' => "1",
             'user_id' => 2,
         ]);
     }

@@ -66,13 +66,12 @@
                       <div class="mb-1" id="book-section">
                         <div>
                           <label class="form-label" for="book">Book Code</label>
-                          <input type="hidden" name="inputs[1][student]" value="{{ $student->id }}">
+                          <input type="hidden" name="inputs[0][student]" value="{{ $student->id }}">
                           <div class="row">
-                            
-                            <div class="col-lg-11 col-12 mb-3">
+                            <div class="col-lg-11 col-12">
                               <div class="input-group mb-3">
                                 <label class="input-group-text" for="inputGroupSelect01">01</label>
-                                <input type="text" name="inputs[1][book_code]" class="form-control" placeholder="Enter Book Code" value="{{ old('inputs[0][book_code]') }}" required>
+                                <input type="text" name="inputs[0][book_code]" class="form-control" placeholder="Enter Book Code" value="{{ old('inputs[0][book_code]') }}" required>
                               </div>
                               <div class="invalid-feedback">
                                 Please enter book code.
@@ -100,16 +99,16 @@
 
 <!-- Add More Script -->
 <script>
-  var i = 1;
+  var i = 0;
   $('#addMore').click(function(){
     ++i;
     $('#book-section').append(
     `<div id="more">
       <input type="hidden" name="inputs[`+i+`][student]" value="{{ $student->id }}">
       <div class="row">
-        <div class="col-lg-11 col-12 mb-3">
+        <div class="col-lg-11 col-12">
           <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">0`+i+`</label>
+            <label class="input-group-text" for="inputGroupSelect01">0`+(i+1)+`</label>
             <input type="text" name="inputs[`+i+`][book_code]" class="form-control" placeholder="Enter Book Code" value="{{ old('inputs[`+i+`][book_code]') }}" required>
           </div>
           <div class="invalid-feedback">

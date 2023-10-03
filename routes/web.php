@@ -25,15 +25,6 @@ use App\Http\Controllers\Librarian\LibrarianBooksIssueController;
 use App\Http\Controllers\Librarian\LibrarianProfileController;
 use App\Http\Controllers\Librarian\LibrarianReturnBookController;
 use App\Http\Controllers\Student\StudentProfileController;
-use App\Http\Controllers\SuperAdmin\SuperAdminDashboardController;
-use App\Http\Controllers\SuperAdmin\SuperAdminEmployeesController;
-use App\Http\Controllers\SuperAdmin\SuperAdminMessageController;
-use App\Http\Controllers\SuperAdmin\SuperAdminNoticeController;
-use App\Http\Controllers\SuperAdmin\SuperAdminProfileController;
-use App\Http\Controllers\SuperAdmin\SuperAdminSetupController;
-use App\Http\Controllers\SuperAdmin\SuperAdminStudentController;
-use App\Http\Controllers\SuperAdmin\SuperAdminTechnologyController;
-use App\Http\Controllers\SuperAdmin\SuperAdminUserController;
 use App\Http\Controllers\Teacher\TeacherProfileController;
 
 /*
@@ -77,51 +68,31 @@ Route::middleware(['guest'])->group(function(){
     Route::post('/login', [LoginController::class, 'postLogin'])->name('postlogin');
 });
 
-//Super Admin Route Start
-Route::middleware(['auth','super-admin'])->group(function(){
-    Route::get('/super-admin/dashboard', [SuperAdminDashboardController::class, 'index'])->name('super-admin.dashboard');
-    Route::get('/super-admin/profile', [SuperAdminProfileController::class, 'index'])->name('super-admin.profile');
-    Route::post('/super-admin/profile/update', [SuperAdminProfileController::class, 'update'])->name('profile.update');
-    Route::get('/super-admin/notice', [SuperAdminNoticeController::class, 'index'])->name('notice.index');
-    Route::post('/super-admin/notice/store', [SuperAdminNoticeController::class, 'store'])->name('notice.store');
-    Route::get('/super-admin/notice/delete/{id}', [SuperAdminNoticeController::class, 'delete'])->name('notice.delete');
-    Route::get('/super-admin/notice/download/{file}', [SuperAdminNoticeController::class, 'download'])->name('super-admin.notice.download');
-    Route::get('super-admin/message', [SuperAdminMessageController::class, 'index'])->name('message.index');
-    Route::get('/super-admin/setup/', [SuperAdminSetupController::class, 'index'])->name('setup.index');
-    Route::post('/super-admin/setup/semister/add', [SuperAdminSetupController::class, 'semister_store'])->name('semister.store');
-    Route::post('/super-admin/setup/department/add', [SuperAdminSetupController::class, 'department_store'])->name('department.store');
-    Route::post('/super-admin/setup/session/add', [SuperAdminSetupController::class, 'session_store'])->name('session.store');
-    Route::post('/super-admin/setup/possion/add', [SuperAdminSetupController::class, 'possion_store'])->name('possion.store');
-    Route::post('/super-admin/setup/blood-group/add', [SuperAdminSetupController::class, 'blood_group_store'])->name('blood_group.store');
-    Route::post('/super-admin/setup/board/add', [SuperAdminSetupController::class, 'board_store'])->name('board.store');
-    Route::post('/super-admin/setup/academic-exam/add', [SuperAdminSetupController::class, 'academic_exam_store'])->name('academic_exam.store');
-    Route::resource('super-admin/technology', SuperAdminTechnologyController::class);
-    Route::resource('super-admin/students', SuperAdminStudentController::class);
-    Route::resource('super-admin/employees', SuperAdminEmployeesController::class);
-    Route::resource('super-admin/users', SuperAdminUserController::class);
-    Route::get('/super-admin/users/active/{id}', [SuperAdminUserController::class, 'status_active'])->name('user.status.active');
-    Route::get('/super-admin/users/deactive/{id}', [SuperAdminUserController::class, 'status_deactive'])->name('user.status.deactive');
-});
+
+//Super Admin Route End
 
 //Admin Route Start
 Route::middleware(['auth','admin'])->group(function(){
-    Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
-    Route::post('/admin/profile/update', [AdminProfileController::class, 'update'])->name('admin.profile.update');
-    Route::get('/admin/notice', [AdminNoticeController::class, 'index'])->name('admin.notice.index');
-    Route::get('/admin/notice/panding', [AdminNoticeController::class, 'panding'])->name('admin.notice.panding');
-    Route::get('/admin/notice/declined', [AdminNoticeController::class, 'declined'])->name('admin.notice.declined');
-    Route::get('/admin/notice/create', [AdminNoticeController::class, 'create'])->name('admin.notice.create');
-    Route::post('/admin/notice/store', [AdminNoticeController::class, 'store'])->name('admin.notice.store');
-    Route::get('/admin/notice/download/{file}', [AdminNoticeController::class, 'download'])->name('admin.notice.download');
-    Route::get('admin/message', [AdminMessageController::class, 'index'])->name('admin.message.index');
-    Route::get('/admin/setup/', [AdminSetupController::class, 'index'])->name('admin.setup.index');
-    Route::resource('admin/a-technology', AdminTechnologyController::class);
-    Route::resource('admin/a-students', AdminStudentController::class);
-    Route::resource('admin/a-employees', AdminEmployeesController::class);
-    Route::get('/admin/employee/panding', [AdminEmployeesController::class, 'panding'])->name('admin.employees.panding');
-    Route::get('/admin/employee/declined', [AdminEmployeesController::class, 'declined'])->name('admin.employees.declined');
-    Route::resource('admin/a-users', AdminUserController::class);
+    Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
+    Route::post('admin/profile/update', [AdminProfileController::class, 'update'])->name('profile.update');
+    Route::resource('admin/notice', AdminNoticeController::class);
+    Route::get('admin/notice/download/{file}', [AdminNoticeController::class, 'download'])->name('admin.notice.download');
+    Route::get('admin/message', [AdminMessageController::class, 'index'])->name('message.index');
+    Route::get('admin/setup/', [AdminSetupController::class, 'index'])->name('setup.index');
+    Route::post('admin/setup/semister/add', [AdminSetupController::class, 'semister_store'])->name('semister.store');
+    Route::post('admin/setup/department/add', [AdminSetupController::class, 'department_store'])->name('department.store');
+    Route::post('admin/setup/session/add', [AdminSetupController::class, 'session_store'])->name('session.store');
+    Route::post('admin/setup/possion/add', [AdminSetupController::class, 'possion_store'])->name('possion.store');
+    Route::post('admin/setup/blood-group/add', [AdminSetupController::class, 'blood_group_store'])->name('blood_group.store');
+    Route::post('admin/setup/board/add', [AdminSetupController::class, 'board_store'])->name('board.store');
+    Route::post('admin/setup/academic-exam/add', [AdminSetupController::class, 'academic_exam_store'])->name('academic_exam.store');
+    Route::resource('admin/technology', AdminTechnologyController::class);
+    Route::resource('admin/students', AdminStudentController::class);
+    Route::resource('admin/employees', AdminEmployeesController::class);
+    Route::resource('admin/users', AdminUserController::class);
+    Route::get('admin/users/active/{id}', [AdminUserController::class, 'status_active'])->name('user.status.active');
+    Route::get('admin/users/deactive/{id}', [AdminUserController::class, 'status_deactive'])->name('user.status.deactive');
 });
 //Admin Route End
 

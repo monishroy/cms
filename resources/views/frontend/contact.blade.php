@@ -55,7 +55,7 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
       </div>
       <!--error end toast-->
       @endif
-      <form action="{{ route('contact.store') }}" method="POST">
+      <form class="needs-validation" action="{{ route('contact.store') }}" novalidate="" method="POST">
         @csrf
         <div class="row mt-4">
           <div class="col-lg-6">
@@ -68,7 +68,11 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
                 id="fullname"
                 placeholder="Full Name..."
                 value="{{ old('fullname') }}"
+                required
               />
+              <div class="invalid-feedback">
+                Please enter full name.
+              </div>
               @error('fullname')
                 <small class="text-danger">{{$message}}</small>
               @enderror
@@ -86,7 +90,11 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
                 id="emailaddress"
                 placeholder="Enter you email..."
                 value="{{ old('email') }}"
+                required
               />
+              <div class="invalid-feedback">
+                Please enter email.
+              </div>
               @error('email')
                 <small class="text-danger">{{$message}}</small>
               @enderror
@@ -105,7 +113,11 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
                 id="subject"
                 placeholder="Enter subject..."
                 value="{{ old('subject') }}"
+                required
               />
+              <div class="invalid-feedback">
+                Please enter subject.
+              </div>
               @error('subject')
                 <small class="text-danger">{{$message}}</small>
               @enderror
@@ -124,7 +136,11 @@ class="py-5 bg-light-lighten border-top border-bottom border-light"
                 class="form-control form-control-light"
                 placeholder="Type your message here..."
                 value="{{ old('message') }}"
+                required
               ></textarea>
+              <div class="invalid-feedback">
+                Please enter message.
+              </div>
               @error('message')
                 <small class="text-danger">{{$message}}</small>
               @enderror

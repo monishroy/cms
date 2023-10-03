@@ -38,10 +38,21 @@
                           <td>{{ $notice->download }}</td>
                           <td>{{ date('d-M-Y', strtotime($notice->created_at)) }}</td>
                           <td>
-                            <a href="{{ route('admin.notice.download',['file'=>$notice->file]) }}" class="action-icon">
+                            <a href="{{ route('admin.notice.download',['file'=>$notice->file]) }}" class="btn btn-sm btn-primary me-1">
                               <i class="mdi mdi-download"></i>
                             </a>
+                            <div class="d-flex">
+                              <a href="{{ route('notice.edit', $notice->id) }}" class="btn btn-sm btn-primary me-1">
+                                <i class="uil-edit"></i>
+                              </a>
+                              <form action="{{ route('notice.destroy', $notice->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger"><i class="uil-trash-alt"></i></button>
+                              </form>
+                            </div>
                           </td>
+                          
                         </tr>
                         @endforeach
                       </tbody>

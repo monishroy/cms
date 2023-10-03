@@ -27,8 +27,9 @@ class AdminProfileController extends Controller
             'bio' => 'required',
         ]);
 
-        //Insert Query
-        $result = User::findOrFail(Auth::user()->id)->update([
+
+        //Update  Query
+        $result = User::find(Auth::user()->id)->update([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,

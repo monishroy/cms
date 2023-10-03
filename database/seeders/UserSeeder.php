@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
         User::create([
             'name'=>"Monish Roy",
             'bio'=>"I love my life",
-            'email'=>"monishroy87@gmail.com",
+            'email'=>"admin@gmail.com",
             'phone'=>"01817603163",
             'image'=>rand(1, 5).'.png',
             'password'=>Hash::make("123456"),
@@ -53,14 +53,14 @@ class UserSeeder extends Seeder
             'password'=>Hash::make("123456"),
             'role'=>"librarian",
         ]);
-        User::create([
-            'name'=>"Emdadul Hock",
-            'bio'=>"I love my life",
-            'email'=>"emdadulhaque1995@gmail.com",
-            'phone'=>"01750403009",
-            'image'=>"240920231695573624-employees.jpg",
-            'password'=>Hash::make("123456"),
-            'role'=>"teacher",
-        ]);
+        // User::create([
+        //     'name'=>"Emdadul Hock",
+        //     'bio'=>"I love my life",
+        //     'email'=>"emdadulhaque1995@gmail.com",
+        //     'phone'=>"01750403009",
+        //     'image'=>"240920231695573624-employees.jpg",
+        //     'password'=>Hash::make("123456"),
+        //     'role'=>"teacher",
+        // ]);
     }
 }

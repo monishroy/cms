@@ -17,6 +17,7 @@
           <img
             src="{{ asset("storage/technology/".$technology->image1) }}"
             alt="Image placeholder"
+            style="width:100%; height: 400px;"
             class="img-fluid rounded mb-3" 
           />
           <div class="col-md-6 mb-3">

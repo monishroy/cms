@@ -80,14 +80,16 @@
                             <td>{{ date('d-M-Y', strtotime($employee->created_at)) }}</td>
                             <td>
                               <div class="d-flex">
-                                <a href="{{ route('a-employees.edit', $employee->id) }}" class="btn btn-sm btn-primary me-1">
+                                <a href="{{ route('employees.edit', $employee->id) }}" class="btn btn-sm btn-primary me-1">
                                   <i class="uil-edit"></i>
                                 </a>
-                                <form action="{{ route('a-employees.destroy', $employee->id) }}" method="POST">
+                                @if (Auth::user()->role === 'super-admin')
+                                <form action="{{ route('employees.destroy', $employee->id) }}" method="POST">
                                   @csrf
                                   @method('DELETE')
                                   <button type="submit" class="btn btn-sm btn-danger"><i class="uil-trash-alt"></i></button>
                                 </form>
+                                @endif
                               </div>
                             </td>
                           </tr>
