@@ -124,7 +124,8 @@ class AdminEmployeesController extends Controller
             'inputs.*.certificate.max' => 'The certificate size max 1 MB',
 
         ]);
-
+        
+        //Employee Image Store
         $imagename = date('dmY').time()."-employees.".$request->file('image')->getClientOriginalExtension();
         $request->file('image')->storeAs('public/users',$imagename);
 
@@ -151,8 +152,13 @@ class AdminEmployeesController extends Controller
             'user_id' => Auth::user()->id,
         ]);
 
-        foreach ($request->inputs as $value) {
-
+        foreach ($request->inputs as $value){
+            $marksheet = date('dmY').time().rand(111, 999)."-marksheet.".$value['marksheet']->getClientOriginalExtension();
+            $certificate = date('dmY').time().rand(111, 999)."-certificate.".$value['certificate']->getClientOriginalExtension();
+            // Store marksheet and certificate files
+            $value['marksheet']->storeAs('public/document', $marksheet);
+            $value['certificate']->storeAs('public/document', $certificate);
+            // Create academic info record
             $result = EmployeeAcademicInfo::create([
                 'employee_id' => $employee->id,
                 'academic_exam_id' => $value['exam_name'],
@@ -161,29 +167,16 @@ class AdminEmployeesController extends Controller
                 'roll' => $value['roll'],
                 'reg_no' => $value['reg_no'],
                 'gpa' => $value['gpa'],
-            ]);
-
-        }
-
-        foreach ($request->file('inputs') as $value) {
-
-            $marksheet = date('dmY').time()."-marksheet.".$request->file($value['marksheet'])->getClientOriginalExtension();
-            $certificate = date('dmY').time()."-certificate.".$request->file($value['certificate'])->getClientOriginalExtension();
-
-            $request->file($value['marksheet'])->storeAs('public/document',$marksheet);
-            $request->file($value['certificate'])->storeAs('public/document',$certificate);
-
-            $result = EmployeeAcademicInfo::create([
                 'marksheet' => $marksheet,
                 'certificate' => $certificate,
             ]);
-
         }
         if($result){
-            return back()->with('success','Employees Add Successfully');
-        }else{
-            return back()->with('error','Something is Worng!');
+            return back()->with('success', 'Employees Add Successfully');
+        } else{
+            return back()->with('error', 'Something is Wrong!');
         }
+        
     }
 
     /**

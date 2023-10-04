@@ -277,13 +277,13 @@
                                     <select class="form-control select2" name="inputs[0][exam_name]" data-toggle="select2" required>
                                       <option value="">Select Exam Name</option>
                                       @foreach ($academic_exams as $exam)
-                                      <option {{old('inputs[0][exam_name]') == "$exam->id" ? "selected" : ""}} value="{{ $exam->id }}">{{ $exam->name }}</option>
+                                      <option {{old('inputs.*.exam_name') == "$exam->id" ? "selected" : ""}} value="{{ $exam->id }}">{{ $exam->name }}</option>
                                       @endforeach
                                     </select>
                                     <div class="invalid-feedback">
                                       Please enter Exam Name.
                                     </div>
-                                    @error('inputs[0][exam_name]')
+                                    @error('inputs.*.exam_name')
                                       <span class="text-danger form-text"><small>{{$message}}</small></span>
                                     @enderror
                                   </div>
@@ -295,7 +295,7 @@
                                     <div class="invalid-feedback">
                                       Please enter Passing Year.
                                     </div>
-                                    @error('inputs[0][passing_year]')
+                                    @error('inputs.*.passing_year')
                                       <span class="text-danger form-text"><small>{{$message}}</small></span>
                                     @enderror
                                   </div>
@@ -312,7 +312,7 @@
                                     <div class="invalid-feedback">
                                       Please enter Board Name.
                                     </div>
-                                    @error('inputs[0][board]')
+                                    @error('inputs.*.board')
                                       <span class="text-danger form-text"><small>{{$message}}</small></span>
                                     @enderror
                                   </div>
@@ -324,7 +324,7 @@
                                     <div class="invalid-feedback">
                                       Please enter Board Roll.
                                     </div>
-                                    @error('inputs[0][roll]')
+                                    @error('inputs.*.roll')
                                       <span class="text-danger form-text"><small>{{$message}}</small></span>
                                     @enderror
                                   </div>
@@ -336,7 +336,7 @@
                                     <div class="invalid-feedback">
                                       Please enter Registration No.
                                     </div>
-                                    @error('inputs[0][reg_no]')
+                                    @error('inputs.*.reg_no')
                                       <span class="text-danger form-text"><small>{{$message}}</small></span>
                                     @enderror
                                   </div>
@@ -348,7 +348,7 @@
                                     <div class="invalid-feedback">
                                       Please enter G.P.A.
                                     </div>
-                                    @error('inputs[0][gpa]')
+                                    @error('inputs.*.gpa')
                                       <span class="text-danger form-text"><small>{{$message}}</small></span>
                                     @enderror
                                   </div>
@@ -360,7 +360,7 @@
                                     <div class="invalid-feedback">
                                       Please select file in marksheet.
                                     </div>
-                                    @error('inputs[0][marksheet]')
+                                    @error('inputs.*.marksheet')
                                       <span class="text-danger form-text"><small>{{$message}}</small></span>
                                     @enderror
                                   </div>
@@ -372,22 +372,13 @@
                                     <div class="invalid-feedback">
                                       Please select file in certificate.
                                     </div>
-                                    @error('inputs[0][certificate]')
+                                    @error('inputs.*.certificate')
                                       <span class="text-danger form-text"><small>{{$message}}</small></span>
                                     @enderror
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            @if ($errors->any())
-                              <div class="alert alert-danger">
-                                  <ul>
-                                      @foreach ($errors->all() as $index=>$error)
-                                          <li>{{ ++$index.' '. $error }}</li>
-                                      @endforeach
-                                  </ul>
-                              </div>
-                            @endif
                             
                           </div>
                           <button class="btn btn-primary" type="submit">
