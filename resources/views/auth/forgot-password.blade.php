@@ -67,11 +67,14 @@
                   </p>
                 </div>
 
-                <form action="{{ route('forgotPasswordPost') }}" method="POST">
+                <form class="needs-validation" action="{{ route('forgotPasswordPost') }}" novalidate="" method="POST">
                   @csrf
                   <div class="mb-3">
                     <label for="emailaddress" class="form-label">Email address</label>
-                    <input class="form-control" type="email" id="emailaddress" name="email" placeholder="Enter your email" value="{{ old('email') }}">
+                    <input class="form-control" type="email" id="emailaddress" name="email" placeholder="Enter your email" value="{{ old('email') }}" required>
+                    <div class="invalid-feedback">
+                      Please enter email.
+                    </div>
                     @error('email')
                     <span class="text-danger form-text"><small>{{$message}}</small></span>
                     @enderror

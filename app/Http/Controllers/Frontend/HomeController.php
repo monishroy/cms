@@ -29,7 +29,7 @@ class HomeController extends Controller
                 return redirect('/login');
             }
         } else {
-            $data['notices'] = Notice::all();
+            $data['notices'] = Notice::where('status', '1')->get();
             return view('frontend.index', $data);
         } 
     }

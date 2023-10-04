@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Notice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdminNoticeController extends Controller
 {
@@ -45,7 +46,10 @@ class AdminNoticeController extends Controller
      */
     public function create()
     {
-        return view('admin.add-notice');
+        $data['title'] = 'Add Notice';
+        $data['url'] = route('notice.store');
+
+        return view('admin.add-notice', $data);
     }
 
     /**
@@ -97,7 +101,11 @@ class AdminNoticeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['notice'] = Notice::findOrFail($id);
+        $data['title'] = 'Update Notice';
+        $data['url'] = route('notice.update', $data['notice']->id);
+
+        return view('admin.add-notice', $data);
     }
 
     /**
@@ -109,7 +117,32 @@ class AdminNoticeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'file' => 'nullable|max:2048',
+        ]);
+
+        if($request->hasFile('file')){
+            $filename = date('dmY').time()."-notice.".$request->file('file')->getClientOriginalExtension();
+            $request->file('file')->storeAs('public/notice',$filename);
+            
+            $result = Notice::findOrFail($id)->update([
+                'name' => $request->name,
+                'file' => $filename,
+                'user_id' => Auth::user()->id,
+            ]);
+        }else{
+            $result = Notice::findOrFail($id)->update([
+                'name' => $request->name,
+                'user_id' => Auth::user()->id,
+            ]);
+        }
+
+        if($result){
+            return back()->with('success','Notice Add Successfully');
+        }else{
+            return back()->with('error','Something is Worng!');
+        }
     }
 
     /**
@@ -134,5 +167,6 @@ class AdminNoticeController extends Controller
         $path = public_path("storage/notice/$file");
         return response()->download($path);
     }
+
  
 }

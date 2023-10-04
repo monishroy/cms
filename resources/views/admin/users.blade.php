@@ -32,11 +32,19 @@
                           <td class="pt-3">{{$user->email}}</td>
                           <td class="pt-3">{{$user->phone}}</td>
                           <td class="pt-3">
+                          @if ($user->role == "super-admin")
+                            @if ($user->status == "1")
+                              <span class="badge badge-outline-success">Active</span>
+                            @else
+                              <span class="badge badge-outline-danger">Deactive</span>
+                            @endif
+                          @else
                             @if ($user->status == "1")
                               <a href="{{ route('user.status.deactive', $user->id) }}"><span class="badge badge-outline-success">Active</span></a>
                             @else
                               <a href="{{ route('user.status.active', $user->id) }}"><span class="badge badge-outline-danger">Deactive</span></a>
                             @endif
+                          @endif
                           </td>
                           <td class="pt-3">
                             @if ($user->role == "super-admin")

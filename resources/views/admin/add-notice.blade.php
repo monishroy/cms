@@ -1,6 +1,6 @@
 ﻿@extends('admin.layouts.main')
 
-@section('title', 'Add Notice')
+@section('title', $title)
 @section('main-section')
 
 
@@ -8,18 +8,23 @@
             <div class="row">
               <div class="col-lg-6 mx-auto">
                 <div class="card">
-                  <h4 class="text-center my-3">Add Notice</h4>
+                  <h4 class="text-center my-3">{{ $title }}</h4>
                   <div class="card-body">
                     <!-- end nav-->
                     <div class="tab-content">
                       <div class="tab-pane show active" id="custom-styles-preview">
-                        <form class="needs-validation" action="{{ route('notice.store') }}" method="POST" novalidate="" enctype="multipart/form-data">
+                        <form class="needs-validation" action="{{ $url }}" method="POST" novalidate="" enctype="multipart/form-data">
                           @csrf
+                          @if ($title == 'Update Notice')
+                            @method('PUT')
+                          @else
+                            
+                          @endif
                           <div class="row">
                             <div class="col-12">
                               <div class="mb-3">
                                 <label class="form-label" for="name">Notice Name</label>
-                                <textarea type="text" class="form-control" name="name" id="name" placeholder="Notice Name" required="">{{old('name')}}</textarea>
+                                <textarea type="text" class="form-control" name="name" id="name" placeholder="Notice Name" required=""> @if ($title == 'Update Notice'){{ $notice->name }} @else {{old('name')}} @endif</textarea>
                                 <div class="invalid-feedback">
                                   Please enter name.
                                 </div>
@@ -31,7 +36,7 @@
                             <div class="col-12">
                               <div class="mb-3">
                                 <label class="form-label" for="file">Notice File</label>
-                                <input type="file" class="form-control" name="file" id="file" required="">
+                                <input type="file" class="form-control" name="file" id="file"  @if ($title == 'Update Notice')  @else  required="" @endif>
                                 <div class="invalid-feedback">
                                   Please enter file.
                                 </div>
@@ -65,6 +70,22 @@
                   <!-- end card-body-->
                 </div>
                 <!-- end card-->
+                @if ($title == 'Update Notice')
+                  <div class="card">
+                    <h4 class="text-center my-3">Image / PDF</h4>
+                    <div class="card-body border rounded">
+                      @if (File::extension($notice->file) == 'pdf')
+                        <iframe src="{{ asset('storage/notice/'.$notice->file) }}" style="width: 100%; height: 975px;" frameborder="0"></iframe>
+                      @else
+                        <img class="border" src="{{ asset('storage/notice/'.$notice->file) }}" style="width: 100%" alt="">
+                      @endif
+                    </div>
+                  <!-- end card-body-->
+                  </div>
+                <!-- end card-->
+                @else
+                  
+                @endif
               </div>
               <!-- end col-->
             </div>

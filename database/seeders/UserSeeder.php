@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'bio'=>"I love my life",
             'email'=>"superadmin@gmail.com",
             'phone'=>"01817603164",
-            'image'=>rand(1, 5).'.png',
+            'image'=>"041020231696365841-user.jpeg",
             'password'=>Hash::make("123456"),
             'role'=>"super-admin",
         ]);
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
             'bio'=>"I love my life",
             'email'=>"roymonish712@gmail.com",
             'phone'=>"01717568377",
-            'image'=>rand(1, 5).'.png',
+            'image'=>"041020231696365922-user.png",
             'password'=>Hash::make("123456"),
             'role'=>"student",
         ]);

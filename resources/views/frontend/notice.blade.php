@@ -34,7 +34,7 @@
                 </h4>
               </a>
               <p class="faq-answer mb-4 pb-1 text-muted">
-                Date: {{ date('d-M-Y', strtotime($notice->created_at)) }}
+                {{ Carbon\Carbon::parse($notice->created_at)->diffForHumans() }}
               </p>
             </div>
             @endforeach

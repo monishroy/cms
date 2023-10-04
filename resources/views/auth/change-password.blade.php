@@ -63,16 +63,19 @@
                   </h4>
                 </div>
 
-                <form action="{{ route('changePasswordPost') }}" method="POST">
+                <form class="needs-validation" action="{{ route('changePasswordPost') }}" novalidate="" method="POST">
                   @csrf
                   <input type="hidden" name="id" value="{{ $id }}">
                   <input type="hidden" name="varify_token" value="{{ $token }}">
                   <div class="mb-3">
                     <label for="newpassword" class="form-label">New Password</label>
                     <div class="input-group input-group-merge">
-                      <input class="form-control" type="password" id="newpassword" name="new_password" placeholder="Enter your new password" value="{{ old('new_password') }}" autocomplete="off">
+                      <input class="form-control" type="password" id="newpassword" name="new_password" placeholder="Enter your new password" value="{{ old('new_password') }}" autocomplete="off" required>
                       <div class="input-group-text" data-password="false">
                         <span class="password-eye"></span>
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter new password.
                       </div>
                     </div>
                     @error('new_password')
@@ -82,9 +85,12 @@
                   <div class="mb-3">
                     <label for="re_new_password" class="form-label">Re-new Password</label>
                     <div class="input-group input-group-merge">
-                      <input class="form-control" type="re_new_password" id="re_new_password" name="re_new_password" placeholder="Enter your re-new password" value="{{ old('re_new_password') }}" autocomplete="off">
+                      <input class="form-control" type="re_new_password" id="re_new_password" name="re_new_password" placeholder="Enter your re-new password" value="{{ old('re_new_password') }}" autocomplete="off" required>
                       <div class="input-group-text" data-password="false">
                         <span class="password-eye"></span>
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter Re new password.
                       </div>
                     </div>
                     @error('re_new_password')

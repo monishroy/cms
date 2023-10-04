@@ -10,7 +10,7 @@ class NoticeController extends Controller
 {
     public function index()
     {
-        $data['notice'] = Notice::all();
+        $data['notice'] = Notice::where('status', '1')->get();
 
         return view('frontend.notice', $data);
     }

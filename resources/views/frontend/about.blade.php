@@ -49,7 +49,7 @@
         <hr>
         <div class="row mt-2 py-5 align-items-center">
           <div class="col-lg-3">
-            <img src="{{url('admin/assets/images/opportunities.png')}}" class="img-fluid" alt="" />
+            <img src="{{url('admin/assets/images/opportunities.png')}}" style="height: 380px; width:100%" class="img-fluid" alt="" />
           </div>
           <div class="col-lg-8 offset-lg-1">
             <h3 class="fw-normal">সুযোগ-সুবিধা</h3>

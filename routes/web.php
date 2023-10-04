@@ -49,7 +49,6 @@ Route::get('/employees', [EmployeesController::class, 'index'])->name('employees
 Route::get('/employees/department/{id}', [EmployeesController::class, 'department'])->name('employees.department');
 Route::get('/contact', [MessageController::class, 'index'])->name('contact');
 Route::post('/contact', [MessageController::class, 'store'])->name('contact.store');
-
 //Auth Part
 Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('forgotPassword');

@@ -87,15 +87,18 @@
                             </div>
                             <div class="col-md-6 col-12">
                               <div class="mb-3">
-                                <label class="form-label" for="password">Password</label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-                                <div class="invalid-feedback">
-                                  Please enter password.
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group input-group-merge">
+                                  <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password" />
+                                  <div class="input-group-text" data-password="false">
+                                    <span class="password-eye"></span>
+                                  </div>
                                 </div>
                                 @error('password')
                                   <span class="text-danger form-text"><small>{{$message}}</small></span>
                                 @enderror
                               </div>
+                              
                             </div>
                             @endif
                           </div>
