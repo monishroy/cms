@@ -120,6 +120,7 @@ class AdminNoticeController extends Controller
         $request->validate([
             'name' => 'required',
             'file' => 'nullable|max:2048',
+            'status' => 'required',
         ]);
 
         if($request->hasFile('file')){
@@ -130,11 +131,13 @@ class AdminNoticeController extends Controller
                 'name' => $request->name,
                 'file' => $filename,
                 'user_id' => Auth::user()->id,
+                'status' => $request->status,
             ]);
         }else{
             $result = Notice::findOrFail($id)->update([
                 'name' => $request->name,
                 'user_id' => Auth::user()->id,
+                'status' => $request->status,
             ]);
         }
 

@@ -56,7 +56,7 @@
                             @if ($student->status == "0")
                               <span class="badge badge-outline-warning">Panding</span>
                             @elseif ($student->status == "1")
-                              <span class="badge badge-outline-success">Done</span>
+                              <span class="badge badge-outline-success">Active</span>
                             @else
                               <span class="badge badge-outline-danger">Declined</span>
                             @endif
@@ -68,6 +68,19 @@
                                 <i class="uil-edit"></i>
                               </a>
                               @if (Auth::user()->role == 'super-admin')
+                              @if ($title == 'Panding Students')
+                                <a href="{{ route('student.accept', $student->id) }}" class="btn btn-sm btn-success me-1">
+                                  <i class="uil-top-arrow-from-top"></i>
+                                </a>
+                                <a href="{{ route('student.decline', $student->id) }}" class="btn btn-sm btn-warning me-1">
+                                  <i class="uil-arrow-to-bottom"></i>
+                                </a>
+                              @endif
+                              @if ($title == 'Declined Students')
+                                <a href="{{ route('student.panding', $student->id) }}" class="btn btn-sm btn-success me-1">
+                                  <i class="uil-top-arrow-from-top"></i>
+                                </a>
+                              @endif
                               <form action="{{ route('students.destroy', $student->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')

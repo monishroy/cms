@@ -299,122 +299,125 @@
                                 <span class="text-danger form-text"><small>{{$message}}</small></span>
                               @enderror
                             </div>
-                            {{-- Academic information start
-                            <div class="row" id="addmore">
-                              <h5 class="mb-3 text-uppercase bg-light p-2">
-                                <div class="float-start" style="margin-top: 8px">
-                                  <i class="mdi mdi-office-building me-1"></i> 
-                                  <span class="mt-4">Academic Information</span>
-                                </div>
-                                <button type="button" class="btn btn-sm btn-primary float-end position-absulute">Add More</button>
-                              </h5>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label">Exam Name<span class="text-danger"> *</span></label>
-                                  <select class="form-control select2" name="exam_name" data-toggle="select2">
-                                    <option value="">Select Exam Name</option>
-                                    @foreach ($academic_exams as $exam)
-                                    <option {{ $student->exam_name == "$exam->id" ? "selected" : ""}} value="{{ $exam->id }}">{{ $exam->name }}</option>
-                                    @endforeach
-                                  </select>
-                                  <div class="invalid-feedback">
-                                    Please enter Exam Name.
+                            @foreach ($academicinfos as $academicinfo)
+                            <h5 class="mb-3 text-uppercase bg-light p-2">
+                              <div class="float-start" style="margin-top: 8px">
+                                 1.&nbsp;&nbsp;
+                                <span class="mt-4">Academic Information</span>
+                              </div>
+                            </h5>
+                            {{-- Academic information start --}}
+                            <div id="more-data">
+                              <div class="row">
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label">Exam Name<span class="text-danger"> *</span></label>
+                                    <select class="form-control select2" name="inputs[0][exam_name]" data-toggle="select2" required>
+                                      <option value="">Select Exam Name</option>
+                                      @foreach ($academic_exams as $exam)
+                                      <option {{$academicinfo->academic_exam_id == "$exam->id" ? "selected" : ""}} value="{{ $exam->id }}">{{ $exam->name }}</option>
+                                      @endforeach
+                                    </select>
+                                    <div class="invalid-feedback">
+                                      Please enter Exam Name.
+                                    </div>
+                                    @error('inputs.*.exam_name')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
                                   </div>
-                                  @error('exam_name')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
+                                </div>
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="passing_year">Passing Year<span class="text-danger"> *</span></label>
+                                    <input type="text" class="form-control" name="inputs[0][passing_year]" id="passing_year" data-toggle="input-mask" data-mask-format="0000" maxlength="4" placeholder="Passing Year" required="" value="{{ $academicinfo->passing_year }}">
+                                    <div class="invalid-feedback">
+                                      Please enter Passing Year.
+                                    </div>
+                                    @error('inputs.*.passing_year')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
+                                  </div>
+                                </div>
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label">Board Name<span class="text-danger"> *</span></label>
+                                    <select class="form-control select2" name="inputs[0][board]" data-toggle="select2" required>
+                                    <option value="">Select Board Name</option>
+                                      @foreach ($boards as $board)
+                                      <option {{$academicinfo->board_id == "$board->id" ? "selected" : ""}} value="{{ $board->id }}">{{ $board->name }}</option>
+                                      @endforeach
+                                    </select>
+                                    <div class="invalid-feedback">
+                                      Please enter Board Name.
+                                    </div>
+                                    @error('inputs.*.board')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
+                                  </div>
+                                </div>
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="roll">Board Roll<span class="text-danger"> *</span></label>
+                                    <input type="text" class="form-control" name="inputs[0][board_roll]" id="roll" placeholder="Board Roll" required="" value="{{ $academicinfo->board_roll }}">
+                                    <div class="invalid-feedback">
+                                      Please enter Board Roll.
+                                    </div>
+                                    @error('inputs.*.board_roll')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
+                                  </div>
+                                </div>
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="reg_no">Registration No<span class="text-danger"> *</span></label>
+                                    <input type="text" class="form-control" name="inputs[0][reg_no]" id="reg_no" placeholder="Registration No" required="" value="{{ $academicinfo->reg_no }}">
+                                    <div class="invalid-feedback">
+                                      Please enter Registration No.
+                                    </div>
+                                    @error('inputs.*.reg_no')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
+                                  </div>
+                                </div>
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="gpa">G.P.A.<span class="text-danger"> *</span></label>
+                                    <input type="text" class="form-control" name="inputs[0][gpa]" id="gpa" data-toggle="input-mask" data-mask-format="0.00" maxlength="4" placeholder="G.P.A." required="" value="{{ $academicinfo->gpa }}">
+                                    <div class="invalid-feedback">
+                                      Please enter G.P.A.
+                                    </div>
+                                    @error('inputs.*.gpa')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
+                                  </div>
+                                </div>
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="marksheet">Marksheet<span class="text-danger"> *</span></label>
+                                    <input type="file" class="form-control" name="inputs[0][marksheet]" id="marksheet" required>
+                                    <div class="invalid-feedback">
+                                      Please select file in marksheet.
+                                    </div>
+                                    @error('inputs.*.marksheet')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
+                                  </div>
+                                </div>
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="certificate">Certificate</label>
+                                    <input type="file" class="form-control" name="inputs[0][certificate]" id="certificate">
+                                    <div class="invalid-feedback">
+                                      Please select file in certificate.
+                                    </div>
+                                    @error('inputs.*.certificate')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
+                                  </div>
                                 </div>
                               </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label" for="passing_year">Passing Year<span class="text-danger"> *</span></label>
-                                  <input type="text" class="form-control" name="passing_year" id="passing_year" data-toggle="input-mask" data-mask-format="0000" maxlength="4" placeholder="Passing Year" required="" value="{{ $student->passing_year }}">
-                                  <div class="invalid-feedback">
-                                    Please enter Passing Year.
-                                  </div>
-                                  @error('passing_year')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
-                                </div>
-                              </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label">Board Name<span class="text-danger"> *</span></label>
-                                  <select class="form-control select2" name="board" data-toggle="select2">
-                                  <option value="">Select Board Name</option>
-                                    @foreach ($boards as $board)
-                                    <option {{ $student->board == "$board->id" ? "selected" : ""}} value="{{ $board->id }}">{{ $board->name }}</option>
-                                    @endforeach
-                                  </select>
-                                  <div class="invalid-feedback">
-                                    Please enter Board Name.
-                                  </div>
-                                  @error('board')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
-                                </div>
-                              </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label" for="board_roll">Board Roll<span class="text-danger"> *</span></label>
-                                  <input type="text" class="form-control" name="board_roll" id="board_roll" placeholder="Board roll" required="" value="{{ $student->board_roll')}}">
-                                  <div class="invalid-feedback">
-                                    Please enter Board Roll.
-                                  </div>
-                                  @error('board_roll')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
-                                </div>
-                              </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label" for="reg_no">Registration No<span class="text-danger"> *</span></label>
-                                  <input type="text" class="form-control" name="reg_no" id="reg_no" placeholder="Registration No" required="" value="{{ $student->reg_no')}}">
-                                  <div class="invalid-feedback">
-                                    Please enter Registration No.
-                                  </div>
-                                  @error('reg_no')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
-                                </div>
-                              </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label" for="gpa">G.P.A.<span class="text-danger"> *</span></label>
-                                  <input type="text" class="form-control" name="gpa" id="gpa" data-toggle="input-mask" data-mask-format="0.00" maxlength="4" placeholder="G.P.A." required="" value="{{ $student->gpa')}}">
-                                  <div class="invalid-feedback">
-                                    Please enter G.P.A.
-                                  </div>
-                                  @error('gpa')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
-                                </div>
-                              </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label" for="marksheet">Marksheet<span class="text-danger"> *</span></label>
-                                  <input type="file" class="form-control" name="marksheet" id="marksheet" required>
-                                  <div class="invalid-feedback">
-                                    Please select file in marksheet.
-                                  </div>
-                                  @error('marksheet')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
-                                </div>
-                              </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label" for="certificate">Certificate</label>
-                                  <input type="file" class="form-control" name="certificate" id="certificate">
-                                  <div class="invalid-feedback">
-                                    Please select file in certificate.
-                                  </div>
-                                  @error('certificate')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
-                                </div>
-                              </div>
-                            </div> --}}
+                            </div>
+                            @endforeach
                             
                           </div>
                           <button class="btn btn-primary" type="submit">

@@ -89,6 +89,9 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::resource('admin/students', AdminStudentController::class);
     Route::get('admin/students-panding', [AdminStudentController::class, 'panding'])->name('students.panding');
     Route::get('admin/students-declined', [AdminStudentController::class, 'declined'])->name('students.declined');
+    Route::get('admin/student-accept/{id}', [AdminStudentController::class, 'status_accept'])->name('student.accept');
+    Route::get('admin/student-decline/{id}', [AdminStudentController::class, 'status_decline'])->name('student.decline');
+    Route::get('admin/student-panding/{id}', [AdminStudentController::class, 'status_panding'])->name('student.panding');
     Route::resource('admin/employees', AdminEmployeesController::class);
     Route::get('admin/employees-panding', [AdminEmployeesController::class, 'panding'])->name('employees.panding');
     Route::get('admin/employees-declined', [AdminEmployeesController::class, 'declined'])->name('employees.declined');

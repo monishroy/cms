@@ -30,13 +30,13 @@
                             @if ($notice->status == "0")
                               <span class="badge badge-outline-warning">Panding</span>
                             @elseif ($notice->status == "1")
-                              <span class="badge badge-outline-success">Completed</span>
+                              <span class="badge badge-outline-success">Active</span>
                             @else
                               <span class="badge badge-outline-danger">Declined</span>
                             @endif
                           </td>
                           <td class="pt-3">{{ $notice->download }}</td>
-                          <td class="pt-3">{{ date('d-M-Y', strtotime($notice->created_at)) }}</td>
+                          <td class="pt-3">{{ Carbon\Carbon::parse($notice->created_at)->diffForHumans() }}</td>
                           <td>
                             
                             <div class="d-flex">

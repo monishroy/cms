@@ -100,7 +100,7 @@
                       </p>
                       <p class="text-muted mb-0" id="tooltip-container">
                         <strong>Address :</strong>
-                        <span class="ms-2"> {{ $student->address }} </span>
+                        <span class="ms-2"> {{ $student->permanent_address }} </span>
                       </p>
                     </div>
                   </div>
@@ -118,7 +118,6 @@
                     <form action="{{ route('student.profile.update') }}" method="POST">
                       @csrf
                       <div class="row">
-                        <input type="hidden" name="student_id" id="" value="{{ $student->id }}">
                         <div class="col-md-6">
                           <div class="mb-3">
                             <label for="name" class="form-label">Full Name</label>
@@ -137,13 +136,13 @@
                         <div class="col-md-6">
                           <div class="mb-3">
                             <label for="email" class="form-label">Guardian Phone</label>
-                            <input type="email" class="form-control" value="{{ $student->gPhone }}" placeholder="Enter Email" readonly>
+                            <input type="email" class="form-control" value="{{ $student->guardian_phone }}" placeholder="Enter Guardian Phone" readonly>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="mb-3">
                             <label for="phone" class="form-label">Phone</label>
-                            <input type="text" class="form-control" name="phone" id="phone" value="{{ Auth::user()->phone }}" placeholder="Enter Phone">
+                            <input type="text" class="form-control" name="phone" id="phone" value="{{ Auth::user()->phone }}" data-toggle="input-mask" data-mask-format="01000-000000" maxlength="11" placeholder="Enter Phone">
                             @error('phone')
                               <span class="text-danger form-text"><small>{{$message}}</small></span>
                             @enderror

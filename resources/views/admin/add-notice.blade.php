@@ -45,9 +45,30 @@
                                 @enderror
                               </div>
                             </div>
+                            
+                              @if ($title == 'Update Notice')
+                              <div class="col-12">
+                                <div class="mb-3">
+                                  <label class="form-label" for="status">Role<span class="text-danger"> *</span></label>
+                                  <select class="form-control select2" name="status" data-toggle="select2" required @if (Auth::user()->role == 'super-admin') @else disabled @endif>
+                                    <option value="">Select Status</option>
+                                    <option {{ $notice->status == "1" ? "selected" : ""}} value="1">Active</option>
+                                    <option {{ $notice->status == "0" ? "selected" : ""}} value="0">Panding</option>
+                                    <option {{ $notice->status == "2" ? "selected" : ""}} value="2">Declined</option>
+                                  </select>
+                                  <div class="invalid-feedback">
+                                    Please enter status.
+                                  </div>
+                                  @error('status')
+                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                  @enderror
+                                </div>
+                              </div>
+                              @endif
+                            
                             <div class="col-md-6 col-12">
                               <div class="mb-3">
-                                <label class="form-label" for="roll">Added Name</label>
+                                <label class="form-label" for="roll">Updated Name</label>
                                 <input type="text" class="form-control" readonly value="{{Auth::user()->name}}">
                               </div>
                             </div>
@@ -59,7 +80,7 @@
                             </div>
                           </div>
                           <button class="btn btn-primary" type="submit">
-                              Submit
+                            Submit
                           </button>
                         </form>
                       </div>
@@ -83,8 +104,6 @@
                   <!-- end card-body-->
                   </div>
                 <!-- end card-->
-                @else
-                  
                 @endif
               </div>
               <!-- end col-->

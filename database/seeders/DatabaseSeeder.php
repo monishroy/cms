@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
+            UserSeeder::class,
             DepartmentSeeder::class,
             SemisterSeeder::class,
             SessionSeeder::class,
@@ -33,11 +34,12 @@ class DatabaseSeeder extends Seeder
             DivisionSeeder::class,
             DistrictSeeder::class,
             UpazilaSeeder::class,
-            UserSeeder::class,
             NoticeSeeder::class,
-            StudentSeeder::class,
-            // EmployeeSeeder::class,
             TechnologySeeder::class,
+            StudentSeeder::class,
+            StudentAcademicInfoSeeder::class,
+            EmployeeSeeder::class,
+            EmployeeAcademicInfoSeeder::class,
         ]);
     }
 }

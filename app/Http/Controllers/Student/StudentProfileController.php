@@ -14,7 +14,7 @@ class StudentProfileController extends Controller
 {
     public function index()
     {
-        $data['student'] = Student::where('phone', Auth::user()->phone)->first();
+        $data['student'] = Student::where('email', Auth::user()->email)->first();
         $data['notices'] = Notice::all();
         return view('student.profile', $data);
     }
@@ -25,7 +25,6 @@ class StudentProfileController extends Controller
             'name' => 'required',
             'phone' => 'required|min:11',
             'bio' => 'required',
-            'student_id' => 'required',
         ]);
 
         $result = User::findOrFail(Auth::user()->id)->update([

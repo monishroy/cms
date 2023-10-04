@@ -13,7 +13,9 @@ use App\Models\Department;
 use App\Models\Division;
 use App\Models\Session;
 use App\Models\StudentAcademicInfo;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminStudentController extends Controller
 {
@@ -96,14 +98,33 @@ class AdminStudentController extends Controller
             'upazila' => 'required',
             'present_address' => 'required',
             'permanent_address' => 'required',
-            'exam_name' => 'required',
-            'passing_year' => 'required',
-            'board' => 'required',
-            'board_roll' => 'required|numeric',
-            'reg_no' => 'required|numeric',
-            'gpa' => 'required',
-            'marksheet' => 'required|image|mimes:png,jpg,jpeg|max:1024',
-            'certificate' => 'nullable|image|mimes:png,jpg,jpeg|max:1024',
+
+            'inputs.*.exam_name' => 'required',
+            'inputs.*.passing_year' => 'required',
+            'inputs.*.board' => 'required',
+            'inputs.*.board_roll' => 'required|numeric',
+            'inputs.*.reg_no' => 'required|numeric',
+            'inputs.*.gpa' => 'required',
+            'inputs.*.marksheet' => 'required|image|mimes:png,jpg,jpeg|max:1024',
+            'inputs.*.certificate' => 'nullable|image|mimes:png,jpg,jpeg|max:1024',
+        ],
+        [
+            'inputs.*.exam_name.required' => 'The exam name fild is requerd',
+            'inputs.*.passing_year.required' => 'The passing year fild is requerd',
+            'inputs.*.board.required' => 'The board fild is requerd',
+            'inputs.*.board_roll.required' => 'The roll fild is requerd',
+            'inputs.*.board_roll.numeric' => 'The roll fild is must be number',
+            'inputs.*.reg_no.required' => 'The reg no fild is requerd',
+            'inputs.*.reg_no.numeric' => 'The reg no fild is must be number',
+            'inputs.*.gpa.required' => 'The gpa fild is requerd',
+            'inputs.*.marksheet.required' => 'The marksheet fild is requerd',
+            'inputs.*.marksheet.image' => 'The marksheet is must be image',
+            'inputs.*.marksheet.mimes' => 'The marksheet format is jpg, png, jpeg',
+            'inputs.*.marksheet.max' => 'The marksheet size max 1 MB',
+            'inputs.*.certificate.image' => 'The certificate is must be image',
+            'inputs.*.certificate.mimes' => 'The certificate format is jpg, png, jpeg',
+            'inputs.*.certificate.max' => 'The certificate size max 1 MB',
+
         ]);
 
         $imagename = date('dmY').time()."-student.".$request->file('image')->getClientOriginalExtension();
@@ -136,48 +157,32 @@ class AdminStudentController extends Controller
             'user_id' => Auth::user()->id,
         ]);
 
-        if(is_file($request->marksheet)){
+        foreach ($request->inputs as $value){
+            
+            $studentAcademic = new StudentAcademicInfo;
+            $studentAcademic->student_id = $student->id;
+            $studentAcademic->academic_exam_id = $value['exam_name'];
+            $studentAcademic->passing_year = $value['passing_year'];
+            $studentAcademic->board_id = $value['board'];
+            $studentAcademic->board_roll = $value['board_roll'];
+            $studentAcademic->reg_no = $value['reg_no'];
+            $studentAcademic->gpa = $value['gpa'];
+            if($value['marksheet']){
+                // Store marksheet files
+                $marksheet = date('dmY').time().rand(111, 999)."-marksheet.".$value['marksheet']->getClientOriginalExtension();
+                $value['marksheet']->storeAs('public/document', $marksheet);
 
-            $marksheet = date('dmY').time()."-marksheet.".$request->file('marksheet')->getClientOriginalExtension();
-            $request->file('marksheet')->storeAs('public/document',$marksheet);
+                $studentAcademic->marksheet = $marksheet;
+            }
+            if($value['certificate']){
+                // Store certificate files
+                $certificate = date('dmY').time().rand(111, 999)."-certificate.".$value['certificate']->getClientOriginalExtension();
+                $value['certificate']->storeAs('public/document', $certificate);
 
-            $result = StudentAcademicInfo::create([
-                'student_id' => $student->id,
-                'academic_exam_id' => $request->exam_name,
-                'passing_year' => $request->passing_year,
-                'board_id' => $request->board,
-                'board_roll' => $request->board_roll,
-                'reg_no' => $request->reg_no,
-                'gpa' => $request->gpa,
-                'marksheet' => $marksheet,
-            ]);
+                $studentAcademic->certificate = $certificate;
+            }
+            $result = $studentAcademic->save();
 
-        }elseif(is_file($request->certificate)){
-
-            $certificate = date('dmY').time()."-certificate.".$request->file('certificate')->getClientOriginalExtension();
-            $request->file('certificate')->storeAs('public/document',$certificate);
-
-            $result = StudentAcademicInfo::create([
-                'student_id' => $student->id,
-                'academic_exam_id' => $request->exam_name,
-                'passing_year' => $request->passing_year,
-                'board_id' => $request->board,
-                'board_roll' => $request->board_roll,
-                'reg_no' => $request->reg_no,
-                'gpa' => $request->gpa,
-                'certificate' => $certificate,
-            ]);
-
-        }else{
-            $result = StudentAcademicInfo::create([
-                'student_id' => $student->id,
-                'academic_exam_id' => $request->exam_name,
-                'passing_year' => $request->passing_year,
-                'board_id' => $request->board,
-                'board_roll' => $request->board_roll,
-                'reg_no' => $request->reg_no,
-                'gpa' => $request->gpa,
-            ]);
         }
 
         if($result){
@@ -215,6 +220,7 @@ class AdminStudentController extends Controller
         $data['divisions'] = Division::all();
         $data['boards'] = Board::all();
         $data['academic_exams'] = AcademicExam::all();
+        $data['academicinfos'] = StudentAcademicInfo::where('student_id', $id)->get();
 
         return view('admin.edit-student', $data);
     }
@@ -305,5 +311,49 @@ class AdminStudentController extends Controller
         }
     }
 
+    public function status_accept($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->status = '1';
+        $student->save();
+
+        $result = User::create([
+            'name' => $student->fname.' '.$student->lname,
+            'email' => $student->email,
+            'image' => $student->image,
+            'phone' => $student->phone,
+            'bio' => 'I am a good Student',
+            'password' => Hash::make('123456'),
+        ]);
+        if($result){
+            return back()->with('success','Student Active Successfully');
+        }else{
+            return back()->with('error','Something is Worng!');
+        }
+    }
+
+    public function status_decline($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->status = '2';
+        $result = $student->save();
+        if($result){
+            return back()->with('success','Student Declined Successfully');
+        }else{
+            return back()->with('error','Something is Worng!');
+        }
+    }
+
+    public function status_panding($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->status = '0';
+        $result = $student->save();
+        if($result){
+            return back()->with('success','Student Panding Successfully');
+        }else{
+            return back()->with('error','Something is Worng!');
+        }
+    }
 
 }

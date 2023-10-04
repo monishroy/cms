@@ -46,7 +46,7 @@
                                 <label class="form-label" for="father_name">Father's Name<span class="text-danger"> *</span></label>
                                 <input type="text" class="form-control" name="father_name" id="father_name" placeholder="Father's Name" required="" value="{{old('father_name')}}">
                                 <div class="invalid-feedback">
-                                  Please enter name.
+                                  Please enter father name.
                                 </div>
                                 @error('father_name')
                                   <span class="text-danger form-text"><small>{{$message}}</small></span>
@@ -58,7 +58,7 @@
                                 <label class="form-label" for="mother_name">Mother's Name<span class="text-danger"> *</span></label>
                                 <input type="text" class="form-control" name="mother_name" id="mother_name" placeholder="Mother's Name" required="" value="{{old('mother_name')}}">
                                 <div class="invalid-feedback">
-                                  Please enter name.
+                                  Please enter mother name.
                                 </div>
                                 @error('mother_name')
                                   <span class="text-danger form-text"><small>{{$message}}</small></span>
@@ -94,7 +94,7 @@
                                 <label class="form-label" for="roll">Roll<span class="text-danger"> *</span></label>
                                 <input type="text" class="form-control" name="roll" id="roll" placeholder="Roll" required="" value="{{old('roll')}}">
                                 <div class="invalid-feedback">
-                                  Please enter name.
+                                  Please enter roll.
                                 </div>
                                 @error('roll')
                                   <span class="text-danger form-text"><small>{{$message}}</small></span>
@@ -106,7 +106,7 @@
                                 <label class="form-label" for="registration">Registration<span class="text-danger"> *</span></label>
                                 <input type="text" class="form-control" name="registration" id="registration" placeholder="Registration" required="" value="{{old('registration')}}">
                                 <div class="invalid-feedback">
-                                  Please enter name.
+                                  Please enter registration.
                                 </div>
                                 @error('registration')
                                   <span class="text-danger form-text"><small>{{$message}}</small></span>
@@ -128,14 +128,14 @@
                             <div class="col-md-3 col-12">
                               <div class="mb-3">
                                 <label class="form-label" for="gender">Gender<span class="text-danger"> *</span></label>
-                                <select class="form-control select2" name="gender" data-toggle="select2">
+                                <select class="form-control select2" name="gender" data-toggle="select2" required>
                                   <option value="">Select Gender</option>
                                   <option {{old('gender') == "M" ? "selected" : ""}} value="M">Male</option>
                                   <option {{old('gender') == "F" ? "selected" : ""}} value="F">Female</option>
                                   <option {{old('gender') == "O" ? "selected" : ""}} value="O">Other</option>
                                 </select>
                                 <div class="invalid-feedback">
-                                  Please enter gender.
+                                  Please select gender.
                                 </div>
                                 @error('gender')
                                   <span class="text-danger form-text"><small>{{$message}}</small></span>
@@ -169,12 +169,15 @@
                             <div class="col-md-3 col-12">
                               <div class="mb-3">
                                 <label class="form-label" for="department">Department<span class="text-danger"> *</span></label>
-                                <select class="form-control select2" name="department" data-toggle="select2">
+                                <select class="form-control select2" name="department" data-toggle="select2" required>
                                   <option value="">Select Department</option>
                                   @foreach ($departments as $department)
                                   <option {{old('department') == "$department->id" ? "selected" : ""}} value="{{ $department->id }}">{{$department->name}}</option>
                                   @endforeach
                                 </select>
+                                <div class="invalid-feedback">
+                                  Please select department.
+                                </div>
                                 @error('department')
                                   <span class="text-danger form-text"><small>{{$message}}</small></span>
                                 @enderror
@@ -183,12 +186,15 @@
                             <div class="col-md-3 col-12">
                               <div class="mb-3">
                                 <label class="form-label" for="semister">Semister<span class="text-danger"> *</span></label>
-                                <select class="form-control select2" name="semister" data-toggle="select2">
+                                <select class="form-control select2" name="semister" data-toggle="select2" required>
                                   <option value="">Select Semister</option>
                                   @foreach ($semisters as $semister)
                                   <option {{old('semister') == "$semister->id" ? "selected" : ""}} value="{{ $semister->id }}">{{$semister->name}}</option>
                                   @endforeach
                                 </select>
+                                <div class="invalid-feedback">
+                                  Please select semister.
+                                </div>
                                 @error('semister')
                                   <span class="text-danger form-text"><small>{{$message}}</small></span>
                                 @enderror
@@ -197,12 +203,15 @@
                             <div class="col-md-3 col-12">
                               <div class="mb-3">
                                 <label class="form-label" for="session">Session<span class="text-danger"> *</span></label>
-                                <select class="form-control select2" name="session" data-toggle="select2">
+                                <select class="form-control select2" name="session" data-toggle="select2" required>
                                   <option value="">Select Session</option>
                                   @foreach ($sessions as $session)
                                   <option {{old('session') == "$session->id" ? "selected" : ""}} value="{{ $session->id }}">{{$session->name}}</option>
                                   @endforeach
                                 </select>
+                                <div class="invalid-feedback">
+                                  Please select session.
+                                </div>
                                 @error('session')
                                   <span class="text-danger form-text"><small>{{$message}}</small></span>
                                 @enderror
@@ -211,12 +220,15 @@
                             <div class="col-md-3 col-12">
                               <div class="mb-3">
                                 <label class="form-label">Blood Group<span class="text-danger"> *</span></label>
-                                <select class="form-control select2" name="blood_group" data-toggle="select2">
+                                <select class="form-control select2" name="blood_group" data-toggle="select2" required>
                                   <option value="">Select Blood Group</option>
                                   @foreach ($blood_groups as $blood)
                                   <option {{old('blood_group') == "$blood->id" ? "selected" : ""}} value="{{ $blood->id }}">{{$blood->name}}</option>
                                   @endforeach
                                 </select>
+                                <div class="invalid-feedback">
+                                  Please select blood group.
+                                </div>
                                 @error('blood_group')
                                   <span class="text-danger form-text"><small>{{$message}}</small></span>
                                 @enderror
@@ -240,12 +252,15 @@
                             <div class="col-md-3 col-12">
                               <div class="mb-3">
                                 <label class="form-label">Division<span class="text-danger"> *</span></label>
-                                <select class="form-control select2" name="division" id="division-dropdown" data-toggle="select2">
+                                <select class="form-control select2" name="division" id="division-dropdown" data-toggle="select2" required>
                                   <option value="">Select Division</option>
                                   @foreach ($divisions as $division)
                                   <option {{old('division') == "$division->id" ? "selected" : ""}} value="{{ $division->id }}">{{$division->name}}</option>
                                   @endforeach
                                 </select>
+                                <div class="invalid-feedback">
+                                  Please select division.
+                                </div>
                                 @error('division')
                                   <span class="text-danger form-text"><small>{{$message}}</small></span>
                                 @enderror
@@ -254,7 +269,10 @@
                             <div class="col-md-3 col-12">
                               <div class="mb-3">
                                 <label class="form-label">District<span class="text-danger"> *</span></label>
-                                <select class="form-control select2" name="district" id="district-dropdown" data-toggle="select2"></select>
+                                <select class="form-control select2" name="district" id="district-dropdown" data-toggle="select2" required></select>
+                                <div class="invalid-feedback">
+                                  Please select district.
+                                </div>
                                 @error('district')
                                   <span class="text-danger form-text"><small>{{$message}}</small></span>
                                 @enderror
@@ -263,7 +281,10 @@
                             <div class="col-md-3 col-12">
                               <div class="mb-3">
                                 <label class="form-label" for="upazila">Upazila<span class="text-danger"> *</span></label>
-                                <select class="form-control select2" name="upazila" id="upazila-dropdown" data-toggle="select2"></select>
+                                <select class="form-control select2" name="upazila" id="upazila-dropdown" data-toggle="select2" required></select>
+                                <div class="invalid-feedback">
+                                  Please select upazila.
+                                </div>
                                 @error('upazila')
                                   <span class="text-danger form-text"><small>{{$message}}</small></span>
                                 @enderror
@@ -272,6 +293,9 @@
                             <div class="col-md-6 col-12 mb-3">
                               <label class="form-label">Present Address<span class="text-danger"> *</span></label>
                               <textarea data-toggle="maxlength" class="form-control" name="present_address" maxlength="50" rows="2" placeholder="Present Address" required>{{ old('present_address') }}</textarea>
+                              <div class="invalid-feedback">
+                                Please enter Present Address.
+                              </div>
                               @error('present_address')
                                 <span class="text-danger form-text"><small>{{$message}}</small></span>
                               @enderror
@@ -279,123 +303,128 @@
                             <div class="col-md-6 col-12 mb-3">
                               <label class="form-label">Permanent Address<span class="text-danger"> *</span></label>
                               <textarea data-toggle="maxlength" class="form-control" name="permanent_address" maxlength="50" rows="2" placeholder="Permanent Address" required>{{ old('permanent_address') }}</textarea>
+                              <div class="invalid-feedback">
+                                Please enter Permanent Address.
+                              </div>
                               @error('permanent_address')
                                 <span class="text-danger form-text"><small>{{$message}}</small></span>
                               @enderror
                             </div>
+                            <h5 class="mb-3 text-uppercase bg-light p-2">
+                              <div class="float-start" style="margin-top: 8px">
+                                 1.&nbsp;&nbsp;
+                                <span class="mt-4">Academic Information</span>
+                              </div>
+                              <button type="button" id="addMore" class="btn btn-sm btn-primary float-end position-absulute">Add More</button>
+                            </h5>
                             {{-- Academic information start --}}
-                            <div class="row" id="addmore">
-                              <h5 class="mb-3 text-uppercase bg-light p-2">
-                                <div class="float-start" style="margin-top: 8px">
-                                  <i class="mdi mdi-office-building me-1"></i> 
-                                  <span class="mt-4">Academic Information</span>
-                                </div>
-                                <button type="button" class="btn btn-sm btn-primary float-end position-absulute">Add More</button>
-                              </h5>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label">Exam Name<span class="text-danger"> *</span></label>
-                                  <select class="form-control select2" name="exam_name" data-toggle="select2">
-                                    <option value="">Select Exam Name</option>
-                                    @foreach ($academic_exams as $exam)
-                                    <option {{old('exam_name') == "$exam->id" ? "selected" : ""}} value="{{ $exam->id }}">{{ $exam->name }}</option>
-                                    @endforeach
-                                  </select>
-                                  <div class="invalid-feedback">
-                                    Please enter Exam Name.
+                            <div id="more-data">
+                              <div class="row">
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label">Exam Name<span class="text-danger"> *</span></label>
+                                    <select class="form-control select2" name="inputs[0][exam_name]" data-toggle="select2" required>
+                                      <option value="">Select Exam Name</option>
+                                      @foreach ($academic_exams as $exam)
+                                      <option {{old('inputs.*.exam_name') == "$exam->id" ? "selected" : ""}} value="{{ $exam->id }}">{{ $exam->name }}</option>
+                                      @endforeach
+                                    </select>
+                                    <div class="invalid-feedback">
+                                      Please enter Exam Name.
+                                    </div>
+                                    @error('inputs.*.exam_name')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
                                   </div>
-                                  @error('exam_name')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
                                 </div>
-                              </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label" for="passing_year">Passing Year<span class="text-danger"> *</span></label>
-                                  <input type="text" class="form-control" name="passing_year" id="passing_year" data-toggle="input-mask" data-mask-format="0000" maxlength="4" placeholder="Passing Year" required="" value="{{old('passing_year')}}">
-                                  <div class="invalid-feedback">
-                                    Please enter Passing Year.
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="passing_year">Passing Year<span class="text-danger"> *</span></label>
+                                    <input type="text" class="form-control" name="inputs[0][passing_year]" id="passing_year" data-toggle="input-mask" data-mask-format="0000" maxlength="4" placeholder="Passing Year" required="" value="{{old('inputs.*.passing_year')}}">
+                                    <div class="invalid-feedback">
+                                      Please enter Passing Year.
+                                    </div>
+                                    @error('inputs.*.passing_year')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
                                   </div>
-                                  @error('passing_year')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
                                 </div>
-                              </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label">Board Name<span class="text-danger"> *</span></label>
-                                  <select class="form-control select2" name="board" data-toggle="select2">
-                                  <option value="">Select Board Name</option>
-                                    @foreach ($boards as $board)
-                                    <option {{old('board') == "$board->id" ? "selected" : ""}} value="{{ $board->id }}">{{ $board->name }}</option>
-                                    @endforeach
-                                  </select>
-                                  <div class="invalid-feedback">
-                                    Please enter Board Name.
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label">Board Name<span class="text-danger"> *</span></label>
+                                    <select class="form-control select2" name="inputs[0][board]" data-toggle="select2" required>
+                                    <option value="">Select Board Name</option>
+                                      @foreach ($boards as $board)
+                                      <option {{old('inputs.*.board') == "$board->id" ? "selected" : ""}} value="{{ $board->id }}">{{ $board->name }}</option>
+                                      @endforeach
+                                    </select>
+                                    <div class="invalid-feedback">
+                                      Please enter Board Name.
+                                    </div>
+                                    @error('inputs.*.board')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
                                   </div>
-                                  @error('board')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
                                 </div>
-                              </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label" for="board_roll">Board Roll<span class="text-danger"> *</span></label>
-                                  <input type="text" class="form-control" name="board_roll" id="board_roll" placeholder="Board roll" required="" value="{{old('board_roll')}}">
-                                  <div class="invalid-feedback">
-                                    Please enter Board Roll.
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="roll">Board Roll<span class="text-danger"> *</span></label>
+                                    <input type="text" class="form-control" name="inputs[0][board_roll]" id="roll" placeholder="Board Roll" required="" value="{{old('inputs.*.board_roll')}}">
+                                    <div class="invalid-feedback">
+                                      Please enter Board Roll.
+                                    </div>
+                                    @error('inputs.*.board_roll')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
                                   </div>
-                                  @error('board_roll')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
                                 </div>
-                              </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label" for="reg_no">Registration No<span class="text-danger"> *</span></label>
-                                  <input type="text" class="form-control" name="reg_no" id="reg_no" placeholder="Registration No" required="" value="{{old('reg_no')}}">
-                                  <div class="invalid-feedback">
-                                    Please enter Registration No.
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="reg_no">Registration No<span class="text-danger"> *</span></label>
+                                    <input type="text" class="form-control" name="inputs[0][reg_no]" id="reg_no" placeholder="Registration No" required="" value="{{old('inputs.*.reg_no')}}">
+                                    <div class="invalid-feedback">
+                                      Please enter Registration No.
+                                    </div>
+                                    @error('inputs.*.reg_no')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
                                   </div>
-                                  @error('reg_no')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
                                 </div>
-                              </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label" for="gpa">G.P.A.<span class="text-danger"> *</span></label>
-                                  <input type="text" class="form-control" name="gpa" id="gpa" data-toggle="input-mask" data-mask-format="0.00" maxlength="4" placeholder="G.P.A." required="" value="{{old('gpa')}}">
-                                  <div class="invalid-feedback">
-                                    Please enter G.P.A.
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="gpa">G.P.A.<span class="text-danger"> *</span></label>
+                                    <input type="text" class="form-control" name="inputs[0][gpa]" id="gpa" data-toggle="input-mask" data-mask-format="0.00" maxlength="4" placeholder="G.P.A." required="" value="{{old('inputs.*.gpa')}}">
+                                    <div class="invalid-feedback">
+                                      Please enter G.P.A.
+                                    </div>
+                                    @error('inputs.*.gpa')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
                                   </div>
-                                  @error('gpa')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
                                 </div>
-                              </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label" for="marksheet">Marksheet<span class="text-danger"> *</span></label>
-                                  <input type="file" class="form-control" name="marksheet" id="marksheet" required>
-                                  <div class="invalid-feedback">
-                                    Please select file in marksheet.
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="marksheet">Marksheet<span class="text-danger"> *</span></label>
+                                    <input type="file" class="form-control" name="inputs[0][marksheet]" id="marksheet" required>
+                                    <div class="invalid-feedback">
+                                      Please select file in marksheet.
+                                    </div>
+                                    @error('inputs.*.marksheet')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
                                   </div>
-                                  @error('marksheet')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
                                 </div>
-                              </div>
-                              <div class="col-md-3 col-12">
-                                <div class="mb-3">
-                                  <label class="form-label" for="certificate">Certificate</label>
-                                  <input type="file" class="form-control" name="certificate" id="certificate">
-                                  <div class="invalid-feedback">
-                                    Please select file in certificate.
+                                <div class="col-md-3 col-12">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="certificate">Certificate</label>
+                                    <input type="file" class="form-control" name="inputs[0][certificate]" id="certificate">
+                                    <div class="invalid-feedback">
+                                      Please select file in certificate.
+                                    </div>
+                                    @error('inputs.*.certificate')
+                                      <span class="text-danger form-text"><small>{{$message}}</small></span>
+                                    @enderror
                                   </div>
-                                  @error('certificate')
-                                    <span class="text-danger form-text"><small>{{$message}}</small></span>
-                                  @enderror
                                 </div>
                               </div>
                             </div>
@@ -424,5 +453,129 @@
           <!-- container -->
         </div>
         <!-- content -->
-
+<script>
+  var i = 0;
+  $('#addMore').click(function(){
+    ++i;
+    $('#more-data').append(
+    `<div class="row" id="remove">
+      <h5 class="mb-3 text-uppercase bg-light p-2">
+        <div class="float-start" style="margin-top: 8px">
+          `+(i+1)+`.&nbsp;&nbsp; 
+          <span class="mt-4">Academic Information</span>
+        </div>
+        <button type="button" class="btn btn-sm btn-danger float-end remove-table-row position-absulute">Remove</button>
+      </h5>
+      <div class="col-md-3 col-12">
+        <div class="mb-3">
+          <label class="form-label">Exam Name<span class="text-danger"> *</span></label>
+          <select class="form-control select2" name="inputs[`+i+`][exam_name]" data-toggle="select2">
+            <option value="">Select Exam Name</option>
+            @foreach ($academic_exams as $exam)
+            <option {{old('exam_name') == "$exam->id" ? "selected" : ""}} value="{{ $exam->id }}">{{ $exam->name }}</option>
+            @endforeach
+          </select>
+          <div class="invalid-feedback">
+            Please enter Exam Name.
+          </div>
+          @error('exam_name')
+            <span class="text-danger form-text"><small>{{$message}}</small></span>
+          @enderror
+        </div>
+      </div>
+      <div class="col-md-3 col-12">
+        <div class="mb-3">
+          <label class="form-label" for="passing_year">Passing Year<span class="text-danger"> *</span></label>
+          <input type="text" class="form-control" name="inputs[`+i+`][passing_year]" id="passing_year" data-toggle="input-mask" data-mask-format="0000" maxlength="4" placeholder="Passing Year" required="" value="{{old('passing_year')}}">
+          <div class="invalid-feedback">
+            Please enter Passing Year.
+          </div>
+          @error('passing_year')
+            <span class="text-danger form-text"><small>{{$message}}</small></span>
+          @enderror
+        </div>
+      </div>
+      <div class="col-md-3 col-12">
+        <div class="mb-3">
+          <label class="form-label">Board Name<span class="text-danger"> *</span></label>
+          <select class="form-control select2" name="inputs[`+i+`][board]" data-toggle="select2">
+          <option value="">Select Board Name</option>
+            @foreach ($boards as $board)
+            <option {{old('board') == "$board->id" ? "selected" : ""}} value="{{ $board->id }}">{{ $board->name }}</option>
+            @endforeach
+          </select>
+          <div class="invalid-feedback">
+            Please enter Board Name.
+          </div>
+          @error('board')
+            <span class="text-danger form-text"><small>{{$message}}</small></span>
+          @enderror
+        </div>
+      </div>
+      <div class="col-md-3 col-12">
+        <div class="mb-3">
+          <label class="form-label" for="roll">Board Roll<span class="text-danger"> *</span></label>
+          <input type="text" class="form-control" name="inputs[`+i+`][board_roll]" id="roll" placeholder="Board Roll" required="">
+          <div class="invalid-feedback">
+            Please enter Board Roll.
+          </div>
+          @error('roll')
+            <span class="text-danger form-text"><small>{{$message}}</small></span>
+          @enderror
+        </div>
+      </div>
+      <div class="col-md-3 col-12">
+        <div class="mb-3">
+          <label class="form-label" for="reg_no">Registration No<span class="text-danger"> *</span></label>
+          <input type="text" class="form-control" name="inputs[`+i+`][reg_no]" id="reg_no" placeholder="Registration No" required="">
+          <div class="invalid-feedback">
+            Please enter Registration No.
+          </div>
+          @error('reg_no')
+            <span class="text-danger form-text"><small>{{$message}}</small></span>
+          @enderror
+        </div>
+      </div>
+      <div class="col-md-3 col-12">
+        <div class="mb-3">
+          <label class="form-label" for="gpa">G.P.A.<span class="text-danger"> *</span></label>
+          <input type="text" class="form-control" name="inputs[`+i+`][gpa]" id="gpa" data-toggle="input-mask" data-mask-format="0.00" maxlength="4" placeholder="G.P.A." required="">
+          <div class="invalid-feedback">
+            Please enter G.P.A.
+          </div>
+          @error('gpa')
+            <span class="text-danger form-text"><small>{{$message}}</small></span>
+          @enderror
+        </div>
+      </div>
+      <div class="col-md-3 col-12">
+        <div class="mb-3">
+          <label class="form-label" for="marksheet">Marksheet<span class="text-danger"> *</span></label>
+          <input type="file" class="form-control" name="inputs[`+i+`][marksheet]" id="marksheet" required>
+          <div class="invalid-feedback">
+            Please select file in marksheet.
+          </div>
+          @error('marksheet')
+            <span class="text-danger form-text"><small>{{$message}}</small></span>
+          @enderror
+        </div>
+      </div>
+      <div class="col-md-3 col-12">
+        <div class="mb-3">
+          <label class="form-label" for="certificate">Certificate</label>
+          <input type="file" class="form-control" name="inputs[`+i+`][certificate]" id="certificate" >
+          <div class="invalid-feedback">
+            Please select file in certificate.
+          </div>
+          @error('certificate')
+            <span class="text-danger form-text"><small>{{$message}}</small></span>
+          @enderror
+        </div>
+      </div>
+    </div>`);
+  });
+  $(document).on('click','.remove-table-row', function(){
+    $(this).parents('#remove').remove();
+  })
+</script>
 @endsection

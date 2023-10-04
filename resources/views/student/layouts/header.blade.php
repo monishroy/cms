@@ -153,16 +153,16 @@
                                         <!-- item-->
                                         @foreach ($notices as $notice)
                                         <a
-                                            href="{{ route('notice.download',['file'=>$notice->notice_file]) }}"
+                                            href="{{ route('notice.download',['file'=>$notice->file]) }}"
                                             class="dropdown-item notify-item"
                                         >
                                             <div class="notify-icon bg-primary">
                                                 <i class="uil-bell fs-3 lh-4"></i>
                                             </div>
                                             <p class="notify-details">
-                                                {{$notice->notice_title}}
+                                                {{$notice->name}}
                                                 <small class="text-muted"
-                                                    >{{ date('d-M-Y', strtotime($notice->created_at)) }}</small
+                                                    >{{ Carbon\Carbon::parse($notice->created_at)->diffForHumans() }}</small
                                                 >
                                             </p>
                                         </a>
