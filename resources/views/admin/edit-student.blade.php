@@ -299,12 +299,13 @@
                                 <span class="text-danger form-text"><small>{{$message}}</small></span>
                               @enderror
                             </div>
-                            @foreach ($academicinfos as $academicinfo)
-                            <h5 class="mb-3 text-uppercase bg-light p-2">
+                            @foreach ($academicinfos as $key=>$academicinfo)
+                            <h5 class="mb-3 bg-light p-2">
                               <div class="float-start" style="margin-top: 8px">
-                                 1.&nbsp;&nbsp;
-                                <span class="mt-4">Academic Information</span>
+                                 {{ ++$key }}.&nbsp;&nbsp;
+                                <span class="mt-4 text-uppercase">Academic Information</span>
                               </div>
+                              <a href="" class="btn btn-sm btn-danger float-end">Delete</a>
                             </h5>
                             {{-- Academic information start --}}
                             <div id="more-data">
@@ -312,7 +313,7 @@
                                 <div class="col-md-3 col-12">
                                   <div class="mb-3">
                                     <label class="form-label">Exam Name<span class="text-danger"> *</span></label>
-                                    <select class="form-control select2" name="inputs[0][exam_name]" data-toggle="select2" required>
+                                    <select class="form-control select2" name="inputs[{{ $key++ }}][exam_name]" data-toggle="select2" required>
                                       <option value="">Select Exam Name</option>
                                       @foreach ($academic_exams as $exam)
                                       <option {{$academicinfo->academic_exam_id == "$exam->id" ? "selected" : ""}} value="{{ $exam->id }}">{{ $exam->name }}</option>
@@ -329,7 +330,7 @@
                                 <div class="col-md-3 col-12">
                                   <div class="mb-3">
                                     <label class="form-label" for="passing_year">Passing Year<span class="text-danger"> *</span></label>
-                                    <input type="text" class="form-control" name="inputs[0][passing_year]" id="passing_year" data-toggle="input-mask" data-mask-format="0000" maxlength="4" placeholder="Passing Year" required="" value="{{ $academicinfo->passing_year }}">
+                                    <input type="text" class="form-control" name="inputs[{{ $key++ }}][passing_year]" id="passing_year" data-toggle="input-mask" data-mask-format="0000" maxlength="4" placeholder="Passing Year" required="" value="{{ $academicinfo->passing_year }}">
                                     <div class="invalid-feedback">
                                       Please enter Passing Year.
                                     </div>
@@ -341,7 +342,7 @@
                                 <div class="col-md-3 col-12">
                                   <div class="mb-3">
                                     <label class="form-label">Board Name<span class="text-danger"> *</span></label>
-                                    <select class="form-control select2" name="inputs[0][board]" data-toggle="select2" required>
+                                    <select class="form-control select2" name="inputs[{{ $key++ }}][board]" data-toggle="select2" required>
                                     <option value="">Select Board Name</option>
                                       @foreach ($boards as $board)
                                       <option {{$academicinfo->board_id == "$board->id" ? "selected" : ""}} value="{{ $board->id }}">{{ $board->name }}</option>
@@ -357,8 +358,8 @@
                                 </div>
                                 <div class="col-md-3 col-12">
                                   <div class="mb-3">
-                                    <label class="form-label" for="roll">Board Roll<span class="text-danger"> *</span></label>
-                                    <input type="text" class="form-control" name="inputs[0][board_roll]" id="roll" placeholder="Board Roll" required="" value="{{ $academicinfo->board_roll }}">
+                                    <label class="form-label" for="roll{{ $academicinfo->id }}">Board Roll<span class="text-danger"> *</span></label>
+                                    <input type="text" class="form-control" name="inputs[{{ $key++ }}][board_roll]" id="roll{{ $academicinfo->id }}" placeholder="Board Roll" required="" value="{{ $academicinfo->board_roll }}">
                                     <div class="invalid-feedback">
                                       Please enter Board Roll.
                                     </div>
@@ -369,8 +370,8 @@
                                 </div>
                                 <div class="col-md-3 col-12">
                                   <div class="mb-3">
-                                    <label class="form-label" for="reg_no">Registration No<span class="text-danger"> *</span></label>
-                                    <input type="text" class="form-control" name="inputs[0][reg_no]" id="reg_no" placeholder="Registration No" required="" value="{{ $academicinfo->reg_no }}">
+                                    <label class="form-label" for="reg_no{{ $academicinfo->id }}">Registration No<span class="text-danger"> *</span></label>
+                                    <input type="text" class="form-control" name="inputs[{{ $key++ }}][reg_no]" id="reg_no{{ $academicinfo->id }}" placeholder="Registration No" required="" value="{{ $academicinfo->reg_no }}">
                                     <div class="invalid-feedback">
                                       Please enter Registration No.
                                     </div>
@@ -381,8 +382,8 @@
                                 </div>
                                 <div class="col-md-3 col-12">
                                   <div class="mb-3">
-                                    <label class="form-label" for="gpa">G.P.A.<span class="text-danger"> *</span></label>
-                                    <input type="text" class="form-control" name="inputs[0][gpa]" id="gpa" data-toggle="input-mask" data-mask-format="0.00" maxlength="4" placeholder="G.P.A." required="" value="{{ $academicinfo->gpa }}">
+                                    <label class="form-label" for="gpa{{ $academicinfo->id }}">G.P.A.<span class="text-danger"> *</span></label>
+                                    <input type="text" class="form-control" name="inputs[0][gpa]" id="gpa{{ $academicinfo->id }}" data-toggle="input-mask" data-mask-format="0.00" maxlength="4" placeholder="G.P.A." required="" value="{{ $academicinfo->gpa }}">
                                     <div class="invalid-feedback">
                                       Please enter G.P.A.
                                     </div>
@@ -393,8 +394,8 @@
                                 </div>
                                 <div class="col-md-3 col-12">
                                   <div class="mb-3">
-                                    <label class="form-label" for="marksheet">Marksheet<span class="text-danger"> *</span></label>
-                                    <input type="file" class="form-control" name="inputs[0][marksheet]" id="marksheet" required>
+                                    <label class="form-label" for="marksheet{{ $academicinfo->id }}">Marksheet<span class="text-danger"> *</span></label>
+                                    <input type="file" class="form-control" name="inputs[{{ $key++ }}][marksheet]" id="marksheet{{ $academicinfo->id }}" required>
                                     <div class="invalid-feedback">
                                       Please select file in marksheet.
                                     </div>
@@ -405,8 +406,8 @@
                                 </div>
                                 <div class="col-md-3 col-12">
                                   <div class="mb-3">
-                                    <label class="form-label" for="certificate">Certificate</label>
-                                    <input type="file" class="form-control" name="inputs[0][certificate]" id="certificate">
+                                    <label class="form-label" for="certificate{{ $academicinfo->id }}">Certificate</label>
+                                    <input type="file" class="form-control" name="inputs[{{ $key++ }}][certificate]" id="certificate{{ $academicinfo->id }}">
                                     <div class="invalid-feedback">
                                       Please select file in certificate.
                                     </div>
@@ -421,7 +422,7 @@
                             
                           </div>
                           <button class="btn btn-primary" type="submit">
-                            Submit
+                            Update Student
                           </button>
                         </form>
                       </div>
