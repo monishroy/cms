@@ -18,12 +18,14 @@ use App\Http\Controllers\frontend\NoticeController;
 use App\Http\Controllers\Frontend\EmployeesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\Frontend\MessageController;
 use App\Http\Controllers\Librarian\LibrarianBooksController;
 use App\Http\Controllers\Librarian\LibrarianBooksIssueController;
 use App\Http\Controllers\Librarian\LibrarianProfileController;
 use App\Http\Controllers\Librarian\LibrarianReturnBookController;
+use App\Http\Controllers\PracticalController;
 use App\Http\Controllers\Student\StudentProfileController;
 use App\Http\Controllers\Teacher\TeacherProfileController;
 
@@ -58,6 +60,8 @@ Route::get('/forgot-password/verification/{id}/{token}', [ForgotPasswordControll
 Route::post('/forgot-password/verify', [ForgotPasswordController::class, 'verify'])->name('forgotPasswordVerify');
 Route::get('/change-password/{id}/{token}', [ChangePasswordController::class, 'index'])->name('changePassword');
 Route::post('/change-password/', [ChangePasswordController::class, 'change_password'])->name('changePasswordPost');
+Route::get('/practical/download/{file}', [DownloadController::class, 'practical'])->name('practical.download');
+
 
 Route::post('/fetch/district', [DropdownController::class, 'fatchDistrict'])->name('fatchDistrict');
 Route::post('/fetch/upazila', [DropdownController::class, 'fatchUpazila'])->name('fatchUpazila');
@@ -103,8 +107,11 @@ Route::middleware(['auth','admin'])->group(function(){
 
 //Teacher Route Start
 Route::middleware(['auth','teacher'])->group(function(){
-    Route::get('/teacher/profile', [TeacherProfileController::class, 'index'])->name('teacher.profile');
-    Route::post('/teacher/profile/update', [TeacherProfileController::class, 'update'])->name('teacher.profile.update');
+    Route::get('teacher/profile', [TeacherProfileController::class, 'index'])->name('teacher.profile');
+    Route::post('teacher/profile/update', [TeacherProfileController::class, 'update'])->name('teacher.profile.update');
+    Route::resource('teacher/practicals', PracticalController::class);
+    Route::get('teacher/practicals/active/{id}', [PracticalController::class, 'active_practical'])->name('active.practical');
+    Route::get('teacher/practicals/deactive/{id}', [PracticalController::class, 'deactive_practical'])->name('deactive.practical');
 });
 //Teacher Route End
 

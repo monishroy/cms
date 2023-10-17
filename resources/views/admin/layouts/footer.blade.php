@@ -222,7 +222,6 @@
     };
     curentTime();
     setInterval(curentTime, 1000);
-
 </script>
 <!-- /End-bar -->
 

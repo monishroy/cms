@@ -90,7 +90,23 @@
                                 <span> Profile </span>
                             </a>
                         </li>
-                        
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#Notice" aria-expanded="false" aria-controls="Notice" class="side-nav-link">
+                                <i class="uil-clipboard"></i>
+                                <span> Practical </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="Notice">
+                                <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="{{ route('practicals.create') }}"> Add Practical</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('practicals.index') }}"> Practical List</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
 
                     <!-- End Sidebar -->
