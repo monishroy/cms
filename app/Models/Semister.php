@@ -13,4 +13,8 @@ class Semister extends Model
     {
         return $this->hasMany(Semister::class);
     }
+    public function practical()
+    {
+        return $this->hasMany(Semister::class);
+    }
 }

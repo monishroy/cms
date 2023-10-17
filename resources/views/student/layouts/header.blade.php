@@ -94,6 +94,12 @@
                                 <span> Books </span>
                             </a>
                         </li>
+                        <li class="side-nav-item">
+                            <a href="{{ route('student.practicals') }}" class="side-nav-link">
+                                <i class="uil-notebooks"></i>
+                                <span> Practical </span>
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- End Sidebar -->

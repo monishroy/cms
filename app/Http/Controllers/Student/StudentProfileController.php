@@ -42,7 +42,7 @@ class StudentProfileController extends Controller
 
     public function books()
     {
-        $student = Student::where('phone', Auth::user()->phone)->first();
+        $student = Student::where('email', Auth::user()->email)->first();
 
         $data['issue_books'] = IssueBook::where('student_id', $student->id)->where('return_date', null)->get();
         $data['notices'] = Notice::all();

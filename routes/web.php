@@ -26,6 +26,7 @@ use App\Http\Controllers\Librarian\LibrarianBooksIssueController;
 use App\Http\Controllers\Librarian\LibrarianProfileController;
 use App\Http\Controllers\Librarian\LibrarianReturnBookController;
 use App\Http\Controllers\PracticalController;
+use App\Http\Controllers\Student\PracticalController as StudentPracticalController;
 use App\Http\Controllers\Student\StudentProfileController;
 use App\Http\Controllers\Teacher\TeacherProfileController;
 
@@ -120,6 +121,7 @@ Route::middleware(['auth','student'])->group(function(){
     Route::get('/student/profile', [StudentProfileController::class, 'index'])->name('student.profile');
     Route::post('/student/profile/update', [StudentProfileController::class, 'update'])->name('student.profile.update');
     Route::get('/student/books', [StudentProfileController::class, 'books'])->name('student.books');
+    Route::get('student/practical', [StudentPracticalController::class, 'index'])->name('student.practicals');
 });
 //Student Route End
 

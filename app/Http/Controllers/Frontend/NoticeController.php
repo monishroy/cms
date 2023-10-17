@@ -17,7 +17,7 @@ class NoticeController extends Controller
 
     public function download($file)
     {
-        $find = Notice::where('notice_file', $file)->first();
+        $find = Notice::where('file', $file)->first();
 
         if(!is_null($find)){
             $id = $find->id;

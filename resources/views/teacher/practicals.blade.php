@@ -14,7 +14,7 @@
                       <thead>
                           <tr>
                             <th>SL</th>
-                            <th>Notice Title</th>
+                            <th>Practical Name</th>
                             <th>Status</th>
                             <th>Downloaded</th>
                             <th>Added on</th>
@@ -42,9 +42,6 @@
                               <a href="{{ route('practical.download',['file'=>$practical->file]) }}" class="btn btn-sm btn-secondary me-1">
                                 <i class="mdi mdi-download"></i>
                               </a>
-                              <a href="{{ route('practicals.edit', $practical->id) }}" class="btn btn-sm btn-primary me-1">
-                                <i class="uil-edit"></i>
-                              </a>
                               @if ($practical->status == '1')
                                 <a href="{{ route('deactive.practical', $practical->id) }}" class="btn btn-sm btn-warning me-1">
                                   <i class="mdi mdi-close"></i>
@@ -54,8 +51,6 @@
                                   <i class="uil-check"></i>
                                 </a>
                               @endif
-                              
-                              
                               <form action="{{ route('practicals.destroy', $practical->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')

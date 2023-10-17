@@ -13,4 +13,8 @@ class Session extends Model
     {
         return $this->hasMany(Session::class);
     }
+    public function practical()
+    {
+        return $this->hasMany(Session::class);
+    }
 }
