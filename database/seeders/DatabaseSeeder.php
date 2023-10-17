@@ -34,12 +34,12 @@ class DatabaseSeeder extends Seeder
             DivisionSeeder::class,
             DistrictSeeder::class,
             UpazilaSeeder::class,
-            NoticeSeeder::class,
+            //NoticeSeeder::class,
             TechnologySeeder::class,
-            StudentSeeder::class,
-            StudentAcademicInfoSeeder::class,
-            EmployeeSeeder::class,
-            EmployeeAcademicInfoSeeder::class,
+            //StudentSeeder::class,
+            //StudentAcademicInfoSeeder::class,
+            //EmployeeSeeder::class,
+            //EmployeeAcademicInfoSeeder::class,
         ]);
     }
 }
